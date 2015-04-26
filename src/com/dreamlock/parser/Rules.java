@@ -22,6 +22,8 @@ public enum Rules {
         rules.put("V3P1N2",true);
 
         rules.put("V4N3P1N2",true);
+
+        rules.put("N3", true);
     }
 
     private final Map<String, Boolean> rules;
