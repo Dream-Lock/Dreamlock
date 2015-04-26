@@ -14,10 +14,12 @@ public class Dreamlock {
     {
 
         List<Lexeme> lexemes = new ArrayList<>();
-        lexemes.add(new Lexeme("v4", 4, TokenType.VERB));
-        lexemes.add(new Lexeme("n3",3, TokenType.NOUN));
-        lexemes.add(new Lexeme("p1",1, TokenType.PREPOSITION));
-        lexemes.add(new Lexeme("n2",2, TokenType.NOUN));
+//        lexemes.add(new Lexeme("v4", 4, TokenType.VERB));
+//        lexemes.add(new Lexeme("n3",3, TokenType.NOUN));
+//        lexemes.add(new Lexeme("p1",1, TokenType.PREPOSITION));
+//        lexemes.add(new Lexeme("n2",2, TokenType.NOUN));
+        lexemes.add(new Lexeme("go",2,TokenType.VERB));
+        lexemes.add(new Lexeme("east",1,TokenType.NOUN));
 
         Parser parser = new Parser();
         JsonObject output =  parser.parse(lexemes);
