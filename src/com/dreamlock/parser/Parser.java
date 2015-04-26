@@ -19,16 +19,19 @@ public class Parser {
         }
 
         if (rules.getRule(stringBuilder.toString())) {
-            JsonObject tokenType = new JsonObject();
+            JsonArray tokenType = new JsonArray();
             JsonArray sentences = new JsonArray();
+            JsonObject rule = new JsonObject();
 
             for ( Lexeme lexeme : lexemes ) {
                 JsonObject properties = new JsonObject();
+                properties.addProperty("word", lexeme.getTokenType().toString().toLowerCase());
                 properties.addProperty("id", lexeme.getId());
                 properties.addProperty("description", lexeme.getDescription());
-                tokenType.add(lexeme.getTokenType().toString().toLowerCase(), properties);
+                tokenType.add(properties);
             }
-            tokenType.addProperty("rule",stringBuilder.toString().substring(0,2));
+            rule.addProperty("rule", stringBuilder.toString().substring(0, 2));
+            tokenType.add(rule);
             sentences.add(tokenType);
             JsonObject jsonObject = new JsonObject();
             jsonObject.add("sentences", sentences);
