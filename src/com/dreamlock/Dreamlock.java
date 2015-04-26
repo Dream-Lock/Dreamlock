@@ -1,27 +1,42 @@
 package com.dreamlock;
 
 import com.dreamlock.game.GameContext;
-import com.dreamlock.game.IGameContext;
-import com.dreamlock.parsers.commandParser.Lexeme;
+import com.dreamlock.parsers.commandParser.models.Lexeme;
+import com.dreamlock.parsers.commandParser.Lexer;
 import com.dreamlock.parsers.commandParser.Parser;
-import com.dreamlock.parsers.commandParser.TokenType;
-import com.dreamlock.parsers.jsonParser.JsonParser;
-import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
 
 public class Dreamlock {
     public static void main (String[] args) {
+        BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
 
-        JsonParser jsonParser = new JsonParser();
-        String jsonOpening = jsonParser.parseOpening("/openings/dreamlock_opening.json");
+        Lexer lexer = new Lexer();
+        Parser parser = new Parser();
+
+        Boolean running = true;
+        while (running) {
+            try {
+                String line = buffer.readLine();
+
+                ArrayList<Lexeme> lexemes = lexer.tokenize(line);
+                JsonObject output =  parser.parse(lexemes);
+
+                CommandHandler commandHandler = new CommandHandler(output, new GameContext());
+                commandHandler.handle();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+                running = false;
+            }
+        }
+
+//        JsonParser jsonParser = new JsonParser();
+//        String jsonOpening = jsonParser.parseOpening("/openings/dreamlock_opening.json");
 
 //        OpeningDTO openingDTO = gson.fromJson(jsonOpening, OpeningDTO.class);
 //        System.out.println(openingDTO.getOpening());
@@ -77,18 +92,5 @@ public class Dreamlock {
 //                running = false;
 //            }
 //        }
-
-
-
-
-        List<Lexeme> lexemes = new ArrayList<>();
-
-        lexemes.add(new Lexeme(2, "go", TokenType.VERB));
-        lexemes.add(new Lexeme(1, "east", TokenType.NOUN));
-
-        Parser parser = new Parser();
-        JsonObject output =  parser.parse(lexemes);
-        CommandHandler commandHandler = new CommandHandler(output, new GameContext());
-        commandHandler.handle();
     }
 }

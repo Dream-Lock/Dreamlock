@@ -1,4 +1,6 @@
-package com.dreamlock.parsers.commandParser;
+package com.dreamlock.parsers.commandParser.models;
+
+import com.dreamlock.parsers.commandParser.constants.TokenType;
 
 public class Lexeme {
     private int id;

@@ -33,29 +33,28 @@ public class CommandHandler {
             }
 
             switch(rule) {
-                case "V1":
+                case "V1":                                          // Syntax: Verb
                     verb = words.get(1);
                     execute(verb.getDescription());
                     break;
-                case "V2":
+                case "V2":                                          // Syntax: Verb, Direction(Noun)
                     verb = words.get(1);
                     noun = words.get(2);
                     execute(verb.getDescription(), noun.getDescription());
                     break;
-                case "V3":
+                case "V3":                                          // Syntax: Verb, Item(Noun)
                     verb = words.get(1);
                     noun = words.get(2);
-                    preposition = words.get(3);
-                    execute(verb.getDescription(),preposition.getDescription(), noun.getDescription());
+                    execute(verb.getDescription(), noun.getDescription());
                     break;
-                case "V4":
+                case "V4":                                          // Syntax: Verb, Item(Noun), Preposition, Item(Noun)
                     verb = words.get(1);
                     noun = words.get(2);
                     preposition = words.get(3);
                     noun2 = words.get(4);
                     execute(verb.getDescription(),noun.getDescription(), preposition.getDescription(), noun2.getDescription());
                     break;
-                case "N3":
+                case "N3":                                          // Syntax: Noun(command)
                     noun = words.get(2);
                     execute(noun.getDescription());
                     break;

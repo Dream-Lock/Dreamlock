@@ -1,13 +1,12 @@
 package com.dreamlock.parsers.commandParser;
 
+import com.dreamlock.parsers.commandParser.constants.Rules;
+import com.dreamlock.parsers.commandParser.models.Lexeme;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import java.util.List;
 
-/**
- * Created by Odin on 25/4/2015.
- */
 public class Parser {
     public JsonObject parse(List<Lexeme> lexemes) {
         Rules rules = Rules.INSTANCE;
