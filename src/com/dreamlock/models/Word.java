@@ -4,8 +4,8 @@ package com.dreamlock.models;
  * Created by Odin on 26/4/2015.
  */
 public class Word {
-    String description;
-    String type;
+    private String description;
+    private String type;
 
     public Word(String description, String type) {
         this.description = description;

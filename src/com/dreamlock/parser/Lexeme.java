@@ -1,10 +1,9 @@
 package com.dreamlock.parser;
 
 public class Lexeme {
-
-    String description;
-    int id;
-    TokenType tokenType;
+    private int id;
+    private String description;
+    private TokenType tokenType;
 
     public Lexeme(String description, int id, TokenType tokenType) {
         this.description = description;

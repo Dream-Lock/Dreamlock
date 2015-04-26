@@ -6,7 +6,5 @@ public enum TokenType {
     PREPOSITION,
     CONJUNCTION,
 
-    UNKNOWN,
-
-    EPSILON
+    UNKNOWN
 }

@@ -10,9 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Dreamlock {
-    public static void main (String[] args)
-    {
-
+    public static void main (String[] args) {
         List<Lexeme> lexemes = new ArrayList<>();
 //        lexemes.add(new Lexeme("v4", 4, TokenType.VERB));
 //        lexemes.add(new Lexeme("n3",3, TokenType.NOUN));

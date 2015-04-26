@@ -32,7 +32,8 @@ public enum Rules {
         if (rules.containsKey(rule)) {
             return rules.get(rule);
         }
-        return false;
+        else {
+            return false;
+        }
     }
-
 }

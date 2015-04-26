@@ -26,7 +26,6 @@ public class CommandHandler {
         Word verb, noun, noun2,preposition;
 
         for (JsonElement sentence : sentences) {
-
             String rule = sentence.getAsJsonArray().get(sentence.getAsJsonArray().size()-1).getAsJsonObject().get("rule").getAsString();
 
             Map<Integer,Word> words = new HashMap<>();
@@ -56,7 +55,6 @@ public class CommandHandler {
                         noun = words.get(2);
                         preposition = words.get(3);
                         noun2 = words.get(4);
-
                         execute(verb.getDescription(),noun.getDescription(), preposition.getDescription(), noun2.getDescription());
                         break;
                     case "N3":
@@ -65,7 +63,6 @@ public class CommandHandler {
                         break;
                     default:
                         break;
-
             }
         }
     }
