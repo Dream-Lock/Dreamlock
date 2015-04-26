@@ -1,0 +1,8 @@
+{
+  "id":2,
+  "type":"Weapon",
+  "name":"Grudge sword",
+  "description":"This sword have something carved, i barely can see that,\n'be always resentful and unwilling to give up'",
+  "pickable":true,
+  "attack":11
+}

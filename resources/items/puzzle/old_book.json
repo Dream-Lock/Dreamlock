@@ -1,0 +1,7 @@
+{
+  "id":3,
+  "type":"Puzzle",
+  "name":"Scratched Textbook",
+  "description":"A very old and misused book, as it seems at first glance.\nYou notice strange ancient markings in an unknown language across its pages.",
+  "pickable":true
+}

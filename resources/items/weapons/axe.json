@@ -1,0 +1,8 @@
+{
+  "id":4,
+  "type":"Weapon",
+  "name":"Wooden Axe",
+  "description":"A simple wooden axe. A Woodcutter's best choice and friend!",
+  "pickable":true,
+  "attack":10
+}

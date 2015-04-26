@@ -1,4 +1,4 @@
-package com.dreamlock.parser;
+package com.dreamlock.parsers.commandParser;
 
 public enum TokenType {
     VERB,

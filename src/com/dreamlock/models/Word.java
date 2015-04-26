@@ -1,8 +1,5 @@
 package com.dreamlock.models;
 
-/**
- * Created by Odin on 26/4/2015.
- */
 public class Word {
     private String description;
     private String type;

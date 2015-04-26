@@ -1,0 +1,8 @@
+{
+  "id":1,
+  "type":"Puzzle",
+  "name":"Rusty key",
+  "description":"A key found in the Castle of DreamWorld.",
+  "pickable":true,
+  "droppable":true
+}

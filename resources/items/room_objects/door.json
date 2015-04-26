@@ -1,0 +1,7 @@
+{
+  "id":5,
+  "type":"RoomObject",
+  "name":"Door",
+  "description":"An old door.",
+  "movable":false
+}

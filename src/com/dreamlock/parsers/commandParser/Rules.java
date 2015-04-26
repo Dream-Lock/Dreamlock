@@ -1,11 +1,8 @@
-package com.dreamlock.parser;
+package com.dreamlock.parsers.commandParser;
 
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by Odin on 25/4/2015.
- */
 public enum Rules {
 
     INSTANCE;

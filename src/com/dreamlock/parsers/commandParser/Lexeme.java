@@ -1,22 +1,14 @@
-package com.dreamlock.parser;
+package com.dreamlock.parsers.commandParser;
 
 public class Lexeme {
     private int id;
-    private String description;
+    private String typedString;
     private TokenType tokenType;
 
-    public Lexeme(String description, int id, TokenType tokenType) {
-        this.description = description;
+    public Lexeme(int id, String typedString, TokenType tokenType) {
         this.id = id;
+        this.typedString = typedString;
         this.tokenType = tokenType;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public int getId() {
@@ -25,6 +17,14 @@ public class Lexeme {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getTypedString() {
+        return typedString;
+    }
+
+    public void setTypedString(String typedString) {
+        this.typedString = typedString;
     }
 
     public TokenType getTokenType() {
