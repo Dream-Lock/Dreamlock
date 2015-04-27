@@ -35,6 +35,7 @@ public enum Dictionary {
         dictionary.put("under", new Lexeme(1, "under", TokenType.PREPOSITION));
         dictionary.put("in", new Lexeme(2, "in", TokenType.PREPOSITION));
         dictionary.put("on", new Lexeme(3, "on", TokenType.PREPOSITION));
+        dictionary.put("with", new Lexeme(4, "with", TokenType.PREPOSITION));
 
         /** NOUNS **/
         dictionary.put("west", new Lexeme(1, "west", TokenType.NOUN));

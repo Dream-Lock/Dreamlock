@@ -1,4 +1,4 @@
-package com.dreamlock.models;
+package com.dreamlock.game.models;
 
 public class Direction {
     private String direction;

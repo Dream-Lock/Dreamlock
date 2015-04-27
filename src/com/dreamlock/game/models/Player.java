@@ -1,4 +1,4 @@
-package com.dreamlock.models;
+package com.dreamlock.game.models;
 
 public class Player {
     private String name;

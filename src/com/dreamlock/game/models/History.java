@@ -1,4 +1,4 @@
-package com.dreamlock.models;
+package com.dreamlock.game.models;
 
 import java.util.ArrayList;
 import java.util.List;

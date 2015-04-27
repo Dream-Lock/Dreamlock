@@ -1,15 +1,20 @@
 package com.dreamlock.parsers.commandParser;
 
 import com.dreamlock.parsers.commandParser.constants.Rules;
+import com.dreamlock.parsers.commandParser.constants.TokenType;
 import com.dreamlock.parsers.commandParser.models.Lexeme;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Parser {
     public JsonObject parse(List<Lexeme> lexemes) {
         Rules rules = Rules.INSTANCE;
+
+        lexemes = connectUnknownLexemes(lexemes);
 
         StringBuilder stringBuilder = new StringBuilder();
         for (Lexeme lexeme : lexemes) {
@@ -44,5 +49,41 @@ public class Parser {
             output.addProperty("Error", "1");
             return output;
         }
+    }
+
+    private List<Lexeme> connectUnknownLexemes(List<Lexeme> lexemes) {
+        List<Lexeme> filteredLexemes = new ArrayList<>();
+        StringBuilder stringBuilder = new StringBuilder();
+
+        Boolean flag = false;
+
+        for (int i = 0 ; i < lexemes.size() ; i++) {
+            Lexeme lexeme = lexemes.get(i);
+
+            if (lexeme.getTokenType().toString().equals("UNKNOWN")) {
+                stringBuilder.append(lexeme.getTypedString());
+                flag = true;
+                if (i == (lexemes.size()-1)) {
+                    filteredLexemes.add(new Lexeme(1, stringBuilder.toString(), TokenType.UNKNOWN));
+                }
+                else {
+                    stringBuilder.append(" ");
+                }
+            }
+            else {
+                if (flag) {
+                    stringBuilder.setLength(stringBuilder.length() - 1);
+                    filteredLexemes.add(new Lexeme(1, stringBuilder.toString(), TokenType.UNKNOWN));
+                    stringBuilder = new StringBuilder();
+                    filteredLexemes.add(lexeme);
+                }
+                else {
+                    filteredLexemes.add(lexeme);
+                }
+                flag = false;
+            }
+        }
+
+        return filteredLexemes;
     }
 }

@@ -1,6 +1,6 @@
 package com.dreamlock.parsers.jsonParser;
 
-import com.dreamlock.models.Room;
+import com.dreamlock.game.models.Room;
 import com.dreamlock.parsers.jsonParser.DTOs.ExitsDTO;
 import com.dreamlock.parsers.jsonParser.DTOs.ItemDTO;
 import com.dreamlock.parsers.jsonParser.DTOs.RoomDTO;

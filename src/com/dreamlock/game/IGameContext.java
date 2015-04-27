@@ -1,7 +1,12 @@
 package com.dreamlock.game;
 
-/**
- * Created by Odin on 26/4/2015.
- */
+import com.dreamlock.game.models.Player;
+import com.dreamlock.game.models.Room;
+
 public interface IGameContext {
+    Room getCurrentRoom();
+
+    void setCurrentRoom(String direction);
+
+    Player getPlayer();
 }
