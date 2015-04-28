@@ -1,7 +1,7 @@
 package com.dreamlock.parser;
 
-import com.dreamlock.parser.constants.TokenType;
 import com.dreamlock.parser.constants.Rules;
+import com.dreamlock.parser.constants.TokenType;
 import com.dreamlock.parser.models.Lexeme;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;

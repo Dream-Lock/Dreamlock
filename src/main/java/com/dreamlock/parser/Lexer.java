@@ -1,7 +1,7 @@
 package com.dreamlock.parser;
 
-import com.dreamlock.parser.models.Lexeme;
 import com.dreamlock.parser.constants.Dictionary;
+import com.dreamlock.parser.models.Lexeme;
 
 import java.util.ArrayList;
 import java.util.Objects;

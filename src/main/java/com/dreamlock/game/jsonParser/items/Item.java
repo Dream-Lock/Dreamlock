@@ -2,7 +2,6 @@ package com.dreamlock.game.jsonParser.items;
 
 import com.dreamlock.game.states.IState;
 
-import java.util.List;
 import java.util.Map;
 
 public abstract class Item {

@@ -1,12 +1,12 @@
 package com.dreamlock.game.jsonParser;
 
-import com.dreamlock.game.models.Room;
 import com.dreamlock.game.jsonParser.DTOs.ExitsDTO;
 import com.dreamlock.game.jsonParser.DTOs.ItemDTO;
 import com.dreamlock.game.jsonParser.DTOs.OpeningDTO;
 import com.dreamlock.game.jsonParser.DTOs.RoomDTO;
 import com.dreamlock.game.jsonParser.items.Item;
 import com.dreamlock.game.jsonParser.items.ItemFactory;
+import com.dreamlock.game.models.Room;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;

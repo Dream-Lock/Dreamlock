@@ -9,7 +9,6 @@ import java.util.Objects;
 public class Examine implements ICommand {
     @Override
     public Integer execute(IGameContext gameContext) {
-
         return null;
     }
 

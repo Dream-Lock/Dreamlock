@@ -4,7 +4,6 @@ import com.dreamlock.game.jsonParser.DTOs.itemDTOs.RoomObjectDTO;
 import com.dreamlock.game.states.itemStates.*;
 import com.google.gson.Gson;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class RoomObject extends Item {

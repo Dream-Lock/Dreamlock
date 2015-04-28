@@ -3,13 +3,16 @@ package com.dreamlock;
 import com.dreamlock.game.IGameContext;
 import com.dreamlock.game.commands.ICommand;
 import com.dreamlock.game.constants.Commands;
-import com.dreamlock.game.models.Word;
 import com.dreamlock.game.jsonParser.items.Item;
+import com.dreamlock.game.models.Word;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class CommandHandler {
     private JsonObject parsedJsonObject;
@@ -33,8 +36,9 @@ public class CommandHandler {
         }
     }
 
-    public int handle() {
-        int result = 0;
+    public List<Integer> handle() {
+        List<Integer> messageIds = new ArrayList<>();
+
         JsonArray sentences = parsedJsonObject.getAsJsonArray("sentences");
         Word firstWord, noun, noun2, preposition;
 
@@ -50,41 +54,48 @@ public class CommandHandler {
                         jsonElement.getAsJsonObject().get("word").getAsString()));
             }
 
-            result = checkGameDictionary(words);
+            messageIds.add(checkGameDictionary(words));
 
-            if (result == 0) {
+            if (messageIds.get(messageIds.size()-1) == 0) {
                 Commands commands = Commands.INSTANCE;
                 firstWord = words.get(1);
                 ICommand command = commands.getCommand(firstWord.getDescription());
+                Integer messageId;
                 switch (rule) {
                     case "V1":                                          // Syntax: Verb
-                        command.execute(gameContext);
+                        messageId = command.execute(gameContext);
+                        messageIds.add(messageId);
                         break;
                     case "V2":                                          // Syntax: Verb, Direction(Noun)
                         noun = words.get(2);
-                        command.execute(gameContext, new String[]{noun.getDescription()});
+                        messageId = command.execute(gameContext, new String[]{noun.getDescription()});
+                        messageIds.add(messageId);
                         break;
                     case "V3":                                          // Syntax: Verb, Item(Noun)
                         noun = words.get(2);
-                        command.execute(gameContext, new String[]{noun.getDescription()});
+                        messageId = command.execute(gameContext, new String[]{noun.getDescription()});
+                        messageIds.add(messageId);
                         break;
                     case "V4":                                          // Syntax: Verb, Item(Noun), Preposition, Item(Noun)
                         noun = words.get(2);
                         preposition = words.get(3);
                         noun2 = words.get(4);
-                        command.execute(gameContext, new String[]{noun.getDescription(), preposition.getDescription(), noun2.getDescription()});
+                        messageId = command.execute(gameContext, new String[]{noun.getDescription(), preposition.getDescription(), noun2.getDescription()});
+                        messageIds.add(messageId);
                         break;
                     case "N3":                                          // Syntax: Noun(command)
-                        command.execute(gameContext);
+                        messageId = command.execute(gameContext);
+                        messageIds.add(messageId);
                         break;
                     default:
-                        result = -1;
+                        messageId = -1;
+                        messageIds.add(messageId);
                         break;
                 }
             }
         }
 
-        return result;
+        return messageIds;
     }
 
     private int checkGameDictionary(Map<Integer, Word> words) {

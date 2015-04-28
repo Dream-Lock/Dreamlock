@@ -2,19 +2,20 @@ package com.dreamlock;
 
 import com.dreamlock.game.GameContext;
 import com.dreamlock.game.IGameContext;
+import com.dreamlock.game.jsonParser.JsonParser;
 import com.dreamlock.game.models.Inventory;
 import com.dreamlock.game.models.Player;
 import com.dreamlock.game.models.Room;
-import com.dreamlock.parser.models.Lexeme;
 import com.dreamlock.parser.Lexer;
 import com.dreamlock.parser.Parser;
-import com.dreamlock.game.jsonParser.JsonParser;
+import com.dreamlock.parser.models.Lexeme;
 import com.google.gson.JsonObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -37,7 +38,7 @@ public class Dreamlock {
                 JsonObject output =  parser.parse(lexemes);
                 // TODO: error handling
                 CommandHandler commandHandler = new CommandHandler(output, gameContext);
-                commandHandler.handle();
+                List<Integer> messageIds = commandHandler.handle();
 
             } catch (IOException e) {
                 e.printStackTrace();

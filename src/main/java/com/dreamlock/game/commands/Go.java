@@ -3,9 +3,6 @@ package com.dreamlock.game.commands;
 import com.dreamlock.game.IGameContext;
 import com.dreamlock.game.models.Room;
 
-/**
- * Created by tommy on 28/4/2015.
- */
 public class Go implements ICommand {
     @Override
     public Integer execute(IGameContext gameContext) {
@@ -23,7 +20,7 @@ public class Go implements ICommand {
             return 1;
         }
         else {
-            return -1;
+            return 2;
         }
     }
 }
