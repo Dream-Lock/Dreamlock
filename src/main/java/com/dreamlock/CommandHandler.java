@@ -29,7 +29,7 @@ public class CommandHandler {
         items.addAll(inventoryItems);
 
         for(Item item : items) {
-            dictionary.add(new Word(item.getDescription(), "unknown"));
+            dictionary.add(new Word(item.getName(), "unknown"));
         }
     }
 
@@ -93,7 +93,7 @@ public class CommandHandler {
             Word word = words.get(i);
             if (word.getType().equals("unknown")) {
                 for (Word gameWord : dictionary) {
-                    if (!word.getDescription().equals(gameWord.getDescription())) {
+                    if (!word.getDescription().equals(gameWord.getDescription().toLowerCase())) {
                         result = -1;
                     }
                 }

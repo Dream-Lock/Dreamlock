@@ -16,6 +16,7 @@ public enum Dictionary {
         /** VERBS **/
         dictionary.put("look", new Lexeme(1, "look", TokenType.VERB));
         dictionary.put("quit", new Lexeme(1, "quit", TokenType.VERB));
+        dictionary.put("qq", new Lexeme(1, "qq", TokenType.VERB));
         dictionary.put("exit", new Lexeme(1, "exit", TokenType.VERB));
         dictionary.put("help", new Lexeme(1, "help", TokenType.VERB));
 
