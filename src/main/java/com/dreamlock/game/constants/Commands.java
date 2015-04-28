@@ -20,7 +20,7 @@ public enum Commands {
         commands.put("exit", new Quit());
         commands.put("qq", new Quit());
 //        commands.put("help", new Help());
-//        commands.put("take", new PickUp());
+        commands.put("take", new PickUp());
 //        commands.put("drop", new Drop());
 //        commands.put("open", new Open());
 //        commands.put("inventory", new ShowInventory());

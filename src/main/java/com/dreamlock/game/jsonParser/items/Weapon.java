@@ -20,13 +20,13 @@ public class Weapon extends Item {
         stats = new HashMap<>();
         stats.put("attack", weaponDTO.getAttack());
 
-        states = new ArrayList<>();
+        states = new HashMap<>();
         // changing states
-        states.add(new CanPickUp());
-        states.add(new CanNotDrop());
+        states.put("Pick Up", new CanPickUp());
+        states.put("Drop", new CanNotDrop());
         // if picked up states
-        states.add(new CanEquip());
-        states.add(new CanNotUse());
-        states.add(new CanNotOpen());
+        states.put("Equip", new CanEquip());
+        states.put("Use", new CanNotUse());
+        states.put("Open", new CanNotOpen());
     }
 }

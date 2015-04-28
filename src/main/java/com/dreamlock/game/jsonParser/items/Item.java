@@ -11,11 +11,15 @@ public abstract class Item {
     protected String description;
     protected String type;
 
-    protected List<IState> states;
+    protected Map<String,IState> states;
     protected Map<String, Object> stats;
 
     public Map<String, Object> getStats() {
         return stats;
+    }
+
+    public Map<String, IState> getStates() {
+        return states;
     }
 
     public void setStats(Map<String, Object> stats) {

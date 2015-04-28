@@ -18,13 +18,13 @@ public class RoomObject extends Item {
 
         stats = new HashMap<>();
 
-        states = new ArrayList<>();
+        states = new HashMap<>();
         // changing states
-        states.add(new CanNotPickUp());
-        states.add(new CanNotDrop());
+        states.put("Pick Up", new CanNotPickUp());
+        states.put("Drop", new CanNotDrop());
         // static states
-        states.add(new CanNotEquip());
-        states.add(new CanNotUse());
-        states.add(new CanOpen());
+        states.put("Equip", new CanNotEquip());
+        states.put("Use", new CanNotUse());
+        states.put("Open", new CanOpen());
     }
 }

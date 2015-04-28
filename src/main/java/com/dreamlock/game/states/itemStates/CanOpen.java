@@ -6,4 +6,8 @@ import com.dreamlock.game.states.IState;
  * Created by tommy on 28/4/2015.
  */
 public class CanOpen implements IState {
+    @Override
+    public void doAction() {
+
+    }
 }
