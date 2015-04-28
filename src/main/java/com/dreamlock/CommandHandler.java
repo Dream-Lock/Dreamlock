@@ -32,7 +32,7 @@ public class CommandHandler {
         items.addAll(inventoryItems);
 
         for(Item item : items) {
-            dictionary.add(new Word(item.getName(), "unknown"));
+            dictionary.add(new Word(item.getName().toLowerCase(), "unknown"));
         }
     }
 
@@ -100,17 +100,20 @@ public class CommandHandler {
 
     private int checkGameDictionary(Map<Integer, Word> words) {
         int result = 0;
+        boolean found = true;
         for (int i = 1 ; i <= words.size() ; i++) {
             Word word = words.get(i);
             if (word.getType().equals("unknown")) {
+                found = false;
                 for (Word gameWord : dictionary) {
-                    if (!word.getDescription().equals(gameWord.getDescription().toLowerCase())) {
-                        result = -1;
+                    if (word.getDescription().equals(gameWord.getDescription().toLowerCase())) {
+                        found  = true;
                     }
                 }
             }
         }
 
-        return result;
+        if (found) return result;
+        else return -1;
     }
 }
