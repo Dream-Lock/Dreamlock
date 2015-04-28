@@ -58,24 +58,24 @@ public class CommandHandler {
                 ICommand command = commands.getCommand(firstWord.getDescription());
                 switch (rule) {
                     case "V1":                                          // Syntax: Verb
-                        command.execute();
+                        command.execute(gameContext);
                         break;
                     case "V2":                                          // Syntax: Verb, Direction(Noun)
                         noun = words.get(2);
-                        command.execute(new String[]{noun.getDescription()});
+                        command.execute(gameContext, new String[]{noun.getDescription()});
                         break;
                     case "V3":                                          // Syntax: Verb, Item(Noun)
                         noun = words.get(2);
-                        command.execute(new String[]{noun.getDescription()});
+                        command.execute(gameContext, new String[]{noun.getDescription()});
                         break;
                     case "V4":                                          // Syntax: Verb, Item(Noun), Preposition, Item(Noun)
                         noun = words.get(2);
                         preposition = words.get(3);
                         noun2 = words.get(4);
-                        command.execute(new String[]{noun.getDescription(), preposition.getDescription(), noun2.getDescription()});
+                        command.execute(gameContext, new String[]{noun.getDescription(), preposition.getDescription(), noun2.getDescription()});
                         break;
                     case "N3":                                          // Syntax: Noun(command)
-                        command.execute();
+                        command.execute(gameContext);
                         break;
                     default:
                         result = -1;

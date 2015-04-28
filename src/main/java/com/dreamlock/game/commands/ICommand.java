@@ -1,10 +1,12 @@
 package com.dreamlock.game.commands;
 
+import com.dreamlock.game.IGameContext;
+
 /**
  * Created by tommy on 28/4/2015.
  */
 public interface ICommand {
-    String execute();
+    void execute(IGameContext gameContext);
 
-    String execute(String[] strings);
+    void execute(IGameContext gameContext, String[] strings);
 }

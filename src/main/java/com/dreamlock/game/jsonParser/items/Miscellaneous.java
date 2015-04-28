@@ -1,7 +1,7 @@
 package com.dreamlock.game.jsonParser.items;
 
 import com.dreamlock.game.jsonParser.DTOs.itemDTOs.MiscellaneousDTO;
-import com.dreamlock.game.states.*;
+import com.dreamlock.game.states.itemStates.*;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
