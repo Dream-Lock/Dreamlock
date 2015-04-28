@@ -6,7 +6,7 @@ import com.dreamlock.game.IGameContext;
  * Created by tommy on 28/4/2015.
  */
 public interface ICommand {
-    void execute(IGameContext gameContext);
+    Integer execute(IGameContext gameContext);
 
-    void execute(IGameContext gameContext, String[] strings);
+    Integer execute(IGameContext gameContext, String[] words);
 }

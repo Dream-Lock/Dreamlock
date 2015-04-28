@@ -20,8 +20,8 @@ public class GameContext implements IGameContext {
     }
 
     @Override
-    public void setCurrentRoom(String direction) {
-        currentRoom = currentRoom.getExits().get(direction);
+    public void setCurrentRoom(Room room) {
+        currentRoom = room;
     }
 
     @Override
