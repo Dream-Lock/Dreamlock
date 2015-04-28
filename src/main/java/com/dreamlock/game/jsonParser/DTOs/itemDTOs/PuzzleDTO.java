@@ -5,8 +5,6 @@ public class PuzzleDTO {
     private String type;
     private String name;
     private String description;
-    private boolean pickable;
-    private boolean droppable;
 
     public int getId() {
         return id;
@@ -23,10 +21,4 @@ public class PuzzleDTO {
     public String getDescription() {
         return description;
     }
-
-    public boolean isPickable() {
-        return pickable;
-    }
-
-    public boolean isDroppable() { return droppable;}
 }

@@ -5,7 +5,6 @@ public class WeaponDTO {
     private String type;
     private String name;
     private String description;
-    private boolean pickable;
     private String attack;
 
     public int getId() {
@@ -26,9 +25,5 @@ public class WeaponDTO {
 
     public String getAttack() {
         return attack;
-    }
-
-    public boolean isPickable() {
-        return pickable;
     }
 }

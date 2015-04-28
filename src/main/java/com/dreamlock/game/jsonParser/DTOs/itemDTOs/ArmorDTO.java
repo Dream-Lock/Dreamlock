@@ -5,7 +5,6 @@ public class ArmorDTO {
     private String type;
     private String name;
     private String description;
-    private boolean pickable;
     private String defence;
 
     public int getId() {
@@ -28,7 +27,4 @@ public class ArmorDTO {
         return defence;
     }
 
-    public boolean isPickable() {
-        return pickable;
-    }
 }

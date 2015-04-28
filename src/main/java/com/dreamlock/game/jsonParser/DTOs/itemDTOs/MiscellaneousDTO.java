@@ -5,7 +5,6 @@ public class MiscellaneousDTO {
     private String type;
     private String name;
     private String description;
-    private boolean pickable;
 
     public int getId() {
         return id;
@@ -21,9 +20,5 @@ public class MiscellaneousDTO {
 
     public String getDescription() {
         return description;
-    }
-
-    public boolean isPickable() {
-        return pickable;
     }
 }

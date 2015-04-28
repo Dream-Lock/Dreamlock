@@ -3,6 +3,5 @@
   "type":"Armor",
   "name":"Iron helmet",
   "description":"A simple iron helmet",
-  "defense":5,
-  "pickable":true
+  "defense":5
 }

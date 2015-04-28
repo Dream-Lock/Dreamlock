@@ -2,6 +2,5 @@
   "id":7,
   "type":"Consumable",
   "name":"Health potion",
-  "description":"A magic potion to restore a portion of your life",
-  "pickable":true
+  "description":"A magic potion to restore a portion of your life"
 }
