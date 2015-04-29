@@ -68,19 +68,19 @@ public class CommandHandler {
                         break;
                     case "V2":                                          // Syntax: Verb, Direction(Noun)
                         noun = words.get(2);
-                        messageId = command.execute(gameContext, new String[]{noun.getDescription()});
+                        messageId = command.execute(gameContext, words);
                         messageIds.add(messageId);
                         break;
                     case "V3":                                          // Syntax: Verb, Item(Noun)
                         noun = words.get(2);
-                        messageId = command.execute(gameContext, new String[]{noun.getDescription()});
+                        messageId = command.execute(gameContext, words);
                         messageIds.add(messageId);
                         break;
                     case "V4":                                          // Syntax: Verb, Item(Noun), Preposition, Item(Noun)
                         noun = words.get(2);
                         preposition = words.get(3);
                         noun2 = words.get(4);
-                        messageId = command.execute(gameContext, new String[]{noun.getDescription(), preposition.getDescription(), noun2.getDescription()});
+                        messageId = command.execute(gameContext, words);
                         messageIds.add(messageId);
                         break;
                     case "N3":                                          // Syntax: Noun(command)

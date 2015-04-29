@@ -2,6 +2,9 @@ package com.dreamlock.game.commands;
 
 import com.dreamlock.game.IGameContext;
 import com.dreamlock.game.models.Room;
+import com.dreamlock.game.models.Word;
+
+import java.util.Map;
 
 public class Go implements ICommand {
     @Override
@@ -10,8 +13,8 @@ public class Go implements ICommand {
     }
 
     @Override
-    public Integer execute(IGameContext gameContext, String[] words) {
-        String direction = words[0];
+    public Integer execute(IGameContext gameContext, Map<Integer, Word> words) {
+        String direction = words.get(1).getDescription();
 
         Room room = gameContext.getCurrentRoom().getExits().get(direction);
         // TODO
