@@ -1,5 +1,7 @@
 package com.dreamlock.game.jsonParser.items;
 
+import java.util.List;
+
 public class ItemFactory {
     public Item createItem(String type, String jsonItem) {
         Item item = null;
@@ -34,4 +36,9 @@ public class ItemFactory {
 
         return item;
     }
+    public Item createItem(String jsonItem, List<Item> items) {        //Special Constructor Alternative for Containers
+        Item item = new Container(jsonItem, items);
+        return item;
+    }
+
 }

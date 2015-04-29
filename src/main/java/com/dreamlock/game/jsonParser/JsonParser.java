@@ -8,6 +8,7 @@ import com.dreamlock.game.jsonParser.items.Item;
 import com.dreamlock.game.jsonParser.items.ItemFactory;
 import com.dreamlock.game.models.Room;
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
@@ -52,7 +53,27 @@ public class JsonParser {
                 JsonElement itemElement = gson.fromJson(jsonItem, JsonElement.class);       // parseWorld to JsonElement
                 JsonObject jsonItemObj = itemElement.getAsJsonObject();                     // to JsonObject
                 String type = jsonItemObj.get("type").getAsString();                        // and take the type
-                items.add(itemFactory.createItem(type, jsonItem));                          // create the item and store it in list.
+
+                if (type.equals("Container")) {                         //If the item is a container, that contains items, we must parse each individual item
+                    List <Item> containerItems = new ArrayList<>();
+                    JsonArray itemsPath = jsonItemObj.get("items").getAsJsonArray();        //get the path of each item, in a string
+
+                    for (JsonElement path : itemsPath) {
+                        String insideItemPath = path.getAsJsonObject().get("path").getAsString();  //get item's path
+                        String containerItem = read(insideItemPath);                // get Item's fields in a string
+
+                        JsonElement containerItemElement = gson.fromJson(containerItem, JsonElement.class); //build JsonElement from the String
+                        JsonObject jsonObject = containerItemElement.getAsJsonObject();     //make it JsonObject
+                        String containerItemType = jsonObject.get("type").getAsString();   //get the type
+
+                        containerItems.add(itemFactory.createItem(containerItemType,containerItem)); // build the item through ItemFactory and store it
+                                                                                                    //  in the list of the container's enclosed items :)
+                    }
+                    items.add(itemFactory.createItem(jsonItem, containerItems));
+                }
+                else {
+                    items.add(itemFactory.createItem(type, jsonItem));                          // create the item and store it in list.
+                }
             }
             room.setItems(items);
 

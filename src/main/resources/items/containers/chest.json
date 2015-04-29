@@ -1,0 +1,14 @@
+{
+  "id":700,
+  "type":"Container",
+  "name":"Bronze Chest",
+  "description":"An old and dusty bronze chest, maybe from the 3rd era.",
+  "items":[
+    {
+      "path":"/items/armor/helmet.json"
+    },
+    {
+      "path":"/items/puzzle/old_book.json"
+    }
+  ]
+}

@@ -47,6 +47,9 @@
     "path":"/rooms/storeroom.json",
     "items":[
       {
+        "path":"/items/containers/chest.json"
+      },
+      {
         "path":"/items/weapons/sword.json"
       },
       {
