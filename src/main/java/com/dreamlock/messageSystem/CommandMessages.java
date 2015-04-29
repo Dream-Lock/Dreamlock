@@ -19,6 +19,7 @@ public enum CommandMessages {
         commandMessages.put(10001, new Message("",""));     // print only description
         commandMessages.put(10002, new Message("\n",""));   // title new line
         commandMessages.put(10003, new Message("","\n"));   // description new line
+        commandMessages.put(10004, new Message("",""));     // print title and description without new line
         // Go messages
         commandMessages.put(1001, new Message("I can not go to ", ""));
         commandMessages.put(1002, new Message("west", ""));
@@ -28,16 +29,26 @@ public enum CommandMessages {
         // Examine messages
         commandMessages.put(1020, new Message("I can't find anything with that name!", ""));
         // Drop messages
-        commandMessages.put(1040, new Message(" dropped successfully!",""));
+        commandMessages.put(1040, new Message(" dropped successfully!de",""));
         commandMessages.put(1041, new Message(" dropped unsuccessfully",""));
         commandMessages.put(1042, new Message("There is no such item, in your inventory", ""));
-
         // Pick up messages
         commandMessages.put(1060, new Message(" -> Added to inventory!",""));
         commandMessages.put(1061, new Message(" -> You can not take that!",""));
         commandMessages.put(1062, new Message("There is no such item, in this room", ""));
-
-
+        // show inventory messages
+        commandMessages.put(1080, new Message("You don't have any items in your inventory!",""));
+        commandMessages.put(1081, new Message("In your Inventory you have:",""));
+        // help messages
+        commandMessages.put(1100, new Message("Go -> ","Move around."));
+        commandMessages.put(1101, new Message("Examine -> ","With this command tou can examine an item."));
+        commandMessages.put(1102, new Message("Drop -> ","With this command you can drop items"));
+        commandMessages.put(1103, new Message("Inspect -> ","With this command you can inspect items in your inventory."));
+        commandMessages.put(1104, new Message("Look -> ","This will give you a full description of your location."));
+        commandMessages.put(1105, new Message("Open -> ","Open an item"));
+        commandMessages.put(1106, new Message("Pick up -> ","With this command you can pick up items"));
+        commandMessages.put(1107, new Message("Quit -> ","This lets you stop."));
+        commandMessages.put(1108, new Message("Inventory -> ","With this command you can view the items that are in your inventory."));
     }
 
     private final Map<Integer, Message> commandMessages;

@@ -9,9 +9,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * Created by Andreas on 29/4/2015.
- */
 public class Drop implements ICommand {
     @Override
     public List<Integer> execute(IGameContext gameContext) {
@@ -29,15 +26,11 @@ public class Drop implements ICommand {
                 output.add(10000);
                 output.add(item.getId());
                 output.add(item.getStates().get("Drop").doAction(gameContext, item));
-                output.add(10002);
-                output.add(10002);
                 return output;
             }
         }
         output.add(10000);
         output.add(1042);
-        output.add(10002);
-        output.add(10002);
         return output;
     }
 }

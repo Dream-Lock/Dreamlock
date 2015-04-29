@@ -4,23 +4,26 @@ import com.dreamlock.game.IGameContext;
 import com.dreamlock.game.jsonParser.items.Item;
 import com.dreamlock.game.models.Word;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 public class ShowInventory implements ICommand{
     @Override
     public List<Integer> execute(IGameContext gameContext) {
+        List<Integer> output = new ArrayList<>();
         List<Item> inventory = gameContext.getPlayer().getInventory().getItems();
         if (inventory.isEmpty()) {
-            System.out.println("You don't have any items in your inventory!");
+            output.add(10000);
+            output.add(1080);
         }
         else {
-            System.out.println("In your Inventory you have:");
+            output.add(1081);
             for(Item item: inventory) {
-                System.out.println(item.getName().toUpperCase()+" -> " + item.getDescription());
+                output.add(item.getId());
             }
         }
-        return null;
+        return output;
     }
 
     @Override

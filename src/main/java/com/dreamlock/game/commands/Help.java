@@ -3,16 +3,20 @@ package com.dreamlock.game.commands;
 import com.dreamlock.game.IGameContext;
 import com.dreamlock.game.models.Word;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by Andreas on 29/4/2015.
- */
 public class Help implements ICommand  {
     @Override
     public List<Integer> execute(IGameContext gameContext) {
-        return null;
+        List<Integer> output = new ArrayList<>();
+        output.add(10004);
+        for (int i = 1100 ; i < 1109 ; i++) {
+            output.add(i);
+            output.add(10003);
+        }
+        return output;
     }
 
     @Override

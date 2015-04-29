@@ -1,6 +1,7 @@
 package com.dreamlock.game.commands;
 
 import com.dreamlock.game.IGameContext;
+import com.dreamlock.game.jsonParser.items.Item;
 import com.dreamlock.game.models.Room;
 import com.dreamlock.game.models.Word;
 
@@ -22,16 +23,12 @@ public class Go implements ICommand {
         if (!room.getDescription().equals("wall")) {
             gameContext.setCurrentRoom(room);
             output.add(room.getId());
-            output.add(10002);
             return output;
         }
         else {
             output.add(10000);                  // print only titles
-            output.add(10002);               // new line
             output.add(1001);                   // can not go to
             output.add(words.get(2).getId());   // direction
-            output.add(10002);               // new line
-            output.add(10002);               // new line
             return output;
         }
     }

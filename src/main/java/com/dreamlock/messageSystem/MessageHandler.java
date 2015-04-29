@@ -19,19 +19,41 @@ public class MessageHandler {
 
     public void print(List<Integer> messageIds) {
         if (messageIds.contains(10000)) {
+            messageIds.add(10002);
+            messageIds.add(10002);
             for (Integer messageId : messageIds) {
                 System.out.print(messages.get(messageId).getName());
             }
         }
         else if (messageIds.contains(10001)) {
+            messageIds.add(10003);
+            messageIds.add(10003);
             for (Integer messageId : messageIds) {
                 System.out.print(messages.get(messageId).getDescription());
             }
         }
-        else {
+        else if (messageIds.contains(10004)) {
+            messageIds.add(10003);
+            messageIds.add(10003);
             for (Integer messageId : messageIds) {
-                System.out.println(messages.get(messageId).getName());
-                System.out.print(messages.get(messageId).getDescription());
+                if (!messages.get(messageId).getName().equals("")) {
+                    System.out.print(messages.get(messageId).getName());
+                }
+                if (!messages.get(messageId).getDescription().equals("")) {
+                    System.out.print(messages.get(messageId).getDescription());
+                }
+            }
+        }
+        else {
+            messageIds.add(10003);
+            messageIds.add(10003);
+            for (Integer messageId : messageIds) {
+                if (!messages.get(messageId).getName().equals("")) {
+                    System.out.println(messages.get(messageId).getName());
+                }
+                if (!messages.get(messageId).getDescription().equals("")) {
+                    System.out.print(messages.get(messageId).getDescription());
+                }
             }
         }
     }

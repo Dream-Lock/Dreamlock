@@ -16,8 +16,6 @@ public class Look implements ICommand  {
 
         output.add(10001);
         output.add(room.getId());
-        output.add(10003);
-        output.add(10003);
         return output;
     }
 

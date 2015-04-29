@@ -27,15 +27,11 @@ public class PickUp implements ICommand {
                 output.add(10000);
                 output.add(item.getId());
                 output.add(item.getStates().get("Pick Up").doAction(gameContext, item));
-                output.add(10002);
-                output.add(10002);
                 return output;
             }
         }
         output.add(10000);
         output.add(1062);
-        output.add(10002);
-        output.add(10002);
         return output;
     }
 }
