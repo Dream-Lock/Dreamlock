@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class ShowInventory implements ICommand{
     @Override
-    public Integer execute(IGameContext gameContext) {
+    public List<Integer> execute(IGameContext gameContext) {
         List<Item> inventory = gameContext.getPlayer().getInventory().getItems();
         if (inventory.isEmpty()) {
             System.out.println("You don't have any items in your inventory!");
@@ -23,7 +23,7 @@ public class ShowInventory implements ICommand{
     }
 
     @Override
-    public Integer execute(IGameContext gameContext, Map<Integer, Word> words) {
+    public List<Integer> execute(IGameContext gameContext, Map<Integer, Word> words) {
        return null;
     }
 }

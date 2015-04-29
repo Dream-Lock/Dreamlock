@@ -32,7 +32,7 @@ public class CommandHandler {
         items.addAll(inventoryItems);
 
         for(Item item : items) {
-            dictionary.add(new Word(item.getName().toLowerCase(), "unknown"));
+            dictionary.add(new Word(item.getName().toLowerCase(), "unknown", item.getId()));
         }
     }
 
@@ -40,7 +40,7 @@ public class CommandHandler {
         List<Integer> messageIds = new ArrayList<>();
 
         JsonArray sentences = parsedJsonObject.getAsJsonArray("sentences");
-        Word firstWord, noun, noun2, preposition;
+        Word firstWord;
 
         for (JsonElement sentence : sentences) {
             String rule = sentence.getAsJsonArray().get(sentence.getAsJsonArray().size() - 1).getAsJsonObject().get("rule").getAsString();
@@ -51,7 +51,8 @@ public class CommandHandler {
             for (int i = 0 ; i < mapSize ; i++) {
                 JsonElement jsonElement = sentence.getAsJsonArray().get(i);
                 words.put(i + 1, new Word(jsonElement.getAsJsonObject().get("description").getAsString(),
-                        jsonElement.getAsJsonObject().get("word").getAsString()));
+                        jsonElement.getAsJsonObject().get("word").getAsString(),
+                        jsonElement.getAsJsonObject().get("uniqueId").getAsInt() ));
             }
 
             messageIds.add(checkGameDictionary(words));
@@ -60,36 +61,31 @@ public class CommandHandler {
                 Commands commands = Commands.INSTANCE;
                 firstWord = words.get(1);
                 ICommand command = commands.getCommand(firstWord.getDescription());
-                Integer messageId;
+                List<Integer> messageId = new ArrayList<>();
                 switch (rule) {
                     case "V1":                                          // Syntax: Verb
                         messageId = command.execute(gameContext);
-                        messageIds.add(messageId);
+                        messageIds.addAll(messageId);
                         break;
                     case "V2":                                          // Syntax: Verb, Direction(Noun)
-                        noun = words.get(2);
                         messageId = command.execute(gameContext, words);
-                        messageIds.add(messageId);
+                        messageIds.addAll(messageId);
                         break;
                     case "V3":                                          // Syntax: Verb, Item(Noun)
-                        noun = words.get(2);
                         messageId = command.execute(gameContext, words);
-                        messageIds.add(messageId);
+                        messageIds.addAll(messageId);
                         break;
                     case "V4":                                          // Syntax: Verb, Item(Noun), Preposition, Item(Noun)
-                        noun = words.get(2);
-                        preposition = words.get(3);
-                        noun2 = words.get(4);
                         messageId = command.execute(gameContext, words);
-                        messageIds.add(messageId);
+                        messageIds.addAll(messageId);
                         break;
                     case "N3":                                          // Syntax: Noun(command)
                         messageId = command.execute(gameContext);
-                        messageIds.add(messageId);
+                        messageIds.addAll(messageId);
                         break;
                     default:
-                        messageId = -1;
-                        messageIds.add(messageId);
+                        Integer errorMessageId = -1;
+                        messageIds.add(errorMessageId);
                         break;
                 }
             }

@@ -6,11 +6,13 @@ public class Lexeme {
     private int id;
     private String typedString;
     private TokenType tokenType;
+    private int uniqueId;
 
-    public Lexeme(int id, String typedString, TokenType tokenType) {
+    public Lexeme(int id, String typedString, TokenType tokenType, int uniqueId) {
         this.id = id;
         this.typedString = typedString;
         this.tokenType = tokenType;
+        this.uniqueId = uniqueId;
     }
 
     public int getId() {
@@ -35,6 +37,14 @@ public class Lexeme {
 
     public void setTokenType(TokenType tokenType) {
         this.tokenType = tokenType;
+    }
+
+    public int getUniqueId() {
+        return uniqueId;
+    }
+
+    public void setUniqueId(int uniqueId) {
+        this.uniqueId = uniqueId;
     }
 }
 

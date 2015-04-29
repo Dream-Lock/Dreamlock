@@ -4,6 +4,7 @@ import com.dreamlock.game.IGameContext;
 import com.dreamlock.game.jsonParser.items.Item;
 import com.dreamlock.game.models.Word;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -13,18 +14,21 @@ import java.util.Objects;
  */
 public class Drop implements ICommand {
     @Override
-    public Integer execute(IGameContext gameContext) {
+    public List<Integer> execute(IGameContext gameContext) {
         return null;
     }
 
     @Override
-    public Integer execute(IGameContext gameContext, Map<Integer, Word> words) {
+    public List<Integer> execute(IGameContext gameContext, Map<Integer, Word> words) {
+        List<Integer> output = new ArrayList<>();
+
         String object = words.get(2).getDescription();
 
         List<Item> items = gameContext.getPlayer().getInventory().getItems();
         for (Item item : items) {
             if (Objects.equals(item.getName().toLowerCase(), object)) {
-                return item.getStates().get("Drop").doAction(gameContext, item);
+                output.add(item.getStates().get("Drop").doAction(gameContext, item));
+                return output;
             }
         }
         return null;

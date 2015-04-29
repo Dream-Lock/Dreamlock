@@ -14,37 +14,37 @@ public enum Dictionary {
         dictionary = new HashMap<>();
 
         /** VERBS **/
-        dictionary.put("look", new Lexeme(1, "look", TokenType.VERB));
-        dictionary.put("quit", new Lexeme(1, "quit", TokenType.VERB));
-        dictionary.put("qq", new Lexeme(1, "qq", TokenType.VERB));
-        dictionary.put("exit", new Lexeme(1, "exit", TokenType.VERB));
-        dictionary.put("help", new Lexeme(1, "help", TokenType.VERB));
-        dictionary.put("inventory", new Lexeme(1, "inventory", TokenType.VERB));
-        dictionary.put("i", new Lexeme(1, "i", TokenType.VERB));
+        dictionary.put("look", new Lexeme(1, "look", TokenType.VERB, 3000));
+        dictionary.put("quit", new Lexeme(1, "quit", TokenType.VERB, 3000));
+        dictionary.put("qq", new Lexeme(1, "qq", TokenType.VERB, 3000));
+        dictionary.put("exit", new Lexeme(1, "exit", TokenType.VERB, 3000));
+        dictionary.put("help", new Lexeme(1, "help", TokenType.VERB, 3000));
+        dictionary.put("inventory", new Lexeme(1, "inventory", TokenType.VERB, 3000));
+        dictionary.put("i", new Lexeme(1, "i", TokenType.VERB, 3000));
 
-        dictionary.put("go", new Lexeme(2, "go", TokenType.VERB));
-        dictionary.put("walk", new Lexeme(2, "walk", TokenType.VERB));
+        dictionary.put("go", new Lexeme(2, "go", TokenType.VERB, 3000));
+        dictionary.put("walk", new Lexeme(2, "walk", TokenType.VERB, 3000));
 
-        dictionary.put("examine", new Lexeme(3, "examine", TokenType.VERB));
-        dictionary.put("take", new Lexeme(3, "take", TokenType.VERB));
-        dictionary.put("drop", new Lexeme(3, "drop", TokenType.VERB));
+        dictionary.put("examine", new Lexeme(3, "examine", TokenType.VERB, 3000));
+        dictionary.put("take", new Lexeme(3, "take", TokenType.VERB, 3000));
+        dictionary.put("drop", new Lexeme(3, "drop", TokenType.VERB, 3000));
 
-        dictionary.put("open", new Lexeme(4, "open", TokenType.VERB));
+        dictionary.put("open", new Lexeme(4, "open", TokenType.VERB, 3000));
 
         /** CONJUCTIONS **/
-        dictionary.put("and", new Lexeme(1, "and", TokenType.CONJUNCTION));
+        dictionary.put("and", new Lexeme(1, "and", TokenType.CONJUNCTION, 3000));
 
         /** PREPOSITIONS **/
-        dictionary.put("under", new Lexeme(1, "under", TokenType.PREPOSITION));
-        dictionary.put("in", new Lexeme(2, "in", TokenType.PREPOSITION));
-        dictionary.put("on", new Lexeme(3, "on", TokenType.PREPOSITION));
-        dictionary.put("with", new Lexeme(4, "with", TokenType.PREPOSITION));
+        dictionary.put("under", new Lexeme(1, "under", TokenType.PREPOSITION, 3000));
+        dictionary.put("in", new Lexeme(2, "in", TokenType.PREPOSITION, 3000));
+        dictionary.put("on", new Lexeme(3, "on", TokenType.PREPOSITION, 3000));
+        dictionary.put("with", new Lexeme(4, "with", TokenType.PREPOSITION, 3000));
 
         /** NOUNS **/
-        dictionary.put("west", new Lexeme(1, "west", TokenType.NOUN));
-        dictionary.put("north", new Lexeme(1, "north", TokenType.NOUN));
-        dictionary.put("east", new Lexeme(1, "east", TokenType.NOUN));
-        dictionary.put("south", new Lexeme(1, "south", TokenType.NOUN));
+        dictionary.put("west", new Lexeme(1, "west", TokenType.NOUN, 1001));
+        dictionary.put("north", new Lexeme(1, "north", TokenType.NOUN, 1002));
+        dictionary.put("east", new Lexeme(1, "east", TokenType.NOUN, 1003));
+        dictionary.put("south", new Lexeme(1, "south", TokenType.NOUN, 1004));
     }
 
     private final Map<String, Lexeme> dictionary;
@@ -54,7 +54,7 @@ public enum Dictionary {
             return dictionary.get(possibleLexeme);
         }
         else {
-            return new Lexeme(1, possibleLexeme, TokenType.UNKNOWN);
+            return new Lexeme(1, possibleLexeme, TokenType.UNKNOWN, 0);
         }
     }
 

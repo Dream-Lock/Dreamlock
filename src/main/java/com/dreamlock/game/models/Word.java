@@ -3,10 +3,12 @@ package com.dreamlock.game.models;
 public class Word {
     private String description;
     private String type;
+    private Integer id;
 
-    public Word(String description, String type) {
+    public Word(String description, String type, Integer id) {
         this.description = description;
         this.type = type;
+        this.id = id;
     }
 
     public String getDescription() {
@@ -23,5 +25,13 @@ public class Word {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

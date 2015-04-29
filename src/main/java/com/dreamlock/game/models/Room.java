@@ -14,11 +14,13 @@ public class Room {
     private String title;
     private HashMap<String, Room> exits;  // stores the exits of this room.
     private List<Item> items;
+    private int id;
 
     /**
      * Constructor for <b>empty rooms</b>.
      */
     public Room() {
+        id = 0;
         title = "wall";
         description = "wall";
     }
@@ -28,10 +30,10 @@ public class Room {
      * @param title         Room name
      * @param description   Room description
      */
-    public Room(String title,String description) {
+    public Room(String title, String description, int id) {
         this.description = description;
         this.title = title;
-        this.exits = new HashMap<String, Room>();
+        this.exits = new HashMap<>();
         this.items = new ArrayList<>();
     }
 
@@ -74,5 +76,13 @@ public class Room {
     public void addItem(Item item)
     {
         items.add(item);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

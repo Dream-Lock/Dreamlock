@@ -43,6 +43,7 @@ public class JsonParser {
             JsonObject jsonRoomObj = roomElement.getAsJsonObject();
             room.setDescription(jsonRoomObj.get("description").getAsString());
             room.setTitle(jsonRoomObj.get("title").getAsString());
+            room.setId(jsonRoomObj.get("id").getAsInt());
 
             List<Item> items = new ArrayList<>();
             for (ItemDTO itemDTO : roomDTO.getItems()) {        // for every item, the room contain

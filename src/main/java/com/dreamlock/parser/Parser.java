@@ -31,6 +31,7 @@ public class Parser {
                 word.addProperty("word", lexeme.getTokenType().toString().toLowerCase());
                 word.addProperty("id", lexeme.getId());
                 word.addProperty("description", lexeme.getTypedString());
+                word.addProperty("uniqueId", lexeme.getUniqueId());
                 sentence.add(word);
             }
 
@@ -63,7 +64,7 @@ public class Parser {
                 stringBuilder.append(lexeme.getTypedString());
                 flag = true;
                 if (i == (lexemes.size()-1)) {
-                    filteredLexemes.add(new Lexeme(1, stringBuilder.toString(), TokenType.UNKNOWN));
+                    filteredLexemes.add(new Lexeme(1, stringBuilder.toString(), TokenType.UNKNOWN, 0));
                 }
                 else {
                     stringBuilder.append(" ");
@@ -72,7 +73,7 @@ public class Parser {
             else {
                 if (flag) {
                     stringBuilder.setLength(stringBuilder.length() - 1);
-                    filteredLexemes.add(new Lexeme(1, stringBuilder.toString(), TokenType.UNKNOWN));
+                    filteredLexemes.add(new Lexeme(1, stringBuilder.toString(), TokenType.UNKNOWN, 0));
                     stringBuilder = new StringBuilder();
                     filteredLexemes.add(lexeme);
                 }
