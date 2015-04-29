@@ -24,7 +24,7 @@ public class PickUp implements ICommand {
         List<Item> items = gameContext.getCurrentRoom().getItems();
         for (Item item : items) {
             if (Objects.equals(item.getName().toLowerCase(), object)) {
-               return item.getStates().get("Pick Up").doAction(gameContext, object);
+               return item.getStates().get("Pick Up").doAction(gameContext, item);
             }
         }
         return null;

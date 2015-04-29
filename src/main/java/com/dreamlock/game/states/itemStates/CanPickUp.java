@@ -1,17 +1,31 @@
 package com.dreamlock.game.states.itemStates;
 
 import com.dreamlock.game.IGameContext;
+import com.dreamlock.game.jsonParser.items.Item;
 import com.dreamlock.game.states.IState;
+
+import java.util.List;
+import java.util.Objects;
 
 public class CanPickUp implements IState {
     @Override
-    public int doAction(IGameContext context) {
+    public Integer doAction(IGameContext context) {
         return 0;
     }
 
     @Override
-    public int doAction(IGameContext context, String object) {
-
-        return 0;
+    public Integer doAction(IGameContext context, Item item) {
+        List<Item> items = context.getCurrentRoom().getItems();
+        for (Item tempItem : items) {
+            if (Objects.equals(item.getName().toLowerCase(), tempItem.getName().toLowerCase())) {
+                item.getStates().put("Pick Up",new CanNotPickUp());
+                item.getStates().put("Drop",new CanDrop());
+                context.getPlayer().getInventory().addItem(item);
+                context.getCurrentRoom().getItems().remove(item);
+                System.out.println("Added to inventory!!");
+                return null;
+            }
+        }
+        return 1;
     }
 }

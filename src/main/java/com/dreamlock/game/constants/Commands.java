@@ -23,8 +23,8 @@ public enum Commands {
         commands.put("take", new PickUp());
 //        commands.put("drop", new Drop());
 //        commands.put("open", new Open());
-//        commands.put("inventory", new ShowInventory());
-//        commands.put("i", new ShowInventory());
+        commands.put("inventory", new ShowInventory());
+        commands.put("i", new ShowInventory());
     }
 
     private final Map<String, ICommand> commands;
