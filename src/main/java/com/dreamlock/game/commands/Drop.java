@@ -34,6 +34,10 @@ public class Drop implements ICommand {
                 return output;
             }
         }
-        return null;
+        output.add(10000);
+        output.add(1042);
+        output.add(10002);
+        output.add(10002);
+        return output;
     }
 }

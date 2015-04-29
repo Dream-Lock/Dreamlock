@@ -28,11 +28,14 @@ public enum CommandMessages {
         // Examine messages
         commandMessages.put(1020, new Message("I can't find anything with that name!", ""));
         // Drop messages
-        commandMessages.put(1040, new Message(" dropped successfully",""));
+        commandMessages.put(1040, new Message(" dropped successfully!",""));
         commandMessages.put(1041, new Message(" dropped unsuccessfully",""));
+        commandMessages.put(1042, new Message("There is no such item, in your inventory", ""));
+
         // Pick up messages
         commandMessages.put(1060, new Message(" -> Added to inventory!",""));
         commandMessages.put(1061, new Message(" -> You can not take that!",""));
+        commandMessages.put(1062, new Message("There is no such item, in this room", ""));
 
 
     }
