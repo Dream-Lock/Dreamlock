@@ -21,13 +21,16 @@ public class Drop implements ICommand {
     @Override
     public List<Integer> execute(IGameContext gameContext, Map<Integer, Word> words) {
         List<Integer> output = new ArrayList<>();
-
-        String object = words.get(2).getDescription();
-
+        Word word = words.get(2);
         List<Item> items = gameContext.getPlayer().getInventory().getItems();
+
         for (Item item : items) {
-            if (Objects.equals(item.getName().toLowerCase(), object)) {
+            if (Objects.equals(item.getName().toLowerCase(), word.getDescription())) {
+                output.add(10000);
+                output.add(item.getId());
                 output.add(item.getStates().get("Drop").doAction(gameContext, item));
+                output.add(10002);
+                output.add(10002);
                 return output;
             }
         }

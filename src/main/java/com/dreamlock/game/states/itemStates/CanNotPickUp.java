@@ -7,12 +7,11 @@ import com.dreamlock.game.states.IState;
 public class CanNotPickUp implements IState {
     @Override
     public Integer doAction(IGameContext context) {
-        return 0;
+        return null;
     }
 
     @Override
     public Integer doAction(IGameContext context, Item item) {
-        System.out.println("Cant pick up " + item.getName() + "!");
-        return null;
+        return 1061;
     }
 }

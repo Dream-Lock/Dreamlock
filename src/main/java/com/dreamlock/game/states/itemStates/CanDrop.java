@@ -4,9 +4,6 @@ import com.dreamlock.game.IGameContext;
 import com.dreamlock.game.jsonParser.items.Item;
 import com.dreamlock.game.states.IState;
 
-/**
- * Created by tommy on 28/4/2015.
- */
 public class CanDrop implements IState {
     @Override
     public Integer doAction(IGameContext context) {
@@ -15,11 +12,10 @@ public class CanDrop implements IState {
 
     @Override
     public Integer doAction(IGameContext context, Item item) {
-
         context.getPlayer().getInventory().removeItem(item);
         item.getStates().put("Drop", new CanNotDrop());
-        item.getStates().put("Pick Up",new CanPickUp());
+        item.getStates().put("Pick Up", new CanPickUp());
         context.getCurrentRoom().addItem(item);
-        return null;
+        return 1040;
     }
 }

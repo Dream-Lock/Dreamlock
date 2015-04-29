@@ -27,7 +27,12 @@ public enum CommandMessages {
         commandMessages.put(1005, new Message("south", ""));
         // Examine messages
         commandMessages.put(1020, new Message("I can't find anything with that name!", ""));
-
+        // Drop messages
+        commandMessages.put(1040, new Message(" dropped successfully",""));
+        commandMessages.put(1041, new Message(" dropped unsuccessfully",""));
+        // Pick up messages
+        commandMessages.put(1060, new Message(" -> Added to inventory!",""));
+        commandMessages.put(1061, new Message(" -> You can not take that!",""));
 
 
     }

@@ -15,6 +15,6 @@ public class CanNotDrop implements IState {
 
     @Override
     public Integer doAction(IGameContext context, Item item) {
-        return null;
+        return 1041;
     }
 }

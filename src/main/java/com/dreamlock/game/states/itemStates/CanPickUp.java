@@ -7,7 +7,7 @@ import com.dreamlock.game.states.IState;
 public class CanPickUp implements IState {
     @Override
     public Integer doAction(IGameContext context) {
-        return 0;
+        return null;
     }
 
     @Override
@@ -16,7 +16,6 @@ public class CanPickUp implements IState {
         item.getStates().put("Pick Up",new CanNotPickUp());
         item.getStates().put("Drop",new CanDrop());
         context.getPlayer().getInventory().addItem(item);
-        System.out.println("Added to inventory!!");
-        return null;
+        return 1060;
     }
 }

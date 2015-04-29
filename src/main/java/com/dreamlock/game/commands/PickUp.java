@@ -9,9 +9,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * Created by Odin on 28/4/2015.
- */
 public class PickUp implements ICommand {
     @Override
     public List<Integer> execute(IGameContext gameContext) {
@@ -27,8 +24,12 @@ public class PickUp implements ICommand {
         List<Item> items = gameContext.getCurrentRoom().getItems();
         for (Item item : items) {
             if (Objects.equals(item.getName().toLowerCase(), object)) {
+                output.add(10000);
+                output.add(item.getId());
                 output.add(item.getStates().get("Pick Up").doAction(gameContext, item));
-               return output;
+                output.add(10002);
+                output.add(10002);
+                return output;
             }
         }
         return null;
