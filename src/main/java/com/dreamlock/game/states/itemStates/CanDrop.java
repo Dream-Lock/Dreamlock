@@ -17,6 +17,8 @@ public class CanDrop implements IState {
     public Integer doAction(IGameContext context, Item item) {
 
         context.getPlayer().getInventory().removeItem(item);
+        item.getStates().put("Drop", new CanNotDrop());
+        item.getStates().put("Pick Up",new CanPickUp());
         context.getCurrentRoom().addItem(item);
         return null;
     }
