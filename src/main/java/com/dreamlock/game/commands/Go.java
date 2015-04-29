@@ -22,11 +22,16 @@ public class Go implements ICommand {
         if (!room.getDescription().equals("wall")) {
             gameContext.setCurrentRoom(room);
             output.add(room.getId());
+            output.add(10002);
             return output;
         }
         else {
-            output.add(1000);
-            output.add(words.get(2).getId());
+            output.add(10000);                  // print only titles
+            output.add(10002);               // new line
+            output.add(1001);                   // can not go to
+            output.add(words.get(2).getId());   // direction
+            output.add(10002);               // new line
+            output.add(10002);               // new line
             return output;
         }
     }

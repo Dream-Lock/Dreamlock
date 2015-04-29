@@ -41,10 +41,10 @@ public enum Dictionary {
         dictionary.put("with", new Lexeme(4, "with", TokenType.PREPOSITION, 3000));
 
         /** NOUNS **/
-        dictionary.put("west", new Lexeme(1, "west", TokenType.NOUN, 1001));
-        dictionary.put("north", new Lexeme(1, "north", TokenType.NOUN, 1002));
-        dictionary.put("east", new Lexeme(1, "east", TokenType.NOUN, 1003));
-        dictionary.put("south", new Lexeme(1, "south", TokenType.NOUN, 1004));
+        dictionary.put("west", new Lexeme(1, "west", TokenType.NOUN, 1002));
+        dictionary.put("north", new Lexeme(1, "north", TokenType.NOUN, 1003));
+        dictionary.put("east", new Lexeme(1, "east", TokenType.NOUN, 1004));
+        dictionary.put("south", new Lexeme(1, "south", TokenType.NOUN, 1005));
     }
 
     private final Map<String, Lexeme> dictionary;
