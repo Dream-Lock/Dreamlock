@@ -1,6 +1,7 @@
 package com.dreamlock.game.states.itemStates;
 
 import com.dreamlock.game.IGameContext;
+import com.dreamlock.game.jsonParser.items.Item;
 import com.dreamlock.game.states.IState;
 
 /**
@@ -8,12 +9,12 @@ import com.dreamlock.game.states.IState;
  */
 public class CanEquip implements IState {
     @Override
-    public int doAction(IGameContext context) {
-        return 0;
+    public Integer doAction(IGameContext context) {
+        return null;
     }
 
     @Override
-    public int doAction(IGameContext context, String object) {
-        return 0;
+    public Integer doAction(IGameContext context, Item item) {
+        return null;
     }
 }
