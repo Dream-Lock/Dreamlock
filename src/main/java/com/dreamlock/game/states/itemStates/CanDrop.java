@@ -16,7 +16,8 @@ public class CanDrop implements IState {
     @Override
     public Integer doAction(IGameContext context, Item item) {
 
-        context.getPlayer().getInventory().removeItem();
+        context.getPlayer().getInventory().removeItem(item);
+        context.getCurrentRoom().addItem(item);
         return null;
     }
 }
