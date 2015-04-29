@@ -19,7 +19,7 @@ public class ShowInventory implements ICommand{
                 System.out.println(item.getName().toUpperCase()+" -> " + item.getDescription());
             }
         }
-        return 1;
+        return null;
     }
 
     @Override
