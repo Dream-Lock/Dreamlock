@@ -15,15 +15,11 @@ public class CanPickUp implements IState {
 
     @Override
     public Integer doAction(IGameContext context, Item item) {
-
-        if (context.getCurrentRoom().getItems().contains(item)) {
-            item.getStates().put("Pick Up",new CanNotPickUp());
-            item.getStates().put("Drop",new CanDrop());
-            context.getPlayer().getInventory().addItem(item);
-            context.getCurrentRoom().getItems().remove(item);
-            System.out.println("Added to inventory!!");
-        }
-
+        item.getStates().put("Pick Up",new CanNotPickUp());
+        item.getStates().put("Drop",new CanDrop());
+        context.getPlayer().getInventory().addItem(item);
+        context.getCurrentRoom().getItems().remove(item);
+        System.out.println("Added to inventory!!");
         return null;
     }
 }
