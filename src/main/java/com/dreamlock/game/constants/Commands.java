@@ -14,12 +14,12 @@ public enum Commands {
         commands = new HashMap<>();
         commands.put("go", new Go());
         commands.put("walk", new Go());
-//        commands.put("look", new Look());
+        commands.put("look", new Look());
         commands.put("examine", new Examine());
         commands.put("quit", new Quit());
         commands.put("exit", new Quit());
         commands.put("qq", new Quit());
-//        commands.put("help", new Help());
+        commands.put("help", new Help());
         commands.put("take", new PickUp());
         commands.put("drop", new Drop());
 //        commands.put("open", new Open());
