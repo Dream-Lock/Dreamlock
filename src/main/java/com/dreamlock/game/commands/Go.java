@@ -14,7 +14,7 @@ public class Go implements ICommand {
 
     @Override
     public Integer execute(IGameContext gameContext, Map<Integer, Word> words) {
-        String direction = words.get(1).getDescription();
+        String direction = words.get(2).getDescription();
 
         Room room = gameContext.getCurrentRoom().getExits().get(direction);
         // TODO

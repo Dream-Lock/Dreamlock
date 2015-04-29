@@ -16,7 +16,7 @@ public class Examine implements ICommand {
 
     @Override
     public Integer execute(IGameContext gameContext, Map<Integer, Word> words) {
-        String object = words.get(1).getDescription();
+        String object = words.get(2).getDescription();
 
         List<Item> items = gameContext.getCurrentRoom().getItems();
         for (Item item : items) {
