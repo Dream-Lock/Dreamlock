@@ -4,9 +4,6 @@ import com.dreamlock.game.IGameContext;
 import com.dreamlock.game.jsonParser.items.Item;
 import com.dreamlock.game.states.IState;
 
-import java.util.List;
-import java.util.Objects;
-
 public class CanPickUp implements IState {
     @Override
     public Integer doAction(IGameContext context) {

@@ -25,6 +25,9 @@ public enum CommandMessages {
         commandMessages.put(1003, new Message("north", ""));
         commandMessages.put(1004, new Message("east", ""));
         commandMessages.put(1005, new Message("south", ""));
+        // Examine messages
+        commandMessages.put(1020, new Message("I can't find anything with that name!", ""));
+
 
 
     }

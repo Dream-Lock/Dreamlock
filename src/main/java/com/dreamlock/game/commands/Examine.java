@@ -19,17 +19,21 @@ public class Examine implements ICommand {
     public List<Integer> execute(IGameContext gameContext, Map<Integer, Word> words) {
         List<Integer> output = new ArrayList<>();
 
-        String object = words.get(2).getDescription();
+        Word word = words.get(2);
         List<Item> items = gameContext.getCurrentRoom().getItems();
         for (Item item : items) {
-            if (Objects.equals(item.getName().toLowerCase(), object)) {
-                System.out.println(item.getDescription()); //TODO
-                output.add(1);
+            if (Objects.equals(item.getName().toLowerCase(), word.getDescription())) {
+                output.add(10001);          // print only description
+                output.add(item.getId());   // item to print
+                output.add(10003);          // new line
+                output.add(10003);          // new line
                 return output;
             }
         }
-        System.out.println("I can't find "+object);
-        output.add(-1);
+        output.add(10000);          // print only title
+        output.add(1020);           // I can't find anything with that name!
+        output.add(10002);          // new line
+        output.add(10002);          // new line
         return output;
     }
 }

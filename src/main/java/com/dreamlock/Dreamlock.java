@@ -28,7 +28,7 @@ public class Dreamlock {
         JsonParser jsonParser = new JsonParser();
 
         String[] opening = jsonParser.parseOpening("/openings/dreamlock_opening.json");
-        System.out.println(opening[0]);
+        System.out.println(opening[0] + "\n");
 
         BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
 
@@ -42,7 +42,7 @@ public class Dreamlock {
             e.printStackTrace();
         }
         while (Objects.equals(name, ""));
-        System.out.println("Ah, " + name + opening[1]);
+        System.out.println("Ah, " + name + opening[1] + "\n");
 
         jsonParser.parseWorld("/story.json");
         Map<Integer, Room> rooms = jsonParser.getRooms();
@@ -50,7 +50,9 @@ public class Dreamlock {
         // Setup player
         Player player = new Player(name, new Inventory(20));
         final IGameContext gameContext = new GameContext(rooms, player);
-        System.out.println(gameContext.getCurrentRoom().getDescription());
+
+        System.out.println(gameContext.getCurrentRoom().getDescription() + "\n");
+
         // Setup message handler
         GameMessages gameMessages = new GameMessages(player, rooms);
         CommandMessages commandMessages = CommandMessages.INSTANCE;
