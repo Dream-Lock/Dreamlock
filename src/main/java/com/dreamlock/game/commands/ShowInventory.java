@@ -20,6 +20,7 @@ public class ShowInventory implements ICommand{
         else {
             output.add(1081);
             for(Item item: inventory) {
+                output.add(10003);
                 output.add(item.getId());
             }
         }

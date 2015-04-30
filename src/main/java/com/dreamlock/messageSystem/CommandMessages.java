@@ -29,8 +29,8 @@ public enum CommandMessages {
         // Examine messages
         commandMessages.put(1020, new Message("I can't find anything with that name!", ""));
         // Drop messages
-        commandMessages.put(1040, new Message(" dropped successfully!de",""));
-        commandMessages.put(1041, new Message(" dropped unsuccessfully",""));
+        commandMessages.put(1040, new Message(" dropped successfully!",""));
+        commandMessages.put(1041, new Message(" can't be dropped!",""));
         commandMessages.put(1042, new Message("There is no such item, in your inventory", ""));
         // Pick up messages
         commandMessages.put(1060, new Message(" -> Added to inventory!",""));
@@ -49,6 +49,12 @@ public enum CommandMessages {
         commandMessages.put(1106, new Message("Pick up -> ","With this command you can pick up items"));
         commandMessages.put(1107, new Message("Quit -> ","This lets you stop."));
         commandMessages.put(1108, new Message("Inventory -> ","With this command you can view the items that are in your inventory."));
+        // open messages
+        commandMessages.put(1120, new Message(" opened successfully!",""));
+        commandMessages.put(1121, new Message(" can't be opened!!",""));
+        commandMessages.put(1122, new Message(" is locked and requires a certain key to open!!",""));
+        commandMessages.put(1123, new Message(" is already opened!!",""));
+
     }
 
     private final Map<Integer, Message> commandMessages;

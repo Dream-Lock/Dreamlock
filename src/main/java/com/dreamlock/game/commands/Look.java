@@ -1,6 +1,7 @@
 package com.dreamlock.game.commands;
 
 import com.dreamlock.game.IGameContext;
+import com.dreamlock.game.jsonParser.items.Item;
 import com.dreamlock.game.models.Room;
 import com.dreamlock.game.models.Word;
 
@@ -14,8 +15,13 @@ public class Look implements ICommand  {
         List<Integer> output = new ArrayList<>();
         Room room = gameContext.getCurrentRoom();
 
-        output.add(10001);
+        output.add(10003);
         output.add(room.getId());
+        //output.add(10000);
+        for (Item item : gameContext.getCurrentRoom().getItems()) {
+            output.add(10002);
+            output.add(item.getId());
+        }
         return output;
     }
 

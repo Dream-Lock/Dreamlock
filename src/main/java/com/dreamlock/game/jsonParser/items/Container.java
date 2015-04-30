@@ -16,6 +16,10 @@ public class Container extends Item{
         return items;
     }
 
+    public void removeItems() {
+        items.clear();
+    }
+
     public Container(){
 
     }
@@ -31,6 +35,8 @@ public class Container extends Item{
         description = containerDTO.getDescription();
 
         stats = new HashMap<>();
+        stats.put("locked",containerDTO.isLocked());
+        stats.put("match",containerDTO.getMatch());
 
         states = new HashMap<>();
         // changing states

@@ -3,6 +3,8 @@
   "type":"Container",
   "name":"Bronze Chest",
   "description":"An old and dusty bronze chest, maybe from the 3rd era.",
+  "locked":true,
+  "match": 400,
   "items":[
     {
       "path":"/items/armor/helmet.json"

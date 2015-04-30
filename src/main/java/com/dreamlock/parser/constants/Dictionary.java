@@ -29,7 +29,7 @@ public enum Dictionary {
         dictionary.put("take", new Lexeme(3, "take", TokenType.VERB, 3000));
         dictionary.put("drop", new Lexeme(3, "drop", TokenType.VERB, 3000));
 
-        dictionary.put("open", new Lexeme(4, "open", TokenType.VERB, 3000));
+        dictionary.put("open", new Lexeme(3, "open", TokenType.VERB, 3000));
 
         /** CONJUCTIONS **/
         dictionary.put("and", new Lexeme(1, "and", TokenType.CONJUNCTION, 3000));
