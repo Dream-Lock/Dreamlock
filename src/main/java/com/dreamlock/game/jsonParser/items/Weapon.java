@@ -22,8 +22,7 @@ public class Weapon extends Item {
         states = new HashMap<>();
         // changing states
         states.put("Pick Up", new CanPickUp());
-        states.put("Drop", new CanNotDrop());
-        // if picked up states
+        states.put("Drop", new CanDrop());
         states.put("Equip", new CanEquip());
         states.put("Use", new CanNotUse());
         states.put("Open", new CanNotOpen());

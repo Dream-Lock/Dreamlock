@@ -39,12 +39,8 @@ public class Container extends Item{
         stats.put("match",containerDTO.getMatch());
 
         states = new HashMap<>();
-        // changing states
+        // Item states
         states.put("Pick Up", new CanNotPickUp());
-        states.put("Drop", new CanNotDrop());
-        // if picked up states
-        states.put("Equip", new CanNotEquip());
-        states.put("Use", new CanNotUse());
         states.put("Open", new CanOpen());
     }
 }

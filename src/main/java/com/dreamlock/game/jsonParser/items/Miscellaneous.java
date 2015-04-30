@@ -18,10 +18,9 @@ public class Miscellaneous extends Item {
         stats = new HashMap<>();
 
         states = new HashMap<>();
-        // changing states
+        // Item states
         states.put("Pick Up", new CanPickUp());
-        states.put("Drop", new CanNotDrop());
-        // if picked up states
+        states.put("Drop", new CanDrop());
         states.put("Equip", new CanNotEquip());
         states.put("Use", new CanNotUse());
         states.put("Open", new CanNotOpen());

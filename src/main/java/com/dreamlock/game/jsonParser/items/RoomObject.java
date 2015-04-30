@@ -20,10 +20,6 @@ public class RoomObject extends Item {
         states = new HashMap<>();
         // changing states
         states.put("Pick Up", new CanNotPickUp());
-        states.put("Drop", new CanNotDrop());
-        // static states
-        states.put("Equip", new CanNotEquip());
-        states.put("Use", new CanNotUse());
         states.put("Open", new CanOpen());
     }
 }
