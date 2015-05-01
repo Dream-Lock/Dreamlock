@@ -18,19 +18,29 @@ public class PickUp implements ICommand {
     @Override
     public List<Integer> execute(IGameContext gameContext, Map<Integer, Word> words) {
         List<Integer> output = new ArrayList<>();
-
+        Integer itemsFound = 0;
+        Item foundItem = null;
         Word word = words.get(2);
 
         List<Item> items = gameContext.getCurrentRoom().getItems();
         for (Item item : items) {
-            if (Objects.equals(item.getName().toLowerCase(), word.getDescription())) {
-                output.add(10000);
-                output.add(item.getId());
-                output.add(item.getStates().get("Pick Up").doAction(gameContext, item));
-                return output;
+            if (item.getName().toLowerCase().contains(word.getDescription())) {
+                itemsFound++;
+                foundItem = item;
             }
         }
+
         output.add(10000);
+        if (itemsFound == 1) {
+            output.add(foundItem.getId());
+            output.add(foundItem.getStates().get("Pick Up").doAction(gameContext, foundItem));
+            return output;
+        }
+        else if (itemsFound > 1) {
+            output.add(2001);
+            return output;
+        }
+
         output.add(1062);
         return output;
     }

@@ -54,6 +54,8 @@ public enum CommandMessages {
         commandMessages.put(1121, new Message(" can't be opened!!",""));
         commandMessages.put(1122, new Message(" is locked and requires a certain key to open!!",""));
         commandMessages.put(1123, new Message(" is already opened!!",""));
+        // general messages
+        commandMessages.put(2001, new Message("There more than one items with that name!", ""));
 
     }
 
