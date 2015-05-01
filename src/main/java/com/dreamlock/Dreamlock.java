@@ -62,6 +62,7 @@ public class Dreamlock {
 
         Lexer lexer = new Lexer();
         Parser parser = new Parser();
+        HistoryController historyController = new HistoryController(gameContext);
 
         Boolean running = true;
         while (running) {
@@ -71,6 +72,7 @@ public class Dreamlock {
                 ArrayList<Lexeme> lexemes = lexer.tokenize(line);
                 JsonObject output =  parser.parse(lexemes);
                 // TODO: error handling
+                historyController.register(line);
                 CommandHandler commandHandler = new CommandHandler(output, gameContext);
                 List<Integer> messageIds = commandHandler.handle();
                 messageHandler.register(new GameMessages(player,rooms).getGameMessages());
