@@ -7,7 +7,6 @@ import com.dreamlock.game.models.Word;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 public class PickUp implements ICommand {
     @Override

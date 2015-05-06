@@ -10,9 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by Odin on 6/5/2015.
- */
 public class Load implements ICommand {
     @Override
     public List<Integer> execute(IGameContext gameContext) {
