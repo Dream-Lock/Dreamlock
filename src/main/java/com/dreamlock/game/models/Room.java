@@ -2,6 +2,7 @@ package com.dreamlock.game.models;
 
 import com.dreamlock.game.jsonParser.items.Item;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
 /**
  * A Model of a room
  */
-public class Room {
+public class Room implements Serializable{
     private String description;
     private String title;
     private HashMap<String, Room> exits;  // stores the exits of this room.

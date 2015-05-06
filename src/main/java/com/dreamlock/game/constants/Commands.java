@@ -25,6 +25,8 @@ public enum Commands {
         commands.put("open", new Open());
         commands.put("inventory", new ShowInventory());
         commands.put("i", new ShowInventory());
+        commands.put("save", new Save());
+        commands.put("load", new Load());
     }
 
     private final Map<String, ICommand> commands;

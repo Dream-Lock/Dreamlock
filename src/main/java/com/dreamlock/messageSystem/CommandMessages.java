@@ -54,6 +54,12 @@ public enum CommandMessages {
         commandMessages.put(1121, new Message(" can't be opened!!",""));
         commandMessages.put(1122, new Message(" is locked and requires a certain key to open!!",""));
         commandMessages.put(1123, new Message(" is already opened!!",""));
+        //save messages
+        commandMessages.put(1200, new Message("Game was saved successfully!!",""));
+        commandMessages.put(1201, new Message("Save was not successful! :-(",""));
+        //load messages
+        commandMessages.put(1210, new Message("Loading completed successfully!!",""));
+        commandMessages.put(1211, new Message("Could not load game!! :-(",""));
         // general messages
         commandMessages.put(2001, new Message("There more than one items with that name!", ""));
 

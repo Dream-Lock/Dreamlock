@@ -1,0 +1,42 @@
+package com.dreamlock.game.commands;
+
+import com.dreamlock.game.IGameContext;
+import com.dreamlock.game.models.Word;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * Created by Odin on 6/5/2015.
+ */
+public class Save implements ICommand{
+    @Override
+    public List<Integer> execute(IGameContext gameContext) {
+        List<Integer> output = new ArrayList<>();
+        try {
+            File file = new File("save.dat");
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            FileOutputStream fileStream = new FileOutputStream(file);
+            ObjectOutputStream objectStream = new ObjectOutputStream(fileStream);
+
+            objectStream.writeObject(gameContext);
+
+            objectStream.close();
+            fileStream.close();
+            output.add(1200);
+
+        } catch (Exception e) {
+            output.add(1201);
+        }
+        return output;
+    }
+
+    @Override
+    public List<Integer> execute(IGameContext gameContext, Map<Integer, Word> words) {
+        return null;
+    }
+}

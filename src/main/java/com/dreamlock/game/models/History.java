@@ -1,9 +1,10 @@
 package com.dreamlock.game.models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class History {
+public class History implements Serializable{
     private List<String> history;
 
     public History() {
