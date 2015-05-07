@@ -49,11 +49,24 @@ public enum CommandMessages {
         commandMessages.put(1106, new Message("Pick up -> ","With this command you can pick up items"));
         commandMessages.put(1107, new Message("Quit -> ","This lets you stop."));
         commandMessages.put(1108, new Message("Inventory -> ","With this command you can view the items that are in your inventory."));
+        commandMessages.put(1109, new Message("Inspect -> ","With this command you can inspect an item's attributes before equipping it."));
+        commandMessages.put(1110, new Message("Attack -> ","With this command you can attack an opponent."));
         // open messages
         commandMessages.put(1120, new Message(" opened successfully!",""));
         commandMessages.put(1121, new Message(" can't be opened!!",""));
         commandMessages.put(1122, new Message(" is locked and requires a certain key to open!!",""));
         commandMessages.put(1123, new Message(" is already opened!!",""));
+        //inspect messages
+        commandMessages.put(1130, new Message(" has an attack rating of ", ""));
+        commandMessages.put(1131, new Message(" has a defense rating of ",""));
+        commandMessages.put(1131, new Message(" cannot be equipped!",""));
+        //attack messages
+        commandMessages.put(1201, new Message(" was attacked for ",""));
+        commandMessages.put(1202, new Message(" attacked you for ",""));
+        commandMessages.put(1203, new Message(" bested you! You have died.",""));
+        commandMessages.put(1204, new Message(" cannot be attacked!",""));
+        commandMessages.put(1205, new Message(" There is no such enemy here.",""));
+        commandMessages.put(1206, new Message(" That enemy is already dead.",""));
         // general messages
         commandMessages.put(2001, new Message("There more than one items with that name!", ""));
 

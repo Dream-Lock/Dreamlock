@@ -1,11 +1,9 @@
 package com.dreamlock.game.jsonParser;
 
-import com.dreamlock.game.jsonParser.DTOs.ExitsDTO;
-import com.dreamlock.game.jsonParser.DTOs.ItemDTO;
-import com.dreamlock.game.jsonParser.DTOs.OpeningDTO;
-import com.dreamlock.game.jsonParser.DTOs.RoomDTO;
+import com.dreamlock.game.jsonParser.DTOs.*;
 import com.dreamlock.game.jsonParser.items.Item;
 import com.dreamlock.game.jsonParser.items.ItemFactory;
+import com.dreamlock.game.models.Enemy;
 import com.dreamlock.game.models.Room;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -76,6 +74,21 @@ public class JsonParser {
                 }
             }
             room.setItems(items);
+
+            List<Enemy> enemies = new ArrayList<>();
+            for (EnemyDTO enemyDTO : roomDTO.getEnemies()){ //for every enemy the room contains
+                Enemy enemy = new Enemy();
+                String enemyPath = enemyDTO.getPath();  //path of the room
+                String jsonEnemy = read(enemyPath); //the string the file contains
+                JsonElement enemyElement = gson.fromJson(jsonEnemy, JsonElement.class); //parse to jsonElement
+                JsonObject jsonEnemyObj = enemyElement.getAsJsonObject();  //parse to jsonObject
+                enemy.setName(jsonEnemyObj.get("name").getAsString());
+                enemy.setDescription(jsonEnemyObj.get("description").getAsString());
+                enemy.setHealth(jsonEnemyObj.get("health").getAsInt());
+                enemy.setAttack(jsonEnemyObj.get("attack").getAsInt());
+                enemy.setDefense(jsonEnemyObj.get("defense").getAsInt());
+            }
+            room.setEnemies(enemies);
 
             rooms.put(roomDTO.getId(), room);
         }

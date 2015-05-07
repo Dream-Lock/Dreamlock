@@ -15,6 +15,7 @@ public class Room {
     private HashMap<String, Room> exits;  // stores the exits of this room.
     private List<Item> items;
     private int id;
+    private List<Enemy> enemies;
 
     /**
      * Constructor for <b>empty rooms</b>.
@@ -35,6 +36,7 @@ public class Room {
         this.title = title;
         this.exits = new HashMap<>();
         this.items = new ArrayList<>();
+        this.enemies = new ArrayList<>();
     }
 
     public String getDescription() {
@@ -84,5 +86,13 @@ public class Room {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public List<Enemy> getEnemies(){
+        return enemies;
+    }
+
+    public void setEnemies(List<Enemy> enemies){
+        this.enemies = enemies;
     }
 }

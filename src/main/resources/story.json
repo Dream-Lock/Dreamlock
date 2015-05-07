@@ -9,6 +9,9 @@
         "id":1
       }
     ],
+    "enemies":[
+
+    ],
     "exits":[
       {
         "north":2,
@@ -26,6 +29,9 @@
         "id":1
       }
     ],
+    "enemies":[
+
+    ],
     "exits":[
       {
       }
@@ -35,6 +41,12 @@
     "id":3,
     "path":"/rooms/kitchen.json",
     "items":[
+
+    ],
+    "enemies":[
+      {
+        "path":"/enemies/bandit.json"
+      }
 
     ],
     "exits":[
@@ -55,6 +67,9 @@
       {
         "path":"/items/weapons/axe.json"
       }
+    ],
+    "enemies":[
+
     ],
     "exits":[
       {

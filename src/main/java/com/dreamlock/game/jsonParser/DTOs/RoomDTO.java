@@ -7,6 +7,7 @@ public class RoomDTO {
     private String path;
     private ArrayList<ItemDTO> items;
     private ArrayList<ExitsDTO> exits;
+    private ArrayList<EnemyDTO> enemies;
 
     public int getId() {
         return id;
@@ -24,4 +25,7 @@ public class RoomDTO {
         return exits;
     }
 
+    public ArrayList<EnemyDTO> getEnemies(){
+        return enemies;
+    }
 }
