@@ -35,7 +35,7 @@ public class Attack implements ICommand {
         if (enemiesFound == 1) {
             if (foundEnemy.getHealth() > 0) {
                 output.add((foundEnemy.getId()));
-                //output.add(foundEnemy.doAction(gameContext, foundEnemy));
+                output.add(foundEnemy.getStates().get("Attack").doAction(gameContext, foundEnemy));
             }else if (foundEnemy.getHealth() <= 0) {
                 output.add(1206);
             }

@@ -2,8 +2,6 @@ package com.dreamlock.game.models;
 
 import com.dreamlock.game.combat.Combatant;
 
-import java.util.HashMap;
-
 public class Enemy extends Combatant{
     private int id;
     private String name;

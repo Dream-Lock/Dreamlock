@@ -87,6 +87,7 @@ public class JsonParser {
                 enemy.setHealth(jsonEnemyObj.get("health").getAsInt());
                 enemy.setAttack(jsonEnemyObj.get("attack").getAsInt());
                 enemy.setDefense(jsonEnemyObj.get("defense").getAsInt());
+                enemies.add(enemy);
             }
             room.setEnemies(enemies);
 
