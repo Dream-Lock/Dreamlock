@@ -2,10 +2,11 @@ package com.dreamlock.game.models;
 
 import com.dreamlock.game.jsonParser.items.Item;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Inventory {
+public class Inventory implements Serializable{
     private List<Item> items;
     private int size;
 

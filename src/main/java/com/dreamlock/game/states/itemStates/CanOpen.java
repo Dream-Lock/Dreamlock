@@ -5,7 +5,6 @@ import com.dreamlock.game.jsonParser.items.Container;
 import com.dreamlock.game.jsonParser.items.Item;
 import com.dreamlock.game.states.IState;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CanOpen implements IState {

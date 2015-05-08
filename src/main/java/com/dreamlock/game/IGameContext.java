@@ -15,6 +15,10 @@ public interface IGameContext {
     void setHistory(History history);
 
     Player getPlayer();
+    
+    void setPlayer(Player player);
 
     TurnBattle getTurnBattle();
+
+    
 }

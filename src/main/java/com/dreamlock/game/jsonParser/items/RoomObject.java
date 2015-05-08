@@ -1,7 +1,8 @@
 package com.dreamlock.game.jsonParser.items;
 
 import com.dreamlock.game.jsonParser.DTOs.itemDTOs.RoomObjectDTO;
-import com.dreamlock.game.states.itemStates.*;
+import com.dreamlock.game.states.itemStates.CanNotPickUp;
+import com.dreamlock.game.states.itemStates.CanOpen;
 import com.google.gson.Gson;
 
 import java.util.HashMap;

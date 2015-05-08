@@ -2,9 +2,10 @@ package com.dreamlock.game.jsonParser.items;
 
 import com.dreamlock.game.states.IState;
 
+import java.io.Serializable;
 import java.util.Map;
 
-public abstract class Item {
+public abstract class Item implements Serializable{
     protected Integer id;
     protected String name;
     protected String description;

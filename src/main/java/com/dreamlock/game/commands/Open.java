@@ -3,12 +3,10 @@ package com.dreamlock.game.commands;
 import com.dreamlock.game.IGameContext;
 import com.dreamlock.game.jsonParser.items.Item;
 import com.dreamlock.game.models.Word;
-import com.dreamlock.messageSystem.GameMessages;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 public class Open implements ICommand{
     @Override

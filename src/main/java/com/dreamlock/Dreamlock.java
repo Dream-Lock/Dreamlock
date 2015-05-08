@@ -75,7 +75,7 @@ public class Dreamlock {
                 historyController.register(line);
                 CommandHandler commandHandler = new CommandHandler(output, gameContext);
                 List<Integer> messageIds = commandHandler.handle();
-                messageHandler.register(new GameMessages(player,rooms).getGameMessages());
+//                messageHandler.register(new GameMessages(player,rooms).getGameMessages());
                 messageHandler.print(messageIds);
             } catch (IOException e) {
                 e.printStackTrace();
