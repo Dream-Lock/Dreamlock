@@ -1,12 +1,34 @@
 package com.dreamlock.game.models;
 
 import com.dreamlock.game.combat.Combatant;
+import com.dreamlock.game.jsonParser.DTOs.EnemyDTO;
+import com.dreamlock.game.states.combatStates.CanAttackState;
+import com.google.gson.Gson;
+
+import java.util.HashMap;
 
 public class Enemy extends Combatant{
     private int id;
-    private String name;
     private String description;
 
+    public Enemy(){
+        states = new HashMap<>();
+        states.put("Attack", new CanAttackState());
+    }
+
+    public Enemy (String jsonEnemy) {
+        Gson gson = new Gson();
+        EnemyDTO enemyDTO = gson.fromJson(jsonEnemy, EnemyDTO.class);
+        id = enemyDTO.getId();
+        name = enemyDTO.getName();
+        description = enemyDTO.getDescription();
+        health = enemyDTO.getHealth();
+        attack = enemyDTO.getAttack();
+        defense = enemyDTO.getDefense();
+
+        states = new HashMap<>();
+        states.put("Attack", new CanAttackState());
+    }
 
     public int getId() {
         return id;
@@ -14,14 +36,6 @@ public class Enemy extends Combatant{
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getDescription() {

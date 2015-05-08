@@ -1,5 +1,6 @@
 package com.dreamlock.game;
 
+import com.dreamlock.game.combat.TurnBattle;
 import com.dreamlock.game.models.History;
 import com.dreamlock.game.models.Player;
 import com.dreamlock.game.models.Room;
@@ -14,4 +15,6 @@ public interface IGameContext {
     void setHistory(History history);
 
     Player getPlayer();
+
+    TurnBattle getTurnBattle();
 }

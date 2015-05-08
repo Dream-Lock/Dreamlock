@@ -22,7 +22,12 @@ public class MessageHandler {
             messageIds.add(10002);
             messageIds.add(10002);
             for (Integer messageId : messageIds) {
-                System.out.print(messages.get(messageId).getName());
+                if(messageIds.indexOf(messageId) == 3 && messageIds.contains(1201))
+                    System.out.print(messageId + " points of damage.");
+                else if( messageIds.indexOf(messageId) == 7 &&  messageIds.contains(1202))
+                    System.out.print(messageId + ".");
+                else
+                    System.out.print(messages.get(messageId).getName());
             }
         }
         else if (messageIds.contains(10001)) {

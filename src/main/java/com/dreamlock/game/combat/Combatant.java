@@ -7,10 +7,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public abstract class Combatant {
-    protected Integer health;
-    protected Integer attack;
-    protected Integer defense;
-    protected Boolean isAlive;
+    protected String name;
+    protected int health;
+    protected int attack;
+    protected int defense;
+
 
     protected Map<String,ICombatState> states;
 
@@ -18,27 +19,35 @@ public abstract class Combatant {
         return states;
     }
 
-    public Integer getHealth() {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getHealth() {
         return health;
     }
 
-    public void setHealth(Integer health) {
+    public void setHealth(int health) {
         this.health = health;
     }
 
-    public Integer getAttack() {
+    public int getAttack() {
         return attack;
     }
 
-    public void setAttack(Integer attack) {
+    public void setAttack(int attack) {
         this.attack = attack;
     }
 
-    public Integer getDefense() {
+    public int getDefense() {
         return defense;
     }
 
-    public void setDefense(Integer defense) {
+    public void setDefense(int defense) {
         this.defense = defense;
     }
 

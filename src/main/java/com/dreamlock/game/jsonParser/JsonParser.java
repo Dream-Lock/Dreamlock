@@ -77,11 +77,14 @@ public class JsonParser {
 
             List<Enemy> enemies = new ArrayList<>();
             for (EnemyDTO enemyDTO : roomDTO.getEnemies()){ //for every enemy the room contains
-                Enemy enemy = new Enemy();
                 String enemyPath = enemyDTO.getPath();  //path of the room
                 String jsonEnemy = read(enemyPath); //the string the file contains
+
                 JsonElement enemyElement = gson.fromJson(jsonEnemy, JsonElement.class); //parse to jsonElement
                 JsonObject jsonEnemyObj = enemyElement.getAsJsonObject();  //parse to jsonObject
+                Enemy enemy = new Enemy();
+
+                enemy.setId(jsonEnemyObj.get("id").getAsInt());
                 enemy.setName(jsonEnemyObj.get("name").getAsString());
                 enemy.setDescription(jsonEnemyObj.get("description").getAsString());
                 enemy.setHealth(jsonEnemyObj.get("health").getAsInt());

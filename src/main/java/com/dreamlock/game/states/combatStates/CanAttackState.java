@@ -2,20 +2,26 @@ package com.dreamlock.game.states.combatStates;
 
 
 import com.dreamlock.game.IGameContext;
-import com.dreamlock.game.models.Enemy;
+import com.dreamlock.game.combat.Combatant;
 import com.dreamlock.game.states.ICombatState;
 
 public class CanAttackState implements ICombatState {
+    protected int damageDone;
+
     @Override
     public Integer doAction(IGameContext context) {
         return null;
     }
 
     @Override
-    public Integer doAction(IGameContext context, Enemy enemy) {
-        enemy.setHealth(enemy.getHealth() - (enemy.getDefense() - context.getPlayer().getAttack()));
-        context.getPlayer().setHealth(context.getPlayer().getHealth() - (enemy.getAttack() - context.getPlayer().getDefense()));
-        return 1201;
+    public Integer doAction(IGameContext context, Combatant current, Combatant enemy) {
+        
+        damageDone =  current.getAttack() - enemy.getDefense();
+        if (damageDone <= 0)
+            damageDone = 1;
+
+        enemy.setHealth(enemy.getHealth() - damageDone);
+        return damageDone;
     }
 
 }

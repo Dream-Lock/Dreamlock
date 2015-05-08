@@ -1,6 +1,7 @@
 package com.dreamlock.messageSystem;
 
 import com.dreamlock.game.jsonParser.items.Item;
+import com.dreamlock.game.models.Enemy;
 import com.dreamlock.game.models.Message;
 import com.dreamlock.game.models.Player;
 import com.dreamlock.game.models.Room;
@@ -18,6 +19,10 @@ public class GameMessages {
             gameMessages.put(room.getId(), new Message(room.getTitle(), room.getDescription()));
             for (Item item : room.getItems()) {
                 gameMessages.put(item.getId(), new Message(item.getName(), item.getDescription()));
+            }
+            for(Enemy enemy: room.getEnemies()){
+                gameMessages.put(enemy.getId(), new Message(enemy.getName(), enemy.getDescription()));
+
             }
         }
     }

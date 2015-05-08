@@ -1,5 +1,6 @@
 package com.dreamlock.game;
 
+import com.dreamlock.game.combat.TurnBattle;
 import com.dreamlock.game.models.History;
 import com.dreamlock.game.models.Player;
 import com.dreamlock.game.models.Room;
@@ -10,6 +11,7 @@ public class GameContext implements IGameContext {
     private Room currentRoom;
     private Player player;
     private History history;
+    private TurnBattle turnbattle;
 
     public GameContext(Map<Integer, Room> rooms, Player player) {
         this.player = player;
@@ -35,10 +37,16 @@ public class GameContext implements IGameContext {
     @Override
     public void setCurrentRoom(Room room) {
         currentRoom = room;
+        turnbattle = new TurnBattle(this, currentRoom);
     }
 
     @Override
     public Player getPlayer() {
         return player;
+    }
+
+    @Override
+    public TurnBattle getTurnBattle() {
+        return turnbattle;
     }
 }

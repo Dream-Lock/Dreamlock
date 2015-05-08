@@ -2,6 +2,7 @@ package com.dreamlock.game.commands;
 
 import com.dreamlock.game.IGameContext;
 import com.dreamlock.game.jsonParser.items.Item;
+import com.dreamlock.game.models.Enemy;
 import com.dreamlock.game.models.Room;
 import com.dreamlock.game.models.Word;
 
@@ -17,10 +18,16 @@ public class Look implements ICommand  {
 
         output.add(10003);
         output.add(room.getId());
-        //output.add(10000);
         for (Item item : gameContext.getCurrentRoom().getItems()) {
             output.add(10002);
             output.add(item.getId());
+        }
+
+        for (Enemy enemy : gameContext.getCurrentRoom().getEnemies()) {
+            if (enemy.isAlive()) {
+                output.add(10002);
+                output.add(enemy.getId());
+            }
         }
         return output;
     }
