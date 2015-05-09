@@ -38,6 +38,7 @@ public class GameContext implements IGameContext, Serializable {
     @Override
     public void setCurrentRoom(Room room) {
         currentRoom = room;
+        turnbattle = new TurnBattle(this, currentRoom);
     }
 
     @Override

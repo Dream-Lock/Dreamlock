@@ -22,9 +22,9 @@ public class MessageHandler {
             messageIds.add(10002);
             messageIds.add(10002);
             for (Integer messageId : messageIds) {
-                if(messageIds.indexOf(messageId) == 3 && messageIds.contains(1201))
+                if(messageIds.indexOf(messageId) == 3 && messageIds.contains(1301))
                     System.out.print(messageId + " points of damage.");
-                else if( messageIds.indexOf(messageId) == 7 &&  messageIds.contains(1202))
+                else if( messageIds.indexOf(messageId) == 7 &&  messageIds.contains(1302))
                     System.out.print(messageId + ".");
                 else
                     System.out.print(messages.get(messageId).getName());

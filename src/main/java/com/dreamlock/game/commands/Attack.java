@@ -39,16 +39,16 @@ public class Attack implements ICommand {
         if (enemiesFound == 1) {
             if (foundEnemy.getHealth() > 0) {
                 output.add(foundEnemy.getId());
-                output.add(1201);
+                output.add(1301);
                 output.add(foundEnemy.getStates().get("Attack").doAction(gameContext, gameContext.getPlayer() ,foundEnemy));
                 if (!foundEnemy.isAlive()) {
                     output.add(10002);
                     output.add(foundEnemy.getId());
-                    output.add(1207);
+                    output.add(1307);
                 }
 
             }else if (foundEnemy.getHealth() <= 0) {
-                output.add(1206);
+                output.add(1306);
             }
 
             List<Integer> templist = gameContext.getTurnBattle().nextTurn(gameContext);
@@ -60,7 +60,7 @@ public class Attack implements ICommand {
             return output;
         }
 
-        output.add(1205);
+        output.add(1305);
         return output;
     }
 }

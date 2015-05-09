@@ -15,9 +15,10 @@ public class Player extends Combatant implements Serializable {
         this.setHealth(25);
         this.setAttack(5);
         this.setDefense(1);
-        
+
         states = new HashMap<>();
         states.put("Attack", new CanAttackState());
+    }
 
 
     public Inventory getInventory() {

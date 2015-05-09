@@ -28,7 +28,7 @@ public class TurnBattle {
             characters.get(0).getStates().get("Attack").doAction(gameContext, characters.get(currentChar) , characters.get(0));
             output.add(10002);
             output.add(((Enemy) (characters.get(currentChar))).getId());
-            output.add(1202);
+            output.add(1302);
             output.add(gameContext.getPlayer().getHealth());
         }
 
