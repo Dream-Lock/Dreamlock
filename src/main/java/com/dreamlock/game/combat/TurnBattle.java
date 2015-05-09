@@ -5,10 +5,11 @@ import com.dreamlock.game.IGameContext;
 import com.dreamlock.game.models.Enemy;
 import com.dreamlock.game.models.Room;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TurnBattle {
+public class TurnBattle implements Serializable{
     private List<Combatant> characters;
     private int currentChar;
     private boolean inCombat;

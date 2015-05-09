@@ -5,9 +5,11 @@ import com.dreamlock.game.jsonParser.DTOs.EnemyDTO;
 import com.dreamlock.game.states.combatStates.CanAttackState;
 import com.google.gson.Gson;
 
+import java.awt.*;
+import java.io.Serializable;
 import java.util.HashMap;
 
-public class Enemy extends Combatant{
+public class Enemy extends Combatant implements Serializable{
     private int id;
     private String description;
 

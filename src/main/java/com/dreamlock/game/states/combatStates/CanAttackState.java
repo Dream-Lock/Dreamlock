@@ -5,7 +5,9 @@ import com.dreamlock.game.IGameContext;
 import com.dreamlock.game.combat.Combatant;
 import com.dreamlock.game.states.ICombatState;
 
-public class CanAttackState implements ICombatState {
+import java.io.Serializable;
+
+public class CanAttackState implements ICombatState, Serializable {
     protected int damageDone;
 
     @Override

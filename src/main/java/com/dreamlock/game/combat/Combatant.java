@@ -3,10 +3,11 @@ package com.dreamlock.game.combat;
 
 import com.dreamlock.game.states.ICombatState;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class Combatant {
+public abstract class Combatant implements Serializable{
     protected String name;
     protected int health;
     protected int attack;
