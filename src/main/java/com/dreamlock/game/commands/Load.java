@@ -18,8 +18,8 @@ public class Load implements ICommand {
             ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("save.dat"));
             GameContext LoadedGameContext = (GameContext)inputStream.readObject();
 
-            gameContext.setCurrentRoom(LoadedGameContext.getCurrentRoom());
             gameContext.setPlayer(LoadedGameContext.getPlayer());
+            gameContext.setCurrentRoom(LoadedGameContext.getCurrentRoom());
             gameContext.setHistory(LoadedGameContext.getHistory());
 
             inputStream.close();
