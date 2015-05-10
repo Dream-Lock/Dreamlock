@@ -17,28 +17,44 @@ public class Drop implements ICommand {
     @Override
     public List<Integer> execute(IGameContext gameContext, Map<Integer, Word> words) {
         List<Integer> output = new ArrayList<>();
-        Integer itemsFound = 0;
-        Item foundItem = null;
-        Word word = words.get(2);
-        List<Item> items = gameContext.getPlayer().getInventory().getItems();
+//        Integer itemsFound = 0;
+//        Item foundItem = null;
+//        Word word = words.get(2);
+//        List<Item> items = gameContext.getPlayer().getInventory().getItems();
+//
+//        for (Item item : items) {
+//            if (item.getName().toLowerCase().contains(word.getDescription())) {
+//                itemsFound++;
+//                foundItem = item;
+//            }
+//        }
 
-        for (Item item : items) {
-            if (item.getName().toLowerCase().contains(word.getDescription())) {
-                itemsFound++;
-                foundItem = item;
+        List<Item> foundItems = gameContext.getPlayer().getInventory().containsItems(words);
+        if (foundItems != null) {
+            output.add(10000);
+            if (foundItems.size() ==1 ) {
+                output.add(foundItems.get(0).getId());
+                output.add(foundItems.get(0).getStates().get("Drop").doAction(gameContext, foundItems.get(0)));
+                return output;
+            }
+            else if (foundItems.size() > 1) {
+                output.add(2001);
+                return output;
             }
         }
 
-        output.add(10000);
-        if (itemsFound == 1) {
-            output.add(foundItem.getId());
-            output.add(foundItem.getStates().get("Drop").doAction(gameContext, foundItem));
-            return output;
-        }
-        else if (itemsFound > 1) {
-            output.add(2001);
-            return output;
-        }
+//
+//
+//        output.add(10000);
+//        if (itemsFound == 1) {
+//            output.add(foundItem.getId());
+//            output.add(foundItem.getStates().get("Drop").doAction(gameContext, foundItem));
+//            return output;
+//        }
+//        else if (itemsFound > 1) {
+//            output.add(2001);
+//            return output;
+//        }
 
         output.add(1042);
         return output;

@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * A Model of a room
@@ -95,5 +96,28 @@ public class Room implements Serializable{
 
     public void setEnemies(List<Enemy> enemies){
         this.enemies = enemies;
+    }
+
+    public Item containsItem(Map<Integer, Word> words) {
+        Word word = words.get(2);
+
+        for (Item item : this.items) {
+            if (item.getName().toLowerCase().equals(word.getDescription())) {
+                return item;
+            }
+        }
+        return null;
+    }
+
+    public List<Item> containsItems(Map<Integer, Word> words) {
+        Word word = words.get(2);
+        List<Item> foundItems = new ArrayList<>();
+
+        for (Item item : this.items) {
+            if (item.getName().toLowerCase().contains(word.getDescription())) {
+                foundItems.add(item);
+            }
+        }
+        return foundItems;
     }
 }
