@@ -74,6 +74,8 @@ public enum CommandMessages {
         commandMessages.put(1307, new Message(" has died.",""));
         // general messages
         commandMessages.put(2001, new Message("There more than one items with that name!", ""));
+        // error messages
+        commandMessages.put(2101, new Message("I don't think I can do that", ""));
 
     }
 

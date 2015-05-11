@@ -71,7 +71,6 @@ public class Dreamlock {
 
                 ArrayList<Lexeme> lexemes = lexer.tokenize(line);
                 JsonObject output =  parser.parse(lexemes);
-                // TODO: error handling
                 historyController.register(line);
                 CommandHandler commandHandler = new CommandHandler(output, gameContext);
                 List<Integer> messageIds = commandHandler.handle();
