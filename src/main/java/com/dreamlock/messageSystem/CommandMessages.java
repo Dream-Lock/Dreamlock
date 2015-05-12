@@ -40,15 +40,16 @@ public enum CommandMessages {
         commandMessages.put(1080, new Message("You don't have any items in your inventory!",""));
         commandMessages.put(1081, new Message("In your Inventory you have:",""));
         // help messages
-        commandMessages.put(1100, new Message("Go -> ","Move around."));
-        commandMessages.put(1101, new Message("Examine -> ","With this command tou can examine an item."));
-        commandMessages.put(1102, new Message("Drop -> ","With this command you can drop items"));
-        commandMessages.put(1103, new Message("Inspect -> ","With this command you can inspect items in your inventory."));
+        commandMessages.put(1100, new Message("Go <direction> -> ","Move around."));
+        commandMessages.put(1101, new Message("Examine <item> -> ","With this command tou can examine an item."));
+        commandMessages.put(1102, new Message("Drop <item> -> ","With this command you can drop items"));
+        commandMessages.put(1103, new Message("Inspect <item> -> ","With this command you can inspect items in your inventory."));
         commandMessages.put(1104, new Message("Look -> ","This will give you a full description of your location."));
-        commandMessages.put(1105, new Message("Open -> ","Open an item"));
-        commandMessages.put(1106, new Message("Pick up -> ","With this command you can pick up items"));
+        commandMessages.put(1105, new Message("Open <item> -> ","Open an item"));
+        commandMessages.put(1106, new Message("Pick up <item> -> ","With this command you can pick up items"));
         commandMessages.put(1107, new Message("Quit -> ","This lets you stop."));
-        commandMessages.put(1108, new Message("Inventory -> ","With this command you can view the items that are in your inventory."));
+        commandMessages.put(1108, new Message("Save <filename> -> ","With this command you can save your game progress."));
+        commandMessages.put(1109, new Message("Reload <filename> -> ","Reloads your character's most recent saved game."));
         // open messages
         commandMessages.put(1120, new Message(" opened successfully!",""));
         commandMessages.put(1121, new Message(" can't be opened!!",""));
@@ -57,6 +58,7 @@ public enum CommandMessages {
         //save messages
         commandMessages.put(1200, new Message("Game was saved successfully!!",""));
         commandMessages.put(1201, new Message("Save was not successful! :-(",""));
+        commandMessages.put(1202, new Message("Please specify a name for the save file, ex. save <filename>",""));
         //load messages
         commandMessages.put(1210, new Message("Loading completed successfully!!",""));
         commandMessages.put(1211, new Message("Could not load game!! :-(",""));
@@ -76,7 +78,8 @@ public enum CommandMessages {
         commandMessages.put(2001, new Message("There more than one items with that name!", ""));
         // error messages
         commandMessages.put(2101, new Message("I don't think I can do that", ""));
-
+        //quit messages
+        commandMessages.put(5000, new Message("Quiting to Main Menu", ""));
     }
 
     private final Map<Integer, Message> commandMessages;

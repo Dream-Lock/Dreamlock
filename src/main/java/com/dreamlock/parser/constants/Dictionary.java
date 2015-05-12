@@ -22,7 +22,7 @@ public enum Dictionary {
         dictionary.put("inventory", new Lexeme(1, "inventory", TokenType.VERB, 3000));
         dictionary.put("i", new Lexeme(1, "i", TokenType.VERB, 3000));
         dictionary.put("save", new Lexeme(1, "save", TokenType.VERB, 3000));
-        dictionary.put("load", new Lexeme(1, "load", TokenType.VERB, 3000));
+        dictionary.put("reload", new Lexeme(1, "reload", TokenType.VERB, 3000));
 
         dictionary.put("go", new Lexeme(2, "go", TokenType.VERB, 3000));
         dictionary.put("walk", new Lexeme(2, "walk", TokenType.VERB, 3000));
@@ -32,8 +32,6 @@ public enum Dictionary {
         dictionary.put("drop", new Lexeme(3, "drop", TokenType.VERB, 3000));
         dictionary.put("inspect", new Lexeme(3, "inspect", TokenType.VERB, 3000));
         dictionary.put("attack", new Lexeme(3, "attack", TokenType.VERB, 3000));
-
-
         dictionary.put("open", new Lexeme(3, "open", TokenType.VERB, 3000));
 
         /** CONJUCTIONS **/

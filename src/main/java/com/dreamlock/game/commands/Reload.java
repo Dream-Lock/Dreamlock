@@ -10,12 +10,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class Load implements ICommand {
+public class Reload implements ICommand {
     @Override
     public List<Integer> execute(IGameContext gameContext) {
         List<Integer> output = new ArrayList<>();
         try {
-            ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("save.dat"));
+            String saveFileName = gameContext.getPlayer().getName();
+            ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("saves/"+saveFileName+".dat"));
             GameContext LoadedGameContext = (GameContext)inputStream.readObject();
 
             gameContext.setPlayer(LoadedGameContext.getPlayer());

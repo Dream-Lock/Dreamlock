@@ -1,5 +1,6 @@
 package com.dreamlock.game.jsonParser.items;
 
+import com.dreamlock.game.IGameContext;
 import com.dreamlock.game.states.IState;
 
 import java.io.Serializable;
@@ -13,6 +14,10 @@ public abstract class Item implements Serializable{
 
     protected Map<String,IState> states;
     protected Map<String, Object> stats;
+
+    public int doActionState (String state, IGameContext gameContext) {
+        return states.get(state).doAction(gameContext, this);
+    }
 
     public Map<String, Object> getStats() {
         return stats;

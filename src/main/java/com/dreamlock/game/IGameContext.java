@@ -20,5 +20,7 @@ public interface IGameContext {
 
     TurnBattle getTurnBattle();
 
-    
+    boolean gameIsRunning ();
+
+    void setGameRunning (boolean running);
 }

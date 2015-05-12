@@ -15,9 +15,10 @@ public class Save implements ICommand{
     public List<Integer> execute(IGameContext gameContext) {
         List<Integer> output = new ArrayList<>();
         try {
-            File file = new File("save.dat");
+            String saveFileName = gameContext.getPlayer().getName();
+            File file = new File("saves/"+saveFileName+".dat");
             if (!file.exists()) {
-                file.createNewFile();
+                file.getParentFile().mkdirs();
             }
             FileOutputStream fileStream = new FileOutputStream(file);
             ObjectOutputStream objectStream = new ObjectOutputStream(fileStream);

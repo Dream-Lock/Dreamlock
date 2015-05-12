@@ -13,11 +13,13 @@ public class GameContext implements IGameContext, Serializable {
     private Player player;
     private History history;
     private TurnBattle turnbattle;
+    boolean gameRunning;
 
     public GameContext(Map<Integer, Room> rooms, Player player) {
         this.player = player;
         this.currentRoom = rooms.get(1);
         this.history = new History();
+        this.gameRunning = true;
     }
 
     @Override
@@ -54,5 +56,15 @@ public class GameContext implements IGameContext, Serializable {
     @Override
     public TurnBattle getTurnBattle() {
         return turnbattle;
+    }
+
+    @Override
+    public boolean gameIsRunning() {
+        return gameRunning;
+    }
+
+    @Override
+    public void setGameRunning(boolean running) {
+        this.gameRunning = running;
     }
 }
