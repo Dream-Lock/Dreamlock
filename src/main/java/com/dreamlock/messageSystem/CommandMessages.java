@@ -55,6 +55,7 @@ public enum CommandMessages {
         commandMessages.put(1121, new Message(" can't be opened!!",""));
         commandMessages.put(1122, new Message(" is locked and requires a certain key to open!!",""));
         commandMessages.put(1123, new Message(" is already opened!!",""));
+        commandMessages.put(1124, new Message("In the chest you find: ",""));
         //save messages
         commandMessages.put(1200, new Message("Game was saved successfully!!",""));
         commandMessages.put(1201, new Message("Save was not successful! :-(",""));
