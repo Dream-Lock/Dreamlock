@@ -229,7 +229,7 @@ public class Dreamlock {
 
     public static void GameLogo () {
 
-        int width = 100;
+        int width = 120;
         int height = 10;
 
         BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
@@ -240,7 +240,7 @@ public class Dreamlock {
         graphics.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
                 RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 
-        graphics.drawString("Dreamlock", 20, 10);
+        graphics.drawString("Dreamlock", 2, 10);
 
         for (int y = 0; y < height; y++) {
             StringBuilder sb = new StringBuilder();
