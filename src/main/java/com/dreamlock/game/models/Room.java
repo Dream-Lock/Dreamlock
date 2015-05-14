@@ -18,7 +18,8 @@ public class Room implements Serializable{
     private List<Item> items;
     private int id;
     private List<Enemy> enemies;
-
+    private boolean locked;
+    private int requires;
     /**
      * Constructor for <b>empty rooms</b>.
      */
@@ -96,6 +97,22 @@ public class Room implements Serializable{
 
     public void setEnemies(List<Enemy> enemies){
         this.enemies = enemies;
+    }
+
+    public boolean isLocked() {
+        return locked;
+    }
+
+    public void setLocked(boolean locked) {
+        this.locked = locked;
+    }
+
+    public int getRequires() {
+        return requires;
+    }
+
+    public void setRequires(int requires) {
+        this.requires = requires;
     }
 
     public Item containsItem(Map<Integer, Word> words) {

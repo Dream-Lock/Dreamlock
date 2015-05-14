@@ -43,6 +43,12 @@ public class JsonParser {
             room.setDescription(jsonRoomObj.get("description").getAsString());
             room.setTitle(jsonRoomObj.get("title").getAsString());
             room.setId(jsonRoomObj.get("id").getAsInt());
+            room.setLocked(jsonRoomObj.get("locked").getAsBoolean());
+
+            if (room.isLocked()) {                                  //check if room is locked and initialize it accordingly
+                room.setRequires(jsonRoomObj.get("requires").getAsInt());
+            }
+            else room.setRequires(0);
 
             List<Item> items = new ArrayList<>();
             for (ItemDTO itemDTO : roomDTO.getItems()) {        // for every item, the room contain

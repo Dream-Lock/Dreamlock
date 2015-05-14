@@ -26,6 +26,9 @@ public enum CommandMessages {
         commandMessages.put(1003, new Message("north", ""));
         commandMessages.put(1004, new Message("east", ""));
         commandMessages.put(1005, new Message("south", ""));
+        commandMessages.put(1006, new Message("Door unlocked successfully!", ""));
+        commandMessages.put(1007, new Message("You turn the handle of the door, but it seems that the door is locked!", ""));
+
         // Examine messages
         commandMessages.put(1020, new Message("I can't find anything with that name!", ""));
         // Drop messages

@@ -1,5 +1,6 @@
 {
   "id":3,
   "title": "Castle Lobby",
-  "description": "This is the lobby. Behind you a set of heavy iron doors are shut tight.\nThe room is bare, safe for some tapestry and three doors - One on each wall."
+  "description": "This is the lobby. Behind you a set of heavy iron doors are shut tight.\nThe room is bare, safe for some tapestry and three doors - One on each wall.",
+  "locked":false
 }
