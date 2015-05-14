@@ -3,5 +3,6 @@
   "type":"Armor",
   "name":"Iron helmet",
   "description":"A simple iron helmet",
-  "defense":5
+  "defense":5,
+  "slow":"HEAD"
 }

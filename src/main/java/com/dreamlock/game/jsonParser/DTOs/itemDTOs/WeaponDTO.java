@@ -1,11 +1,18 @@
 package com.dreamlock.game.jsonParser.DTOs.itemDTOs;
 
+import com.dreamlock.game.jsonParser.items.Item;
+
 public class WeaponDTO {
     private int id;
     private String type;
     private String name;
     private String description;
     private String attack;
+    private Item.Slot slot;
+
+    public Item.Slot getSlot() {
+        return slot;
+    }
 
     public int getId() {
         return id;

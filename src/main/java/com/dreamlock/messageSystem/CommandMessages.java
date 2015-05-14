@@ -49,6 +49,9 @@ public enum CommandMessages {
         commandMessages.put(1106, new Message("Pick up -> ","With this command you can pick up items"));
         commandMessages.put(1107, new Message("Quit -> ","This lets you stop."));
         commandMessages.put(1108, new Message("Inventory -> ","With this command you can view the items that are in your inventory."));
+        commandMessages.put(1109, new Message("Attack -> ","This lets you attack opponents."));
+        commandMessages.put(1110, new Message("Inspect -> ","This lets you inspect equipment statistics."));
+        commandMessages.put(1111, new Message("Equip -> ","This lets you equip items to your weapon and armor slots."));
         // open messages
         commandMessages.put(1120, new Message(" opened successfully!",""));
         commandMessages.put(1121, new Message(" can't be opened!!",""));
@@ -72,6 +75,10 @@ public enum CommandMessages {
         commandMessages.put(1305, new Message(" There is no such enemy here.",""));
         commandMessages.put(1306, new Message(" That enemy is already dead.",""));
         commandMessages.put(1307, new Message(" has died.",""));
+        //equip messages
+        commandMessages.put(1401, new Message(" was successfully equipped.",""));
+        commandMessages.put(1402, new Message(" was unequipped.",""));
+        commandMessages.put(1403, new Message(" is not an item that could be equipped!",""));
         // general messages
         commandMessages.put(2001, new Message("There more than one items with that name!", ""));
 

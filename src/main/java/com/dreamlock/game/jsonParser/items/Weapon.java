@@ -8,6 +8,8 @@ import java.util.HashMap;
 
 public class Weapon extends Item {
 
+    private Slot slot;
+
     public Weapon(String jsonItem) {
         Gson gson = new Gson();
         WeaponDTO weaponDTO = gson.fromJson(jsonItem, WeaponDTO.class);
@@ -15,6 +17,8 @@ public class Weapon extends Item {
         type = weaponDTO.getType();
         name = weaponDTO.getName();
         description = weaponDTO.getDescription();
+
+        slot = weaponDTO.getSlot();
 
         stats = new HashMap<>();
         stats.put("attack", weaponDTO.getAttack());

@@ -3,5 +3,6 @@
   "type":"Weapon",
   "name":"Wooden Axe",
   "description":"A simple wooden axe. A Woodcutter's best choice and friend!",
-  "attack":10
+  "attack":10,
+  "slot":"MAINHAND"
 }

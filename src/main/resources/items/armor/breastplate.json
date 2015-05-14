@@ -1,0 +1,8 @@
+{
+  "id":101,
+  "type":"Armor",
+  "name":"Iron Breastplate",
+  "description":"A crude iron breastplate",
+  "defense":10,
+  "slow":"CHEST"
+}

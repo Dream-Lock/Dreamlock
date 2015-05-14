@@ -12,7 +12,7 @@ public class Help implements ICommand  {
     public List<Integer> execute(IGameContext gameContext) {
         List<Integer> output = new ArrayList<>();
         output.add(10004);
-        for (int i = 1100 ; i < 1109 ; i++) {
+        for (int i = 1100 ; i < 1112 ; i++) {
             output.add(i);
             output.add(10003);
         }

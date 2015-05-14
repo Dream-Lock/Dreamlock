@@ -1,11 +1,18 @@
 package com.dreamlock.game.jsonParser.DTOs.itemDTOs;
 
+import com.dreamlock.game.jsonParser.items.Item;
+
 public class ArmorDTO {
     private int id;
     private String type;
     private String name;
     private String description;
-    private String defence;
+    private String defense;
+    private Item.Slot slot;
+
+    public Item.Slot getSlot() {
+        return slot;
+    }
 
     public int getId() {
         return id;
@@ -23,8 +30,8 @@ public class ArmorDTO {
         return description;
     }
 
-    public String getDefence() {
-        return defence;
+    public String getDefense() {
+        return defense;
     }
 
 }

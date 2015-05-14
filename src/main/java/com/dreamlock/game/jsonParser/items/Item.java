@@ -5,6 +5,9 @@ import com.dreamlock.game.states.IState;
 import java.io.Serializable;
 import java.util.Map;
 
+
+
+
 public abstract class Item implements Serializable{
     protected Integer id;
     protected String name;
@@ -13,6 +16,10 @@ public abstract class Item implements Serializable{
 
     protected Map<String,IState> states;
     protected Map<String, Object> stats;
+
+    public enum Slot{
+        HEAD, CHEST, MAINHAND;
+    }
 
     public Map<String, Object> getStats() {
         return stats;
