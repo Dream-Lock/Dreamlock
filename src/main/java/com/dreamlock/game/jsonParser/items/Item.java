@@ -1,12 +1,10 @@
 package com.dreamlock.game.jsonParser.items;
 
+import com.dreamlock.game.IGameContext;
 import com.dreamlock.game.states.IState;
 
 import java.io.Serializable;
 import java.util.Map;
-
-
-
 
 public abstract class Item implements Serializable{
     protected Integer id;
@@ -19,6 +17,10 @@ public abstract class Item implements Serializable{
 
     public enum Slot{
         HEAD, CHEST, MAINHAND;
+    }
+
+    public int doActionState (String state, IGameContext gameContext) {
+        return states.get(state).doAction(gameContext, this);
     }
 
     public Map<String, Object> getStats() {

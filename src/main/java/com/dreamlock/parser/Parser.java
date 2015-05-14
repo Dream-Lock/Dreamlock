@@ -41,12 +41,39 @@ public class Parser {
             sentences.add(sentence);
 
             JsonObject output = new JsonObject();
+            output.addProperty("error", false);
             output.add("sentences", sentences);
             return output;
         }
         else {
             JsonObject output = new JsonObject();
-            output.addProperty("Error", "1");
+            StringBuilder ruleStringBuilder = new StringBuilder();
+            StringBuilder command = new StringBuilder();
+            Integer correctWords = 0;
+
+            output.addProperty("error", true);
+
+            for (int i = 0; i < lexemes.size(); i++) {
+                ruleStringBuilder.append(lexemes.get(i).getTokenType().toString().charAt(0));
+                ruleStringBuilder.append(Integer.toString(lexemes.get(i).getId()));
+                command.append(lexemes.get(i).getTypedString() + " ");
+                if (rules.getRule(ruleStringBuilder.toString())) {
+                    correctWords = i + 1;
+                    output.addProperty("correctCommand", command.toString());
+                }
+            }
+
+            if (correctWords == 0 && lexemes.get(0).getTokenType().toString().equals("VERB")) {
+                if (lexemes.size() == 1) {
+                    correctWords = 100;
+                }
+                else {
+                    correctWords++;
+                }
+                output.addProperty("correctCommand", lexemes.get(0).getTypedString());
+            }
+
+            output.addProperty("correctWords", correctWords);
             return output;
         }
     }
