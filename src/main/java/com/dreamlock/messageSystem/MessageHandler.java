@@ -23,10 +23,7 @@ public class MessageHandler {
             messageIds.add(10002);
             for (int i=0;i<messageIds.size();i++) {
                 int messageId = messageIds.get(i);
-                int next_message_id_idx = i+1;
-                if(next_message_id_idx < messageIds.size() && messageIds.contains(1301) && messageIds.get(next_message_id_idx) == 1309)
-                    System.out.print(messageId);
-                else if( next_message_id_idx < messageIds.size() &&  messageIds.contains(1302) && messageIds.get(next_message_id_idx) == 1308)
+                if(asItself(messageIds,i,messageId))
                     System.out.print(messageId);
                 else
                     System.out.print(messages.get(messageId).getName());
@@ -72,5 +69,15 @@ public class MessageHandler {
                 }
             }
         }
+    }
+
+    private boolean asItself(List<Integer> messageIds, int i, int messageId){
+        int next_message_id_idx = i+1;
+        if(next_message_id_idx < messageIds.size() && messageIds.contains(1301) && messageIds.get(next_message_id_idx) == 1309)
+            return true;
+        else if( next_message_id_idx < messageIds.size() && messageIds.get(next_message_id_idx) == 1308)
+            return true;
+
+        return false;
     }
 }

@@ -73,7 +73,7 @@ public enum CommandMessages {
         //inspect messages
         commandMessages.put(1130, new Message(" has an attack rating of ", ""));
         commandMessages.put(1131, new Message(" has a defense rating of ",""));
-        commandMessages.put(1131, new Message(" cannot be equipped!",""));
+        commandMessages.put(1132, new Message(" cannot be equipped!",""));
         //attack messages
         commandMessages.put(1301, new Message(" was attacked for ",""));
         commandMessages.put(1302, new Message(" attacked you. Remaining health points: ",""));

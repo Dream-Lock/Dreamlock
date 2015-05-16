@@ -18,34 +18,49 @@ public class Inspect implements ICommand {
     @Override
     public List<Integer> execute(IGameContext gameContext, Map<Integer, Word> words) {
         List<Integer> output = new ArrayList<>();
-        Integer itemsFound = 0;
-        Item foundItem = null;
+
         Word word = words.get(2);
 
-        List<Item> items = gameContext.getPlayer().getInventory().getItems();
-        for (Item item : items) {
-            if (item.getName().toLowerCase().contains(word.getDescription())) {
-                itemsFound++;
-                foundItem = item;
+        List<Item> foundItems = gameContext.getPlayer().getInventory().containsItems(words);
+
+        Item item = gameContext.getPlayer().getSlot(Item.EquipmentSlot.HEAD);
+        if(item != null){
+            if (item.getName().toLowerCase().equals(word.getDescription())) {
+                foundItems.add(item);
             }
         }
-
-        if (itemsFound == 1) {
-            output.add(10001);          // print only description
-            output.add(foundItem.getId());   // item to print
-            if (foundItem.getType().equals("Weapon")) {
-                output.add(1130);
-
-            }else if (foundItem.getType().equals("Armor")){
-                output.add(1131);
+        item = gameContext.getPlayer().getSlot(Item.EquipmentSlot.CHEST);
+        if(item != null){
+            if (item.getName().toLowerCase().equals(word.getDescription())) {
+                foundItems.add(item);
             }
-
-            return output;
         }
-        else if (itemsFound > 1) {
+        item = gameContext.getPlayer().getSlot(Item.EquipmentSlot.MAIN_HAND);
+        if(item != null){
+            if (item.getName().toLowerCase().equals(word.getDescription())) {
+                foundItems.add(item);
+            }
+        }
+        if (foundItems != null) {
             output.add(10000);
-            output.add(2001);
-            return output;
+            if (foundItems.size() ==1 ) {
+                if (foundItems.get(0).getType().equalsIgnoreCase("armor")) {
+                    output.add(foundItems.get(0).getId());
+                    output.add(1131);
+                    output.add( Integer.parseInt(foundItems.get(0).getStats().get("defense").toString()));
+                    output.add(1308);
+                }else if (foundItems.get(0).getType().equalsIgnoreCase("weapon")){
+                    output.add(foundItems.get(0).getId());
+                    output.add(1130);
+                    output.add( Integer.parseInt(foundItems.get(0).getStats().get("attack").toString()));
+                    output.add(1308);
+                }
+                return output;
+            }
+            else if (foundItems.size() > 1) {
+                output.add(2001);
+                return output;
+            }
         }
         output.add(10000);          // print only title
         output.add(1020);           // I can't find anything with that name!
