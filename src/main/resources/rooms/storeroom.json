@@ -1,5 +1,7 @@
 {
   "id":4,
   "title": "Storeroom",
-  "description": "The storeroom is dim and dusty, looking like it isn't used all too much.\nIn the left corner you spot a weapon rack, while some barrels line the opposite wall."
+  "description": "The storeroom is dim and dusty, looking like it isn't used all too much.\nIn the left corner you spot a weapon rack, while some barrels line the opposite wall.",
+  "locked": true,
+  "requires": 400
 }
