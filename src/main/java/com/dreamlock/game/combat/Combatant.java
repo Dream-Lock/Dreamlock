@@ -109,9 +109,14 @@ public abstract class Combatant implements Serializable{
             attack_mod+= Integer.parseInt(main_hand.getValue().getStats().get("attack").toString());
         }
 
-        this.setHealth(10 + getStamina() + stamina_mod);
-        this.setAttack(1 + getStrength() + strength_mod + attack_mod);
-        this.setDefense(1 + getAgility() + agility_mod + defense_mod);
+        this.setStamina(1 + stamina_mod);
+        this.setStrength(1 + strength_mod);
+        this.setAgility(1 + agility_mod);
+
+        this.setHealth(10 + getStamina());
+        this.setAttack(1 + getStrength() + attack_mod);
+        this.setDefense(1 + getAgility() + defense_mod);
+
     }
 
     public boolean isAlive() {

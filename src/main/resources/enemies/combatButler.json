@@ -3,6 +3,6 @@
   "name":"Combat Butler",
   "description":"DAT BEARD YO",
   "health":5000,
-  "attack":2,
-  "defense":0
+  "attack":15,
+  "defense":100
 }

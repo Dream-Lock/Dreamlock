@@ -50,12 +50,13 @@ public class MessageHandler {
         }else if (messageIds.contains(10005)) {
             messageIds.add(10003);
             messageIds.add(10003);
-            System.out.print("Health: "+ messageIds.get(0));
-            System.out.print("Attack: "+ messageIds.get(0));
-            System.out.print("Defense: "+ messageIds.get(0));
-            System.out.print("Stamina: "+ messageIds.get(0));
-            System.out.print("Strength: "+ messageIds.get(0));
-            System.out.print("Agility: "+ messageIds.get(0));
+            System.out.println("Health: " + messageIds.get(1));
+            System.out.println("Attack: " + messageIds.get(2));
+            System.out.println("Defense: " + messageIds.get(3));
+            System.out.println("Stamina: " + messageIds.get(4));
+            System.out.println("Strength: " + messageIds.get(5));
+            System.out.println("Agility: " + messageIds.get(6));
+            System.out.println();
         }
         else {
             messageIds.add(10003);
