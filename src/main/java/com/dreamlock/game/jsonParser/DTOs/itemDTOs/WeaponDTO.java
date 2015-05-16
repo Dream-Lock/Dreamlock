@@ -11,10 +11,12 @@ public class WeaponDTO {
     private String stamina;
     private String strength;
     private String agility;
-    private Item.EquipmentSlot equipmentSlot;
+    private String equipmentSlot;
 
     public Item.EquipmentSlot getEquipmentSlot() {
-        return equipmentSlot;
+        if(equipmentSlot.equals("main_hand"))
+            return Item.EquipmentSlot.MAIN_HAND;
+        return null;
     }
 
     public int getId() {

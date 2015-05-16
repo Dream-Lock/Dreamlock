@@ -29,6 +29,7 @@ public enum Commands {
         commands.put("attack", new Attack());
         commands.put("save", new Save());
         commands.put("equip", new Equip());
+        commands.put("status", new Status());
     }
 
     private final Map<String, ICommand> commands;

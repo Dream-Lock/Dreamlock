@@ -31,7 +31,7 @@ public enum CommandMessages {
         // Drop messages
         commandMessages.put(1040, new Message(" dropped successfully!",""));
         commandMessages.put(1041, new Message(" can't be dropped!",""));
-        commandMessages.put(1042, new Message("There is no such item, in your inventory", ""));
+        commandMessages.put(1042, new Message("There is no such item in your inventory", ""));
         // Pick up messages
         commandMessages.put(1060, new Message(" -> Added to inventory!",""));
         commandMessages.put(1061, new Message(" -> You can not take that!",""));
@@ -54,6 +54,7 @@ public enum CommandMessages {
         commandMessages.put(1111, new Message("Attack -> ","This lets you attack opponents."));
         commandMessages.put(1112, new Message("Inspect -> ","This lets you inspect equipment statistics."));
         commandMessages.put(1113, new Message("Equip -> ","This lets you equip items to your weapon and armor slots."));
+        commandMessages.put(1115, new Message("Status -> ","This lets you view your character's status."));
 
         // open messages
         commandMessages.put(1120, new Message(" opened successfully!",""));
