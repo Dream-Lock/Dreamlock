@@ -18,7 +18,7 @@ public class Status implements ICommand{
     public List<Integer> execute(IGameContext gameContext, Map<Integer, Word> words) {
         List<Integer> output = new ArrayList<>();
 
-        output.add(10003);
+        output.add(10005);
         output.add(gameContext.getPlayer().getHealth());
         output.add(gameContext.getPlayer().getAttack());
         output.add(gameContext.getPlayer().getDefense());

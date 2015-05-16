@@ -20,6 +20,7 @@ public enum CommandMessages {
         commandMessages.put(10002, new Message("\n",""));   // title new line
         commandMessages.put(10003, new Message("","\n"));   // description new line
         commandMessages.put(10004, new Message("",""));     // print title and description without new line
+        commandMessages.put(10005, new Message("",""));     //print stats
         // Go messages
         commandMessages.put(1001, new Message("I can not go to ", ""));
         commandMessages.put(1002, new Message("west", ""));

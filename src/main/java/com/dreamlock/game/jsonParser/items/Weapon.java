@@ -8,8 +8,6 @@ import java.util.HashMap;
 
 public class Weapon extends Item {
 
-    private EquipmentSlot equipmentSlot;
-
     public Weapon(String jsonItem) {
         Gson gson = new Gson();
         WeaponDTO weaponDTO = gson.fromJson(jsonItem, WeaponDTO.class);
@@ -31,6 +29,7 @@ public class Weapon extends Item {
         states.put("Pick Up", new CanPickUp());
         states.put("Drop", new CanDrop());
         states.put("Equip", new CanEquip());
+        states.put("Unequip", new CanUnequip());
         states.put("Use", new CanNotUse());
         states.put("Open", new CanNotOpen());
     }

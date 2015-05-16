@@ -14,7 +14,7 @@ public class WeaponDTO {
     private String equipmentSlot;
 
     public Item.EquipmentSlot getEquipmentSlot() {
-        if(equipmentSlot.equals("main_hand"))
+        if(equipmentSlot.equalsIgnoreCase("main_hand"))
             return Item.EquipmentSlot.MAIN_HAND;
         return null;
     }

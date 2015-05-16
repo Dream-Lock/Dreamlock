@@ -18,6 +18,7 @@ public class CanEquip implements IState {
         context.getPlayer().getInventory().removeItem(item);
 
         Item forInv = null;
+
         if(item.getType().equalsIgnoreCase("armor")){
             forInv = (Armor) context.getPlayer().getSlot(((Armor) item).getEquipmentSlot());
 

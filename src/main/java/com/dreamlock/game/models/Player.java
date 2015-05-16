@@ -5,9 +5,11 @@ import com.dreamlock.game.jsonParser.items.Armor;
 import com.dreamlock.game.jsonParser.items.Item;
 import com.dreamlock.game.jsonParser.items.Weapon;
 import com.dreamlock.game.states.combatStates.CanAttackState;
+import org.apache.commons.lang3.tuple.ImmutablePair;
 
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Map;
 
 public class Player extends Combatant implements Serializable {
     private Inventory inventory;
@@ -25,6 +27,7 @@ public class Player extends Combatant implements Serializable {
         states = new HashMap<>();
         states.put("Attack", new CanAttackState());
 
+
         chest = null;
         head = null;
         main_hand = null;
@@ -41,11 +44,20 @@ public class Player extends Combatant implements Serializable {
     public Item getSlot(Item.EquipmentSlot slot){
         switch(slot){
             case HEAD:
-                return head;
+                if(head != null)
+                    return head.getValue();
+                else
+                    return null;
             case CHEST:
-                return chest;
+                if(chest != null)
+                    return chest.getValue();
+                else
+                    return null;
             case MAIN_HAND:
-                return main_hand;
+                if(main_hand != null)
+                    return main_hand.getValue();
+                else
+                    return null;
             default:
                 return null;
         }
@@ -54,13 +66,27 @@ public class Player extends Combatant implements Serializable {
     public void equipItem(Item item) {
         switch (item.getEquipmentSlot()) {
             case HEAD:
-                head = (Armor) item;
+                head = new ImmutablePair<>(item.getName(), (Armor) item);
                 break;
             case CHEST:
-                chest = (Armor) item;
+                chest = new ImmutablePair<>(item.getName(), (Armor)  item);
                 break;
             case MAIN_HAND:
-                main_hand = (Weapon) item;
+                main_hand = new ImmutablePair<>(item.getName(),(Weapon)  item);
+                break;
+        }
+    }
+
+    public void initializeSlot(Item.EquipmentSlot slot) {
+        switch(slot){
+            case HEAD:
+                head = null;
+                break;
+            case CHEST:
+                chest = null;
+                break;
+            case MAIN_HAND:
+                main_hand = null;
                 break;
         }
     }

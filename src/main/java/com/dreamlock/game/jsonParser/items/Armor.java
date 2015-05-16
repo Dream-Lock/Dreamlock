@@ -29,8 +29,8 @@ public class Armor extends Item {
         states.put("Pick Up", new CanPickUp());
         states.put("Drop", new CanDrop());
         states.put("Equip", new CanEquip());
+        states.put("Unequip", new CanUnequip());
         states.put("Use", new CanNotUse());
         states.put("Open", new CanNotOpen());
     }
-
 }

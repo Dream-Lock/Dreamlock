@@ -31,7 +31,9 @@
       }
     ],
     "enemies":[
-
+      {
+        "path":"/enemies/combatButler.json"
+      }
     ],
     "exits":[
       {

@@ -16,7 +16,7 @@ public abstract class Item implements Serializable{
     protected Map<String, Object> stats;
 
     public enum EquipmentSlot{
-        HEAD, CHEST, MAIN_HAND;
+        HEAD, CHEST, MAIN_HAND
     }
 
     EquipmentSlot equipmentSlot;
