@@ -15,8 +15,22 @@ public abstract class Item implements Serializable{
     protected Map<String,IState> states;
     protected Map<String, Object> stats;
 
+    public enum EquipmentSlot{
+        HEAD, CHEST, MAIN_HAND
+    }
+
+    EquipmentSlot equipmentSlot;
+
     public int doActionState (String state, IGameContext gameContext) {
         return states.get(state).doAction(gameContext, this);
+    }
+
+    public EquipmentSlot getEquipmentSlot() {
+        return equipmentSlot;
+    }
+
+    public void setEquipmentSlot(EquipmentSlot equipmentSlot) {
+        this.equipmentSlot = equipmentSlot;
     }
 
     public Map<String, Object> getStats() {

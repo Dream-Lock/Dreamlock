@@ -8,8 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class Inspect implements ICommand {
-    //TODO: FIX THIS SHIT
+public class Unequip implements ICommand {
     @Override
     public List<Integer> execute(IGameContext gameContext) {
         return null;
@@ -19,9 +18,10 @@ public class Inspect implements ICommand {
     public List<Integer> execute(IGameContext gameContext, Map<Integer, Word> words) {
         List<Integer> output = new ArrayList<>();
 
+        List<Item> foundItems = new ArrayList<>();
+
         Word word = words.get(2);
 
-        List<Item> foundItems = gameContext.getPlayer().getInventory().containsItems(words);
 
         Item item = gameContext.getPlayer().getSlot(Item.EquipmentSlot.HEAD);
         if(item != null){
@@ -41,31 +41,20 @@ public class Inspect implements ICommand {
                 foundItems.add(item);
             }
         }
-        if (foundItems != null) {
+
+        if (foundItems.size() == 1) {
             output.add(10000);
-            if (foundItems.size() ==1 ) {
-                if (foundItems.get(0).getType().equalsIgnoreCase("armor")) {
-                    output.add(foundItems.get(0).getId());
-                    output.add(1131);
-                    output.add( Integer.parseInt(foundItems.get(0).getStats().get("defense").toString()));
-                    output.add(1308);
-                }else if (foundItems.get(0).getType().equalsIgnoreCase("weapon")){
-                    output.add(foundItems.get(0).getId());
-                    output.add(1130);
-                    output.add( Integer.parseInt(foundItems.get(0).getStats().get("attack").toString()));
-                    output.add(1308);
-                }
-                return output;
-            }
-            else if (foundItems.size() > 1) {
-                output.add(2001);
-                return output;
-            }
+            output.add(foundItems.get(0).getId());   // item to print
+            output.add(foundItems.get(0).getStates().get("Unequip").doAction(gameContext, foundItems.get(0)));
+            return output;
         }
-        output.add(10000);          // print only title
-        output.add(1020);           // I can't find anything with that name!
-        return output;
+        else  if (foundItems.size() > 1) {
+            output.add(10000);
+            output.add(2001);
+            return output;
+        }
+
+        output.add(1042);
+        return null;
     }
-
-
 }

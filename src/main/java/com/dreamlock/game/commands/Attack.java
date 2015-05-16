@@ -41,6 +41,7 @@ public class Attack implements ICommand {
                 output.add(foundEnemy.getId());
                 output.add(1301);
                 output.add(foundEnemy.getStates().get("Attack").doAction(gameContext, gameContext.getPlayer() ,foundEnemy));
+                output.add(1309);
                 if (!foundEnemy.isAlive()) {
                     output.add(10002);
                     output.add(foundEnemy.getId());

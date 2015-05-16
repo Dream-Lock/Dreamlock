@@ -4,7 +4,10 @@
     "path":"/rooms/lobby.json",
     "items":[
       {
-        "path":"/items/weapons/axe.json"
+        "path":"/items/puzzle/key.json",
+        "path":"/items/room_objects/door.json",
+        "path":"/items/armor/helmet.json",
+        "id":1
       }
     ],
     "enemies":[
@@ -38,7 +41,9 @@
       }
     ],
     "enemies":[
-
+      {
+        "path":"/enemies/combatButler.json"
+      }
     ],
     "exits":[
       {

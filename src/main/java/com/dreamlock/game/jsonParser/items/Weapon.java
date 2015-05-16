@@ -16,14 +16,20 @@ public class Weapon extends Item {
         name = weaponDTO.getName();
         description = weaponDTO.getDescription();
 
+        equipmentSlot = weaponDTO.getEquipmentSlot();
+
         stats = new HashMap<>();
         stats.put("attack", weaponDTO.getAttack());
+        stats.put("stamina", weaponDTO.getStamina());
+        stats.put("strength", weaponDTO.getStrength());
+        stats.put("agility", weaponDTO.getAgility());
 
         states = new HashMap<>();
         // changing states
         states.put("Pick Up", new CanPickUp());
         states.put("Drop", new CanDrop());
         states.put("Equip", new CanEquip());
+        states.put("Unequip", new CanUnequip());
         states.put("Use", new CanNotUse());
         states.put("Open", new CanNotOpen());
     }
