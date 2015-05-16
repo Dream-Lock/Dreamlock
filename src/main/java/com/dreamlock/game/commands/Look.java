@@ -2,6 +2,7 @@ package com.dreamlock.game.commands;
 
 import com.dreamlock.game.IGameContext;
 import com.dreamlock.game.jsonParser.items.Item;
+import com.dreamlock.game.models.Door;
 import com.dreamlock.game.models.Enemy;
 import com.dreamlock.game.models.Room;
 import com.dreamlock.game.models.Word;
@@ -28,6 +29,10 @@ public class Look implements ICommand  {
                 output.add(10002);
                 output.add(enemy.getId());
             }
+        }
+        for (Door door : gameContext.getCurrentRoom().getDoors()) {
+            output.add(10002);
+            output.add(door.getId());
         }
         return output;
     }

@@ -4,9 +4,7 @@
     "path":"/rooms/lobby.json",
     "items":[
       {
-        "path":"/items/puzzle/key.json",
-        "path":"/items/room_objects/door.json",
-        "id":1
+        "path":"/items/weapons/axe.json"
       }
     ],
     "enemies":[
@@ -17,6 +15,16 @@
         "north":2,
         "east":3,
         "west":4
+      }
+    ],
+    "doors":[
+      {
+        "path":"/doors/door.json",
+        "direction": "west"
+      },
+      {
+        "path":"/doors/door2.json",
+        "direction": "east"
       }
     ]
   },
@@ -35,6 +43,9 @@
     "exits":[
       {
       }
+    ],
+    "doors":[
+
     ]
   },
   {
@@ -52,6 +63,9 @@
     "exits":[
       {
       }
+    ],
+    "doors":[
+
     ]
   },
   {
@@ -74,6 +88,9 @@
     "exits":[
       {
       }
+    ],
+    "doors":[
+
     ]
   }
 ]

@@ -8,8 +8,7 @@ public class RoomDTO {
     private ArrayList<ItemDTO> items;
     private ArrayList<ExitsDTO> exits;
     private ArrayList<EnemyDTO> enemies;
-    private boolean locked;
-    private int requires;
+    private ArrayList<DoorDTO> doors;
 
     public int getId() {
         return id;
@@ -31,11 +30,7 @@ public class RoomDTO {
         return enemies;
     }
 
-    public boolean isLocked() {
-        return locked;
-    }
-
-    public int getRequires() {
-        return requires;
+    public ArrayList<DoorDTO> getDoors() {
+        return doors;
     }
 }

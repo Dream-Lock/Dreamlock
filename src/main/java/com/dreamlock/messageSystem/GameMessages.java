@@ -2,10 +2,7 @@ package com.dreamlock.messageSystem;
 
 import com.dreamlock.game.jsonParser.items.Container;
 import com.dreamlock.game.jsonParser.items.Item;
-import com.dreamlock.game.models.Enemy;
-import com.dreamlock.game.models.Message;
-import com.dreamlock.game.models.Player;
-import com.dreamlock.game.models.Room;
+import com.dreamlock.game.models.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,6 +26,10 @@ public class GameMessages {
             }
             for(Enemy enemy: room.getEnemies()){
                 gameMessages.put(enemy.getId(), new Message(enemy.getName(), enemy.getDescription()));
+
+            }
+            for(Door door: room.getDoors()){
+                gameMessages.put(door.getId(), new Message(door.getName(), door.getDescription()));
 
             }
         }

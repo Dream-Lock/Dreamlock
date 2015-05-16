@@ -3,12 +3,14 @@ package com.dreamlock.game.jsonParser;
 import com.dreamlock.game.jsonParser.DTOs.*;
 import com.dreamlock.game.jsonParser.items.Item;
 import com.dreamlock.game.jsonParser.items.ItemFactory;
+import com.dreamlock.game.models.Door;
 import com.dreamlock.game.models.Enemy;
 import com.dreamlock.game.models.Room;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import jdk.nashorn.api.scripting.JSObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -43,12 +45,28 @@ public class JsonParser {
             room.setDescription(jsonRoomObj.get("description").getAsString());
             room.setTitle(jsonRoomObj.get("title").getAsString());
             room.setId(jsonRoomObj.get("id").getAsInt());
-            room.setLocked(jsonRoomObj.get("locked").getAsBoolean());
 
-            if (room.isLocked()) {                                  //check if room is locked and initialize it accordingly
-                room.setRequires(jsonRoomObj.get("requires").getAsInt());
+            List<Door> doors = new ArrayList<>();
+
+            for (DoorDTO doorDTO : roomDTO.getDoors()) {
+                String doorPath = doorDTO.getPath();
+                String jsonDoor = read(doorPath);
+                JsonElement doorElement = gson.fromJson(jsonDoor, JsonElement.class);
+                JsonObject jsonDoorObject = doorElement.getAsJsonObject();
+
+                String name = jsonDoorObject.get("name").getAsString();
+                String direction = doorDTO.getDirection();
+                Integer key = jsonDoorObject.get("key").getAsInt();
+                Integer id = jsonDoorObject.get("id").getAsInt();
+
+
+                Door door = new Door(name, direction, id, key);
+
+                doors.add(door);
             }
-            else room.setRequires(0);
+            room.setDoors(doors);
+
+
 
             List<Item> items = new ArrayList<>();
             for (ItemDTO itemDTO : roomDTO.getItems()) {        // for every item, the room contain

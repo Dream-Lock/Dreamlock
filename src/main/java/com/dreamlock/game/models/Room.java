@@ -15,11 +15,11 @@ public class Room implements Serializable{
     private String description;
     private String title;
     private HashMap<String, Room> exits;  // stores the exits of this room.
+    private List<Door> doors;  // stores the doors of this room.
+
     private List<Item> items;
     private int id;
     private List<Enemy> enemies;
-    private boolean locked;
-    private int requires;
     /**
      * Constructor for <b>empty rooms</b>.
      */
@@ -38,6 +38,7 @@ public class Room implements Serializable{
         this.description = description;
         this.title = title;
         this.exits = new HashMap<>();
+        this.doors = new ArrayList();
         this.items = new ArrayList<>();
         this.enemies = new ArrayList<>();
     }
@@ -70,6 +71,14 @@ public class Room implements Serializable{
         this.exits.put(direction, room);
     }
 
+    public List<Door> getDoors() {
+        return doors;
+    }
+
+    public void setDoors(List <Door> doors) {
+        this.doors = doors;
+    }
+
     public List<Item> getItems() {
         return items;
     }
@@ -99,22 +108,6 @@ public class Room implements Serializable{
         this.enemies = enemies;
     }
 
-    public boolean isLocked() {
-        return locked;
-    }
-
-    public void setLocked(boolean locked) {
-        this.locked = locked;
-    }
-
-    public int getRequires() {
-        return requires;
-    }
-
-    public void setRequires(int requires) {
-        this.requires = requires;
-    }
-
     public Item containsItem(Map<Integer, Word> words) {
         Word word = words.get(2);
 
@@ -136,5 +129,17 @@ public class Room implements Serializable{
             }
         }
         return foundItems;
+    }
+
+    public List<Door> containsDoors(Map<Integer, Word> words) {
+        Word word = words.get(2);
+        List<Door> foundDoors = new ArrayList<>();
+
+        for (Door door : this.doors) {
+            if (door.getName().toLowerCase().contains(word.getDescription())) {
+                foundDoors.add(door);
+            }
+        }
+        return foundDoors;
     }
 }

@@ -80,6 +80,9 @@ public enum CommandMessages {
         commandMessages.put(1307, new Message(" has died.",""));
         // general messages
         commandMessages.put(2001, new Message("There more than one items with that name!", ""));
+        commandMessages.put(2002, new Message("There more than one doors with that name!", ""));
+        commandMessages.put(2003, new Message(" is locked.", ""));
+        commandMessages.put(2004, new Message(" is unlocked!", ""));
         // error messages
         commandMessages.put(2101, new Message("I don't think I can do that", ""));
         //quit messages
