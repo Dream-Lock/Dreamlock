@@ -31,6 +31,7 @@ public class TurnBattle implements Serializable{
             output.add(((Enemy) (characters.get(currentChar))).getId());
             output.add(1302);
             output.add(gameContext.getPlayer().getHealth());
+            output.add(1308);
         }
 
         return output;

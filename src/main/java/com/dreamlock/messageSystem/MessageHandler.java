@@ -21,11 +21,13 @@ public class MessageHandler {
         if (messageIds.contains(10000)) {
             messageIds.add(10002);
             messageIds.add(10002);
-            for (Integer messageId : messageIds) {
-                if(messageIds.indexOf(messageId) == 3 && messageIds.contains(1301))
-                    System.out.print(messageId + " points of damage.");
-                else if( messageIds.indexOf(messageId) == 7 &&  messageIds.contains(1302))
-                    System.out.print(messageId + ".");
+            for (int i=0;i<messageIds.size();i++) {
+                int messageId = messageIds.get(i);
+                int next_message_id_idx = i+1;
+                if(next_message_id_idx < messageIds.size() && messageIds.contains(1301) && messageIds.get(next_message_id_idx) == 1309)
+                    System.out.print(messageId);
+                else if( next_message_id_idx < messageIds.size() &&  messageIds.contains(1302) && messageIds.get(next_message_id_idx) == 1308)
+                    System.out.print(messageId);
                 else
                     System.out.print(messages.get(messageId).getName());
             }

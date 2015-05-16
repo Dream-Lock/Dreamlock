@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Inspect implements ICommand {
-
+    //TODO: FIX THIS SHIT
     @Override
     public List<Integer> execute(IGameContext gameContext) {
         return null;

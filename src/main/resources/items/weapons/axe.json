@@ -2,7 +2,10 @@
   "id":600,
   "type":"Weapon",
   "name":"Wooden Axe",
-  "description":"A simple wooden axe. A Woodcutter's best choice and friend!",
+  "description":"A crude iron axe. A Woodcutter's best choice and friend!",
   "attack":10,
-  "slot":"MAINHAND"
+  "stamina":3,
+  "strength":3,
+  "agility":3,
+  "equipmentSlot":"MAIN_HAND"
 }

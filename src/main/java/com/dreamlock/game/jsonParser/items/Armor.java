@@ -8,9 +8,6 @@ import java.util.HashMap;
 
 public class Armor extends Item {
 
-
-    private Slot slot;
-
     public Armor(String jsonItem) {
         Gson gson = new Gson();
         ArmorDTO armorDTO = gson.fromJson(jsonItem, ArmorDTO.class);
@@ -19,10 +16,13 @@ public class Armor extends Item {
         name = armorDTO.getName();
         description = armorDTO.getDescription();
 
-        slot =  armorDTO.getSlot();
+        equipmentSlot =  armorDTO.getEquipmentSlot();
 
         stats = new HashMap<>();
         stats.put("defense", armorDTO.getDefense());
+        stats.put("stamina", armorDTO.getStamina());
+        stats.put("strength", armorDTO.getStrength());
+        stats.put("agility", armorDTO.getAgility());
 
         states = new HashMap<>();
         // Item states
@@ -32,4 +32,5 @@ public class Armor extends Item {
         states.put("Use", new CanNotUse());
         states.put("Open", new CanNotOpen());
     }
+
 }

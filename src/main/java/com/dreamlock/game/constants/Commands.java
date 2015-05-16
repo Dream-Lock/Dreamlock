@@ -28,7 +28,7 @@ public enum Commands {
         commands.put("inspect", new Inspect());
         commands.put("attack", new Attack());
         commands.put("save", new Save());
-        commands.put("reload", new Reload());
+        commands.put("equip", new Equip());
     }
 
     private final Map<String, ICommand> commands;

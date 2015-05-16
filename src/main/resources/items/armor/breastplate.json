@@ -4,5 +4,8 @@
   "name":"Iron Breastplate",
   "description":"A crude iron breastplate",
   "defense":10,
-  "slow":"CHEST"
+  "stamina":5,
+  "strength":5,
+  "agility":5,
+  "equipmentSlot":"CHEST"
 }

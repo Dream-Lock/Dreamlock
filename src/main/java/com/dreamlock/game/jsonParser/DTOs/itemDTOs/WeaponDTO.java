@@ -8,10 +8,13 @@ public class WeaponDTO {
     private String name;
     private String description;
     private String attack;
-    private Item.Slot slot;
+    private String stamina;
+    private String strength;
+    private String agility;
+    private Item.EquipmentSlot equipmentSlot;
 
-    public Item.Slot getSlot() {
-        return slot;
+    public Item.EquipmentSlot getEquipmentSlot() {
+        return equipmentSlot;
     }
 
     public int getId() {
@@ -32,5 +35,17 @@ public class WeaponDTO {
 
     public String getAttack() {
         return attack;
+    }
+
+    public String getStrength() {
+        return strength;
+    }
+
+    public String getAgility() {
+        return agility;
+    }
+
+    public String getStamina() {
+        return stamina;
     }
 }

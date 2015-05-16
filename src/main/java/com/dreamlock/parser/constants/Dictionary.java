@@ -27,12 +27,12 @@ public enum Dictionary {
         dictionary.put("go", new Lexeme(2, "go", TokenType.VERB, 3000));
         dictionary.put("walk", new Lexeme(2, "walk", TokenType.VERB, 3000));
 
-        dictionary.put("equip", new Lexeme(3, "examine", TokenType.VERB, 3000));
+        dictionary.put("equip", new Lexeme(3, "equip", TokenType.VERB, 3000));
         dictionary.put("examine", new Lexeme(3, "examine", TokenType.VERB, 3000));
         dictionary.put("take", new Lexeme(3, "take", TokenType.VERB, 3000));
         dictionary.put("drop", new Lexeme(3, "drop", TokenType.VERB, 3000));
         dictionary.put("inspect", new Lexeme(3, "inspect", TokenType.VERB, 3000));
-        dictionary.put("attack", new Lexeme(5, "attack", TokenType.VERB, 3000));
+        dictionary.put("attack", new Lexeme(3, "attack", TokenType.VERB, 3000));
 
 
         dictionary.put("open", new Lexeme(3, "open", TokenType.VERB, 3000));

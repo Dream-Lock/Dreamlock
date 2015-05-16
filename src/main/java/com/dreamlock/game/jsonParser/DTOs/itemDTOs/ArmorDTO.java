@@ -8,10 +8,17 @@ public class ArmorDTO {
     private String name;
     private String description;
     private String defense;
-    private Item.Slot slot;
+    private String stamina;
+    private String strength;
+    private String agility;
+    private String equipmentSlot;
 
-    public Item.Slot getSlot() {
-        return slot;
+    public Item.EquipmentSlot getEquipmentSlot() {
+        if(equipmentSlot.equalsIgnoreCase("head"))
+            return Item.EquipmentSlot.HEAD;
+        if(equipmentSlot.equalsIgnoreCase("chest"))
+            return Item.EquipmentSlot.CHEST;
+        return null;
     }
 
     public int getId() {
@@ -34,4 +41,15 @@ public class ArmorDTO {
         return defense;
     }
 
+    public String getAgility() {
+        return agility;
+    }
+
+    public String getStrength() {
+        return strength;
+    }
+
+    public String getStamina() {
+        return stamina;
+    }
 }

@@ -4,5 +4,8 @@
   "name":"Iron helmet",
   "description":"A simple iron helmet",
   "defense":5,
-  "slow":"HEAD"
+  "stamina":2,
+  "strength":2,
+  "agility":2,
+  "equipmentSlot": "HEAD"
 }

@@ -6,6 +6,7 @@
       {
         "path":"/items/puzzle/key.json",
         "path":"/items/room_objects/door.json",
+        "path":"/items/armor/helmet.json",
         "id":1
       }
     ],

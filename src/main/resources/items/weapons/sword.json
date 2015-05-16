@@ -1,8 +1,11 @@
 {
   "id":601,
   "type":"Weapon",
-  "name":"Grudge sword",
-  "description":"This sword have something carved, i barely can see that,\n'be always resentful and unwilling to give up'",
+  "name":"Runed Blade",
+  "description":"Runes are carved on the sword's blade,\n urging its wielder: 'Never relent, let your grudges fuel your strenght'.",
   "attack":11,
-  "slot":"MAINHAND"
+  "stamina":5,
+  "strength":5,
+  "agility":5,
+  "equipmentSlot":"MAIN_HAND"
 }

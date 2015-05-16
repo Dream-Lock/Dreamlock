@@ -16,8 +16,6 @@ public enum Rules {
 
         rules.put("V3U1",true);         // Syntax: Verb, Item(Noun)
 
-        rules.put("V5U2", true);        // Syntax: Verb, Enemy(Noun)
-
         rules.put("V4U1P4U1",true);     // Syntax: Verb, Item(Noun), Preposition, Item(Noun)
 
         rules.put("N3", true);          // Syntax: Noun(command)

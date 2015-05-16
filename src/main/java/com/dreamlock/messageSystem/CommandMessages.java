@@ -80,6 +80,8 @@ public enum CommandMessages {
         commandMessages.put(1305, new Message(" There is no such enemy here.",""));
         commandMessages.put(1306, new Message(" That enemy is already dead.",""));
         commandMessages.put(1307, new Message(" has died.",""));
+        commandMessages.put(1308, new Message(".",""));
+        commandMessages.put(1309, new Message(" points of damage.",""));
         //equip messages
         commandMessages.put(1401, new Message(" was successfully equipped.",""));
         commandMessages.put(1402, new Message(" was unequipped.",""));
