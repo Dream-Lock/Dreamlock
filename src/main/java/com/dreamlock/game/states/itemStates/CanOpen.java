@@ -16,15 +16,9 @@ public class CanOpen implements IState {
     @Override
     public Integer doAction(IGameContext context, Item item) {
         if (item.getStats().get("locked").equals(true)) {
-            List<Item> inventory = context.getPlayer().getInventory().getItems();
+            int keyId = (int) item.getStats().get("match");
 
-            boolean found = false;
-            for (Item tempItem : inventory) {
-                if (tempItem.getId().equals(item.getStats().get("match"))) {
-                    found = true;
-                }
-            }
-            if (found) {
+            if (context.getPlayer().hasKey(keyId)) {
                 return open(context,item);
             }
             else {

@@ -19,8 +19,8 @@ public class Examine implements ICommand {
     public List<Integer> execute(IGameContext gameContext, Map<Integer, Word> words) {
         List<Integer> output = new ArrayList<>();
 
-        List<Item> items = gameContext.getCurrentRoom().containsItems(words);
-        items.addAll(gameContext.getPlayer().getInventory().containsItems(words));
+        List<Item> items = gameContext.getCurrentRoom().containsItems(words.get(2));
+        items.addAll(gameContext.getPlayer().getInventory().containsItems(words.get(2)));
         if (items.size() == 1) {
             output.add(10001);          // print only description
             output.add(items.get(0).getId());   // item to print
@@ -32,7 +32,7 @@ public class Examine implements ICommand {
             return output;
         }
 
-        List<Door> doors = gameContext.getCurrentRoom().containsDoors(words);
+        List<Door> doors = gameContext.getCurrentRoom().containsDoors(words.get(2));
         if (doors.size() == 1) {
             output.add(10000);
             output.add(doors.get(0).getId());   // item to print

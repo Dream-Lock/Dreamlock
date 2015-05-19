@@ -18,7 +18,7 @@ public class PickUp implements ICommand {
     public List<Integer> execute(IGameContext gameContext, Map<Integer, Word> words) {
         List<Integer> output = new ArrayList<>();
 
-        List<Item> foundItems = gameContext.getCurrentRoom().containsItems(words);
+        List<Item> foundItems = gameContext.getCurrentRoom().containsItems(words.get(2));
         if (foundItems != null) {
             output.add(10000);
             if (foundItems.size() ==1 ) {

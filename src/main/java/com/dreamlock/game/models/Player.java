@@ -90,4 +90,13 @@ public class Player extends Combatant implements Serializable {
                 break;
         }
     }
+
+    public boolean hasKey (int keyId) {
+        for (Item item : inventory.getItems()) {
+            if (item.getId() == keyId) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

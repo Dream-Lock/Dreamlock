@@ -21,7 +21,7 @@ public class Inspect implements ICommand {
 
         Word word = words.get(2);
 
-        List<Item> foundItems = gameContext.getPlayer().getInventory().containsItems(words);
+        List<Item> foundItems = gameContext.getPlayer().getInventory().containsItems(words.get(2));
 
         Item item = gameContext.getPlayer().getSlot(Item.EquipmentSlot.HEAD);
         if(item != null){

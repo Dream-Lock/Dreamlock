@@ -45,19 +45,7 @@ public class Inventory implements Serializable{
         this.items.remove(item);
     }
 
-    public Item containsItem(Map<Integer, Word> words) {
-        Word word = words.get(2);
-
-        for (Item item : this.items) {
-            if (item.getName().toLowerCase().equals(word.getDescription())) {
-                return item;
-            }
-        }
-        return null;
-    }
-
-    public List<Item> containsItems(Map<Integer, Word> words) {
-        Word word = words.get(2);
+    public List<Item> containsItems(Word word) {
         List<Item> foundItems = new ArrayList<>();
 
         for (Item item : this.items) {
@@ -66,5 +54,32 @@ public class Inventory implements Serializable{
             }
         }
         return foundItems;
+    }
+
+    public boolean containsItem(Word word) {
+        for (Item item : this.items) {
+            if (item.getName().toLowerCase().contains(word.getDescription())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Item getSpecificItem(Word word) {
+        for (Item item : this.items) {
+            if (item.getName().toLowerCase().contains(word.getDescription())) {
+                return item;
+            }
+        }
+        return null;
+    }
+    public int hasDuplicates (Word word) {
+        int count = 0;
+        for (Item item : this.items) {
+            if (item.getName().toLowerCase().contains(word.getDescription())) {
+                count++;
+            }
+        }
+        return count;
     }
 }

@@ -108,19 +108,40 @@ public class Room implements Serializable{
         this.enemies = enemies;
     }
 
-    public Item containsItem(Map<Integer, Word> words) {
-        Word word = words.get(2);
-
+    public Item getSpecificItem(Word word) {
         for (Item item : this.items) {
-            if (item.getName().toLowerCase().equals(word.getDescription())) {
+            if (item.getName().toLowerCase().contains(word.getDescription())) {
                 return item;
             }
         }
         return null;
     }
-
-    public List<Item> containsItems(Map<Integer, Word> words) {
-        Word word = words.get(2);
+    public Door getSpecificDoor(Word word) {
+        for (Door door: this.doors) {
+            if (door.getName().toLowerCase().contains(word.getDescription())) {
+                return door;
+            }
+        }
+        return null;
+    }
+    public boolean containsItem(Word word) {
+        for (Item item : this.items) {
+            if (item.getName().toLowerCase().contains(word.getDescription())) {
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean containsDoor(Word word) {
+        for (Door door : this.doors) {
+            if (door.getName().toLowerCase().contains(word.getDescription())) {
+                return true;
+            }
+        }
+        return false;
+    }
+//
+    public List<Item> containsItems(Word word) {
         List<Item> foundItems = new ArrayList<>();
 
         for (Item item : this.items) {
@@ -131,8 +152,7 @@ public class Room implements Serializable{
         return foundItems;
     }
 
-    public List<Door> containsDoors(Map<Integer, Word> words) {
-        Word word = words.get(2);
+    public List<Door> containsDoors(Word word) {
         List<Door> foundDoors = new ArrayList<>();
 
         for (Door door : this.doors) {
@@ -142,4 +162,23 @@ public class Room implements Serializable{
         }
         return foundDoors;
     }
+    public int hasItemDuplicates (Word word) {
+        int count = 0;
+        for (Item item : this.items) {
+            if (item.getName().toLowerCase().contains(word.getDescription())) {
+                count++;
+            }
+        }
+        return count;
+    }
+    public int hasDoorDuplicates (Word word) {
+        int count = 0;
+        for (Door door : this.doors) {
+            if (door.getName().toLowerCase().contains(word.getDescription())) {
+                count++;
+            }
+        }
+        return count;
+    }
+
 }

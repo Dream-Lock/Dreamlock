@@ -1,9 +1,12 @@
 package com.dreamlock.game.models;
 
-public class Door {
+import java.io.Serializable;
+
+public class Door implements Serializable{
     private String name;
     private String direction;
     private String description;
+    private String type;
     private int id;
     private int requiredKey;
     private boolean locked;
@@ -63,5 +66,13 @@ public class Door {
 
     public void unlock () {
         locked = false;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }
