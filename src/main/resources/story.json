@@ -4,10 +4,7 @@
     "path":"/rooms/lobby.json",
     "items":[
       {
-        "path":"/items/puzzle/key.json",
-        "path":"/items/room_objects/door.json",
-        "path":"/items/armor/helmet.json",
-        "id":1
+        "path":"/items/armor/helmet.json"
       }
     ],
     "enemies":[
@@ -36,8 +33,7 @@
     "path":"/rooms/banquethall.json",
     "items":[
       {
-        "path":"/items/puzzle/key.json",
-        "id":1
+        "path":"/items/puzzle/key.json"
       }
     ],
     "enemies":[

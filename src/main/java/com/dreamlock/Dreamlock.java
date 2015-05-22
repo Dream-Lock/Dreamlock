@@ -196,12 +196,13 @@ public class Dreamlock {
                 }
 
                 GameContext LoadedGameContext = null;
-                System.out.print("Which character's game would you like to load? : ");
+
                 BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
                 try {
                     boolean found = false;
 
                     do {
+                        System.out.print("Which character's game would you like to load? : ");
                         String input = buffer.readLine();
                         for (String filename : listFileNames) {
                             if (filename.replace(".dat", "").toLowerCase().equals(input.toLowerCase())) {
