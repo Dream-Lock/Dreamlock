@@ -30,6 +30,7 @@ public enum CommandMessages {
         commandMessages.put(1006, new Message("Door unlocked successfully!", ""));
         commandMessages.put(1007, new Message("You turn the handle of the door, but it seems that the door is locked!", ""));
         commandMessages.put(1008, new Message("Where do you want me to go?", ""));
+        commandMessages.put(1009, new Message("You cannot flee your current battle - Stand and fight!", ""));
 
         // Examine messages
         commandMessages.put(1020, new Message("I can't find anything with that name!", ""));
@@ -59,6 +60,7 @@ public enum CommandMessages {
         commandMessages.put(1111, new Message("Attack -> ","This lets you attack opponents."));
         commandMessages.put(1112, new Message("Inspect -> ","This lets you inspect equipment statistics."));
         commandMessages.put(1113, new Message("Equip -> ","This lets you equip items to your weapon and armor slots."));
+        commandMessages.put(1114, new Message("Equip -> ","This lets you unequip items from your weapon and armor slots."));
         commandMessages.put(1115, new Message("Status -> ","This lets you view your character's status."));
 
         // open messages
