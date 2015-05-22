@@ -63,7 +63,7 @@ public class Parser {
                 }
             }
 
-            if (correctWords == 0 && lexemes.get(0).getTokenType().toString().equals("VERB")) {
+             if (correctWords == 0 && lexemes.get(0).getTokenType().toString().equals("VERB")) {
                 if (lexemes.size() == 1) {
                     correctWords = 100;
                 }

@@ -73,7 +73,8 @@ public class Inventory implements Serializable{
         }
         return null;
     }
-    public int hasDuplicates (Word word) {
+
+    public int hasDuplicates(Word word) {
         int count = 0;
         for (Item item : this.items) {
             if (item.getName().toLowerCase().contains(word.getDescription())) {
@@ -82,4 +83,15 @@ public class Inventory implements Serializable{
         }
         return count;
     }
+
+    public int getItemCount(Word word) {
+        int count = 0;
+        for ( Item item : this.items) {
+            if(item.getName().toLowerCase().equals(word.getDescription())) {
+                count++;
+            }
+        }
+        return count;
+    }
+
 }

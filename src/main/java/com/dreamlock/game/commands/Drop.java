@@ -24,7 +24,8 @@ public class Drop implements ICommand {
         if (itemExists) {
             output.add(10000);
             int duplicates = gameContext.getPlayer().getInventory().hasDuplicates(words.get(2));
-            if (duplicates == 1){
+            int itemCount = gameContext.getPlayer().getInventory().getItemCount(words.get(2));
+            if (duplicates == 1 || itemCount>1){
                 Item item = gameContext.getPlayer().getInventory().getSpecificItem(words.get(2));
                 output.add(item.getId());
                 output.add(item.doAction(ActionState.DROP, gameContext));

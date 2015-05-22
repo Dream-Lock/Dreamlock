@@ -1,6 +1,7 @@
 package com.dreamlock.game.jsonParser.items;
 
 import com.dreamlock.game.constants.ActionState;
+import com.dreamlock.game.constants.Stats;
 import com.dreamlock.game.jsonParser.DTOs.itemDTOs.ContainerDTO;
 import com.dreamlock.game.states.itemStates.CanNotPickUp;
 import com.dreamlock.game.states.itemStates.CanOpen;
@@ -36,8 +37,8 @@ public class Container extends Item{
         description = containerDTO.getDescription();
 
         stats = new HashMap<>();
-        stats.put("locked",containerDTO.isLocked());
-        stats.put("match",containerDTO.getMatch());
+        stats.put(Stats.LOCKED, containerDTO.isLocked());
+        stats.put(Stats.MATCH, containerDTO.getMatch());
 
         states = new HashMap<>();
         // Item states

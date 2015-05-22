@@ -6,7 +6,6 @@ import com.dreamlock.game.jsonParser.items.Item;
 import com.dreamlock.game.jsonParser.items.Weapon;
 import com.dreamlock.game.states.IState;
 
-
 public class CanEquip implements IState {
     @Override
     public Integer doAction(IGameContext context) {

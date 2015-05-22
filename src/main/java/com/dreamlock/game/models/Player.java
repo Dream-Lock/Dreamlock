@@ -1,6 +1,9 @@
 package com.dreamlock.game.models;
 
 import com.dreamlock.game.combat.Combatant;
+import com.dreamlock.game.constants.ActionState;
+import com.dreamlock.game.constants.EquipmentSlot;
+import com.dreamlock.game.constants.Stats;
 import com.dreamlock.game.jsonParser.items.Armor;
 import com.dreamlock.game.jsonParser.items.Item;
 import com.dreamlock.game.jsonParser.items.Weapon;
@@ -25,7 +28,7 @@ public class Player extends Combatant implements Serializable {
         this.setDefense(1 + getAgility());
 
         states = new HashMap<>();
-        states.put("Attack", new CanAttackState());
+        states.put(ActionState.ATTACK, new CanAttackState());
 
 
         chest = null;
@@ -41,7 +44,7 @@ public class Player extends Combatant implements Serializable {
         this.inventory = inventory;
     }
 
-    public Item getSlot(Item.EquipmentSlot slot){
+    public Item getSlot(EquipmentSlot slot){
         switch(slot){
             case HEAD:
                 if(head != null)
@@ -77,7 +80,7 @@ public class Player extends Combatant implements Serializable {
         }
     }
 
-    public void initializeSlot(Item.EquipmentSlot slot) {
+    public void initializeSlot(EquipmentSlot slot) {
         switch(slot){
             case HEAD:
                 head = null;

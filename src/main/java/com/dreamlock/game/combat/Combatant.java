@@ -1,6 +1,8 @@
 package com.dreamlock.game.combat;
 
 
+import com.dreamlock.game.constants.ActionState;
+import com.dreamlock.game.constants.Stats;
 import com.dreamlock.game.jsonParser.items.Armor;
 import com.dreamlock.game.jsonParser.items.Item;
 import com.dreamlock.game.jsonParser.items.Weapon;
@@ -23,9 +25,9 @@ public abstract class Combatant implements Serializable{
     protected Pair<String, Armor> chest, head;
     protected Pair<String, Weapon> main_hand;
 
-    protected Map<String,ICombatState> states;
+    protected Map<ActionState,ICombatState> states;
 
-    public Map<String, ICombatState> getStates() {
+    public Map<ActionState, ICombatState> getStates() {
         return states;
     }
 
@@ -89,24 +91,24 @@ public abstract class Combatant implements Serializable{
         int stamina_mod = 0, agility_mod = 0,strength_mod = 0,attack_mod = 0,defense_mod = 0;
 
         if(head!=null){
-            stamina_mod+=  Integer.parseInt(head.getValue().getStats().get("stamina").toString());
-            strength_mod+= Integer.parseInt(head.getValue().getStats().get("strength").toString());
-            agility_mod+= Integer.parseInt(head.getValue().getStats().get("agility").toString());
-            defense_mod+= Integer.parseInt(head.getValue().getStats().get("defense").toString());
+            stamina_mod+=  Integer.parseInt(head.getValue().getStats().get(Stats.STAMINA).toString());
+            strength_mod+= Integer.parseInt(head.getValue().getStats().get(Stats.STRENGTH).toString());
+            agility_mod+= Integer.parseInt(head.getValue().getStats().get(Stats.AGILITY).toString());
+            defense_mod+= Integer.parseInt(head.getValue().getStats().get(Stats.DEFENSE).toString());
         }
 
         if(chest!=null){
-            stamina_mod+=  Integer.parseInt(chest.getValue().getStats().get("stamina").toString());
-            strength_mod+= Integer.parseInt(chest.getValue().getStats().get("strength").toString());
-            agility_mod+= Integer.parseInt(chest.getValue().getStats().get("agility").toString());
-            defense_mod+= Integer.parseInt(chest.getValue().getStats().get("defense").toString());
+            stamina_mod+=  Integer.parseInt(chest.getValue().getStats().get(Stats.STAMINA).toString());
+            strength_mod+= Integer.parseInt(chest.getValue().getStats().get(Stats.STRENGTH).toString());
+            agility_mod+= Integer.parseInt(chest.getValue().getStats().get(Stats.AGILITY).toString());
+            defense_mod+= Integer.parseInt(chest.getValue().getStats().get(Stats.DEFENSE).toString());
         }
 
         if(main_hand!=null){
-            stamina_mod+=  Integer.parseInt(main_hand.getValue().getStats().get("stamina").toString());
-            strength_mod+= Integer.parseInt(main_hand.getValue().getStats().get("strength").toString());
-            agility_mod+= Integer.parseInt(main_hand.getValue().getStats().get("agility").toString());
-            attack_mod+= Integer.parseInt(main_hand.getValue().getStats().get("attack").toString());
+            stamina_mod+=  Integer.parseInt(main_hand.getValue().getStats().get(Stats.STAMINA).toString());
+            strength_mod+= Integer.parseInt(main_hand.getValue().getStats().get(Stats.STRENGTH).toString());
+            agility_mod+= Integer.parseInt(main_hand.getValue().getStats().get(Stats.AGILITY).toString());
+            attack_mod+= Integer.parseInt(main_hand.getValue().getStats().get(Stats.ATTACK).toString());
         }
 
         this.setStamina(1 + stamina_mod);

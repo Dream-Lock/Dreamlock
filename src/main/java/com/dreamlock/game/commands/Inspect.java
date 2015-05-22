@@ -1,6 +1,8 @@
 package com.dreamlock.game.commands;
 
 import com.dreamlock.game.IGameContext;
+import com.dreamlock.game.constants.EquipmentSlot;
+import com.dreamlock.game.constants.Stats;
 import com.dreamlock.game.jsonParser.items.Item;
 import com.dreamlock.game.models.Word;
 
@@ -23,19 +25,19 @@ public class Inspect implements ICommand {
 
         List<Item> foundItems = gameContext.getPlayer().getInventory().containsItems(words.get(2));
 
-        Item item = gameContext.getPlayer().getSlot(Item.EquipmentSlot.HEAD);
+        Item item = gameContext.getPlayer().getSlot(EquipmentSlot.HEAD);
         if(item != null){
             if (item.getName().toLowerCase().equals(word.getDescription())) {
                 foundItems.add(item);
             }
         }
-        item = gameContext.getPlayer().getSlot(Item.EquipmentSlot.CHEST);
+        item = gameContext.getPlayer().getSlot(EquipmentSlot.CHEST);
         if(item != null){
             if (item.getName().toLowerCase().equals(word.getDescription())) {
                 foundItems.add(item);
             }
         }
-        item = gameContext.getPlayer().getSlot(Item.EquipmentSlot.MAIN_HAND);
+        item = gameContext.getPlayer().getSlot(EquipmentSlot.MAIN_HAND);
         if(item != null){
             if (item.getName().toLowerCase().equals(word.getDescription())) {
                 foundItems.add(item);
@@ -47,12 +49,12 @@ public class Inspect implements ICommand {
                 if (foundItems.get(0).getType().equalsIgnoreCase("armor")) {
                     output.add(foundItems.get(0).getId());
                     output.add(1131);
-                    output.add( Integer.parseInt(foundItems.get(0).getStats().get("defense").toString()));
+                    output.add( Integer.parseInt(foundItems.get(0).getStats().get(Stats.DEFENSE).toString()));
                     output.add(1308);
                 }else if (foundItems.get(0).getType().equalsIgnoreCase("weapon")){
                     output.add(foundItems.get(0).getId());
                     output.add(1130);
-                    output.add( Integer.parseInt(foundItems.get(0).getStats().get("attack").toString()));
+                    output.add( Integer.parseInt(foundItems.get(0).getStats().get(Stats.ATTACK).toString()));
                     output.add(1308);
                 }
                 return output;

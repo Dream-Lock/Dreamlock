@@ -29,8 +29,8 @@ public class Open implements ICommand{
         if (itemExists) {           //Checking for room items (ex. Containers)
 
             int itemDuplicates = gameContext.getCurrentRoom().hasItemDuplicates(words.get(2));
-
-            if (itemDuplicates == 1 ) {
+            int itemCount = gameContext.getPlayer().getInventory().getItemCount(words.get(2));
+            if (itemDuplicates == 1 || itemCount>1) {
                 if (invItemExists) {
 
                     Item tempItem = gameContext.getCurrentRoom().getSpecificItem(words.get(2));

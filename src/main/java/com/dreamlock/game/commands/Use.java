@@ -14,7 +14,6 @@ public class Use implements ICommand{
 
     @Override
     public List<Integer> execute(IGameContext gameContext, Map<Integer, Word> words) {
-
         return null;
     }
 }

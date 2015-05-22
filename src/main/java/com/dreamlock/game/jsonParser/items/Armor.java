@@ -1,6 +1,7 @@
 package com.dreamlock.game.jsonParser.items;
 
 import com.dreamlock.game.constants.ActionState;
+import com.dreamlock.game.constants.Stats;
 import com.dreamlock.game.jsonParser.DTOs.itemDTOs.ArmorDTO;
 import com.dreamlock.game.states.itemStates.*;
 import com.google.gson.Gson;
@@ -20,10 +21,10 @@ public class Armor extends Item {
         equipmentSlot =  armorDTO.getEquipmentSlot();
 
         stats = new HashMap<>();
-        stats.put("defense", armorDTO.getDefense());
-        stats.put("stamina", armorDTO.getStamina());
-        stats.put("strength", armorDTO.getStrength());
-        stats.put("agility", armorDTO.getAgility());
+        stats.put(Stats.DEFENSE, armorDTO.getDefense());
+        stats.put(Stats.STAMINA, armorDTO.getStamina());
+        stats.put(Stats.STRENGTH, armorDTO.getStrength());
+        stats.put(Stats.AGILITY, armorDTO.getAgility());
 
         states = new HashMap<>();
         // Item states

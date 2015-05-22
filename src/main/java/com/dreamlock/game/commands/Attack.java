@@ -2,6 +2,7 @@ package com.dreamlock.game.commands;
 
 
 import com.dreamlock.game.IGameContext;
+import com.dreamlock.game.constants.Stats;
 import com.dreamlock.game.jsonParser.items.Item;
 import com.dreamlock.game.models.Enemy;
 import com.dreamlock.game.models.Word;
@@ -40,7 +41,7 @@ public class Attack implements ICommand {
             if (foundEnemy.getHealth() > 0) {
                 output.add(foundEnemy.getId());
                 output.add(1301);
-                output.add(foundEnemy.getStates().get("Attack").doAction(gameContext, gameContext.getPlayer() ,foundEnemy));
+                output.add(foundEnemy.getStates().get(Stats.ATTACK).doAction(gameContext, gameContext.getPlayer() ,foundEnemy));
                 output.add(1309);
                 if (!foundEnemy.isAlive()) {
                     output.add(10002);

@@ -1,5 +1,6 @@
 package com.dreamlock.game.jsonParser.DTOs.itemDTOs;
 
+import com.dreamlock.game.constants.EquipmentSlot;
 import com.dreamlock.game.jsonParser.items.Item;
 
 public class WeaponDTO {
@@ -13,9 +14,9 @@ public class WeaponDTO {
     private String agility;
     private String equipmentSlot;
 
-    public Item.EquipmentSlot getEquipmentSlot() {
+    public EquipmentSlot getEquipmentSlot() {
         if(equipmentSlot.equalsIgnoreCase("main_hand"))
-            return Item.EquipmentSlot.MAIN_HAND;
+            return EquipmentSlot.MAIN_HAND;
         return null;
     }
 

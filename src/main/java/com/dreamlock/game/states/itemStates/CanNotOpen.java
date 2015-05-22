@@ -5,7 +5,7 @@ import com.dreamlock.game.jsonParser.items.Item;
 import com.dreamlock.game.states.IState;
 
 public class CanNotOpen implements IState {
-     @Override
+    @Override
     public Integer doAction(IGameContext context) {
         return null;
     }
