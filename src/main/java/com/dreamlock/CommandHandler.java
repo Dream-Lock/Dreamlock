@@ -35,11 +35,19 @@ public class CommandHandler {
             }
             else {
                 String correctCommand = parsedJsonObject.get("correctCommand").getAsString();
+
                 if (correctWords == 100){
-                    System.out.println(correctCommand + " what / where "); //TODO
+                    if (correctCommand.equals("go")) {
+                        messageIds.add(1008);
+                    }
+                    else {
+                        //messageIds.add(2103);
+                        System.out.println("What do you want me to " + correctCommand);
+                    }
                 }
                 else {
-                    System.out.print("I understood as far as wanting me to " + correctCommand); //TODO
+                    //messageIds.add(2104);
+                    System.out.print("I understood as far as wanting me to " + correctCommand);
                 }
             }
         }

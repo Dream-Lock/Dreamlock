@@ -17,7 +17,7 @@ public class Door implements Serializable{
         this.id = id;
         this.locked = true;
         this.requiredKey = requiredKey;
-        this.description = (direction + " " + name);
+        this.description = (direction + "ern" + " " + name.toLowerCase());
     }
 
     public String getName() {

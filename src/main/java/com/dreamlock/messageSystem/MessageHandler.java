@@ -17,6 +17,11 @@ public class MessageHandler {
         this.messages.putAll(messages);
     }
 
+    public void registerString(String string) {
+        Message message = new Message(string, "");
+        this.messages.put(9999,message);
+    }
+
     public void print(List<Integer> messageIds) {
         if (messageIds.contains(10000)) {
             messageIds.add(10002);
@@ -47,7 +52,8 @@ public class MessageHandler {
                     System.out.print(messages.get(messageId).getDescription());
                 }
             }
-        }else if (messageIds.contains(10005)) {
+        }
+        else if (messageIds.contains(10005)) {
             messageIds.add(10003);
             messageIds.add(10003);
             System.out.println("Health: " + messageIds.get(1));

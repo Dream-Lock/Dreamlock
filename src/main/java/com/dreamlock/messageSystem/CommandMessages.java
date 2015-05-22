@@ -29,6 +29,7 @@ public enum CommandMessages {
         commandMessages.put(1005, new Message("south", ""));
         commandMessages.put(1006, new Message("Door unlocked successfully!", ""));
         commandMessages.put(1007, new Message("You turn the handle of the door, but it seems that the door is locked!", ""));
+        commandMessages.put(1008, new Message("Where do you want me to go?", ""));
 
         // Examine messages
         commandMessages.put(1020, new Message("I can't find anything with that name!", ""));
@@ -93,14 +94,16 @@ public enum CommandMessages {
         commandMessages.put(1401, new Message(" was successfully equipped.",""));
         commandMessages.put(1402, new Message(" was unequipped.",""));
         commandMessages.put(1403, new Message(" is not an item that could be equipped!",""));
-        // general messages
+        //general messages
         commandMessages.put(2001, new Message("There more than one items with that name!", ""));
         commandMessages.put(2002, new Message("There more than one doors with that name!", ""));
         commandMessages.put(2003, new Message(" is locked.", ""));
         commandMessages.put(2004, new Message(" is unlocked!", ""));
-        // error messages
+        //error messages
         commandMessages.put(2101, new Message("I don't think I can do that", ""));
         commandMessages.put(2102, new Message("Unexpected state error", ""));
+        commandMessages.put(2103, new Message("What do you want me to ", ""));
+        commandMessages.put(2104, new Message("I understood as far as wanting me to ", ""));
         //quit messages
         commandMessages.put(5000, new Message("Quiting to Main Menu", ""));
     }

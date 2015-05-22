@@ -30,6 +30,7 @@ public class Look implements ICommand  {
                 output.add(enemy.getId());
             }
         }
+
         for (Door door : gameContext.getCurrentRoom().getDoors()) {
             output.add(10002);
             output.add(door.getId());

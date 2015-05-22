@@ -21,6 +21,7 @@ public class Parser {
             stringBuilder.append(Integer.toString(lexeme.getId()));
         }
 
+        JsonObject output = new JsonObject();
         if (rules.getRule(stringBuilder.toString())) {
             JsonObject rule = new JsonObject();
             JsonArray sentences = new JsonArray();
@@ -37,16 +38,11 @@ public class Parser {
 
             rule.addProperty("rule", stringBuilder.toString().substring(0, 2));
             sentence.add(rule);
-
             sentences.add(sentence);
-
-            JsonObject output = new JsonObject();
             output.addProperty("error", false);
             output.add("sentences", sentences);
-            return output;
         }
         else {
-            JsonObject output = new JsonObject();
             StringBuilder ruleStringBuilder = new StringBuilder();
             StringBuilder command = new StringBuilder();
             Integer correctWords = 0;
@@ -56,7 +52,7 @@ public class Parser {
             for (int i = 0; i < lexemes.size(); i++) {
                 ruleStringBuilder.append(lexemes.get(i).getTokenType().toString().charAt(0));
                 ruleStringBuilder.append(Integer.toString(lexemes.get(i).getId()));
-                command.append(lexemes.get(i).getTypedString() + " ");
+                command.append(lexemes.get(i).getTypedString()).append(" ");
                 if (rules.getRule(ruleStringBuilder.toString())) {
                     correctWords = i + 1;
                     output.addProperty("correctCommand", command.toString());
@@ -74,8 +70,8 @@ public class Parser {
             }
 
             output.addProperty("correctWords", correctWords);
-            return output;
         }
+        return output;
     }
 
     private List<Lexeme> connectUnknownLexemes(List<Lexeme> lexemes) {
