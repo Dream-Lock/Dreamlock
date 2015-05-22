@@ -100,6 +100,7 @@ public enum CommandMessages {
         commandMessages.put(2004, new Message(" is unlocked!", ""));
         // error messages
         commandMessages.put(2101, new Message("I don't think I can do that", ""));
+        commandMessages.put(2102, new Message("Unexpected state error", ""));
         //quit messages
         commandMessages.put(5000, new Message("Quiting to Main Menu", ""));
     }

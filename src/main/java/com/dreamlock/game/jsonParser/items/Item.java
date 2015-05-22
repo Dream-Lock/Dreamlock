@@ -1,6 +1,7 @@
 package com.dreamlock.game.jsonParser.items;
 
 import com.dreamlock.game.IGameContext;
+import com.dreamlock.game.constants.ActionState;
 import com.dreamlock.game.states.IState;
 
 import java.io.Serializable;
@@ -12,7 +13,7 @@ public abstract class Item implements Serializable{
     protected String description;
     protected String type;
 
-    protected Map<String,IState> states;
+    protected Map<ActionState,IState> states;
     protected Map<String, Object> stats;
 
     public enum EquipmentSlot{
@@ -21,8 +22,8 @@ public abstract class Item implements Serializable{
 
     EquipmentSlot equipmentSlot;
 
-    public int doActionState (String state, IGameContext gameContext) {
-        return states.get(state).doAction(gameContext, this);
+    public int doAction (ActionState actionState, IGameContext gameContext) {
+        return this.getStates().get(actionState).doAction(gameContext, this);
     }
 
     public EquipmentSlot getEquipmentSlot() {
@@ -37,7 +38,7 @@ public abstract class Item implements Serializable{
         return stats;
     }
 
-    public Map<String, IState> getStates() {
+    public Map<ActionState, IState> getStates() {
         return states;
     }
 

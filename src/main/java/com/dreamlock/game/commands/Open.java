@@ -1,6 +1,7 @@
 package com.dreamlock.game.commands;
 
 import com.dreamlock.game.IGameContext;
+import com.dreamlock.game.constants.ActionState;
 import com.dreamlock.game.jsonParser.items.Container;
 import com.dreamlock.game.jsonParser.items.Item;
 import com.dreamlock.game.models.Door;
@@ -33,20 +34,28 @@ public class Open implements ICommand{
                 if (invItemExists) {
 
                     Item tempItem = gameContext.getCurrentRoom().getSpecificItem(words.get(2));
-                    output.add(10000);
-                    Container containerItem = (Container) tempItem;
-                    output.add(containerItem.getId());   // item to print
+                    if (tempItem.getType().equals("Container")) {
+                        output.add(10000);
+                        Container containerItem = (Container) tempItem;
+                        output.add(containerItem.getId());   // item to print
 
-                    contOutput.add(10002);
-                    contOutput.add(1124);
-
-                    for (Item item : containerItem.getItems()) {
                         contOutput.add(10002);
-                        contOutput.add(item.getId());
+                        contOutput.add(1124);
+
+                        for (Item item : containerItem.getItems()) {
+                            contOutput.add(10002);
+                            contOutput.add(item.getId());
+                        }
+                        output.add(tempItem.doAction(ActionState.OPEN, gameContext));
+                        output.addAll(contOutput);
+                        return output;
                     }
-                    output.add(tempItem.doActionState("Open", gameContext));
-                    output.addAll(contOutput);
-                    return output;
+                    else {
+                        output.add(10000);
+                        output.add(tempItem.getId());
+                        output.add(tempItem.doAction(ActionState.OPEN, gameContext));
+                        return output;
+                    }
                 }
                 else {
                     output.add(10000);

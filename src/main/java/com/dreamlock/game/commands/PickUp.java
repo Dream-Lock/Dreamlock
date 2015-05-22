@@ -1,6 +1,7 @@
 package com.dreamlock.game.commands;
 
 import com.dreamlock.game.IGameContext;
+import com.dreamlock.game.constants.ActionState;
 import com.dreamlock.game.jsonParser.items.Item;
 import com.dreamlock.game.models.Word;
 
@@ -23,7 +24,7 @@ public class PickUp implements ICommand {
             output.add(10000);
             if (foundItems.size() ==1 ) {
                 output.add(foundItems.get(0).getId());
-                output.add(foundItems.get(0).doActionState("Pick Up", gameContext));
+                output.add(foundItems.get(0).doAction(ActionState.PICK_UP, gameContext));
                 return output;
             }
             else if (foundItems.size() > 1) {

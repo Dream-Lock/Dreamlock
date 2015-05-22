@@ -1,6 +1,7 @@
 package com.dreamlock.game.commands;
 
 import com.dreamlock.game.IGameContext;
+import com.dreamlock.game.constants.ActionState;
 import com.dreamlock.game.jsonParser.items.Item;
 import com.dreamlock.game.models.Word;
 
@@ -26,7 +27,7 @@ public class Drop implements ICommand {
             if (duplicates == 1){
                 Item item = gameContext.getPlayer().getInventory().getSpecificItem(words.get(2));
                 output.add(item.getId());
-                output.add(item.doActionState("Drop", gameContext));
+                output.add(item.doAction(ActionState.DROP, gameContext));
                 return output;
             }
             else {
@@ -34,20 +35,6 @@ public class Drop implements ICommand {
                 return output;
             }
         }
-//
-//        List<Item> foundItems = gameContext.getPlayer().getInventory().containsItems(words.get(2));
-//        if (foundItems != null) {
-//            output.add(10000);
-//            if (foundItems.size() ==1 ) {
-//                output.add(foundItems.get(0).getId());
-//                output.add(foundItems.get(0).doActionState("Drop",gameContext));
-//                return output;
-//            }
-//            else if (foundItems.size() > 1) {
-//                output.add(2001);
-//                return output;
-//            }
-//        }
 
         output.add(1042);
         return output;

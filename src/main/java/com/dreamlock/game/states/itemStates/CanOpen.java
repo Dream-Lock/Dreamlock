@@ -1,6 +1,7 @@
 package com.dreamlock.game.states.itemStates;
 
 import com.dreamlock.game.IGameContext;
+import com.dreamlock.game.constants.ActionState;
 import com.dreamlock.game.jsonParser.items.Container;
 import com.dreamlock.game.jsonParser.items.Item;
 import com.dreamlock.game.states.IState;
@@ -37,7 +38,7 @@ public class CanOpen implements IState {
         }
         container.removeItems();
         item = (Item) container;
-        item.getStates().put("Open",new Opened());
+        item.getStates().put(ActionState.OPEN,new Opened());
         return 1120;
     }
 }

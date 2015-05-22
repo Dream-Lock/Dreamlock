@@ -1,5 +1,6 @@
 package com.dreamlock.game.jsonParser.items;
 
+import com.dreamlock.game.constants.ActionState;
 import com.dreamlock.game.jsonParser.DTOs.itemDTOs.WeaponDTO;
 import com.dreamlock.game.states.itemStates.*;
 import com.google.gson.Gson;
@@ -26,11 +27,11 @@ public class Weapon extends Item {
 
         states = new HashMap<>();
         // changing states
-        states.put("Pick Up", new CanPickUp());
-        states.put("Drop", new CanDrop());
-        states.put("Equip", new CanEquip());
-        states.put("Unequip", new CanUnequip());
-        states.put("Use", new CanNotUse());
-        states.put("Open", new CanNotOpen());
+        states.put(ActionState.PICK_UP, new CanPickUp());
+        states.put(ActionState.DROP, new CanDrop());
+        states.put(ActionState.EQUIP, new CanEquip());
+        states.put(ActionState.UNEQUIP, new CanUnequip());
+        states.put(ActionState.USE, new CanNotUse());
+        states.put(ActionState.OPEN, new CanNotOpen());
     }
 }

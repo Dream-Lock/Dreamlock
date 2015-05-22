@@ -1,5 +1,6 @@
 package com.dreamlock.game.jsonParser.items;
 
+import com.dreamlock.game.constants.ActionState;
 import com.dreamlock.game.jsonParser.DTOs.itemDTOs.RoomObjectDTO;
 import com.dreamlock.game.states.itemStates.CanNotPickUp;
 import com.dreamlock.game.states.itemStates.CanOpen;
@@ -20,7 +21,7 @@ public class RoomObject extends Item {
 
         states = new HashMap<>();
         // changing states
-        states.put("Pick Up", new CanNotPickUp());
-        states.put("Open", new CanOpen());
+        states.put(ActionState.PICK_UP, new CanNotPickUp());
+        states.put(ActionState.OPEN, new CanOpen());
     }
 }

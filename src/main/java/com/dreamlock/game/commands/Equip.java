@@ -2,6 +2,7 @@ package com.dreamlock.game.commands;
 
 
 import com.dreamlock.game.IGameContext;
+import com.dreamlock.game.constants.ActionState;
 import com.dreamlock.game.jsonParser.items.Item;
 import com.dreamlock.game.models.Word;
 
@@ -28,7 +29,7 @@ public class Equip implements ICommand {
             if (duplicates == 1){
                 Item item = gameContext.getPlayer().getInventory().getSpecificItem(words.get(2));
                 output.add(item.getId());
-                output.add(item.doActionState("Equip", gameContext));
+                output.add(item.doAction(ActionState.EQUIP,gameContext));
                 return output;
             }
             else {

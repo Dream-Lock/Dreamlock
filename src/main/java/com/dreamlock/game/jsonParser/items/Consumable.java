@@ -1,5 +1,6 @@
 package com.dreamlock.game.jsonParser.items;
 
+import com.dreamlock.game.constants.ActionState;
 import com.dreamlock.game.jsonParser.DTOs.itemDTOs.ConsumableDTO;
 import com.dreamlock.game.states.itemStates.*;
 import com.google.gson.Gson;
@@ -19,10 +20,10 @@ public class Consumable extends Item {
 
         states = new HashMap<>();
         // Item states
-        states.put("Pick Up", new CanPickUp());
-        states.put("Drop", new CanDrop());
-        states.put("Equip", new CanNotEquip());
-        states.put("Use", new CanUse());
-        states.put("Open", new CanNotOpen());
+        states.put(ActionState.PICK_UP, new CanPickUp());
+        states.put(ActionState.DROP, new CanDrop());
+        states.put(ActionState.EQUIP, new CanNotEquip());
+        states.put(ActionState.USE, new CanUse());
+        states.put(ActionState.OPEN, new CanNotOpen());
     }
 }
