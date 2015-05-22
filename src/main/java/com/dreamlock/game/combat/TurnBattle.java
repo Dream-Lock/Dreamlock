@@ -2,7 +2,9 @@ package com.dreamlock.game.combat;
 
 
 import com.dreamlock.game.IGameContext;
+import com.dreamlock.game.constants.ActionState;
 import com.dreamlock.game.models.Enemy;
+import com.dreamlock.game.models.Player;
 import com.dreamlock.game.models.Room;
 
 import java.io.Serializable;
@@ -26,19 +28,25 @@ public class TurnBattle implements Serializable{
         List<Integer> output = new ArrayList<>();
 
         if(currentChar != 0){
-            characters.get(0).getStates().get("Attack").doAction(gameContext, characters.get(currentChar) , characters.get(0));
+            characters.get(0).getStates().get(ActionState.ATTACK).doAction(gameContext, characters.get(currentChar) , characters.get(0));
             output.add(10002);
             output.add(((Enemy) (characters.get(currentChar))).getId());
             output.add(1302);
             output.add(gameContext.getPlayer().getHealth());
             output.add(1308);
+
+            if (gameContext.getPlayer().getHealth() <= 0) {
+                output.add(10002);
+                output.add(1303);
+                gameContext.setGameRunning(false);
+            }
         }
 
         return output;
     }
 
     public List<Integer> nextTurn(IGameContext gameContext){
-        if(currentChar != characters.size()-1) {
+        if(enemiesAlive() && currentChar != characters.size()-1) {
             currentChar++;
             while(!characters.get(currentChar).isAlive() && currentChar !=characters.size()-1)
                 currentChar++;
@@ -51,8 +59,7 @@ public class TurnBattle implements Serializable{
         currentChar = 0;
         return null;
     }
-
-    public void LetTheBattleBegin(){
+    public void letTheBattleBegin(){
         inCombat =true;
     }
 
@@ -60,4 +67,18 @@ public class TurnBattle implements Serializable{
         return inCombat;
     }
 
+    public boolean enemiesAlive(){
+        int deadCounter = 0;
+        for(int i = 1; i<characters.size(); i++){
+            if (!characters.get(i).isAlive())
+                deadCounter++;
+        }
+
+        if (deadCounter == characters.size()-1){
+            inCombat = false;
+            return false;
+        }
+
+        return true;
+    }
 }

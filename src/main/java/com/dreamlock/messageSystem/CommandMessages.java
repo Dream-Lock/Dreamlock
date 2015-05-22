@@ -85,13 +85,14 @@ public enum CommandMessages {
         //attack messages
         commandMessages.put(1301, new Message(" was attacked for ",""));
         commandMessages.put(1302, new Message(" attacked you. Remaining health points: ",""));
-        commandMessages.put(1303, new Message(" bested you! You have died.",""));
+        commandMessages.put(1303, new Message(" You have been bested in combat. GAME OVER.",""));
         commandMessages.put(1304, new Message(" cannot be attacked!",""));
         commandMessages.put(1305, new Message(" There is no such enemy here.",""));
         commandMessages.put(1306, new Message(" That enemy is already dead.",""));
         commandMessages.put(1307, new Message(" has died.",""));
         commandMessages.put(1308, new Message(".",""));
         commandMessages.put(1309, new Message(" points of damage.",""));
+        commandMessages.put(1310, new Message("All your enemies are dead, the battle is over!.",""));
         //equip messages
         commandMessages.put(1401, new Message(" was successfully equipped.",""));
         commandMessages.put(1402, new Message(" was unequipped.",""));

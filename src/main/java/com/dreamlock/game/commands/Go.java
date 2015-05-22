@@ -1,6 +1,5 @@
 package com.dreamlock.game.commands;
 
-import com.dreamlock.game.GameContext;
 import com.dreamlock.game.IGameContext;
 import com.dreamlock.game.models.Door;
 import com.dreamlock.game.models.Room;
@@ -21,21 +20,20 @@ public class Go implements ICommand {
         List<Integer> output = new ArrayList<>();
         String direction = words.get(2).getDescription();
 
-        if (gameContext.getTurnBattle() == null || gameContext.getTurnBattle().activeBattle() == false) {
-            Room nextRoom = gameContext.getCurrentRoom().getExits().get(direction);
-            Room currentRoom = gameContext.getCurrentRoom();
-            List<Door> doors = currentRoom.getDoors();
-            Door roomDoor = null;
-            boolean isLocked = false;
-            for (Door door : doors) {
-                if (door.getDirection().equals(direction)) {
-                    if (door.isLocked()) {
-                        isLocked = true;
-                        roomDoor = door;
-                    }
+        Room nextRoom = gameContext.getCurrentRoom().getExits().get(direction);
+        Room currentRoom = gameContext.getCurrentRoom();
+        List<Door> doors = currentRoom.getDoors();
+        Door roomDoor = null;
+        boolean isLocked = false;
+        for (Door door : doors) {
+            if (door.getDirection().equals(direction)) {
+                if (door.isLocked()) {
+                    isLocked = true;
+                    roomDoor = door;
                 }
             }
-
+        }
+        if(gameContext.getTurnBattle() == null || !gameContext.getTurnBattle().activeBattle()) {
             if (!nextRoom.getDescription().equals("wall") && !isLocked) { //If wall
 
                 gameContext.setCurrentRoom(nextRoom);

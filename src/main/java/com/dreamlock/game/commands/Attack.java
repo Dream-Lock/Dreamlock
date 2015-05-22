@@ -2,7 +2,7 @@ package com.dreamlock.game.commands;
 
 
 import com.dreamlock.game.IGameContext;
-import com.dreamlock.game.constants.Stats;
+import com.dreamlock.game.constants.ActionState;
 import com.dreamlock.game.models.Enemy;
 import com.dreamlock.game.models.Word;
 
@@ -24,8 +24,8 @@ public class Attack implements ICommand {
         Word word = words.get(2);
         List<Enemy> enemies = gameContext.getCurrentRoom().getEnemies();
 
-        if(enemies.size() > 0)
-            gameContext.getTurnBattle().LetTheBattleBegin(); // activate turn system
+        if(enemies.size() > 0 && gameContext.getTurnBattle().enemiesAlive())
+            gameContext.getTurnBattle().letTheBattleBegin(); // activate turn system
 
         for (Enemy enemy : enemies) {
             if (enemy.getName().toLowerCase().contains(word.getDescription())) {
@@ -39,7 +39,7 @@ public class Attack implements ICommand {
             if (foundEnemy.getHealth() > 0) {
                 output.add(foundEnemy.getId());
                 output.add(1301);
-                output.add(foundEnemy.getStates().get(Stats.ATTACK).doAction(gameContext, gameContext.getPlayer() ,foundEnemy));
+                output.add(foundEnemy.getStates().get(ActionState.ATTACK).doAction(gameContext, gameContext.getPlayer(), foundEnemy));
                 output.add(1309);
                 if (!foundEnemy.isAlive()) {
                     output.add(10002);
@@ -50,13 +50,19 @@ public class Attack implements ICommand {
             }else if (foundEnemy.getHealth() <= 0) {
                 output.add(1306);
             }
+            if(gameContext.getTurnBattle().activeBattle()) {
 
-            List<Integer> templist = gameContext.getTurnBattle().nextTurn(gameContext);
-            while(templist != null){
-                output.addAll(templist);
-                templist = gameContext.getTurnBattle().nextTurn(gameContext);
+                List<Integer> templist = gameContext.getTurnBattle().nextTurn(gameContext);
+                while (gameContext.getTurnBattle().activeBattle() && templist != null) {
+                    output.addAll(templist);
+                    templist = gameContext.getTurnBattle().nextTurn(gameContext);
+                }
+
+                if (!gameContext.getTurnBattle().activeBattle()) {
+                    output.add(10002);
+                    output.add(1310);
+                }
             }
-
             return output;
         }
 
