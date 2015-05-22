@@ -4,13 +4,11 @@ package com.dreamlock.game.combat;
 import com.dreamlock.game.constants.ActionState;
 import com.dreamlock.game.constants.Stats;
 import com.dreamlock.game.jsonParser.items.Armor;
-import com.dreamlock.game.jsonParser.items.Item;
 import com.dreamlock.game.jsonParser.items.Weapon;
 import com.dreamlock.game.states.ICombatState;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.io.Serializable;
-import java.util.HashMap;
 import java.util.Map;
 
 

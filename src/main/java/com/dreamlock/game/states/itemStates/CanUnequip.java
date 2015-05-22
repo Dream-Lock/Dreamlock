@@ -1,9 +1,7 @@
 package com.dreamlock.game.states.itemStates;
 
 import com.dreamlock.game.IGameContext;
-import com.dreamlock.game.jsonParser.items.Armor;
 import com.dreamlock.game.jsonParser.items.Item;
-import com.dreamlock.game.jsonParser.items.Weapon;
 import com.dreamlock.game.states.IState;
 
 public class CanUnequip implements IState {

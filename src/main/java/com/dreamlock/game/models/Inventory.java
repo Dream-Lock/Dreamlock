@@ -5,7 +5,6 @@ import com.dreamlock.game.jsonParser.items.Item;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class Inventory implements Serializable{
     private List<Item> items;

@@ -1,7 +1,6 @@
 package com.dreamlock.game.jsonParser.DTOs.itemDTOs;
 
 import com.dreamlock.game.constants.EquipmentSlot;
-import com.dreamlock.game.jsonParser.items.Item;
 
 public class ArmorDTO {
     private int id;

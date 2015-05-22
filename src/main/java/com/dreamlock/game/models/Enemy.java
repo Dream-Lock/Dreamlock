@@ -2,12 +2,10 @@ package com.dreamlock.game.models;
 
 import com.dreamlock.game.combat.Combatant;
 import com.dreamlock.game.constants.ActionState;
-import com.dreamlock.game.constants.Stats;
 import com.dreamlock.game.jsonParser.DTOs.EnemyDTO;
 import com.dreamlock.game.states.combatStates.CanAttackState;
 import com.google.gson.Gson;
 
-import java.awt.*;
 import java.io.Serializable;
 import java.util.HashMap;
 

@@ -1,7 +1,6 @@
 package com.dreamlock.game.commands;
 
 import com.dreamlock.game.IGameContext;
-import com.dreamlock.game.jsonParser.items.Item;
 import com.dreamlock.game.models.Door;
 import com.dreamlock.game.models.Room;
 import com.dreamlock.game.models.Word;

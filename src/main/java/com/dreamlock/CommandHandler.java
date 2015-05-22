@@ -42,9 +42,8 @@ public class CommandHandler {
                     System.out.print("I understood as far as wanting me to " + correctCommand); //TODO
                 }
             }
-
         }
-        else{
+        else {
 
             JsonArray sentences = parsedJsonObject.getAsJsonArray("sentences");
             Word firstWord;

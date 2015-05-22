@@ -3,7 +3,6 @@ package com.dreamlock.game.models;
 import com.dreamlock.game.combat.Combatant;
 import com.dreamlock.game.constants.ActionState;
 import com.dreamlock.game.constants.EquipmentSlot;
-import com.dreamlock.game.constants.Stats;
 import com.dreamlock.game.jsonParser.items.Armor;
 import com.dreamlock.game.jsonParser.items.Item;
 import com.dreamlock.game.jsonParser.items.Weapon;
@@ -12,7 +11,6 @@ import org.apache.commons.lang3.tuple.ImmutablePair;
 
 import java.io.Serializable;
 import java.util.HashMap;
-import java.util.Map;
 
 public class Player extends Combatant implements Serializable {
     private Inventory inventory;

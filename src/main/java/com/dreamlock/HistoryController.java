@@ -5,9 +5,6 @@ import com.dreamlock.game.models.History;
 
 import java.util.List;
 
-/**
- * Created by Andreas on 1/5/2015.
- */
 public class HistoryController {
     private IGameContext gameContext;
 

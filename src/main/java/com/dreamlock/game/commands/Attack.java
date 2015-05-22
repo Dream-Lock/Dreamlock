@@ -3,10 +3,8 @@ package com.dreamlock.game.commands;
 
 import com.dreamlock.game.IGameContext;
 import com.dreamlock.game.constants.Stats;
-import com.dreamlock.game.jsonParser.items.Item;
 import com.dreamlock.game.models.Enemy;
 import com.dreamlock.game.models.Word;
-import com.dreamlock.game.states.combatStates.CanAttackState;
 
 import java.util.ArrayList;
 import java.util.List;
