@@ -17,8 +17,8 @@ public class Look implements ICommand  {
         List<Integer> output = new ArrayList<>();
         Room room = gameContext.getCurrentRoom();
 
-        output.add(10003);
-        output.add(room.getId());
+        //output.add(10003);
+        //output.add(room.getId());
         for (Item item : gameContext.getCurrentRoom().getItems()) {
             output.add(10002);
             output.add(item.getId());
