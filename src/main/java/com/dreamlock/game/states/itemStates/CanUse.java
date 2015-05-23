@@ -16,12 +16,12 @@ public class CanUse implements IState {
         String itemType = item.getType();
         switch (itemType) {
             case "Consumable":
+                context.getPlayer().calculateStats();
                 context.getPlayer().addStats(item.getStats());
                 break;
             default:
                 break;
         }
-
         return 10006;
     }
 }

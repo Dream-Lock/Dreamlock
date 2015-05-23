@@ -105,9 +105,15 @@ public class Player extends Combatant implements Serializable {
     }
 
     public void addStats(Map<Stats, Object> stats) {
-        health =+ (int) stats.get(Stats.HEALTH);
-        stamina =+ (int) stats.get(Stats.STAMINA);
-        strength =+ (int) stats.get(Stats.STRENGTH);
-        agility =+ (int) stats.get(Stats.AGILITY);
+        stamina += (int) stats.get(Stats.STAMINA);
+        calculateStats();
+        health += (int) stats.get(Stats.HEALTH);
+        if (health > maxHealth) {
+            health = maxHealth;
+        }
+
+        strength += (int) stats.get(Stats.STRENGTH);
+        agility += (int) stats.get(Stats.AGILITY);
+        calculateStats();
     }
 }
