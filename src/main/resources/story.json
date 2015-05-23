@@ -5,6 +5,9 @@
     "items":[
       {
         "path":"/items/armor/helmet.json"
+      },
+      {
+        "path": "/items/consumables/potion.json"
       }
     ],
     "enemies":[

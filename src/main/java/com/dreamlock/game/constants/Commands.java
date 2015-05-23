@@ -32,6 +32,7 @@ public enum Commands {
         commands.put("status", new Status());
         commands.put("unequip", new Unequip());
         commands.put("reload", new Reload());
+        commands.put("use", new Use());
     }
 
     private final Map<String, ICommand> commands;

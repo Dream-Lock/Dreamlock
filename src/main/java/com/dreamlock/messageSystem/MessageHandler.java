@@ -1,25 +1,23 @@
 package com.dreamlock.messageSystem;
 
-import com.dreamlock.game.models.Message;
-
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class MessageHandler implements Serializable{
-    private Map<Integer, Message> messages;
+    private Map<Integer, IMessage> messages;
 
     public MessageHandler() {
         messages = new HashMap<>();
     }
 
-    public void register(Map<Integer, Message> messages) {
+    public void register(Map<Integer, IMessage> messages) {
         this.messages.putAll(messages);
     }
 
     public void registerString(String string, int id) {
-        Message message = new Message(string, "");
+        IMessage message = new NDMessage(string, "");
         this.messages.put(id, message);
     }
 
@@ -27,12 +25,16 @@ public class MessageHandler implements Serializable{
         if (messageIds.contains(10000)) {
             messageIds.add(10002);
             messageIds.add(10002);
-            for (int i=0;i<messageIds.size();i++) {
+
+            for (int i = 0 ; i < messageIds.size() ; i++) {
                 int messageId = messageIds.get(i);
-                if(asItself(messageIds,i,messageId))
+
+                if(asItself(messageIds,i,messageId)) {
                     System.out.print(messageId);
-                else
+                }
+                else {
                     System.out.print(messages.get(messageId).getName());
+                }
             }
         }
         else if (messageIds.contains(10001)) {
@@ -51,6 +53,15 @@ public class MessageHandler implements Serializable{
                 }
                 if (!messages.get(messageId).getDescription().equals("")) {
                     System.out.print(messages.get(messageId).getDescription());
+                }
+            }
+        }
+        else if (messageIds.contains(10006)) {
+            messageIds.add(10007);
+            messageIds.add(10007);
+            for (Integer messageId : messageIds) {
+                if (!messages.get(messageId).getEffect().equals("")) {
+                    System.out.print(messages.get(messageId).getEffect());
                 }
             }
         }

@@ -1,5 +1,6 @@
 package com.dreamlock.messageSystem;
 
+import com.dreamlock.game.jsonParser.items.Consumable;
 import com.dreamlock.game.jsonParser.items.Container;
 import com.dreamlock.game.jsonParser.items.Item;
 import com.dreamlock.game.models.*;
@@ -8,38 +9,53 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GameMessages {
-    private Map<Integer,Message> gameMessages;
+    private Map<Integer,IMessage> gameMessages;
 
     public GameMessages(Player gameContext, Map<Integer, Room> rooms) {
         gameMessages = new HashMap<>();
         for (int i = 1 ; i < rooms.size() ; i++ ) {
             Room room = rooms.get(i);
-            gameMessages.put(room.getId(), new Message(room.getTitle(), room.getDescription()));
+            gameMessages.put(room.getId(), new NDMessage(room.getTitle(), room.getDescription()));
             for (Item item : room.getItems()) {
-                if (item.getType().equals("Container")) {
-                    Container container = (Container) item;
-                    for (Item containerItem : container.getItems()) {
-                        gameMessages.put(containerItem.getId(), new Message(containerItem.getName(), containerItem.getDescription()));
+                try {
+                    if (item.getType().equals("Container")) {
+                        Container container = (Container) item;
+                        for (Item containerItem : container.getItems()) {
+                            if (item.getType().equals("Consumable")) {
+                                Consumable consumableItem = (Consumable) containerItem;
+                                gameMessages.put(consumableItem.getId(), new NDEMessage(consumableItem.getName(), consumableItem.getDescription(), consumableItem.getEffect()));
+                            } else {
+                                gameMessages.put(containerItem.getId(), new NDMessage(containerItem.getName(), containerItem.getDescription()));
+                            }
+                        }
+                    }
+                    if (item.getType().equals("Consumable")) {
+                        Consumable consumableItem = (Consumable) item;
+                        gameMessages.put(consumableItem.getId(), new NDEMessage(consumableItem.getName(), consumableItem.getDescription(), consumableItem.getEffect()));
+                    } else {
+                        gameMessages.put(item.getId(), new NDMessage(item.getName(), item.getDescription()));
                     }
                 }
-                gameMessages.put(item.getId(), new Message(item.getName(), item.getDescription()));
+                catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
             for(Enemy enemy: room.getEnemies()){
-                gameMessages.put(enemy.getId(), new Message(enemy.getName(), enemy.getDescription()));
+                gameMessages.put(enemy.getId(), new NDMessage(enemy.getName(), enemy.getDescription()));
 
             }
             for(Door door: room.getDoors()){
-                gameMessages.put(door.getId(), new Message(door.getName(), door.getDescription()));
+                gameMessages.put(door.getId(), new NDMessage(door.getName(), door.getDescription()));
 
             }
         }
     }
 
-    public Map<Integer, Message> getGameMessages() {
+    public Map<Integer, IMessage> getGameMessages() {
         return gameMessages;
     }
 
-    public void setGameMessages(Map<Integer, Message> gameMessages) {
+    public void setGameMessages(Map<Integer, IMessage> gameMessages) {
         this.gameMessages = gameMessages;
     }
 }

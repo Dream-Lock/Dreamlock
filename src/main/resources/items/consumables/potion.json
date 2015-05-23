@@ -2,5 +2,10 @@
   "id":200,
   "type":"Consumable",
   "name":"Health potion",
-  "description":"A magic potion to restore a portion of your life"
+  "description":"A magic potion to restore a portion of your life",
+  "effect": "You feel more healthy than ever!",
+  "healthStat": 15,
+  "staminaStat": 10,
+  "strengthStat": 10,
+  "agilityStat": 10
 }

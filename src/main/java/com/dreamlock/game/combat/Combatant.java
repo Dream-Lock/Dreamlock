@@ -20,6 +20,7 @@ public abstract class Combatant implements Serializable{
     protected int stamina;
     protected int strength;
     protected int agility;
+    protected int maxHealth;
     protected Pair<String, Armor> chest, head;
     protected Pair<String, Weapon> main_hand;
 
@@ -85,6 +86,14 @@ public abstract class Combatant implements Serializable{
         this.stamina = stamina;
     }
 
+    public int getMaxHealth() {
+        return maxHealth;
+    }
+
+    public void setMaxHealth(int maxHealth) {
+        this.maxHealth = maxHealth;
+    }
+
     public void calculateStats(){
         int stamina_mod = 0, agility_mod = 0,strength_mod = 0,attack_mod = 0,defense_mod = 0;
 
@@ -114,6 +123,7 @@ public abstract class Combatant implements Serializable{
         this.setAgility(1 + agility_mod);
 
         this.setHealth(10 + getStamina());
+        this.setMaxHealth(this.health);
         this.setAttack(1 + getStrength() + attack_mod);
         this.setDefense(1 + getAgility() + defense_mod);
 
