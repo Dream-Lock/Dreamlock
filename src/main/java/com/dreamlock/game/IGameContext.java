@@ -4,6 +4,7 @@ import com.dreamlock.game.combat.TurnBattle;
 import com.dreamlock.game.models.History;
 import com.dreamlock.game.models.Player;
 import com.dreamlock.game.models.Room;
+import com.dreamlock.messageSystem.MessageHandler;
 
 public interface IGameContext {
     Room getCurrentRoom();
@@ -23,4 +24,8 @@ public interface IGameContext {
     boolean gameIsRunning ();
 
     void setGameRunning (boolean running);
+
+    void setMessageHandler(MessageHandler messageHandler);
+
+    void registerMessage(String s, int id);
 }

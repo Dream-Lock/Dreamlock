@@ -41,13 +41,13 @@ public class CommandHandler {
                         messageIds.add(1008);
                     }
                     else {
-                        //messageIds.add(2103);
-                        System.out.println("What do you want me to " + correctCommand);
+                        gameContext.registerMessage("What do you want me to " + correctCommand, 9001);
+                        messageIds.add(9001);
                     }
                 }
                 else {
-                    //messageIds.add(2104);
-                    System.out.print("I understood as far as wanting me to " + correctCommand);
+                    gameContext.registerMessage("I understood as far as wanting me to " + correctCommand,9001);
+                    messageIds.add(9001);
                 }
             }
         }

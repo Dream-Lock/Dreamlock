@@ -83,6 +83,7 @@ public class Dreamlock {
         MessageHandler messageHandler = new MessageHandler();
         messageHandler.register(gameMessages.getGameMessages());
         messageHandler.register(commandMessages.getCommandMessages());
+        gameContext.setMessageHandler(messageHandler);
 
         Lexer lexer = new Lexer();
         Parser parser = new Parser();

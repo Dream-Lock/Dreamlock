@@ -17,9 +17,9 @@ public class MessageHandler {
         this.messages.putAll(messages);
     }
 
-    public void registerString(String string) {
+    public void registerString(String string, int id) {
         Message message = new Message(string, "");
-        this.messages.put(9999,message);
+        this.messages.put(id, message);
     }
 
     public void print(List<Integer> messageIds) {
