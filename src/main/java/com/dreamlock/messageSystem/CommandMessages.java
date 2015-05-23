@@ -96,6 +96,15 @@ public enum CommandMessages {
         commandMessages.put(1401, new NDMessage(" was successfully equipped.",""));
         commandMessages.put(1402, new NDMessage(" was unequipped.",""));
         commandMessages.put(1403, new NDMessage(" is not an item that could be equipped!",""));
+        //history messages
+        commandMessages.put(1501, new NDMessage("I already did that.",""));
+        commandMessages.put(1502, new NDMessage("Please stop making me repeat myself!",""));
+        commandMessages.put(1503, new NDMessage("Type 'qq'!",""));
+        commandMessages.put(1504, new NDMessage("Never mind I will do it for you...",""));
+
+        commandMessages.put(1401, new NDMessage(" was successfully equipped.",""));
+        commandMessages.put(1402, new NDMessage(" was unequipped.",""));
+        commandMessages.put(1403, new NDMessage(" is not an item that could be equipped!",""));
         //use messages
         commandMessages.put(1501, new NDMessage(" was successfully used!",""));
         //general messages
@@ -104,6 +113,9 @@ public enum CommandMessages {
         commandMessages.put(2003, new NDMessage(" is locked.", ""));
         commandMessages.put(2004, new NDMessage(" is unlocked!", ""));
         //error messages
+        commandMessages.put(2101, new NDMessage("I don't think I can do that", ""));
+        commandMessages.put(2102, new NDMessage("Unexpected state error", ""));
+        commandMessages.put(2103, new NDMessage("Shut your dirty mouth!", ""));
         commandMessages.put(2101, new NDMessage("I don't think I can do that", ""));
         commandMessages.put(2102, new NDMessage("Unexpected state error", ""));
         //quit messages

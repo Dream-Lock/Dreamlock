@@ -3,6 +3,7 @@ package com.dreamlock;
 import com.dreamlock.game.IGameContext;
 import com.dreamlock.game.models.History;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HistoryController {
@@ -35,5 +36,35 @@ public class HistoryController {
             }
         }
         return counter;
+    }
+
+    public List<Integer> handle() {
+
+        List<String> history = gameContext.getHistory().getHistory();
+        if(!history.get(history.size()-1).contains("go")) {
+            Integer repeatedCommands = this.getRepeats();
+            List<Integer> messageIds = new ArrayList<>();
+
+            messageIds.add(10000); // only title
+            switch (repeatedCommands) {
+                case 1:
+                    messageIds.add(1501);
+                    break;
+                case 2:
+                    messageIds.add(1502);
+                    break;
+                case 3:
+                    messageIds.add(1503);
+                    break;
+                case 4:
+                    messageIds.add(1504);
+                    // quit
+                    break;
+                default:
+                    return null;
+            }
+            return messageIds;
+        }
+        return null;
     }
 }
