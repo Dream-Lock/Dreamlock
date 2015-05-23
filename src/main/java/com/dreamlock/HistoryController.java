@@ -1,6 +1,7 @@
 package com.dreamlock;
 
 import com.dreamlock.game.IGameContext;
+import com.dreamlock.game.constants.HistoryExceptions;
 import com.dreamlock.game.models.History;
 
 import java.util.ArrayList;
@@ -41,7 +42,14 @@ public class HistoryController {
     public List<Integer> handle() {
 
         List<String> history = gameContext.getHistory().getHistory();
-        if(!history.get(history.size()-1).contains("go")) {
+        Boolean hasException = false;
+        for (HistoryExceptions exception : HistoryExceptions.values()) {
+            if (history.get(history.size()-1).contains(exception.toString())) {
+                hasException = true;
+            }
+        }
+
+        if(!hasException) {
             Integer repeatedCommands = this.getRepeats();
             List<Integer> messageIds = new ArrayList<>();
 
