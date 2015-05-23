@@ -1,5 +1,7 @@
-package com.dreamlock;
+package com.dreamlock.menu;
 
+import com.dreamlock.GameUtils;
+import com.dreamlock.HistoryController;
 import com.dreamlock.game.IGameContext;
 import com.dreamlock.game.jsonParser.JsonParser;
 import com.dreamlock.handlers.CommandHandler;
