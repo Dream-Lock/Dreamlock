@@ -13,7 +13,7 @@ import java.util.List;
 public class TurnBattle implements Serializable{
     private List<Combatant> characters;
     private int currentChar;
-    private boolean inCombat;
+    protected boolean inCombat;
 
     public TurnBattle(IGameContext gameContext, Room room){
         characters = new ArrayList<>();
@@ -59,7 +59,7 @@ public class TurnBattle implements Serializable{
         return null;
     }
     public void letTheBattleBegin(){
-        inCombat =true;
+        inCombat = true;
     }
 
     public boolean activeBattle(){
@@ -78,6 +78,11 @@ public class TurnBattle implements Serializable{
             return false;
         }
 
+        return true;
+    }
+
+    public boolean fledFromBattle() {
+        inCombat = false;
         return true;
     }
 }

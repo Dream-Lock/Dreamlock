@@ -103,6 +103,10 @@ public enum CommandMessages {
         commandMessages.put(1602, new NDMessage("Please stop making me repeat myself!",""));
         commandMessages.put(1603, new NDMessage("Type 'qq'!",""));
         commandMessages.put(1604, new NDMessage("Never mind I will do it for you...",""));
+        //flee messages
+        commandMessages.put(1701, new NDMessage("You successfully fled the battle! Retreat into another room quickly!",""));
+        commandMessages.put(1702, new NDMessage("You've missed your chance, the enemy strikes at the opportunity",""));
+        commandMessages.put(1703, new NDMessage("There is nothing to flee from...",""));
         //general messages
         commandMessages.put(2001, new NDMessage("There more than one items with that name!", ""));
         commandMessages.put(2002, new NDMessage("There more than one doors with that name!", ""));
