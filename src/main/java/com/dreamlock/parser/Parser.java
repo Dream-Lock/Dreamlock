@@ -1,5 +1,6 @@
 package com.dreamlock.parser;
 
+import com.dreamlock.messageSystem.ForbiddenWords;
 import com.dreamlock.parser.constants.Rules;
 import com.dreamlock.parser.constants.TokenType;
 import com.dreamlock.parser.models.Lexeme;
@@ -49,27 +50,42 @@ public class Parser {
 
             output.addProperty("error", true);
 
-            for (int i = 0; i < lexemes.size(); i++) {
-                ruleStringBuilder.append(lexemes.get(i).getTokenType().toString().charAt(0));
-                ruleStringBuilder.append(Integer.toString(lexemes.get(i).getId()));
-                command.append(lexemes.get(i).getTypedString()).append(" ");
-                if (rules.getRule(ruleStringBuilder.toString())) {
-                    correctWords = i + 1;
-                    output.addProperty("correctCommand", command.toString());
+            Boolean forbidden = false;
+            for (Lexeme lexeme : lexemes) {
+                for (ForbiddenWords forbiddenWords : ForbiddenWords.values()) {
+                    if (lexeme.getTypedString().contains(forbiddenWords.toString())) {
+                        forbidden = true;
+                    }
                 }
             }
 
-             if (correctWords == 0 && lexemes.get(0).getTokenType().toString().equals("VERB")) {
-                if (lexemes.size() == 1) {
-                    correctWords = 100;
-                }
-                else {
-                    correctWords++;
-                }
-                output.addProperty("correctCommand", lexemes.get(0).getTypedString());
+            if (forbidden) {
+                output.addProperty("forbidden", true);
             }
+            else {
+                output.addProperty("forbidden", false);
 
-            output.addProperty("correctWords", correctWords);
+                for (int i = 0; i < lexemes.size(); i++) {
+                    ruleStringBuilder.append(lexemes.get(i).getTokenType().toString().charAt(0));
+                    ruleStringBuilder.append(Integer.toString(lexemes.get(i).getId()));
+                    command.append(lexemes.get(i).getTypedString()).append(" ");
+                    if (rules.getRule(ruleStringBuilder.toString())) {
+                        correctWords = i + 1;
+                        output.addProperty("correctCommand", command.toString());
+                    }
+                }
+
+                if (correctWords == 0 && lexemes.get(0).getTokenType().toString().equals("VERB")) {
+                    if (lexemes.size() == 1) {
+                        correctWords = 100;
+                    } else {
+                        correctWords++;
+                    }
+                    output.addProperty("correctCommand", lexemes.get(0).getTypedString());
+                }
+
+                output.addProperty("correctWords", correctWords);
+            }
         }
         return output;
     }
