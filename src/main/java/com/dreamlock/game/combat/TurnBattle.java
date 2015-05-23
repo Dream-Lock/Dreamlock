@@ -4,7 +4,6 @@ package com.dreamlock.game.combat;
 import com.dreamlock.game.IGameContext;
 import com.dreamlock.game.constants.ActionState;
 import com.dreamlock.game.models.Enemy;
-import com.dreamlock.game.models.Player;
 import com.dreamlock.game.models.Room;
 
 import java.io.Serializable;

@@ -6,6 +6,9 @@ import com.dreamlock.game.jsonParser.JsonParser;
 import com.dreamlock.game.models.Inventory;
 import com.dreamlock.game.models.Player;
 import com.dreamlock.game.models.Room;
+import com.dreamlock.handlers.CommandHandler;
+import com.dreamlock.handlers.ErrorHandler;
+import com.dreamlock.handlers.IHandler;
 import com.dreamlock.messageSystem.CommandMessages;
 import com.dreamlock.messageSystem.GameMessages;
 import com.dreamlock.messageSystem.MessageHandler;
@@ -96,9 +99,18 @@ public class Dreamlock {
 
                 ArrayList<Lexeme> lexemes = lexer.tokenize(line);
                 JsonObject output =  parser.parse(lexemes);
-                historyController.register(line);
-                CommandHandler commandHandler = new CommandHandler(output, gameContext);
-                List<Integer> messageIds = commandHandler.handle();
+
+                List<Integer> messageIds = null;
+                IHandler handler;
+                if (!output.get("error").getAsBoolean()) {
+                    historyController.register(line);
+                    handler = new CommandHandler(output, gameContext);
+                }
+                else {
+                    handler = new ErrorHandler(output, gameContext);
+                }
+
+                messageIds = handler.handle();
                 messageHandler.print(messageIds);
             } catch (IOException e) {
                 e.printStackTrace();

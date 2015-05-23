@@ -1,4 +1,4 @@
-package com.dreamlock;
+package com.dreamlock.handlers;
 
 import com.dreamlock.game.IGameContext;
 import com.dreamlock.game.commands.ICommand;
@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CommandHandler {
+public class CommandHandler implements IHandler {
     private JsonObject parsedJsonObject;
     private IGameContext gameContext;
 
@@ -25,33 +25,6 @@ public class CommandHandler {
     public List<Integer> handle() {
         List<Integer> messageIds = new ArrayList<>();
 
-        Boolean error = parsedJsonObject.get("error").getAsBoolean();
-
-        if (error) {
-            Integer correctWords = parsedJsonObject.get("correctWords").getAsInt();
-
-            if (correctWords == 0){
-                messageIds.add(2101);
-            }
-            else {
-                String correctCommand = parsedJsonObject.get("correctCommand").getAsString();
-
-                if (correctWords == 100){
-                    if (correctCommand.equals("go")) {
-                        messageIds.add(1008);
-                    }
-                    else {
-                        gameContext.registerMessage("What do you want me to " + correctCommand, 9001);
-                        messageIds.add(9001);
-                    }
-                }
-                else {
-                    gameContext.registerMessage("I understood as far as wanting me to " + correctCommand,9001);
-                    messageIds.add(9001);
-                }
-            }
-        }
-        else {
 
             JsonArray sentences = parsedJsonObject.getAsJsonArray("sentences");
             Word firstWord;
@@ -99,7 +72,7 @@ public class CommandHandler {
                         messageIds.add(errorMessageId);
                         break;
                 }
-            }
+
         }
 
         return messageIds;
