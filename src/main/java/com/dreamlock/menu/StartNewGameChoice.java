@@ -59,6 +59,11 @@ public class StartNewGameChoice implements IMenuChoice {
                 IHandler handler;
                 if (!output.get("error").getAsBoolean()) {
                     historyController.register(line);
+                    if (historyController.handle() != null) {
+                        messageIds = historyController.handle();
+                        messageHandler.print(messageIds);
+                        continue;
+                    }
                     handler = new CommandHandler(output, gameContext);
                 }
                 else {

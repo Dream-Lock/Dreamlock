@@ -48,17 +48,17 @@ public class HistoryController {
             messageIds.add(10000); // only title
             switch (repeatedCommands) {
                 case 1:
-                    messageIds.add(1501);
+                    messageIds.add(1601);
                     break;
                 case 2:
-                    messageIds.add(1502);
+                    messageIds.add(1602);
                     break;
                 case 3:
-                    messageIds.add(1503);
+                    messageIds.add(1603);
                     break;
                 case 4:
-                    messageIds.add(1504);
-                    // quit
+                    messageIds.add(1604);
+                    gameContext.setGameRunning(false);
                     break;
                 default:
                     return null;
