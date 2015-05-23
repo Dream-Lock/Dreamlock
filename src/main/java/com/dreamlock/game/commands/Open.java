@@ -20,98 +20,150 @@ public class Open implements ICommand{
     @Override
     public List<Integer> execute(IGameContext gameContext, Map<Integer, Word> words) {
         List<Integer> output = new ArrayList<>();
-        List<Integer> contOutput = new ArrayList<>();
+        Word objectName = words.get(2);
+        boolean itemExists = gameContext.getCurrentRoom().containsItem(objectName);
+        boolean doorExists = gameContext.getCurrentRoom().containsDoor(objectName);
 
-        boolean itemExists = gameContext.getCurrentRoom().containsItem(words.get(2));
-        boolean doorExists = gameContext.getCurrentRoom().containsDoor(words.get(2));
-        boolean invItemExists = gameContext.getPlayer().getInventory().containsItem(words.get(4));
+        if (words.size() > 2) {
 
-        if (itemExists) {           //Checking for room items (ex. Containers)
+            Word invItemName = words.get(4);
+            boolean invItemExists = gameContext.getPlayer().getInventory().containsItem(invItemName);
 
-            int itemDuplicates = gameContext.getCurrentRoom().hasItemDuplicates(words.get(2));
-            int itemCount = gameContext.getPlayer().getInventory().getItemCount(words.get(2));
-            if (itemDuplicates == 1 || itemCount>1) {
-                if (invItemExists) {
+            if (itemExists) {               //Checking For items
+                int itemDuplicates = gameContext.getCurrentRoom().hasItemDuplicates(words.get(2));
+                int itemCount = gameContext.getPlayer().getInventory().getItemCount(words.get(2));
 
-                    Item tempItem = gameContext.getCurrentRoom().getSpecificItem(words.get(2));
-                    if (tempItem.getType().equals("Container")) {
-                        output.add(10000);
-                        Container containerItem = (Container) tempItem;
-                        output.add(containerItem.getId());   // item to print
+                if ( itemDuplicates == 1 || itemCount > 1 ) {       //check for duplicates
 
-                        contOutput.add(10002);
-                        contOutput.add(1124);
+                    if (invItemExists) {            //key exists
+                        output.addAll(openItem(gameContext, objectName));
+                        return output;
+                    }
+                    output.add(10000);
+                    output.add(1125);
+                    return output;
+                }
+                else {
+                    output.add(10000);
+                    output.add(2001);
+                    return output;
+                }
+            }
 
-                        for (Item item : containerItem.getItems()) {
-                            contOutput.add(10002);
-                            contOutput.add(item.getId());
-                        }
-                        output.add(tempItem.doAction(ActionState.OPEN, gameContext));
-                        output.addAll(contOutput);
+            if (doorExists) {               // Checking for doors
+                int doorDuplicates = gameContext.getCurrentRoom().hasDoorDuplicates(words.get(2));
+
+                if (doorDuplicates == 1) {
+
+                    if (invItemExists) {
+                        output.addAll(openDoor(gameContext, objectName));
                         return output;
                     }
                     else {
                         output.add(10000);
-                        output.add(tempItem.getId());
-                        output.add(tempItem.doAction(ActionState.OPEN, gameContext));
+                        output.add(1125); //item doesn't exist in inv.
                         return output;
                     }
                 }
                 else {
                     output.add(10000);
-                    output.add(1125); //item doesn't exist in inv.
+                    output.add(2002); // duplicates exist
                     return output;
                 }
             }
-            else {
-                output.add(10000);
-                output.add(2001);
-                return output;
-            }
+
         }
-
-        if (doorExists) {               // Checking for doors
-
-            int doorDuplicates = gameContext.getCurrentRoom().hasDoorDuplicates(words.get(2));
-
-            if (doorDuplicates == 1) {
-
-                if (invItemExists){
-                    Door door = gameContext.getCurrentRoom().getSpecificDoor(words.get(2));
-
-                    if (gameContext.getPlayer().hasKey(door.getRequiredKey() )) {
-                        door.unlock();
-                        output.add(10000);
-                        output.add(door.getId());
-                        output.add(1120); //successful unlock
-                        return output;
-                    }
-                    else if (!door.isLocked()) {
-                        output.add(10000);
-                        output.add(door.getId());
-                        output.add(1123); // door is already opened
-                        return output;
-                    }
-                    else {
-                        output.add(10000);
-                        output.add(1126); //wrong key
-                        return output;
-                    }
+        else {          // SIMPLE OPEN COMMAND USED
+            if (itemExists) {
+                int itemDuplicates = gameContext.getCurrentRoom().hasItemDuplicates(words.get(2));
+                int itemCount = gameContext.getPlayer().getInventory().getItemCount(words.get(2));
+                if (itemDuplicates == 1 || itemCount > 1) {
+                    output.addAll(openItem(gameContext, objectName));
+                    return output;
                 }
                 else {
                     output.add(10000);
-                    output.add(1125); //item doesn't exist in inv.
+                    output.add(2001);
                     return output;
                 }
             }
-            else {
-                output.add(10000);
-                output.add(2001);
-                return output;
+            if (doorExists) {
+                int doorDuplicates = gameContext.getCurrentRoom().hasDoorDuplicates(words.get(2));
+                if (doorDuplicates == 1) {
+                    output.addAll(justOpenDoor(gameContext, objectName));
+                    return output;
+                }
+                else {
+                    output.add(10000);
+                    output.add(2002);
+                    return output;
+                }
             }
         }
-
         output.add(1062);
         return output;
+    }
+
+    private List<Integer> openItem (IGameContext gameContext, Word itemName) {
+        List <Integer> output =  new ArrayList<>();
+        List <Integer> contOutput = new ArrayList<>();
+
+        Item tempItem = gameContext.getCurrentRoom().getSpecificItem(itemName);
+        output.add(10000);
+        output.add(tempItem.getId());   // item to print
+        output.add(tempItem.doAction(ActionState.OPEN, gameContext));
+        if (tempItem.getType().equals("Container")) {
+            Container containerItem = (Container) tempItem;
+
+            contOutput.add(10002);
+            contOutput.add(1124);
+
+            for (Item item : containerItem.getItems()) {
+                contOutput.add(10002);
+                contOutput.add(item.getId());
+            }
+            output.addAll(contOutput);
+        }
+        return output;
+    }
+
+    private List<Integer> openDoor (IGameContext gameContext, Word doorName) {
+        List <Integer> output = new ArrayList<>();
+        Door door = gameContext.getCurrentRoom().getSpecificDoor(doorName);
+
+        if (!door.isLocked()) {
+            output.add(10000);
+            output.add(door.getId());
+            output.add(1123); // door is already opened
+            return output;
+        }
+        else if (gameContext.getPlayer().hasKey(door.getRequiredKey())) {
+            door.unlock();
+            output.add(10000);
+            output.add(door.getId());
+            output.add(1120); //successful unlock
+            return output;
+        }
+
+        output.add(10000);
+        output.add(1126); //wrong key
+        return output;
+    }
+
+    private List<Integer> justOpenDoor (IGameContext gameContext, Word doorName) {
+        List <Integer> output = new ArrayList<>();
+        Door door = gameContext.getCurrentRoom().getSpecificDoor(doorName);
+
+        if (!door.isLocked()) {
+            output.add(10000);
+            output.add(door.getId());
+            output.add(1123); // door is already opened
+            return output;
+        }
+        output.add(10000);
+        output.add(door.getId());
+        output.add(1122); //successful unlock
+        return output;
+
     }
 }

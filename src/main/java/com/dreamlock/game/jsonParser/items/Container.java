@@ -3,6 +3,7 @@ package com.dreamlock.game.jsonParser.items;
 import com.dreamlock.game.constants.ActionState;
 import com.dreamlock.game.constants.Stats;
 import com.dreamlock.game.jsonParser.DTOs.itemDTOs.ContainerDTO;
+import com.dreamlock.game.models.Word;
 import com.dreamlock.game.states.itemStates.CanNotPickUp;
 import com.dreamlock.game.states.itemStates.CanOpen;
 import com.google.gson.Gson;
@@ -20,6 +21,15 @@ public class Container extends Item{
 
     public void removeItems() {
         items.clear();
+    }
+
+    public Item getSpecificItem(Word word) {
+        for (Item item : this.items) {
+            if (item.getName().toLowerCase().contains(word.getDescription())) {
+                return item;
+            }
+        }
+        return null;
     }
 
     public Container(){

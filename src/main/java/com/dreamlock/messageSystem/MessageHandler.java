@@ -2,11 +2,12 @@ package com.dreamlock.messageSystem;
 
 import com.dreamlock.game.models.Message;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MessageHandler {
+public class MessageHandler implements Serializable{
     private Map<Integer, Message> messages;
 
     public MessageHandler() {

@@ -32,14 +32,8 @@ public class CanOpen implements IState {
         }
     }
     private Integer open(IGameContext gameContext, Item item) {
-        Container container = (Container)item;
-        List<Item> containerItems = container.getItems();
-        for (Item containerItem : containerItems) {
-            gameContext.getCurrentRoom().addItem(containerItem);
-        }
-        container.removeItems();
-        item = (Item) container;
         item.getStates().put(ActionState.OPEN,new Opened());
+        item.getStats().put(Stats.LOCKED,false);
         return 1120;
     }
 }

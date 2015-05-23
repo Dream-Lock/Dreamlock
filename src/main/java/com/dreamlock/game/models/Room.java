@@ -117,7 +117,8 @@ public class Room implements Serializable{
     }
     public Door getSpecificDoor(Word word) {
         for (Door door: this.doors) {
-            if (door.getName().toLowerCase().contains(word.getDescription())) {
+            if (door.getName().toLowerCase().contains(word.getDescription()) ||
+                    door.getDescription().toLowerCase().contains(word.getDescription())) {
                 return door;
             }
         }
@@ -133,7 +134,8 @@ public class Room implements Serializable{
     }
     public boolean containsDoor(Word word) {
         for (Door door : this.doors) {
-            if (door.getName().toLowerCase().contains(word.getDescription())) {
+            if (door.getName().toLowerCase().contains(word.getDescription()) ||
+                    door.getDescription().toLowerCase().contains(word.getDescription())) {
                 return true;
             }
         }
@@ -173,7 +175,8 @@ public class Room implements Serializable{
     public int hasDoorDuplicates (Word word) {
         int count = 0;
         for (Door door : this.doors) {
-            if (door.getName().toLowerCase().contains(word.getDescription())) {
+            if (door.getName().toLowerCase().contains(word.getDescription()) ||
+                    door.getDescription().toLowerCase().contains(word.getDescription())) {
                 count++;
             }
         }
