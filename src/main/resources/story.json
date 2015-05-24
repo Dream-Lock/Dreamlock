@@ -32,7 +32,7 @@
     "path":"/rooms/banquethall.json",
     "items":[
       {
-        "path":"/items/puzzle/rusty_key.json"
+        "path":"/items/puzzle/key.json"
       }
     ],
     "enemies":[
@@ -98,7 +98,9 @@
     "id":5,
     "path":"/rooms/upper_floor.json",
     "items":[
-
+      {
+        "path":"/items/puzzle/iron_key.json"
+      }
     ],
     "enemies":[
 
