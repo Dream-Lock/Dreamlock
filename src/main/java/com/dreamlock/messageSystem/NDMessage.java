@@ -45,4 +45,14 @@ public class NDMessage implements Serializable, IMessage{
     public void setEffect(String effect) {
 
     }
+
+    @Override
+    public String getPlayerStats() {
+        return null;
+    }
+
+    @Override
+    public void setPlayerStats(String playerStats) {
+
+    }
 }

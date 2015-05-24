@@ -1,7 +1,6 @@
 package com.dreamlock.game.states.itemStates;
 
 import com.dreamlock.game.IGameContext;
-import com.dreamlock.game.constants.Stats;
 import com.dreamlock.game.jsonParser.items.Item;
 import com.dreamlock.game.states.IState;
 

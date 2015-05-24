@@ -13,13 +13,13 @@ import org.apache.commons.lang3.tuple.ImmutablePair;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 public class Player extends Combatant implements Serializable {
     private Inventory inventory;
-
+    private int id;
     public Player(String name, Inventory inventory) {
         this.name = name;
+        this.id = 9999;
         this.inventory = inventory;
         this.setStamina(1);
         this.setStrength(1);
@@ -163,5 +163,9 @@ public class Player extends Combatant implements Serializable {
         strength += (int) stats.get(Stats.STRENGTH);
         agility += (int) stats.get(Stats.AGILITY);
         calculateStats();
+    }
+
+    public int getId() {
+        return id;
     }
 }

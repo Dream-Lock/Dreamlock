@@ -56,6 +56,14 @@ public class MessageHandler implements Serializable{
                 }
             }
         }
+        else if (messageIds.contains(10005)) {
+            for (Integer messageId : messageIds) {
+                if (!messages.get(messageId).getPlayerStats().equals("")) {
+                    System.out.println(messages.get(messageId).getName());
+                    System.out.println(messages.get(messageId).getPlayerStats());
+                }
+            }
+        }
         else if (messageIds.contains(10006)) {
             messageIds.add(10007);
             messageIds.add(10007);

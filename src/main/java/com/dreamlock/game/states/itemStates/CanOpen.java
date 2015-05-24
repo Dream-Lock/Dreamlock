@@ -3,11 +3,8 @@ package com.dreamlock.game.states.itemStates;
 import com.dreamlock.game.IGameContext;
 import com.dreamlock.game.constants.ActionState;
 import com.dreamlock.game.constants.Stats;
-import com.dreamlock.game.jsonParser.items.Container;
 import com.dreamlock.game.jsonParser.items.Item;
 import com.dreamlock.game.states.IState;
-
-import java.util.List;
 
 public class CanOpen implements IState {
     @Override
