@@ -6,5 +6,4 @@ public enum HistoryExceptions {
     go,
     run
 
-
 }

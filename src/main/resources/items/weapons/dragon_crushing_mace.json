@@ -1,0 +1,11 @@
+{
+  "id":613,
+  "type":"Weapon",
+  "name":"Dragon Crushing Mace",
+  "description":"A legendary mace meant to crush dragon skulls",
+  "attack":10,
+  "stamina":1,
+  "strength":2,
+  "agility":0,
+  "equipmentSlot":"MAIN_HAND"
+}

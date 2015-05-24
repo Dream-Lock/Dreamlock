@@ -1,6 +1,6 @@
 {
   "id":400,
   "type":"Puzzle",
-  "name":"Rusty key",
-  "description":"A key found in the Castle of DreamWorld."
+  "name":"Key",
+  "description":"A key that opens a wooden door."
 }

@@ -1,0 +1,11 @@
+{
+  "id":602,
+  "type":"Weapon",
+  "name":"Bastard Sword",
+  "description":"A medieval sword made of steel",
+  "attack":10,
+  "stamina":1,
+  "strength":2,
+  "agility":0,
+  "equipmentSlot":"MAIN_HAND"
+}

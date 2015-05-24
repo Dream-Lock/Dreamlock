@@ -1,8 +1,8 @@
 {
   "id":101,
   "type":"Armor",
-  "name":"Iron Breastplate",
-  "description":"A crude iron breastplate",
+  "name":"Leather Breastplate",
+  "description":"A breastplate made of leather",
   "defense":10,
   "stamina":5,
   "strength":5,

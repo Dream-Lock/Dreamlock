@@ -4,10 +4,10 @@
     "path":"/rooms/lobby.json",
     "items":[
       {
-        "path":"/items/armor/helmet.json"
+        "path":"/items/armor/leather_helmet.json"
       },
       {
-        "path": "/items/consumables/potion.json"
+        "path": "/items/consumables/health_potion.json"
       }
     ],
     "enemies":[
@@ -22,11 +22,11 @@
     ],
     "doors":[
       {
-        "path":"/doors/door.json",
+        "path":"/doors/wooden_door.json",
         "direction": "west"
       },
       {
-        "path":"/doors/door2.json",
+        "path":"/doors/iron_door.json",
         "direction": "east"
       }
     ]
@@ -36,7 +36,7 @@
     "path":"/rooms/banquethall.json",
     "items":[
       {
-        "path":"/items/puzzle/key.json"
+        "path":"/items/puzzle/rusty_key.json"
       }
     ],
     "enemies":[
@@ -77,13 +77,13 @@
     "path":"/rooms/storeroom.json",
     "items":[
       {
-        "path":"/items/containers/chest.json"
+        "path":"/items/containers/bronze_chest.json"
       },
       {
-        "path":"/items/weapons/sword.json"
+        "path":"/items/weapons/iron_sword.json"
       },
       {
-        "path":"/items/weapons/axe.json"
+        "path":"/items/weapons/wooden_axe.json"
       }
     ],
     "enemies":[

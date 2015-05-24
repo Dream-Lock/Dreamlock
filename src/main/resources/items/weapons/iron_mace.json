@@ -1,0 +1,11 @@
+{
+  "id":611,
+  "type":"Weapon",
+  "name":"Iron Mace",
+  "description":"A mace made of iron",
+  "attack":10,
+  "stamina":1,
+  "strength":2,
+  "agility":0,
+  "equipmentSlot":"MAIN_HAND"
+}

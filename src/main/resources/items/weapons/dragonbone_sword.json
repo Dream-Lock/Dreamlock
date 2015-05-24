@@ -1,8 +1,8 @@
 {
-  "id":600,
+  "id":604,
   "type":"Weapon",
-  "name":"Wooden Axe",
-  "description":"A crude iron axe. A Woodcutter's best choice and friend!",
+  "name":"Dragobone Sword",
+  "description":"A legendary sword made of dragon bones",
   "attack":10,
   "stamina":1,
   "strength":2,

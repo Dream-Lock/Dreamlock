@@ -4,8 +4,8 @@
   "name":"Health potion",
   "description":"A magic potion to restore a portion of your life",
   "effect": "You feel more healthy than ever!",
-  "healthStat": 15,
-  "staminaStat": 10,
-  "strengthStat": 10,
-  "agilityStat": 10
+  "healthStat": 10,
+  "staminaStat": 0,
+  "strengthStat": 0,
+  "agilityStat": 0
 }

@@ -1,0 +1,11 @@
+{
+  "id":101,
+  "type":"Armor",
+  "name":"Leather Breastplate",
+  "description":"A breastplate made of leather",
+  "defense":10,
+  "stamina":5,
+  "strength":5,
+  "agility":5,
+  "equipmentSlot":"CHEST"
+}

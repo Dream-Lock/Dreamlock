@@ -1,0 +1,11 @@
+{
+  "id":103,
+  "type":"Armor",
+  "name":"Leather Helmet",
+  "description":"A helmet made of leather",
+  "defense":10,
+  "stamina":5,
+  "strength":5,
+  "agility":5,
+  "equipmentSlot":"HEAD"
+}

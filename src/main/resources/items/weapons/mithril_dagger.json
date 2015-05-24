@@ -1,0 +1,11 @@
+{
+  "id":607,
+  "type":"Weapon",
+  "name":"Mithril Dagger",
+  "description":"A dagger made of mithril",
+  "attack":10,
+  "stamina":1,
+  "strength":2,
+  "agility":0,
+  "equipmentSlot":"OFF_HAND"
+}
