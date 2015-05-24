@@ -38,6 +38,7 @@ public class Player extends Combatant implements Serializable {
         legs = null;
         feet = null;
         main_hand = null;
+        off_hand = null;
     }
 
     public Inventory getInventory() {
@@ -80,6 +81,11 @@ public class Player extends Combatant implements Serializable {
                     return main_hand.getValue();
                 else
                     return null;
+            case OFF_HAND:
+                if(off_hand != null)
+                    return off_hand.getValue();
+                else
+                    return null;
             default:
                 return null;
         }
@@ -105,6 +111,9 @@ public class Player extends Combatant implements Serializable {
             case MAIN_HAND:
                 main_hand = new ImmutablePair<>(item.getName(),(Weapon)  item);
                 break;
+            case OFF_HAND:
+                off_hand = new ImmutablePair<>(item.getName(),(Weapon)  item);
+                break;
         }
     }
 
@@ -127,6 +136,9 @@ public class Player extends Combatant implements Serializable {
                 break;
             case MAIN_HAND:
                 main_hand = null;
+                break;
+            case OFF_HAND:
+                off_hand = null;
                 break;
         }
     }

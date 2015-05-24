@@ -22,7 +22,7 @@ public abstract class Combatant implements Serializable{
     protected int agility;
     protected int maxHealth;
     protected Pair<String, Armor> chest, head, hands, legs, feet;
-    protected Pair<String, Weapon> main_hand;
+    protected Pair<String, Weapon> main_hand, off_hand;
 
     protected Map<ActionState,ICombatState> states;
 
@@ -137,6 +137,12 @@ public abstract class Combatant implements Serializable{
             strength_mod+= Integer.parseInt(main_hand.getValue().getStats().get(Stats.STRENGTH).toString());
             agility_mod+= Integer.parseInt(main_hand.getValue().getStats().get(Stats.AGILITY).toString());
             attack_mod+= Integer.parseInt(main_hand.getValue().getStats().get(Stats.ATTACK).toString());
+        }
+        if(off_hand!=null){
+            stamina_mod+=  Integer.parseInt(off_hand.getValue().getStats().get(Stats.STAMINA).toString());
+            strength_mod+= Integer.parseInt(off_hand.getValue().getStats().get(Stats.STRENGTH).toString());
+            agility_mod+= Integer.parseInt(off_hand.getValue().getStats().get(Stats.AGILITY).toString());
+            attack_mod+= Integer.parseInt(off_hand.getValue().getStats().get(Stats.ATTACK).toString());
         }
 
         this.setStamina(stamina + stamina_mod);

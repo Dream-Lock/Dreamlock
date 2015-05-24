@@ -61,6 +61,12 @@ public class Unequip implements ICommand {
                 foundItems.add(item);
             }
         }
+        item = gameContext.getPlayer().getSlot(EquipmentSlot.OFF_HAND);
+        if(item != null){
+            if (item.getName().toLowerCase().equals(word.getDescription())) {
+                foundItems.add(item);
+            }
+        }
 
         if (foundItems.size() == 1) {
             output.add(10000);
