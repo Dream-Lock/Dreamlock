@@ -41,7 +41,7 @@
     ],
     "enemies":[
       {
-        "path":"/enemies/combatButler.json"
+        "path":"/enemies/norseman.json"
       }
     ],
     "exits":[
