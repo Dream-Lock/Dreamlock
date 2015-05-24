@@ -20,8 +20,10 @@ public class Look implements ICommand  {
         //output.add(10003);
         //output.add(room.getId());
         for (Item item : gameContext.getCurrentRoom().getItems()) {
-            output.add(10002);
-            output.add(item.getId());
+            if (!item.getType().equals("Misc")) {
+                output.add(10002);
+                output.add(item.getId());
+            }
         }
 
         for (Enemy enemy : gameContext.getCurrentRoom().getEnemies()) {
