@@ -1,0 +1,8 @@
+{
+  "id":"52",
+  "name":"Humongous Rat",
+  "description":"A huge rat with decaying skin and white, diseased eyes.",
+  "health":30,
+  "attack":7,
+  "defense":5
+}

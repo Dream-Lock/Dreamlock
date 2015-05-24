@@ -46,6 +46,7 @@
     ],
     "exits":[
       {
+        "north":5
       }
     ],
     "doors":[
@@ -62,10 +63,10 @@
       {
         "path":"/enemies/bandit.json"
       }
-
     ],
     "exits":[
       {
+        "north":13
       }
     ],
     "doors":[
@@ -85,6 +86,184 @@
       {
         "path":"/items/weapons/wooden_axe.json"
       }
+    ],
+    "enemies":[
+
+    ],
+    "exits":[
+      {
+      }
+    ],
+    "doors":[
+
+    ]
+  },
+  {
+    "id":5,
+    "path":"/rooms/upper_floor.json",
+    "items":[
+
+    ],
+    "enemies":[
+
+    ],
+    "exits":[
+      {
+      }
+    ],
+    "doors":[
+
+    ]
+  },
+  {
+    "id":6,
+    "path":"/rooms/bath.json",
+    "items":[
+
+    ],
+    "enemies":[
+
+    ],
+    "exits":[
+      {
+      }
+    ],
+    "doors":[
+
+    ]
+  },
+  {
+    "id":7,
+    "path":"/rooms/study.json",
+    "items":[
+
+    ],
+    "enemies":[
+
+    ],
+    "exits":[
+      {
+        "west": 8
+      }
+    ],
+    "doors":[
+
+    ]
+  },
+  {
+    "id":8,
+    "path":"/rooms/hidden_archive.json",
+    "items":[
+
+    ],
+    "enemies":[
+
+    ],
+    "exits":[
+      {
+      }
+    ],
+    "doors":[
+
+    ]
+  },
+  {
+  "id":9,
+  "path":"/rooms/third_floor.json",
+  "items":[
+
+  ],
+  "enemies":[
+
+  ],
+  "exits":[
+    {
+      "north":10,
+      "east":11
+    }
+  ],
+  "doors":[
+
+  ]
+},
+  {
+    "id":10,
+    "path":"/rooms/master_bedroom.json",
+    "items":[
+
+    ],
+    "enemies":[
+
+    ],
+    "exits":[
+      {
+        "east":12
+      }
+    ],
+    "doors":[
+
+    ]
+  },
+  {
+    "id":11,
+    "path":"/rooms/guest_bedroom.json",
+    "items":[
+
+    ],
+    "enemies":[
+
+    ],
+    "exits":[
+      {
+      }
+    ],
+    "doors":[
+
+    ]
+  },
+  {
+    "id":12,
+    "path":"/rooms/balcony.json",
+    "items":[
+
+    ],
+    "enemies":[
+
+    ],
+    "exits":[
+      {
+      }
+    ],
+    "doors":[
+
+    ]
+  },
+  {
+    "id":13,
+    "path":"/rooms/cellar.json",
+    "items":[
+
+    ],
+    "enemies":[
+      {
+        "path":"/enemies/humongous_rat.json"
+      }
+
+    ],
+    "exits":[
+      {
+        "west":14
+      }
+    ],
+    "doors":[
+
+    ]
+  },
+  {
+    "id":14,
+    "path":"/rooms/labyrinth_entrance.json",
+    "items":[
+
     ],
     "enemies":[
 
