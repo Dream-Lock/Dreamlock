@@ -238,8 +238,8 @@ public class JsonParser {
      */
     public Boolean checkDuplicateRooms() {
         Boolean isDuplicate = false;
-        HashMap<String, Room> thisExits = new HashMap<>();
-        HashMap<String, Room> nextExits = new HashMap<>();
+        HashMap<String, Room> thisExits;
+        HashMap<String, Room> nextExits;
         int i = 0, j;
         while ( i < roomDTOs.length-1 && !isDuplicate) {
             thisExits = rooms.get(roomDTOs[i].getId()).getExits();
