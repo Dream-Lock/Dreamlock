@@ -146,8 +146,16 @@ public abstract class Combatant implements Serializable{
         }
 
         this.setStamina(stamina + stamina_mod);
+        if (this.getStamina() < 0)
+            this.setStamina(0);
+
         this.setStrength(strength + strength_mod);
+        if (this.getStrength() < 0)
+            this.setStrength(0);
+
         this.setAgility(agility + agility_mod);
+        if (this.getAgility() < 0)
+            this.setAgility(0);
 
         this.setHealth(health + getStamina());
         this.setMaxHealth(this.health);
