@@ -1,0 +1,8 @@
+{
+  "id":"53",
+  "name":"Labyrinth Guardian",
+  "description":"A strange creatures seemingly made of some unknown material that sucks away the light around it.",
+  "health":35,
+  "attack":10,
+  "defense":8
+}

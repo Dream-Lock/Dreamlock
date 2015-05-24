@@ -4,10 +4,10 @@
     "path":"/rooms/lobby.json",
     "items":[
       {
-        "path":"/items/armor/leather_helmet.json"
+        "path": "/items/consumables/health_potion.json"
       },
       {
-        "path": "/items/consumables/health_potion.json"
+        "path": "/items/miscellaneous/tapestry.json"
       }
     ],
     "enemies":[
@@ -61,7 +61,7 @@
     ],
     "enemies":[
       {
-        "path":"/enemies/bandit.json"
+        "path":"/enemies/chef.json"
       }
     ],
     "exits":[
@@ -136,7 +136,9 @@
     "id":7,
     "path":"/rooms/study.json",
     "items":[
-
+      {
+        "path": "/items/miscellaneous/desk.json"
+      }
     ],
     "enemies":[
 
@@ -270,7 +272,63 @@
     ],
     "exits":[
       {
+        "north":15
       }
+    ],
+    "doors":[
+
+    ]
+  },
+  {
+    "id":15,
+    "path":"/rooms/labyrinth_corridor.json",
+    "items":[
+
+    ],
+    "enemies":[
+
+    ],
+    "exits":[
+      {
+        "north":16,
+        "east":17
+      }
+    ],
+    "doors":[
+
+    ]
+  },
+  {
+    "id":16,
+    "path":"/rooms/labyrinth_deadend.json",
+    "items":[
+
+    ],
+    "enemies":[
+      {
+      "path":"/enemies/labyrinth_guardian.json"
+      }
+    ],
+    "exits":[
+
+    ],
+    "doors":[
+
+    ]
+  },
+  {
+    "id":17,
+    "path":"/rooms/labyrinth_main_hall.json",
+    "items":[
+
+    ],
+    "enemies":[
+      {
+        "path":"/enemies/faceless_one.json"
+      }
+    ],
+    "exits":[
+
     ],
     "doors":[
 

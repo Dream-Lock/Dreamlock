@@ -1,0 +1,8 @@
+{
+  "id":"54",
+  "name":"Faceless One",
+  "description":"A creature seemingly made of some black substance, instilling horror into your very being.",
+  "health":35,
+  "attack":10,
+  "defense":8
+}

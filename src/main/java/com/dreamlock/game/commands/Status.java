@@ -13,16 +13,14 @@ public class Status implements ICommand{
     public List<Integer> execute(IGameContext gameContext) {
         List<Integer> output = new ArrayList<>();
 
-        output.add(10005);
-        output.add(gameContext.getPlayer().getHealth());
-        output.add(gameContext.getPlayer().getAttack());
-        output.add(gameContext.getPlayer().getDefense());
-        output.add(gameContext.getPlayer().getStamina());
-        output.add(gameContext.getPlayer().getStrength());
-        output.add(gameContext.getPlayer().getAgility());
+        System.out.println("Health: " + gameContext.getPlayer().getHealth());
+        System.out.println("Attack: " + gameContext.getPlayer().getAttack());
+        System.out.println("Defense: " + gameContext.getPlayer().getDefense());
+        System.out.println("Stamina: " + gameContext.getPlayer().getStamina());
+        System.out.println("Strength: " + gameContext.getPlayer().getStrength());
+        System.out.println("Agility: " + gameContext.getPlayer().getAgility());
 
         return output;
-
     }
 
     @Override

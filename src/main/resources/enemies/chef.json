@@ -1,0 +1,8 @@
+{
+  "id":"50",
+  "name":"Chef",
+  "description":"A man in a torn apron wielding a huge... Ladle?",
+  "health":10,
+  "attack":3,
+  "defense":1
+}

@@ -65,17 +65,6 @@ public class MessageHandler implements Serializable{
                 }
             }
         }
-        else if (messageIds.contains(10005)) { //TODO: allagh se message
-            messageIds.add(10003);
-            messageIds.add(10003);
-            System.out.println("Health: " + messageIds.get(1));
-            System.out.println("Attack: " + messageIds.get(2));
-            System.out.println("Defense: " + messageIds.get(3));
-            System.out.println("Stamina: " + messageIds.get(4));
-            System.out.println("Strength: " + messageIds.get(5));
-            System.out.println("Agility: " + messageIds.get(6));
-            System.out.println();
-        }
         else {
             messageIds.add(10003);
             messageIds.add(10003);

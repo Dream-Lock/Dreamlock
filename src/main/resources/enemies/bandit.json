@@ -1,8 +1,0 @@
-{
-  "id":"50",
-  "name":"Bandit",
-  "description":"A man in rugged armor wielding a rusted sword.",
-  "health":10,
-  "attack":3,
-  "defense":1
-}
