@@ -1,9 +1,6 @@
 package com.dreamlock.messageSystem;
 
-import com.dreamlock.game.constants.Stats;
-
 import java.io.Serializable;
-import java.util.Map;
 
 public class NDEMessage implements Serializable,IMessage {
     private String name;

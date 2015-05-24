@@ -1,7 +1,5 @@
 package com.dreamlock.messageSystem;
 
-import com.dreamlock.game.constants.Stats;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;

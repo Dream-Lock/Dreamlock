@@ -3,7 +3,10 @@ package com.dreamlock.messageSystem;
 import com.dreamlock.game.jsonParser.items.Consumable;
 import com.dreamlock.game.jsonParser.items.Container;
 import com.dreamlock.game.jsonParser.items.Item;
-import com.dreamlock.game.models.*;
+import com.dreamlock.game.models.Door;
+import com.dreamlock.game.models.Enemy;
+import com.dreamlock.game.models.Player;
+import com.dreamlock.game.models.Room;
 
 import java.util.HashMap;
 import java.util.Map;

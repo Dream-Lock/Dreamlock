@@ -13,7 +13,6 @@ import org.apache.commons.lang3.tuple.ImmutablePair;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 public class Player extends Combatant implements Serializable {
     private Inventory inventory;

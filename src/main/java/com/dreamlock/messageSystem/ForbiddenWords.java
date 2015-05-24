@@ -1,8 +1,5 @@
 package com.dreamlock.messageSystem;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public enum ForbiddenWords {
 
     ass,
