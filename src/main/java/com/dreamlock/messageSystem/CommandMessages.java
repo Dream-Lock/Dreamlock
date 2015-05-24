@@ -115,12 +115,15 @@ public enum CommandMessages {
         commandMessages.put(2002, new NDMessage("There more than one doors with that name!", ""));
         commandMessages.put(2003, new NDMessage(" is locked.", ""));
         commandMessages.put(2004, new NDMessage(" is unlocked!", ""));
+        commandMessages.put(2005, new NDMessage("History is empty.", ""));
         //error messages
         commandMessages.put(2101, new NDMessage("I don't think I can do that", ""));
         commandMessages.put(2102, new NDMessage("Unexpected state error", ""));
         commandMessages.put(2103, new NDMessage("Shut your dirty mouth!", ""));
-        commandMessages.put(2101, new NDMessage("I don't think I can do that", ""));
-        commandMessages.put(2102, new NDMessage("Unexpected state error", ""));
+        commandMessages.put(2104, new NDMessage("Watch your mouth! who do you think you are.", ""));
+        commandMessages.put(2105, new NDMessage("Hey, don't talk that way to me!", ""));
+        commandMessages.put(2106, new NDMessage("Excuse me, but could you please watch you language?\nThis is a children's game!", ""));
+        commandMessages.put(2107, new NDMessage("Profanity is strictly prohibited!", ""));
         //quit messages
         commandMessages.put(5000, new NDMessage("Quiting to Main Menu", ""));
     }

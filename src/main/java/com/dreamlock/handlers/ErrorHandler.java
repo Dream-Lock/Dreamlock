@@ -5,6 +5,7 @@ import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class ErrorHandler implements IHandler {
     private JsonObject parsedJsonObject;
@@ -23,7 +24,24 @@ public class ErrorHandler implements IHandler {
         messageIds.add(10000); // only title
 
         if (hasForbiddenWords) {
-            messageIds.add(2103);
+            Random rand = new Random();
+            int randomNumber = rand.nextInt(5);
+            switch (randomNumber) {
+                case 1:
+                    messageIds.add(2107);
+                    break;
+                case 2:
+                    messageIds.add(2106);
+                    break;
+                case 3:
+                    messageIds.add(2105);
+                    break;
+                case 4:
+                    messageIds.add(2104);
+                    break;
+                default:
+                    messageIds.add(2103);
+            }
             return messageIds;
         }
 

@@ -36,6 +36,7 @@ public enum Commands {
         commands.put("drink", new Use());
         commands.put("flee", new Flee());
         commands.put("run", new Flee());
+        commands.put("history", new History());
     }
 
     private final Map<String, ICommand> commands;

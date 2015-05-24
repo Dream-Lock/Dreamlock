@@ -26,6 +26,7 @@ public enum Dictionary {
         dictionary.put("status", new Lexeme(1, "status", TokenType.VERB, 3000));
         dictionary.put("flee", new Lexeme(1, "flee", TokenType.VERB, 3000));
         dictionary.put("run", new Lexeme(1, "run", TokenType.VERB, 3000));
+        dictionary.put("history", new Lexeme(1, "history", TokenType.VERB, 3000));
 
         dictionary.put("go", new Lexeme(2, "go", TokenType.VERB, 3000));
         dictionary.put("walk", new Lexeme(2, "walk", TokenType.VERB, 3000));
@@ -42,7 +43,6 @@ public enum Dictionary {
         dictionary.put("remove", new Lexeme(3, "drop", TokenType.VERB, 3000));
         dictionary.put("inspect", new Lexeme(3, "inspect", TokenType.VERB, 3000));
         dictionary.put("attack", new Lexeme(3, "attack", TokenType.VERB, 3000));
-
 
         dictionary.put("open", new Lexeme(4, "open", TokenType.VERB, 3000));
 

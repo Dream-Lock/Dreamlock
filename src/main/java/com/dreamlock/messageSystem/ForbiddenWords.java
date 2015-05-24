@@ -5,7 +5,7 @@ import java.util.List;
 
 public enum ForbiddenWords {
 
-    asshole,
+    ass,
     fuck,
     bastard,
     bitch,
