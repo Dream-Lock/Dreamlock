@@ -33,7 +33,9 @@ public enum Commands {
         commands.put("unequip", new Unequip());
         commands.put("reload", new Reload());
         commands.put("use", new Use());
+        commands.put("drink", new Use());
         commands.put("flee", new Flee());
+        commands.put("run", new Flee());
     }
 
     private final Map<String, ICommand> commands;

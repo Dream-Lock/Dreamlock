@@ -24,10 +24,6 @@
       {
         "path":"/doors/wooden_door.json",
         "direction": "west"
-      },
-      {
-        "path":"/doors/iron_door.json",
-        "direction": "east"
       }
     ]
   },

@@ -56,11 +56,13 @@ public enum CommandMessages {
         commandMessages.put(1107, new NDMessage("Quit -> ","This lets you stop."));
         commandMessages.put(1108, new NDMessage("Save -> ","With this command you can save your game progress."));
         commandMessages.put(1109, new NDMessage("Reload -> ","Reloads your character's most recent saved game."));
-        commandMessages.put(1110, new NDMessage("Inventory -> ","With this command you can view the items that are in your inventory."));
+        commandMessages.put(1110, new NDMessage("Inventory -> ","With this command you can view the items that are in your inventory. Alternate command: i."));
         commandMessages.put(1111, new NDMessage("Attack -> ","This lets you attack opponents."));
         commandMessages.put(1112, new NDMessage("Equip <item> -> ","This lets you equip items to your weapon and armor slots."));
         commandMessages.put(1113, new NDMessage("Unequip <item> -> ","This lets you unequip items from your weapon and armor slots."));
         commandMessages.put(1114, new NDMessage("Status -> ","This lets you view your character's status."));
+        commandMessages.put(1114, new NDMessage("Use -> ","This lets you use consumable items. Alternate command: drink <item>."));
+        commandMessages.put(1114, new NDMessage("Flee -> ","Try and flee from battle. Failure to do so will make you lose your turn and make enemies attack. Alternate command: run."));
 
         // open messages
         commandMessages.put(1120, new NDMessage(" opened successfully!",""));
