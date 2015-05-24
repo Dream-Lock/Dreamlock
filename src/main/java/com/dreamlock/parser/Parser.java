@@ -1,5 +1,6 @@
 package com.dreamlock.parser;
 
+import com.dreamlock.game.constants.Commands;
 import com.dreamlock.messageSystem.ForbiddenWords;
 import com.dreamlock.parser.constants.Rules;
 import com.dreamlock.parser.constants.TokenType;
@@ -9,6 +10,7 @@ import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class Parser {
     public JsonObject parse(List<Lexeme> lexemes) {
