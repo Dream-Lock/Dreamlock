@@ -21,6 +21,7 @@ public class ErrorHandler implements IHandler {
         List<Integer> messageIds = new ArrayList<>();
 
         Boolean hasForbiddenWords = parsedJsonObject.get("forbidden").getAsBoolean();
+        Boolean hasQuestion = parsedJsonObject.get("has_question").getAsBoolean();
         messageIds.add(10000); // only title
 
         if (hasForbiddenWords) {
@@ -44,6 +45,15 @@ public class ErrorHandler implements IHandler {
             }
             return messageIds;
         }
+
+        if (hasQuestion) {
+            String question = parsedJsonObject.get("question").getAsString();
+            if (question.equals("hello")) {
+                messageIds.add(2200);
+                return messageIds;
+            }
+        }
+
 
         Integer correctWords = parsedJsonObject.get("correctWords").getAsInt();
 

@@ -21,6 +21,7 @@ public enum CommandMessages {
         commandMessages.put(10005, new NDMessage("",""));     //print stats
         commandMessages.put(10006, new NDEMessage("","",""));     // print with effect
         commandMessages.put(10007, new NDEMessage("","","\n"));     // effect new line
+
         // Go messages
         commandMessages.put(1001, new NDMessage("I can not go to ", ""));
         commandMessages.put(1002, new NDMessage("west", ""));
@@ -34,19 +35,23 @@ public enum CommandMessages {
 
         // Examine messages
         commandMessages.put(1020, new NDMessage("I can't find anything with that name!", ""));
+
         // Drop messages
         commandMessages.put(1040, new NDMessage(" dropped successfully!",""));
         commandMessages.put(1041, new NDMessage(" can't be dropped!",""));
         commandMessages.put(1042, new NDMessage("There is no such item in your inventory", ""));
+
         // Pick up messages
         commandMessages.put(1060, new NDMessage(" -> Added to inventory!",""));
         commandMessages.put(1061, new NDMessage(" -> You can not take that!",""));
         commandMessages.put(1062, new NDMessage("There is no such item, in this room", ""));
         commandMessages.put(1063, new NDMessage("This object is of no value to me", ""));
-        // show inventory messages
+
+        // Show inventory messages
         commandMessages.put(1080, new NDMessage("You don't have any items in your inventory!",""));
         commandMessages.put(1081, new NDMessage("In your Inventory you have:",""));
-        // help messages
+
+        // Help messages
         commandMessages.put(1100, new NDMessage("Go <direction> -> ","Move around."));
         commandMessages.put(1101, new NDMessage("Examine <item> -> ","With this command tou can examine an item."));
         commandMessages.put(1102, new NDMessage("Drop <item> -> ","With this command you can drop items"));
@@ -65,7 +70,7 @@ public enum CommandMessages {
         commandMessages.put(1114, new NDMessage("Use -> ","This lets you use consumable items. Alternate command: drink <item>."));
         commandMessages.put(1114, new NDMessage("Flee -> ","Try and flee from battle. Failure to do so will make you lose your turn and make enemies attack. Alternate command: run."));
 
-        // open messages
+        // Open messages
         commandMessages.put(1120, new NDMessage(" opened successfully!",""));
         commandMessages.put(1121, new NDMessage(" can't be opened!!",""));
         commandMessages.put(1122, new NDMessage(" is locked and requires a certain key to open!!",""));
@@ -73,18 +78,22 @@ public enum CommandMessages {
         commandMessages.put(1124, new NDMessage("In the chest you find: ",""));
         commandMessages.put(1125, new NDMessage("You can't open it with this item, 'cause you don't have it!",""));
         commandMessages.put(1126, new NDMessage("You need a different key for this kind of lock",""));
-        //save messages
+
+        // Save messages
         commandMessages.put(1200, new NDMessage("Game was saved successfully!!",""));
         commandMessages.put(1201, new NDMessage("Save was not successful! :-(",""));
         commandMessages.put(1202, new NDMessage("Please specify a name for the save file, ex. save <filename>",""));
-        //load messages
+
+        // Load messages
         commandMessages.put(1210, new NDMessage("Loading completed successfully!!",""));
         commandMessages.put(1211, new NDMessage("Could not load game!! :-(",""));
-        //inspect messages
+
+        // Inspect messages
         commandMessages.put(1130, new NDMessage(" has an attack rating of ", ""));
         commandMessages.put(1131, new NDMessage(" has a defense rating of ",""));
         commandMessages.put(1132, new NDMessage(" cannot be equipped!",""));
-        //attack messages
+
+        // Attack messages
         commandMessages.put(1301, new NDMessage(" was attacked for ",""));
         commandMessages.put(1302, new NDMessage(" attacked you. Remaining health points: ",""));
         commandMessages.put(1303, new NDMessage(" You have been bested in combat. GAME OVER.",""));
@@ -95,28 +104,42 @@ public enum CommandMessages {
         commandMessages.put(1308, new NDMessage(".",""));
         commandMessages.put(1309, new NDMessage(" points of damage.",""));
         commandMessages.put(1310, new NDMessage("All your enemies are dead, the battle is over!.",""));
-        //equip messages
+
+        // Equip messages
         commandMessages.put(1401, new NDMessage(" was successfully equipped.",""));
         commandMessages.put(1402, new NDMessage(" was unequipped.",""));
         commandMessages.put(1403, new NDMessage(" is not an item that could be equipped!",""));
-        //use messages
+
+        // Use messages
         commandMessages.put(1501, new NDMessage(" was successfully used!",""));
-        //history messages
+
+        // History messages
         commandMessages.put(1601, new NDMessage("I already did that.",""));
         commandMessages.put(1602, new NDMessage("Please stop making me repeat myself!",""));
         commandMessages.put(1603, new NDMessage("Type 'qq'!",""));
         commandMessages.put(1604, new NDMessage("Never mind I will do it for you...",""));
-        //flee messages
+
+        // Flee messages
         commandMessages.put(1701, new NDMessage("You successfully fled the battle! Retreat into another room quickly!",""));
         commandMessages.put(1702, new NDMessage("You've missed your chance, the enemy strikes at the opportunity",""));
         commandMessages.put(1703, new NDMessage("There is nothing to flee from...",""));
-        //general messages
+
+        // Look messages
+        commandMessages.put(1800, new NDMessage("I also can see an item:",""));
+        commandMessages.put(1801, new NDMessage("I also can see some items:",""));
+        commandMessages.put(1802, new NDMessage("It seems there is an enemy:",""));
+        commandMessages.put(1803, new NDMessage("It seems there are some enemies:",""));
+        commandMessages.put(1804, new NDMessage("There is a door: ",""));
+        commandMessages.put(1805, new NDMessage("I can see doors:",""));
+
+        // General messages
         commandMessages.put(2001, new NDMessage("There more than one items with that name!", ""));
         commandMessages.put(2002, new NDMessage("There more than one doors with that name!", ""));
         commandMessages.put(2003, new NDMessage(" is locked.", ""));
         commandMessages.put(2004, new NDMessage(" is unlocked!", ""));
         commandMessages.put(2005, new NDMessage("History is empty.", ""));
-        //error messages
+
+        // Error messages
         commandMessages.put(2101, new NDMessage("I don't think I can do that", ""));
         commandMessages.put(2102, new NDMessage("Unexpected state error", ""));
         commandMessages.put(2103, new NDMessage("Shut your dirty mouth!", ""));
@@ -124,7 +147,11 @@ public enum CommandMessages {
         commandMessages.put(2105, new NDMessage("Hey, don't talk that way to me!", ""));
         commandMessages.put(2106, new NDMessage("Excuse me, but could you please watch you language?\nThis is a children's game!", ""));
         commandMessages.put(2107, new NDMessage("Profanity is strictly prohibited!", ""));
-        //quit messages
+
+        // User replies
+        commandMessages.put(2200, new NDMessage("Hi", ""));
+
+        // Quit messages
         commandMessages.put(5000, new NDMessage("Quiting to Main Menu", ""));
     }
 

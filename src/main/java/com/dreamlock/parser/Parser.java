@@ -2,6 +2,7 @@ package com.dreamlock.parser;
 
 import com.dreamlock.game.constants.Commands;
 import com.dreamlock.messageSystem.ForbiddenWords;
+import com.dreamlock.messageSystem.UserQuestions;
 import com.dreamlock.parser.constants.Rules;
 import com.dreamlock.parser.constants.TokenType;
 import com.dreamlock.parser.models.Lexeme;
@@ -52,20 +53,38 @@ public class Parser {
 
             output.addProperty("error", true);
 
-            Boolean forbidden = false;
+            Boolean hasForbidden = false;
+            Boolean hasQuestion = false;
+            String wholeCommand = "";
             for (Lexeme lexeme : lexemes) {
+                wholeCommand += lexeme.getTypedString() + " ";
                 for (ForbiddenWords forbiddenWords : ForbiddenWords.values()) {
                     if (lexeme.getTypedString().contains(forbiddenWords.toString())) {
-                        forbidden = true;
+                        hasForbidden = true;
                     }
                 }
             }
 
-            if (forbidden) {
+            wholeCommand = wholeCommand.substring(0 , wholeCommand.length()-1);
+            for (String question : UserQuestions.INSTANCE.getQuestions()) {
+                if (wholeCommand.equals(question)) {
+                    hasQuestion = true;
+                }
+            }
+
+
+            if (hasForbidden) {
                 output.addProperty("forbidden", true);
+                output.addProperty("has_question", false);
+            }
+            else if (hasQuestion) {
+                output.addProperty("forbidden", false);
+                output.addProperty("has_question", true);
+                output.addProperty("question", wholeCommand);
             }
             else {
                 output.addProperty("forbidden", false);
+                output.addProperty("has_question", false);
 
                 for (int i = 0; i < lexemes.size(); i++) {
                     ruleStringBuilder.append(lexemes.get(i).getTokenType().toString().charAt(0));

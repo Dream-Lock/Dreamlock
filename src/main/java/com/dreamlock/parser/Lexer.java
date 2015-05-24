@@ -35,9 +35,7 @@ public class Lexer {
         if (hasDoubleToken) {
             tokens = new String[tempTokens.length - 1];
             tokens[0] = tempTokens[0] + " " + tempTokens[1];
-            for (int i = 1; i < tempTokens.length - 1; i++) {
-                tokens[i] = tempTokens[i + 1];
-            }
+            System.arraycopy(tempTokens, 2, tokens, 1, tempTokens.length - 1 - 1);
         }
         else {
             tokens = tempTokens;
