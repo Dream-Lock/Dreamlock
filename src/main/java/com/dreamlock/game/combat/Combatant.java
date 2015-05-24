@@ -21,7 +21,7 @@ public abstract class Combatant implements Serializable{
     protected int strength;
     protected int agility;
     protected int maxHealth;
-    protected Pair<String, Armor> chest, head;
+    protected Pair<String, Armor> chest, head, hands, legs, feet;
     protected Pair<String, Weapon> main_hand;
 
     protected Map<ActionState,ICombatState> states;
@@ -109,6 +109,27 @@ public abstract class Combatant implements Serializable{
             strength_mod+= Integer.parseInt(chest.getValue().getStats().get(Stats.STRENGTH).toString());
             agility_mod+= Integer.parseInt(chest.getValue().getStats().get(Stats.AGILITY).toString());
             defense_mod+= Integer.parseInt(chest.getValue().getStats().get(Stats.DEFENSE).toString());
+        }
+
+        if(hands!=null){
+            stamina_mod+=  Integer.parseInt(hands.getValue().getStats().get(Stats.STAMINA).toString());
+            strength_mod+= Integer.parseInt(hands.getValue().getStats().get(Stats.STRENGTH).toString());
+            agility_mod+= Integer.parseInt(hands.getValue().getStats().get(Stats.AGILITY).toString());
+            defense_mod+= Integer.parseInt(hands.getValue().getStats().get(Stats.DEFENSE).toString());
+        }
+
+        if(legs!=null){
+            stamina_mod+=  Integer.parseInt(legs.getValue().getStats().get(Stats.STAMINA).toString());
+            strength_mod+= Integer.parseInt(legs.getValue().getStats().get(Stats.STRENGTH).toString());
+            agility_mod+= Integer.parseInt(legs.getValue().getStats().get(Stats.AGILITY).toString());
+            defense_mod+= Integer.parseInt(legs.getValue().getStats().get(Stats.DEFENSE).toString());
+        }
+
+        if(feet!=null){
+            stamina_mod+=  Integer.parseInt(feet.getValue().getStats().get(Stats.STAMINA).toString());
+            strength_mod+= Integer.parseInt(feet.getValue().getStats().get(Stats.STRENGTH).toString());
+            agility_mod+= Integer.parseInt(feet.getValue().getStats().get(Stats.AGILITY).toString());
+            defense_mod+= Integer.parseInt(feet.getValue().getStats().get(Stats.DEFENSE).toString());
         }
 
         if(main_hand!=null){

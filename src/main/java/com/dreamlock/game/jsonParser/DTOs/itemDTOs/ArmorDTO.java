@@ -18,6 +18,12 @@ public class ArmorDTO {
             return EquipmentSlot.HEAD;
         if(equipmentSlot.equalsIgnoreCase("chest"))
             return EquipmentSlot.CHEST;
+        if(equipmentSlot.equalsIgnoreCase("hands"))
+            return EquipmentSlot.HANDS;
+        if(equipmentSlot.equalsIgnoreCase("legs"))
+            return EquipmentSlot.LEGS;
+        if(equipmentSlot.equalsIgnoreCase("feet"))
+            return EquipmentSlot.FEET;
         return null;
     }
 

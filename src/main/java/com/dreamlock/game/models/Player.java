@@ -34,6 +34,9 @@ public class Player extends Combatant implements Serializable {
 
         chest = null;
         head = null;
+        hands = null;
+        legs = null;
+        feet = null;
         main_hand = null;
     }
 
@@ -57,6 +60,21 @@ public class Player extends Combatant implements Serializable {
                     return chest.getValue();
                 else
                     return null;
+            case HANDS:
+                if(hands != null)
+                    return hands.getValue();
+                else
+                    return null;
+            case LEGS:
+                if(legs != null)
+                    return legs.getValue();
+                else
+                    return null;
+            case FEET:
+                if(feet != null)
+                    return feet.getValue();
+                else
+                    return null;
             case MAIN_HAND:
                 if(main_hand != null)
                     return main_hand.getValue();
@@ -75,6 +93,15 @@ public class Player extends Combatant implements Serializable {
             case CHEST:
                 chest = new ImmutablePair<>(item.getName(), (Armor)  item);
                 break;
+            case HANDS:
+                chest = new ImmutablePair<>(item.getName(), (Armor)  item);
+                break;
+            case LEGS:
+                chest = new ImmutablePair<>(item.getName(), (Armor)  item);
+                break;
+            case FEET:
+                chest = new ImmutablePair<>(item.getName(), (Armor)  item);
+                break;
             case MAIN_HAND:
                 main_hand = new ImmutablePair<>(item.getName(),(Weapon)  item);
                 break;
@@ -88,6 +115,15 @@ public class Player extends Combatant implements Serializable {
                 break;
             case CHEST:
                 chest = null;
+                break;
+            case HANDS:
+                hands = null;
+                break;
+            case LEGS:
+                legs = null;
+                break;
+            case FEET:
+                feet = null;
                 break;
             case MAIN_HAND:
                 main_hand = null;

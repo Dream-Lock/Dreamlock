@@ -37,6 +37,24 @@ public class Unequip implements ICommand {
                 foundItems.add(item);
             }
         }
+        item = gameContext.getPlayer().getSlot(EquipmentSlot.HANDS);
+        if(item != null){
+            if (item.getName().toLowerCase().equals(word.getDescription())) {
+                foundItems.add(item);
+            }
+        }
+        item = gameContext.getPlayer().getSlot(EquipmentSlot.LEGS);
+        if(item != null){
+            if (item.getName().toLowerCase().equals(word.getDescription())) {
+                foundItems.add(item);
+            }
+        }
+        item = gameContext.getPlayer().getSlot(EquipmentSlot.FEET);
+        if(item != null){
+            if (item.getName().toLowerCase().equals(word.getDescription())) {
+                foundItems.add(item);
+            }
+        }
         item = gameContext.getPlayer().getSlot(EquipmentSlot.MAIN_HAND);
         if(item != null){
             if (item.getName().toLowerCase().equals(word.getDescription())) {
