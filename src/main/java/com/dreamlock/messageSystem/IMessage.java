@@ -7,4 +7,6 @@ public interface IMessage {
     void setDescription(String description);
     String getEffect();
     void setEffect(String effect);
+    String getPlayerStats();
+    void setPlayerStats(String playerStats);
 }

@@ -9,7 +9,9 @@ import com.dreamlock.game.states.ICombatState;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 
 public abstract class Combatant implements Serializable{
@@ -166,5 +168,29 @@ public abstract class Combatant implements Serializable{
 
     public boolean isAlive() {
         return health > 0;
+    }
+
+    public Map<Stats, Integer> setPlayerStatsMap (){
+        Map <Stats, Integer> playerStats = new HashMap<>();
+        playerStats.put(Stats.HEALTH, this.health);
+        playerStats.put(Stats.ATTACK, this.attack);
+        playerStats.put(Stats.DEFENSE, this.defense);
+        playerStats.put(Stats.STAMINA, this.stamina);
+        playerStats.put(Stats.STRENGTH, this.strength);
+        playerStats.put(Stats.AGILITY, this.agility);
+
+        return playerStats;
+    }
+
+    public String getPlayerStatsMap () {
+        StringBuilder stringPlayerStats = new StringBuilder();
+        Set<Map.Entry<Stats,Integer>> map = setPlayerStatsMap().entrySet();
+        for (Map.Entry<Stats, Integer> entry : map) {
+            stringPlayerStats.append(entry.getKey())
+                    .append(": ")
+                    .append(+entry.getValue())
+                    .append("\n");
+        }
+        return stringPlayerStats.toString();
     }
 }

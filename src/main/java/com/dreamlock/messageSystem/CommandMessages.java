@@ -1,5 +1,7 @@
 package com.dreamlock.messageSystem;
 
+import com.dreamlock.game.constants.Stats;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -18,7 +20,7 @@ public enum CommandMessages {
         commandMessages.put(10002, new NDMessage("\n",""));   // title new line
         commandMessages.put(10003, new NDMessage("","\n"));   // description new line
         commandMessages.put(10004, new NDMessage("",""));     // print title and description without new line
-        commandMessages.put(10005, new NDMessage("",""));     //print stats
+        commandMessages.put(10005, new NDSMessage("","",""));     //print stats
         commandMessages.put(10006, new NDEMessage("","",""));     // print with effect
         commandMessages.put(10007, new NDEMessage("","","\n"));     // effect new line
         // Go messages
