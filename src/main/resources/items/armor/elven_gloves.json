@@ -1,11 +1,11 @@
 {
-  "id":102,
+  "id":107,
   "type":"Armor",
-  "name":"Leather Gloves",
-  "description":"A pair of gloves made of leather",
-  "defense":10,
-  "stamina":5,
-  "strength":5,
-  "agility":5,
+  "name":"Elven Gloves",
+  "description":"A pair of gloves made by the ancient elves",
+  "defense":13,
+  "stamina":8,
+  "strength":10,
+  "agility":15,
   "equipmentSlot":"HANDS"
 }

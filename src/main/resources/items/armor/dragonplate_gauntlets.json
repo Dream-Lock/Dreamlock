@@ -1,11 +1,11 @@
 {
-  "id":102,
+  "id":136,
   "type":"Armor",
-  "name":"Leather Gloves",
-  "description":"A pair of gloves made of leather",
-  "defense":10,
-  "stamina":5,
-  "strength":5,
-  "agility":5,
+  "name":"Dragonplate Gauntlets",
+  "description":"A pair of gauntlets made of steel and bones from the mythical dragons",
+  "defense":40,
+  "stamina":40,
+  "strength":22,
+  "agility":8,
   "equipmentSlot":"HANDS"
 }

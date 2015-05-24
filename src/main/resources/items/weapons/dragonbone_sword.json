@@ -2,10 +2,10 @@
   "id":604,
   "type":"Weapon",
   "name":"Dragobone Sword",
-  "description":"A legendary sword made of dragon bones",
-  "attack":10,
-  "stamina":1,
-  "strength":2,
-  "agility":0,
+  "description":"A legendary sword made of steel and bones from the mythical dragons",
+  "attack":50,
+  "stamina":20,
+  "strength":20,
+  "agility":15,
   "equipmentSlot":"MAIN_HAND"
 }

@@ -1,0 +1,11 @@
+{
+  "id":145,
+  "type":"Armor",
+  "name":"Aegis",
+  "description":"A legendary shield made by Hephaestus, once wielded by Zeus himself",
+  "defense":30,
+  "stamina":30,
+  "strength":30,
+  "agility":30,
+  "equipmentSlot":"OFF_HAND"
+}

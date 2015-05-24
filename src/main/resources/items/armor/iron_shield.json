@@ -1,0 +1,11 @@
+{
+  "id":142,
+  "type":"Armor",
+  "name":"Iron Shield",
+  "description":"A shield made of iron",
+  "defense":10,
+  "stamina":6,
+  "strength":4,
+  "agility":0,
+  "equipmentSlot":"OFF_HAND"
+}

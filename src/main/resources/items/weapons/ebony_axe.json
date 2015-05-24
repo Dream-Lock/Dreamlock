@@ -2,10 +2,10 @@
   "id":610,
   "type":"Weapon",
   "name":"Ebony Axe",
-  "description":"A axe made of ebony",
-  "attack":10,
-  "stamina":1,
-  "strength":2,
-  "agility":0,
+  "description":"A axe made of an ancient dense black wood, known as ebony",
+  "attack":20,
+  "stamina":11,
+  "strength":11,
+  "agility":8,
   "equipmentSlot":"MAIN_HAND"
 }

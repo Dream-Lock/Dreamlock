@@ -1,11 +1,11 @@
 {
-  "id":100,
+  "id":129,
   "type":"Armor",
-  "name":"Leather Boots",
-  "description":"A pair of boots made of leather",
-  "defense":10,
-  "stamina":5,
-  "strength":5,
-  "agility":5,
+  "name":"Steel Boots",
+  "description":"A pair of sabatons made of steel",
+  "defense":15,
+  "stamina":13,
+  "strength":12,
+  "agility":6,
   "equipmentSlot":"FEET"
 }

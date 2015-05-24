@@ -1,0 +1,11 @@
+{
+  "id":141,
+  "type":"Armor",
+  "name":"Iron Buckler",
+  "description":"A buckler made of iron",
+  "defense":4,
+  "stamina":4,
+  "strength":0,
+  "agility":1,
+  "equipmentSlot":"OFF_HAND"
+}

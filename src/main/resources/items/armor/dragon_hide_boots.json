@@ -1,11 +1,11 @@
 {
-  "id":100,
+  "id":115,
   "type":"Armor",
-  "name":"Leather Boots",
+  "name":"Dragon Hide Boots",
   "description":"A pair of boots made of leather",
-  "defense":10,
-  "stamina":5,
-  "strength":5,
-  "agility":5,
+  "defense":30,
+  "stamina":20,
+  "strength":20,
+  "agility":40,
   "equipmentSlot":"FEET"
 }

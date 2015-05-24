@@ -1,0 +1,11 @@
+{
+  "id":144,
+  "type":"Armor",
+  "name":"Mithril Shield",
+  "description":"A shield made of the legendary mithril",
+  "defense":22,
+  "stamina":8,
+  "strength":8,
+  "agility":5,
+  "equipmentSlot":"OFF_HAND"
+}

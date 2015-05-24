@@ -3,9 +3,9 @@
   "type":"Weapon",
   "name":"Wakizashi",
   "description":"A samurai dagger",
-  "attack":10,
-  "stamina":1,
-  "strength":2,
-  "agility":0,
+  "attack":20,
+  "stamina":10,
+  "strength":10,
+  "agility":25,
   "equipmentSlot":"OFF_HAND"
 }

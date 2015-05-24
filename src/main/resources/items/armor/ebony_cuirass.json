@@ -1,11 +1,11 @@
 {
-  "id":101,
+  "id":130,
   "type":"Armor",
-  "name":"Leather Breastplate",
-  "description":"A breastplate made of leather",
-  "defense":10,
-  "stamina":5,
-  "strength":5,
-  "agility":5,
+  "name":"Ebony Cuirass",
+  "description":"A cuirass made of an ancient dense black wood, known as ebony",
+  "defense":40,
+  "stamina":40,
+  "strength":20,
+  "agility":10,
   "equipmentSlot":"CHEST"
 }

@@ -1,11 +1,11 @@
 {
-  "id":101,
+  "id":135,
   "type":"Armor",
-  "name":"Leather Breastplate",
-  "description":"A breastplate made of leather",
-  "defense":10,
-  "stamina":5,
-  "strength":5,
-  "agility":5,
+  "name":"Dragonplate Cuirass",
+  "description":"A cuirass made of steel and bones from the mythical dragons",
+  "defense":50,
+  "stamina":50,
+  "strength":35,
+  "agility":15,
   "equipmentSlot":"CHEST"
 }

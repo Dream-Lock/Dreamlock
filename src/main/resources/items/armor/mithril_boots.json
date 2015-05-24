@@ -1,11 +1,11 @@
 {
-  "id":100,
+  "id":110,
   "type":"Armor",
-  "name":"Leather Boots",
-  "description":"A pair of boots made of leather",
-  "defense":10,
-  "stamina":5,
-  "strength":5,
-  "agility":5,
+  "name":"Mithril Boots",
+  "description":"A pair of boots made of the legendary mithril",
+  "defense":20,
+  "stamina":15,
+  "strength":15,
+  "agility":30,
   "equipmentSlot":"FEET"
 }

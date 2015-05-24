@@ -4,8 +4,8 @@
   "name":"Iron Sword",
   "description":"A sword made of iron",
   "attack":10,
-  "stamina":1,
-  "strength":2,
-  "agility":0,
+  "stamina":5,
+  "strength":4,
+  "agility":3,
   "equipmentSlot":"MAIN_HAND"
 }

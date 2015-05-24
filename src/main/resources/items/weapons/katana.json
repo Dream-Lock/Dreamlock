@@ -3,9 +3,9 @@
   "type":"Weapon",
   "name":"Katana",
   "description":"A samurai sword",
-  "attack":10,
-  "stamina":1,
-  "strength":2,
-  "agility":0,
+  "attack":40,
+  "stamina":15,
+  "strength":15,
+  "agility":20,
   "equipmentSlot":"MAIN_HAND"
 }

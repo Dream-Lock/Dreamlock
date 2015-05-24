@@ -3,9 +3,9 @@
   "type":"Weapon",
   "name":"Iron Dagger",
   "description":"A dagger made of iron",
-  "attack":10,
-  "stamina":1,
-  "strength":2,
-  "agility":0,
+  "attack":6,
+  "stamina":3,
+  "strength":4,
+  "agility":6,
   "equipmentSlot":"OFF_HAND"
 }

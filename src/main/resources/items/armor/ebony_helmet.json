@@ -1,11 +1,11 @@
 {
-  "id":103,
+  "id":133,
   "type":"Armor",
-  "name":"Leather Helmet",
-  "description":"A helmet made of leather",
-  "defense":10,
-  "stamina":5,
-  "strength":5,
-  "agility":5,
+  "name":"Ebony Helmet",
+  "description":"A helmet made of an ancient dense black wood, known as ebony",
+  "defense":30,
+  "stamina":30,
+  "strength":14,
+  "agility":6,
   "equipmentSlot":"HEAD"
 }

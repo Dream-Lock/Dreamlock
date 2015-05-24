@@ -1,11 +1,11 @@
 {
-  "id":102,
+  "id":117,
   "type":"Armor",
-  "name":"Leather Gloves",
-  "description":"A pair of gloves made of leather",
-  "defense":10,
-  "stamina":5,
-  "strength":5,
-  "agility":5,
+  "name":"Dragon Hide Gloves",
+  "description":"A pair of gloves made of skin from the mythical dragons",
+  "defense":30,
+  "stamina":20,
+  "strength":20,
+  "agility":40,
   "equipmentSlot":"HANDS"
 }

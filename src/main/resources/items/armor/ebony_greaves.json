@@ -1,11 +1,11 @@
 {
-  "id":104,
+  "id":132,
   "type":"Armor",
-  "name":"Iron Leggings",
-  "description":"A pair of leggings boots made of leather",
-  "defense":10,
-  "stamina":5,
-  "strength":5,
-  "agility":5,
+  "name":"Ebony Greaves",
+  "description":"A pair of leggings boots made of an ancient dense black wood, known as ebony",
+  "defense":30,
+  "stamina":30,
+  "strength":14,
+  "agility":6,
   "equipmentSlot":"LEGS"
 }

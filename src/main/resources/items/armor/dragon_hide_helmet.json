@@ -1,11 +1,11 @@
 {
-  "id":103,
+  "id":118,
   "type":"Armor",
-  "name":"Leather Helmet",
-  "description":"A helmet made of leather",
-  "defense":10,
-  "stamina":5,
-  "strength":5,
-  "agility":5,
+  "name":"Dragon Hide Helmet",
+  "description":"A helmet made of skin from the mythical dragons",
+  "defense":30,
+  "stamina":20,
+  "strength":20,
+  "agility":40,
   "equipmentSlot":"HEAD"
 }

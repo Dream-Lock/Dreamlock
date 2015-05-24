@@ -1,11 +1,11 @@
 {
-  "id":103,
+  "id":108,
   "type":"Armor",
-  "name":"Leather Helmet",
-  "description":"A helmet made of leather",
-  "defense":10,
-  "stamina":5,
-  "strength":5,
-  "agility":5,
+  "name":"Elven Helmet",
+  "description":"A helmet made by the ancient elves",
+  "defense":13,
+  "stamina":8,
+  "strength":10,
+  "agility":15,
   "equipmentSlot":"HEAD"
 }

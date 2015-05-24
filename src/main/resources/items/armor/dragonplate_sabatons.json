@@ -1,11 +1,11 @@
 {
-  "id":100,
+  "id":139,
   "type":"Armor",
-  "name":"Leather Boots",
-  "description":"A pair of boots made of leather",
-  "defense":10,
-  "stamina":5,
-  "strength":5,
-  "agility":5,
+  "name":"Dragonplate Sabatons",
+  "description":"A pair of sabatons made of steel and bones from the mythical dragons",
+  "defense":40,
+  "stamina":40,
+  "strength":22,
+  "agility":8,
   "equipmentSlot":"FEET"
 }

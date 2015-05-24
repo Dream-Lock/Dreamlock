@@ -1,11 +1,11 @@
 {
-  "id":103,
+  "id":113,
   "type":"Armor",
-  "name":"Leather Helmet",
-  "description":"A helmet made of leather",
-  "defense":10,
-  "stamina":5,
-  "strength":5,
-  "agility":5,
+  "name":"Mithril Helmet",
+  "description":"A helmet of the legendary mithril",
+  "defense":20,
+  "stamina":15,
+  "strength":15,
+  "agility":30,
   "equipmentSlot":"HEAD"
 }

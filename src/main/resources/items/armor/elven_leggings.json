@@ -1,11 +1,11 @@
 {
-  "id":104,
+  "id":109,
   "type":"Armor",
-  "name":"Iron Leggings",
-  "description":"A pair of leggings boots made of leather",
-  "defense":10,
-  "stamina":5,
-  "strength":5,
-  "agility":5,
+  "name":"Elven Leggings",
+  "description":"A pair of leggings made by the ancient elves",
+  "defense":13,
+  "stamina":8,
+  "strength":10,
+  "agility":15,
   "equipmentSlot":"LEGS"
 }

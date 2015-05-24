@@ -4,8 +4,8 @@
   "name":"Leather Breastplate",
   "description":"A breastplate made of leather",
   "defense":10,
-  "stamina":5,
+  "stamina":4,
   "strength":5,
-  "agility":5,
+  "agility":6,
   "equipmentSlot":"CHEST"
 }

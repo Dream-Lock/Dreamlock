@@ -1,11 +1,11 @@
 {
-  "id":101,
+  "id":106,
   "type":"Armor",
-  "name":"Leather Breastplate",
-  "description":"A breastplate made of leather",
-  "defense":10,
-  "stamina":5,
-  "strength":5,
-  "agility":5,
+  "name":"Elven Breastplate",
+  "description":"A breastplate made by the ancient elves",
+  "defense":17,
+  "stamina":10,
+  "strength":15,
+  "agility":18,
   "equipmentSlot":"CHEST"
 }

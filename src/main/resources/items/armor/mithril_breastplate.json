@@ -1,11 +1,11 @@
 {
-  "id":101,
+  "id":111,
   "type":"Armor",
-  "name":"Leather Breastplate",
-  "description":"A breastplate made of leather",
-  "defense":10,
-  "stamina":5,
-  "strength":5,
-  "agility":5,
+  "name":"Mithril Breastplate",
+  "description":"A breastplate made of the legendary mithril",
+  "defense":30,
+  "stamina":20,
+  "strength":20,
+  "agility":40,
   "equipmentSlot":"CHEST"
 }

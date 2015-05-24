@@ -4,8 +4,8 @@
   "name":"Wooden Axe",
   "description":"A Woodcutter's best choice and friend!",
   "attack":10,
-  "stamina":1,
-  "strength":2,
-  "agility":0,
+  "stamina":3,
+  "strength":3,
+  "agility":3,
   "equipmentSlot":"MAIN_HAND"
 }

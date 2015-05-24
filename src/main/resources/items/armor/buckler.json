@@ -1,0 +1,11 @@
+{
+  "id":140,
+  "type":"Armor",
+  "name":"Wooden Buckler",
+  "description":"A buckler made of wood",
+  "defense":3,
+  "stamina":3,
+  "strength":0,
+  "agility":1,
+  "equipmentSlot":"OFF_HAND"
+}

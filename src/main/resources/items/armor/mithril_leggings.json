@@ -1,11 +1,11 @@
 {
-  "id":104,
+  "id":114,
   "type":"Armor",
-  "name":"Iron Leggings",
-  "description":"A pair of leggings boots made of leather",
-  "defense":10,
-  "stamina":5,
-  "strength":5,
-  "agility":5,
+  "name":"Mithril Leggings",
+  "description":"A pair of leggings boots of the legendary mithril",
+  "defense":20,
+  "stamina":15,
+  "strength":15,
+  "agility":30,
   "equipmentSlot":"LEGS"
 }

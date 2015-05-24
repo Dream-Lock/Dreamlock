@@ -1,11 +1,11 @@
 {
-  "id":102,
+  "id":126,
   "type":"Armor",
-  "name":"Leather Gloves",
-  "description":"A pair of gloves made of leather",
-  "defense":10,
-  "stamina":5,
-  "strength":5,
-  "agility":5,
+  "name":"Steel Gauntlets",
+  "description":"A pair of gauntlets made of steel",
+  "defense":15,
+  "stamina":13,
+  "strength":12,
+  "agility":6,
   "equipmentSlot":"HANDS"
 }

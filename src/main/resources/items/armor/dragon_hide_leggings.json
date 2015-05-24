@@ -1,11 +1,11 @@
 {
-  "id":104,
+  "id":119,
   "type":"Armor",
-  "name":"Iron Leggings",
-  "description":"A pair of leggings boots made of leather",
-  "defense":10,
-  "stamina":5,
-  "strength":5,
-  "agility":5,
+  "name":"Dragon Hide Leggings",
+  "description":"A pair of leggings boots made of skin from the mythical dragons",
+  "defense":30,
+  "stamina":20,
+  "strength":20,
+  "agility":40,
   "equipmentSlot":"LEGS"
 }

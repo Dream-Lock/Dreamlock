@@ -1,11 +1,11 @@
 {
-  "id":101,
+  "id":116,
   "type":"Armor",
-  "name":"Leather Breastplate",
-  "description":"A breastplate made of leather",
-  "defense":10,
-  "stamina":5,
-  "strength":5,
-  "agility":5,
+  "name":"Dragon Hide Breastplate",
+  "description":"A breastplate made of skin from the mythical dragons",
+  "defense":40,
+  "stamina":30,
+  "strength":30,
+  "agility":50,
   "equipmentSlot":"CHEST"
 }
