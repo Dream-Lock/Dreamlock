@@ -1,4 +1,4 @@
-package com.dreamlock;
+package com.dreamlock.handlers;
 
 import com.dreamlock.game.IGameContext;
 import com.dreamlock.game.constants.HistoryExceptions;

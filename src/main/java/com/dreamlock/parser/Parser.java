@@ -64,8 +64,13 @@ public class Parser {
             }
 
             wholeCommand = wholeCommand.substring(0 , wholeCommand.length()-1);
+            wholeCommand = wholeCommand.replace("?" , "");
+            Character lastCharacter = wholeCommand.charAt(wholeCommand.length()-1);
+            if (lastCharacter.toString().equals(" ")) {
+                wholeCommand = wholeCommand.substring(0 , wholeCommand.length()-1);
+            }
             for (String question : UserQuestions.INSTANCE.getQuestions()) {
-                if (wholeCommand.equals(question)) {
+                if (wholeCommand.contains(question)) {
                     hasQuestion = true;
                 }
             }

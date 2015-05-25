@@ -1,7 +1,7 @@
 package com.dreamlock.menu;
 
 import com.dreamlock.GameUtils;
-import com.dreamlock.HistoryController;
+import com.dreamlock.handlers.HistoryController;
 import com.dreamlock.game.IGameContext;
 import com.dreamlock.game.jsonParser.JsonParser;
 import com.dreamlock.handlers.CommandHandler;
@@ -51,7 +51,7 @@ public class StartLoadedGameChoice implements IMenuChoice {
                     ArrayList<Lexeme> lexemes = lexer.tokenize(line);
                     JsonObject output =  parser.parse(lexemes);
 
-                    List<Integer> messageIds = null;
+                    List<Integer> messageIds;
                     IHandler handler;
                     if (!output.get("error").getAsBoolean()) {
                         historyController.register(line);

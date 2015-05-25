@@ -150,6 +150,26 @@ public enum CommandMessages {
 
         // User replies
         commandMessages.put(2200, new NDMessage("Hi", ""));
+        commandMessages.put(2201, new NDMessage("Why hello.", ""));
+
+        commandMessages.put(2202, new NDMessage("Just dandy, thanks.", ""));
+        commandMessages.put(2203, new NDMessage("I'm fine, thank you.", ""));
+
+        commandMessages.put(2204, new NDMessage("That's none of your business!", ""));
+        commandMessages.put(2205, new NDMessage("She's pretty good I guess.", ""));
+
+        commandMessages.put(2206, new NDMessage("Your existence fears, do not concern me.", ""));
+
+        commandMessages.put(2207, new NDMessage("It was a task from Master Petal in order to save humanity", ""));
+
+        commandMessages.put(2208, new NDMessage("I do not understand your question", ""));
+        commandMessages.put(2209, new NDMessage("I beg your pardon", ""));
+
+        commandMessages.put(2210, new NDMessage("You should never ask a lady's age!", ""));
+
+        commandMessages.put(2211, new NDMessage("My name is of no concern to you.", ""));
+        commandMessages.put(2212, new NDMessage("My name is Hestia", ""));
+
 
         // Quit messages
         commandMessages.put(5000, new NDMessage("Quiting to Main Menu", ""));
