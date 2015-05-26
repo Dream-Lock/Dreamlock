@@ -37,7 +37,8 @@ public enum Commands {
         commands.put("unequip", new Unequip());
         commands.put("reload", new Reload());
         commands.put("use", new Use());
-        commands.put("drink", new Use());
+        commands.put("drink", new Drink());
+        commands.put("eat", new Eat());
         commands.put("flee", new Flee());
         commands.put("run", new Flee());
         commands.put("history", new History());

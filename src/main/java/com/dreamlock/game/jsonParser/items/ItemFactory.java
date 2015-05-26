@@ -23,8 +23,8 @@ public class ItemFactory {
                 case "Misc":
                     item = new Miscellaneous(jsonItem);
                     break;
-                case "RoomObject":
-                    item = new RoomObject(jsonItem);
+                case "Key":
+                    item = new Key(jsonItem);
                     break;
                 default:
                     throw new IllegalArgumentException("parsing error! plz check your items!");

@@ -108,10 +108,12 @@ public enum CommandMessages {
         // Equip messages
         commandMessages.put(1401, new NDMessage(" was successfully equipped.",""));
         commandMessages.put(1402, new NDMessage(" was unequipped.",""));
-        commandMessages.put(1403, new NDMessage(" is not an item that could be equipped!",""));
+        commandMessages.put(1403, new NDMessage(" is not an item that can be equipped!",""));
 
-        // Use messages
+        // Drink/Eat messages
         commandMessages.put(1501, new NDMessage(" was successfully used!",""));
+        commandMessages.put(1502, new NDMessage(" is not an item that can be drunk!",""));
+        commandMessages.put(1503, new NDMessage(" is not an item that can be eaten!",""));
 
         // History messages
         commandMessages.put(1601, new NDMessage("I already did that.",""));
@@ -131,6 +133,9 @@ public enum CommandMessages {
         commandMessages.put(1803, new NDMessage("It seems there are some enemies:",""));
         commandMessages.put(1804, new NDMessage("There is a door: ",""));
         commandMessages.put(1805, new NDMessage("I can see doors:",""));
+
+        // Use message
+        commandMessages.put(1900, new NDMessage(" is not an item that can be used!",""));
 
         // General messages
         commandMessages.put(2001, new NDMessage("There more than one items with that name!", ""));

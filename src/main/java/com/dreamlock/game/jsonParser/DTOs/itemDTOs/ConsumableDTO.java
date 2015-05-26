@@ -3,6 +3,7 @@ package com.dreamlock.game.jsonParser.DTOs.itemDTOs;
 public class ConsumableDTO {
     private int id;
     private String type;
+    private String state;
     private String name;
     private String description;
     private String effect;
@@ -17,6 +18,10 @@ public class ConsumableDTO {
 
     public String getType() {
         return type;
+    }
+
+    public String getState() {
+        return state;
     }
 
     public String getName() {

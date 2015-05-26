@@ -33,6 +33,7 @@ public enum Dictionary {
 
         dictionary.put("use", new Lexeme(3, "use", TokenType.VERB, 3000));
         dictionary.put("drink", new Lexeme(3, "drink", TokenType.VERB, 3000));
+        dictionary.put("eat", new Lexeme(3, "eat", TokenType.VERB, 3000));
         dictionary.put("equip", new Lexeme(3, "equip", TokenType.VERB, 3000));
         dictionary.put("unequip", new Lexeme(3, "unequip", TokenType.VERB, 3000));
         dictionary.put("examine", new Lexeme(3, "examine", TokenType.VERB, 3000));

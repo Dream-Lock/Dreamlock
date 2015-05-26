@@ -25,5 +25,7 @@ public class Miscellaneous extends Item {
         states.put(ActionState.EQUIP, new CanNotEquip());
         states.put(ActionState.USE, new CanNotUse());
         states.put(ActionState.OPEN, new CanNotOpen());
+        states.put(ActionState.DRINK, new CanNotDrink());
+        states.put(ActionState.EAT, new CanNotEat());
     }
 }

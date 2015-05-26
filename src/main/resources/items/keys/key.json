@@ -1,6 +1,6 @@
 {
   "id":400,
-  "type":"Puzzle",
+  "type":"Key",
   "name":"Simple Key",
   "description":"A key that opens a wooden door."
 }

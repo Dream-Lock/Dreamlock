@@ -33,6 +33,8 @@ public class Weapon extends Item {
         states.put(ActionState.EQUIP, new CanEquip());
         states.put(ActionState.UNEQUIP, new CanUnequip());
         states.put(ActionState.USE, new CanNotUse());
+        states.put(ActionState.DRINK, new CanNotDrink());
+        states.put(ActionState.EAT, new CanNotEat());
         states.put(ActionState.OPEN, new CanNotOpen());
     }
 }

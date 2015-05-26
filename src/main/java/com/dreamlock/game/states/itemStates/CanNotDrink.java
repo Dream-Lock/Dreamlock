@@ -4,7 +4,7 @@ import com.dreamlock.game.IGameContext;
 import com.dreamlock.game.jsonParser.items.Item;
 import com.dreamlock.game.states.IState;
 
-public class CanNotUse implements IState {
+public class CanNotDrink implements IState {
     @Override
     public Integer doAction(IGameContext context) {
         return null;
@@ -12,6 +12,6 @@ public class CanNotUse implements IState {
 
     @Override
     public Integer doAction(IGameContext context, Item item) {
-        return 1900;
+        return 1502;
     }
 }
