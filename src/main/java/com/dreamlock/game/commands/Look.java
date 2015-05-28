@@ -59,6 +59,7 @@ public class Look implements ICommand  {
             output.add(1801);
         }
         for (Item item : items) {
+            output.add(10002);
             if (!item.getType().equals("Misc")) {
                 output.add(item.getId());
             }
