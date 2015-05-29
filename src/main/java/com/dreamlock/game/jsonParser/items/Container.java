@@ -32,6 +32,10 @@ public class Container extends Item{
         return null;
     }
 
+    public void removeItem (Item item) {
+        items.remove(item);
+    }
+
     public Container(){
 
     }

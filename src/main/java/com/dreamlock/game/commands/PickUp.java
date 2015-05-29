@@ -28,7 +28,10 @@ public class PickUp implements ICommand {
                 Container container = (Container) item;
 
                 if ( !(boolean)container.getStats().get(Stats.LOCKED)) {
-                    foundItems.add(container.getSpecificItem(words.get(2)));
+                    Item item1 = container.getSpecificItem(words.get(2));
+                    if (item1 != null ) {
+                        foundItems.add(item1);
+                    }
                 }
 
             }
