@@ -1,6 +1,7 @@
 package com.dreamlock.game.states.itemStates;
 
 import com.dreamlock.game.IGameContext;
+import com.dreamlock.game.constants.ItemType;
 import com.dreamlock.game.jsonParser.items.Consumable;
 import com.dreamlock.game.jsonParser.items.Item;
 import com.dreamlock.game.states.IState;
@@ -13,8 +14,8 @@ public class CanDrink implements IState {
 
     @Override
     public Integer doAction(IGameContext context, Item item) {
-        String itemType = item.getType();
-        if (itemType.equals("Consumable")) {
+        ItemType itemType = item.getType();
+        if (itemType.equals(ItemType.CONSUMABLE)) {
             Consumable consumable = (Consumable) item;
             if(consumable.getState().equals("Drink")){
                 context.getPlayer().calculateStats();

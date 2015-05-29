@@ -2,6 +2,7 @@ package com.dreamlock.game.commands;
 
 import com.dreamlock.game.IGameContext;
 import com.dreamlock.game.constants.ActionState;
+import com.dreamlock.game.constants.ItemType;
 import com.dreamlock.game.jsonParser.items.Consumable;
 import com.dreamlock.game.jsonParser.items.Item;
 import com.dreamlock.game.models.Word;
@@ -28,7 +29,7 @@ public class Eat implements ICommand{
             int itemCount = gameContext.getPlayer().getInventory().getItemCount(words.get(2));
             if (duplicates == 1 || itemCount > 1){
                 Item item = gameContext.getPlayer().getInventory().getSpecificItem(words.get(2));
-                if (item.getType().equals("Consumable")) {
+                if (item.getType().equals(ItemType.CONSUMABLE)) {
                     Consumable consumable = (Consumable) item;
                     if (consumable.getState().equals("Food")) {
                         output.add(10006);

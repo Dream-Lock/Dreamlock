@@ -3,6 +3,7 @@ package com.dreamlock.game.jsonParser.items;
 import com.dreamlock.game.IGameContext;
 import com.dreamlock.game.constants.ActionState;
 import com.dreamlock.game.constants.EquipmentSlot;
+import com.dreamlock.game.constants.ItemType;
 import com.dreamlock.game.constants.Stats;
 import com.dreamlock.game.states.IState;
 
@@ -13,7 +14,7 @@ public abstract class Item implements Serializable{
     protected Integer id;
     protected String name;
     protected String description;
-    protected String type;
+    protected ItemType type;
 
     protected Map<ActionState,IState> states;
     protected Map<Stats, Object> stats;
@@ -68,11 +69,11 @@ public abstract class Item implements Serializable{
         this.description = description;
     }
 
-    public String getType() {
+    public ItemType getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(ItemType type) {
         this.type = type;
     }
 

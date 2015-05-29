@@ -2,6 +2,7 @@ package com.dreamlock.game.commands;
 
 import com.dreamlock.game.IGameContext;
 import com.dreamlock.game.constants.EquipmentSlot;
+import com.dreamlock.game.constants.ItemType;
 import com.dreamlock.game.constants.Stats;
 import com.dreamlock.game.jsonParser.items.Item;
 import com.dreamlock.game.models.Word;
@@ -45,12 +46,12 @@ public class Inspect implements ICommand {
         if (foundItems != null) {
             output.add(10000);
             if (foundItems.size() ==1 ) {
-                if (foundItems.get(0).getType().equalsIgnoreCase("armor")) {
+                if (foundItems.get(0).getType().equals(ItemType.ARMOR)) {
                     output.add(foundItems.get(0).getId());
                     output.add(1131);
                     output.add( Integer.parseInt(foundItems.get(0).getStats().get(Stats.DEFENSE).toString()));
                     output.add(1308);
-                }else if (foundItems.get(0).getType().equalsIgnoreCase("weapon")){
+                }else if (foundItems.get(0).getType().equals(ItemType.WEAPON)){
                     output.add(foundItems.get(0).getId());
                     output.add(1130);
                     output.add( Integer.parseInt(foundItems.get(0).getStats().get(Stats.ATTACK).toString()));

@@ -1,6 +1,7 @@
 package com.dreamlock.game.states.itemStates;
 
 import com.dreamlock.game.IGameContext;
+import com.dreamlock.game.constants.ItemType;
 import com.dreamlock.game.jsonParser.items.Armor;
 import com.dreamlock.game.jsonParser.items.Item;
 import com.dreamlock.game.jsonParser.items.Weapon;
@@ -18,10 +19,10 @@ public class CanEquip implements IState {
 
         Item forInv = null;
 
-        if(item.getType().equalsIgnoreCase("armor")){
+        if(item.getType().equals(ItemType.ARMOR)){
             forInv = (Armor) context.getPlayer().getSlot(((Armor) item).getEquipmentSlot());
 
-        }else if(item.getType().equalsIgnoreCase("weapon")){
+        }else if(item.getType().equals(ItemType.WEAPON)){
             forInv = (Weapon) context.getPlayer().getSlot(((Weapon) item).getEquipmentSlot());
         }
 

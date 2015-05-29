@@ -1,6 +1,7 @@
 package com.dreamlock.game.jsonParser.items;
 
 import com.dreamlock.game.constants.ActionState;
+import com.dreamlock.game.constants.ItemType;
 import com.dreamlock.game.jsonParser.DTOs.itemDTOs.RoomObjectDTO;
 import com.dreamlock.game.states.itemStates.CanNotPickUp;
 import com.dreamlock.game.states.itemStates.CanOpen;
@@ -13,7 +14,7 @@ public class RoomObject extends Item {
         Gson gson = new Gson();
         RoomObjectDTO roomObjectDTO = gson.fromJson(jsonItem, RoomObjectDTO.class);
         id = roomObjectDTO.getId();
-        type = roomObjectDTO.getType();
+        type = ItemType.valueOf(roomObjectDTO.getType().toUpperCase());
         name = roomObjectDTO.getName();
         description = roomObjectDTO.getDescription();
 

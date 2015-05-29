@@ -1,6 +1,7 @@
 package com.dreamlock.game.jsonParser.items;
 
 import com.dreamlock.game.constants.ActionState;
+import com.dreamlock.game.constants.ItemType;
 import com.dreamlock.game.jsonParser.DTOs.itemDTOs.KeyDTO;
 import com.dreamlock.game.states.itemStates.*;
 import com.google.gson.Gson;
@@ -12,7 +13,7 @@ public class Key extends Item {
         Gson gson = new Gson();
         KeyDTO keyDTO = gson.fromJson(jsonItem, KeyDTO.class);
         id = keyDTO.getId();
-        type = keyDTO.getType();
+        type = ItemType.valueOf(keyDTO.getType().toUpperCase());
         name = keyDTO.getName();
         description = keyDTO.getDescription();
 

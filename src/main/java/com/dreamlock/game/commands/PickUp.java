@@ -2,6 +2,7 @@ package com.dreamlock.game.commands;
 
 import com.dreamlock.game.IGameContext;
 import com.dreamlock.game.constants.ActionState;
+import com.dreamlock.game.constants.ItemType;
 import com.dreamlock.game.constants.Stats;
 import com.dreamlock.game.jsonParser.items.Container;
 import com.dreamlock.game.jsonParser.items.Item;
@@ -24,7 +25,7 @@ public class PickUp implements ICommand {
         List<Item> foundItems = gameContext.getCurrentRoom().containsItems(words.get(2));
 
         for (Item item : gameContext.getCurrentRoom().getItems()) {
-            if ( (item.getType().equals("Container")) ) {
+            if ( (item.getType().equals(ItemType.CONTAINER)) ) {
                 Container container = (Container) item;
 
                 if ( !(boolean)container.getStats().get(Stats.LOCKED)) {
@@ -39,7 +40,7 @@ public class PickUp implements ICommand {
         if (foundItems != null) {
             output.add(10000);
             if (foundItems.size() == 1 ) {
-                if (foundItems.get(0).getType().equals("Misc")) {
+                if (foundItems.get(0).getType().equals(ItemType.MISC)) {
                     output.add(1063);
                 }
                 else {

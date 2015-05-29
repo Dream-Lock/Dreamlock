@@ -9,9 +9,7 @@ import com.dreamlock.game.states.ICombatState;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 
 public abstract class Combatant implements Serializable{
@@ -178,22 +176,21 @@ public abstract class Combatant implements Serializable{
         return health > 0;
     }
 
-    public Map<Stats, Integer> setPlayerStatsMap (){
-        Map <Stats, Integer> playerStats = new HashMap<>();
-        playerStats.put(Stats.HEALTH, this.health);
-        playerStats.put(Stats.ATTACK, this.attack);
-        playerStats.put(Stats.DEFENSE, this.defense);
-        playerStats.put(Stats.STAMINA, this.stamina);
-        playerStats.put(Stats.STRENGTH, this.strength);
-        playerStats.put(Stats.AGILITY, this.agility);
-
+    public Map<String, Integer> setPlayerStatsMap (){
+        Map <String, Integer> playerStats = new TreeMap<>();
+        playerStats.put(Stats.HEALTH.toString(), this.health);
+        playerStats.put(Stats.STRENGTH.toString(), this.strength);
+        playerStats.put(Stats.DEFENSE.toString(), this.defense);
+        playerStats.put(Stats.AGILITY.toString(), this.agility);
+        playerStats.put(Stats.ATTACK.toString(), this.attack);
+        playerStats.put(Stats.STAMINA.toString(), this.stamina);
         return playerStats;
     }
 
     public String getPlayerStatsMap () {
         StringBuilder stringPlayerStats = new StringBuilder();
-        Set<Map.Entry<Stats,Integer>> map = setPlayerStatsMap().entrySet();
-        for (Map.Entry<Stats, Integer> entry : map) {
+        Set<Map.Entry<String,Integer>> map = setPlayerStatsMap().entrySet();
+        for (Map.Entry<String, Integer> entry : map) {
             stringPlayerStats.append(entry.getKey())
                     .append(": ")
                     .append(+entry.getValue())

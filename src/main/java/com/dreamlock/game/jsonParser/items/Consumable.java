@@ -1,6 +1,7 @@
 package com.dreamlock.game.jsonParser.items;
 
 import com.dreamlock.game.constants.ActionState;
+import com.dreamlock.game.constants.ItemType;
 import com.dreamlock.game.constants.Stats;
 import com.dreamlock.game.jsonParser.DTOs.itemDTOs.ConsumableDTO;
 import com.dreamlock.game.states.itemStates.*;
@@ -16,7 +17,7 @@ public class Consumable extends Item {
         Gson gson = new Gson();
         ConsumableDTO consumableDTO = gson.fromJson(jsonItem, ConsumableDTO.class);
         id = consumableDTO.getId();
-        type = consumableDTO.getType();
+        type = ItemType.valueOf(consumableDTO.getType().toUpperCase());
         state = consumableDTO.getState();
         name = consumableDTO.getName();
         description = consumableDTO.getDescription();

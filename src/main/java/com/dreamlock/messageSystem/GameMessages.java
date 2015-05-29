@@ -1,5 +1,6 @@
 package com.dreamlock.messageSystem;
 
+import com.dreamlock.game.constants.ItemType;
 import com.dreamlock.game.jsonParser.items.Consumable;
 import com.dreamlock.game.jsonParser.items.Container;
 import com.dreamlock.game.jsonParser.items.Item;
@@ -21,10 +22,10 @@ public class GameMessages {
             gameMessages.put(room.getId(), new NDMessage(room.getTitle(), room.getDescription()));
             for (Item item : room.getItems()) {
                 try {
-                    if (item.getType().equals("Container")) {
+                    if (item.getType().equals(ItemType.CONTAINER)) {
                         Container container = (Container) item;
                         for (Item containerItem : container.getItems()) {
-                            if (item.getType().equals("Consumable")) {
+                            if (item.getType().equals(ItemType.CONSUMABLE)) {
                                 Consumable consumableItem = (Consumable) containerItem;
                                 gameMessages.put(consumableItem.getId(), new NDEMessage(consumableItem.getName(), consumableItem.getDescription(), consumableItem.getEffect()));
                             } else {
@@ -32,7 +33,7 @@ public class GameMessages {
                             }
                         }
                     }
-                    if (item.getType().equals("Consumable")) {
+                    if (item.getType().equals(ItemType.CONSUMABLE)) {
                         Consumable consumableItem = (Consumable) item;
                         gameMessages.put(consumableItem.getId(), new NDEMessage(consumableItem.getName(), consumableItem.getDescription(), consumableItem.getEffect()));
                     } else {

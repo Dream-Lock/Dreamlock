@@ -1,6 +1,7 @@
 package com.dreamlock.game.jsonParser.items;
 
 import com.dreamlock.game.constants.ActionState;
+import com.dreamlock.game.constants.ItemType;
 import com.dreamlock.game.jsonParser.DTOs.itemDTOs.MiscellaneousDTO;
 import com.dreamlock.game.states.itemStates.*;
 import com.google.gson.Gson;
@@ -12,7 +13,7 @@ public class Miscellaneous extends Item {
         Gson gson = new Gson();
         MiscellaneousDTO miscellaneousDTO = gson.fromJson(jsonItem, MiscellaneousDTO.class);
         id = miscellaneousDTO.getId();
-        type = miscellaneousDTO.getType();
+        type = ItemType.valueOf(miscellaneousDTO.getType().toUpperCase());
         name = miscellaneousDTO.getName();
         description = miscellaneousDTO.getDescription();
 

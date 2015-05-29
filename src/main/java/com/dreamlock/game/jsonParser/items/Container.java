@@ -1,6 +1,7 @@
 package com.dreamlock.game.jsonParser.items;
 
 import com.dreamlock.game.constants.ActionState;
+import com.dreamlock.game.constants.ItemType;
 import com.dreamlock.game.constants.Stats;
 import com.dreamlock.game.jsonParser.DTOs.itemDTOs.ContainerDTO;
 import com.dreamlock.game.models.Word;
@@ -46,7 +47,7 @@ public class Container extends Item{
         Gson gson = new Gson();
         ContainerDTO containerDTO= gson.fromJson(jsonItem, ContainerDTO.class);
         id = containerDTO.getId();
-        type = containerDTO.getType();
+        type = ItemType.valueOf(containerDTO.getType().toUpperCase());
         name = containerDTO.getName();
         description = containerDTO.getDescription();
 

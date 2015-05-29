@@ -1,6 +1,7 @@
 package com.dreamlock.game.commands;
 
 import com.dreamlock.game.IGameContext;
+import com.dreamlock.game.constants.ItemType;
 import com.dreamlock.game.constants.Stats;
 import com.dreamlock.game.jsonParser.items.Container;
 import com.dreamlock.game.jsonParser.items.Item;
@@ -27,7 +28,7 @@ public class Examine implements ICommand {
             Item item = items.get(0);
 
 
-            if (item.getType().equals("Container")) {
+            if (item.getType().equals(ItemType.CONTAINER)) {
                 Container containerItem = (Container) item;
                 if (!(boolean) containerItem.getStats().get(Stats.LOCKED)) {
                     List<Integer> contOutput = new ArrayList<>();

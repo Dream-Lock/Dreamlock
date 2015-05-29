@@ -2,6 +2,7 @@ package com.dreamlock.game.commands;
 
 import com.dreamlock.game.IGameContext;
 import com.dreamlock.game.constants.ActionState;
+import com.dreamlock.game.constants.ItemType;
 import com.dreamlock.game.constants.Stats;
 import com.dreamlock.game.jsonParser.items.Container;
 import com.dreamlock.game.jsonParser.items.Item;
@@ -113,7 +114,7 @@ public class Open implements ICommand{
         output.add(10000);
         output.add(tempItem.getId());   // item to print
         output.add(tempItem.doAction(ActionState.OPEN, gameContext));
-        if (tempItem.getType().equals("Container")) {
+        if (tempItem.getType().equals(ItemType.CONTAINER)) {
             Container containerItem = (Container) tempItem;
             if (!(boolean) containerItem.getStats().get(Stats.LOCKED)){
                 contOutput.add(10002);

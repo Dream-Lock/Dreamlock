@@ -1,6 +1,7 @@
 package com.dreamlock.game.jsonParser.items;
 
 import com.dreamlock.game.constants.ActionState;
+import com.dreamlock.game.constants.ItemType;
 import com.dreamlock.game.constants.Stats;
 import com.dreamlock.game.jsonParser.DTOs.itemDTOs.WeaponDTO;
 import com.dreamlock.game.states.itemStates.*;
@@ -14,7 +15,7 @@ public class Weapon extends Item {
         Gson gson = new Gson();
         WeaponDTO weaponDTO = gson.fromJson(jsonItem, WeaponDTO.class);
         id = weaponDTO.getId();
-        type = weaponDTO.getType();
+        type = ItemType.valueOf(weaponDTO.getType().toUpperCase());
         name = weaponDTO.getName();
         description = weaponDTO.getDescription();
 

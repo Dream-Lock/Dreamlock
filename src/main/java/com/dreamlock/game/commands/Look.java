@@ -1,6 +1,7 @@
 package com.dreamlock.game.commands;
 
 import com.dreamlock.game.IGameContext;
+import com.dreamlock.game.constants.ItemType;
 import com.dreamlock.game.jsonParser.items.Item;
 import com.dreamlock.game.models.Door;
 import com.dreamlock.game.models.Enemy;
@@ -46,7 +47,7 @@ public class Look implements ICommand  {
         List<Item> items = gameContext.getCurrentRoom().getItems();
         int numberOfItems = 0;
         for (Item item : items) {
-            if (!item.getType().equals("Misc")) {
+            if (!item.getType().equals(ItemType.MISC)) {
                 numberOfItems++;
             }
         }
@@ -60,7 +61,7 @@ public class Look implements ICommand  {
         }
         for (Item item : items) {
             output.add(10002);
-            if (!item.getType().equals("Misc")) {
+            if (!item.getType().equals(ItemType.MISC)) {
                 output.add(item.getId());
             }
         }
