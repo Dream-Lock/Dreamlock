@@ -27,43 +27,43 @@ public class Unequip implements ICommand {
 
         Item item = gameContext.getPlayer().getSlot(EquipmentSlot.HEAD);
         if(item != null){
-            if (item.getName().toLowerCase().equals(word.getDescription())) {
+            if (item.getName().toLowerCase().contains(word.getDescription())) {
                 foundItems.add(item);
             }
         }
         item = gameContext.getPlayer().getSlot(EquipmentSlot.CHEST);
         if(item != null){
-            if (item.getName().toLowerCase().equals(word.getDescription())) {
+            if (item.getName().toLowerCase().contains(word.getDescription())) {
                 foundItems.add(item);
             }
         }
         item = gameContext.getPlayer().getSlot(EquipmentSlot.HANDS);
         if(item != null){
-            if (item.getName().toLowerCase().equals(word.getDescription())) {
+            if (item.getName().toLowerCase().contains(word.getDescription())) {
                 foundItems.add(item);
             }
         }
         item = gameContext.getPlayer().getSlot(EquipmentSlot.LEGS);
         if(item != null){
-            if (item.getName().toLowerCase().equals(word.getDescription())) {
+            if (item.getName().toLowerCase().contains(word.getDescription())) {
                 foundItems.add(item);
             }
         }
         item = gameContext.getPlayer().getSlot(EquipmentSlot.FEET);
         if(item != null){
-            if (item.getName().toLowerCase().equals(word.getDescription())) {
+            if (item.getName().toLowerCase().contains(word.getDescription())) {
                 foundItems.add(item);
             }
         }
         item = gameContext.getPlayer().getSlot(EquipmentSlot.MAIN_HAND);
         if(item != null){
-            if (item.getName().toLowerCase().equals(word.getDescription())) {
+            if (item.getName().toLowerCase().contains(word.getDescription())) {
                 foundItems.add(item);
             }
         }
         item = gameContext.getPlayer().getSlot(EquipmentSlot.OFF_HAND);
         if(item != null){
-            if (item.getName().toLowerCase().equals(word.getDescription())) {
+            if (item.getName().toLowerCase().contains(word.getDescription())) {
                 foundItems.add(item);
             }
         }

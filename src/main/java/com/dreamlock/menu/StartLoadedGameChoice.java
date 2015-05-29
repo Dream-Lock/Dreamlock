@@ -38,6 +38,7 @@ public class StartLoadedGameChoice implements IMenuChoice {
             MessageHandler messageHandler = new MessageHandler();
             messageHandler.register(gameMessages.getGameMessages());
             messageHandler.register(commandMessages.getCommandMessages());
+            gameContext.setMessageHandler(messageHandler);
 
             Lexer lexer = new Lexer();
             Parser parser = new Parser();
@@ -68,6 +69,8 @@ public class StartLoadedGameChoice implements IMenuChoice {
 
                     messageIds = handler.handle();
                     messageHandler.print(messageIds);
+                    gameMessages.updatePlayerStatus(gameContext.getPlayer());
+                    messageHandler.register(gameMessages.getGameMessages());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

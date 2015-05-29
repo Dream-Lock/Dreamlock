@@ -46,7 +46,7 @@ public class GameUtils {
         return jsonParser.getRooms();
     }
 
-    public IGameContext LoadStory() {
+    public GameContext LoadStory() {
         File folder = new File("saves/");
         File[] listOfFiles = folder.listFiles();
         if (!folder.exists() || listOfFiles.length == 0) {

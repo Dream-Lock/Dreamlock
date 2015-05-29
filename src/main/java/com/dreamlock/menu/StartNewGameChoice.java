@@ -72,6 +72,8 @@ public class StartNewGameChoice implements IMenuChoice {
 
                 messageIds = handler.handle();
                 messageHandler.print(messageIds);
+                gameMessages.updatePlayerStatus(gameContext.getPlayer());
+                messageHandler.register(gameMessages.getGameMessages());
             } catch (IOException e) {
                 e.printStackTrace();
             }

@@ -62,4 +62,8 @@ public class GameMessages {
     public void setGameMessages(Map<Integer, IMessage> gameMessages) {
         this.gameMessages = gameMessages;
     }
+
+    public void updatePlayerStatus (Player player) {
+        gameMessages.put(player.getId(), new NDSMessage(player.getName(), "", player.getPlayerStatsMap()));
+    }
 }
