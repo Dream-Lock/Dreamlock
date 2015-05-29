@@ -97,6 +97,14 @@ public abstract class Combatant implements Serializable{
     }
 
     public void calculateStats(){
+        //initialize stats
+        this.setHealth(10);
+        this.setAttack(1);
+        this.setDefense(1);
+        this.setStamina(1);
+        this.setStrength(1);
+        this.setAgility(1);
+
         int stamina_mod = 0, agility_mod = 0,strength_mod = 0,attack_mod = 0,defense_mod = 0;
 
         if(head!=null){
@@ -162,7 +170,7 @@ public abstract class Combatant implements Serializable{
         this.setHealth(health + getStamina());
         this.setMaxHealth(this.health);
         this.setAttack(attack + getStrength() + attack_mod);
-        this.setDefense(attack + getAgility() + defense_mod);
+        this.setDefense(defense + getAgility() + defense_mod);
 
     }
 
