@@ -1,11 +1,11 @@
 package com.dreamlock;
 
-import com.dreamlock.game.GameContext;
-import com.dreamlock.game.IGameContext;
-import com.dreamlock.game.jsonParser.JsonParser;
-import com.dreamlock.game.models.Inventory;
-import com.dreamlock.game.models.Player;
-import com.dreamlock.game.models.Room;
+import com.dreamlock.core.game.GameContext;
+import com.dreamlock.core.story_parser.DesktopStoryParser;
+import com.dreamlock.core.game.models.Inventory;
+import com.dreamlock.core.game.models.Player;
+import com.dreamlock.core.game.models.Room;
+import com.dreamlock.core.story_parser.IStoryParser;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -20,8 +20,8 @@ public class GameUtils {
     public Player createNewPlayer () {
         BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
         String name = "";
-        JsonParser jsonParser = new JsonParser();
-        String[] opening = jsonParser.parseOpening("/openings/dreamlock_opening.json");
+        IStoryParser desktopStoryParser = new DesktopStoryParser();
+        String[] opening = desktopStoryParser.parseOpening("/openings/dreamlock_opening.json");
 
         do try {
             name = buffer.readLine();
@@ -38,12 +38,12 @@ public class GameUtils {
     }
 
     public Map<Integer, Room> createNewStory () {
-        JsonParser jsonParser = new JsonParser();
-        String[] opening = jsonParser.parseOpening("/openings/dreamlock_opening.json");
-        jsonParser.parseWorld("/story.json");
+        IStoryParser desktopStoryParser = new DesktopStoryParser();
+        String[] opening = desktopStoryParser.parseOpening("/openings/dreamlock_opening.json");
+        desktopStoryParser.parseWorld("/story.json");
 
         System.out.println(opening[0] + "\n");
-        return jsonParser.getRooms();
+        return desktopStoryParser.getRooms();
     }
 
     public GameContext LoadStory() {

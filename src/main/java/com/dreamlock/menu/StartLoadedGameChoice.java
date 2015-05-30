@@ -1,18 +1,19 @@
 package com.dreamlock.menu;
 
 import com.dreamlock.GameUtils;
+import com.dreamlock.core.story_parser.IStoryParser;
 import com.dreamlock.handlers.HistoryController;
-import com.dreamlock.game.IGameContext;
-import com.dreamlock.game.jsonParser.JsonParser;
+import com.dreamlock.core.game.IGameContext;
+import com.dreamlock.core.story_parser.DesktopStoryParser;
 import com.dreamlock.handlers.CommandHandler;
 import com.dreamlock.handlers.ErrorHandler;
 import com.dreamlock.handlers.IHandler;
 import com.dreamlock.messageSystem.CommandMessages;
 import com.dreamlock.messageSystem.GameMessages;
 import com.dreamlock.messageSystem.MessageHandler;
-import com.dreamlock.parser.Lexer;
-import com.dreamlock.parser.Parser;
-import com.dreamlock.parser.models.Lexeme;
+import com.dreamlock.core.parser.Lexer;
+import com.dreamlock.core.parser.Parser;
+import com.dreamlock.core.parser.models.Lexeme;
 import com.google.gson.JsonObject;
 
 import java.io.BufferedReader;
@@ -24,16 +25,16 @@ import java.util.List;
 public class StartLoadedGameChoice implements IMenuChoice {
     @Override
     public void run() {
-        JsonParser jsonParser = new JsonParser();
-        String[] opening = jsonParser.parseOpening("/openings/dreamlock_opening.json");
-        jsonParser.parseWorld("/story.json");
+        IStoryParser desktopStoryParser = new DesktopStoryParser();
+        String[] opening = desktopStoryParser.parseOpening("/openings/dreamlock_opening.json");
+        desktopStoryParser.parseWorld("/story.json");
         GameUtils gameUtils = new GameUtils();
 
         final IGameContext gameContext = gameUtils.LoadStory();
         if (gameContext != null) {
             System.out.println(gameContext.getCurrentRoom().getDescription() + "\n");
             // Setup message handler
-            GameMessages gameMessages = new GameMessages(gameContext.getPlayer(), jsonParser.getRooms());
+            GameMessages gameMessages = new GameMessages(gameContext.getPlayer(), desktopStoryParser.getRooms());
             CommandMessages commandMessages = CommandMessages.INSTANCE;
             MessageHandler messageHandler = new MessageHandler();
             messageHandler.register(gameMessages.getGameMessages());

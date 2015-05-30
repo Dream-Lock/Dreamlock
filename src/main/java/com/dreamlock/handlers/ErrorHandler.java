@@ -1,6 +1,6 @@
 package com.dreamlock.handlers;
 
-import com.dreamlock.game.IGameContext;
+import com.dreamlock.core.game.IGameContext;
 import com.dreamlock.messageSystem.UserQuestions;
 import com.google.gson.JsonObject;
 

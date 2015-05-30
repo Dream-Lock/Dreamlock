@@ -1,13 +1,13 @@
 package com.dreamlock.messageSystem;
 
-import com.dreamlock.game.constants.ItemType;
-import com.dreamlock.game.jsonParser.items.Consumable;
-import com.dreamlock.game.jsonParser.items.Container;
-import com.dreamlock.game.jsonParser.items.Item;
-import com.dreamlock.game.models.Door;
-import com.dreamlock.game.models.Enemy;
-import com.dreamlock.game.models.Player;
-import com.dreamlock.game.models.Room;
+import com.dreamlock.core.game.constants.ItemType;
+import com.dreamlock.core.story_parser.items.Consumable;
+import com.dreamlock.core.story_parser.items.Container;
+import com.dreamlock.core.story_parser.items.Item;
+import com.dreamlock.core.game.models.Door;
+import com.dreamlock.core.game.models.Enemy;
+import com.dreamlock.core.game.models.Player;
+import com.dreamlock.core.game.models.Room;
 
 import java.util.HashMap;
 import java.util.Map;

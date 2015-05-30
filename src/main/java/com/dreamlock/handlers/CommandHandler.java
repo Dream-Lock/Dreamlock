@@ -1,9 +1,9 @@
 package com.dreamlock.handlers;
 
-import com.dreamlock.game.IGameContext;
-import com.dreamlock.game.commands.ICommand;
-import com.dreamlock.game.constants.Commands;
-import com.dreamlock.game.models.Word;
+import com.dreamlock.core.game.IGameContext;
+import com.dreamlock.core.game.commands.ICommand;
+import com.dreamlock.core.game.constants.Commands;
+import com.dreamlock.core.game.models.Word;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;

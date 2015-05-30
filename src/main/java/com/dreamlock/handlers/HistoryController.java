@@ -1,8 +1,8 @@
 package com.dreamlock.handlers;
 
-import com.dreamlock.game.IGameContext;
-import com.dreamlock.game.constants.HistoryExceptions;
-import com.dreamlock.game.models.History;
+import com.dreamlock.core.game.IGameContext;
+import com.dreamlock.core.game.constants.HistoryExceptions;
+import com.dreamlock.core.game.models.History;
 
 import java.util.ArrayList;
 import java.util.List;
