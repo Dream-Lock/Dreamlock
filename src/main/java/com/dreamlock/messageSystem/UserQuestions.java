@@ -44,9 +44,6 @@ public enum UserQuestions {
         questions.add("whats your name");
         // 16
         questions.add("hi, how are you");
-
-
-
     }
 
     private final List<String> questions;

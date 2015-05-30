@@ -1,7 +1,6 @@
 package com.dreamlock.messageSystem;
 
 public enum ForbiddenWords {
-
     ass,
     fuck,
     bastard,
