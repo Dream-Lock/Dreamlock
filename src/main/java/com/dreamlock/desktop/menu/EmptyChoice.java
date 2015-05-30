@@ -1,4 +1,4 @@
-package com.dreamlock.menu;
+package com.dreamlock.desktop.menu;
 
 public class EmptyChoice implements IMenuChoice {
     @Override

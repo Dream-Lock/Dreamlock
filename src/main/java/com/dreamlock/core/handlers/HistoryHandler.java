@@ -1,4 +1,4 @@
-package com.dreamlock.handlers;
+package com.dreamlock.core.handlers;
 
 import com.dreamlock.core.game.IGameContext;
 import com.dreamlock.core.game.constants.HistoryExceptions;
@@ -7,10 +7,10 @@ import com.dreamlock.core.game.models.History;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HistoryController {
+public class HistoryHandler implements IHandler {
     private IGameContext gameContext;
 
-    public HistoryController(IGameContext gameContext) {
+    public HistoryHandler(IGameContext gameContext) {
         this.gameContext = gameContext;
     }
 
@@ -20,27 +20,8 @@ public class HistoryController {
         gameContext.setHistory(history);
     }
 
-    public Integer getRepeats() {
-        List<String> commandList = gameContext.getHistory().getHistory();
-        int listSize = commandList.size();
-        int counter = 0;
-
-        if (listSize < 2) {
-            return counter;
-        }
-
-        if (listSize >= 2) {
-            int i = 2;
-            while (i <= listSize && commandList.get(listSize-1).equals(commandList.get(listSize - i))) {
-                counter ++;
-                i ++;
-            }
-        }
-        return counter;
-    }
-
+    @Override
     public List<Integer> handle() {
-
         List<String> history = gameContext.getHistory().getHistory();
         Boolean hasException = false;
         for (HistoryExceptions exception : HistoryExceptions.values()) {
@@ -74,5 +55,24 @@ public class HistoryController {
             return messageIds;
         }
         return null;
+    }
+
+    private Integer getRepeats() {
+        List<String> commandList = gameContext.getHistory().getHistory();
+        int listSize = commandList.size();
+        int counter = 0;
+
+        if (listSize < 2) {
+            return counter;
+        }
+
+        if (listSize >= 2) {
+            int i = 2;
+            while (i <= listSize && commandList.get(listSize-1).equals(commandList.get(listSize - i))) {
+                counter ++;
+                i ++;
+            }
+        }
+        return counter;
     }
 }

@@ -1,9 +1,9 @@
-package com.dreamlock;
+package com.dreamlock.desktop;
 
-import com.dreamlock.menu.EmptyChoice;
-import com.dreamlock.menu.IMenuChoice;
-import com.dreamlock.menu.StartLoadedGameChoice;
-import com.dreamlock.menu.StartNewGameChoice;
+import com.dreamlock.desktop.menu.EmptyChoice;
+import com.dreamlock.desktop.menu.IMenuChoice;
+import com.dreamlock.desktop.menu.StartLoadedGameChoice;
+import com.dreamlock.desktop.menu.StartNewGameChoice;
 
 import java.io.BufferedReader;
 import java.io.IOException;

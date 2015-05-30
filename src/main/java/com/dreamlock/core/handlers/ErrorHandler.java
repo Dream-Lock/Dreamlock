@@ -1,4 +1,4 @@
-package com.dreamlock.handlers;
+package com.dreamlock.core.handlers;
 
 import com.dreamlock.core.game.IGameContext;
 import com.dreamlock.messageSystem.UserQuestions;

@@ -1,14 +1,14 @@
-package com.dreamlock.menu;
+package com.dreamlock.desktop.menu;
 
-import com.dreamlock.GameUtils;
-import com.dreamlock.handlers.HistoryController;
+import com.dreamlock.desktop.GameUtils;
+import com.dreamlock.core.handlers.HistoryHandler;
 import com.dreamlock.core.game.GameContext;
 import com.dreamlock.core.game.IGameContext;
 import com.dreamlock.core.game.models.Player;
 import com.dreamlock.core.game.models.Room;
-import com.dreamlock.handlers.CommandHandler;
-import com.dreamlock.handlers.ErrorHandler;
-import com.dreamlock.handlers.IHandler;
+import com.dreamlock.core.handlers.CommandHandler;
+import com.dreamlock.core.handlers.ErrorHandler;
+import com.dreamlock.core.handlers.IHandler;
 import com.dreamlock.messageSystem.CommandMessages;
 import com.dreamlock.messageSystem.GameMessages;
 import com.dreamlock.messageSystem.MessageHandler;
@@ -45,7 +45,7 @@ public class StartNewGameChoice implements IMenuChoice {
 
         Lexer lexer = new Lexer();
         Parser parser = new Parser();
-        HistoryController historyController = new HistoryController(gameContext);
+        HistoryHandler historyHandler = new HistoryHandler(gameContext);
         BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
 
         while (gameContext.gameIsRunning()) {
@@ -58,9 +58,9 @@ public class StartNewGameChoice implements IMenuChoice {
                 List<Integer> messageIds;
                 IHandler handler;
                 if (!output.get("error").getAsBoolean()) {
-                    historyController.register(line);
-                    if (historyController.handle() != null) {
-                        messageIds = historyController.handle();
+                    historyHandler.register(line);
+                    if (historyHandler.handle() != null) {
+                        messageIds = historyHandler.handle();
                         messageHandler.print(messageIds);
                         continue;
                     }

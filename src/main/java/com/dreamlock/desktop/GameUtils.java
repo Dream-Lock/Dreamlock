@@ -1,4 +1,4 @@
-package com.dreamlock;
+package com.dreamlock.desktop;
 
 import com.dreamlock.core.game.GameContext;
 import com.dreamlock.core.story_parser.DesktopStoryParser;
