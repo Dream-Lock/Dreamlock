@@ -4,6 +4,7 @@ package com.dreamlock.core.game.commands;
 import com.dreamlock.core.game.IGameContext;
 import com.dreamlock.core.game.constants.ActionState;
 import com.dreamlock.core.game.models.Enemy;
+import com.dreamlock.core.game.models.OutputMessage;
 import com.dreamlock.core.game.models.Word;
 
 import java.util.ArrayList;
@@ -12,13 +13,13 @@ import java.util.Map;
 
 public class Attack implements ICommand {
     @Override
-    public List<Integer> execute(IGameContext gameContext) {
+    public List<OutputMessage> execute(IGameContext gameContext) {
         return null;
     }
 
     @Override
-    public List<Integer> execute(IGameContext gameContext, Map<Integer, Word> words) {
-        List<Integer> output = new ArrayList<>();
+    public List<OutputMessage> execute(IGameContext gameContext, Map<Integer, Word> words) {
+        List<OutputMessage> outputMessages = new ArrayList<>();
         Integer enemiesFound = 0;
         Enemy foundEnemy = null;
         Word word = words.get(2);
@@ -34,39 +35,36 @@ public class Attack implements ICommand {
             }
         }
 
-        output.add(10000);
         if (enemiesFound == 1) {
             if (foundEnemy.getHealth() > 0) {
-                output.add(foundEnemy.getId());
-                output.add(1301);
-                output.add(foundEnemy.getStates().get(ActionState.ATTACK).doAction(gameContext, gameContext.getPlayer(), foundEnemy));
-                output.add(1309);
+                outputMessages.add(new OutputMessage(foundEnemy.getId()));
+                outputMessages.add(new OutputMessage(1301));
+                outputMessages.add(new OutputMessage(foundEnemy.getStates().get(ActionState.ATTACK).doAction(gameContext, gameContext.getPlayer(), foundEnemy)));
+                outputMessages.add(new OutputMessage(1309));
                 if (!foundEnemy.isAlive()) {
-                    output.add(10002);
-                    output.add(foundEnemy.getId());
-                    output.add(1307);
+                    outputMessages.add(new OutputMessage(foundEnemy.getId()));
+                    outputMessages.add(new OutputMessage(1307));
                 }
 
             }else if (foundEnemy.getHealth() <= 0) {
-                output.add(1306);
+                outputMessages.add(new OutputMessage(1306));
             }
             if(gameContext.getTurnBattle().activeBattle()) {
 
-                List<Integer> templist = gameContext.getTurnBattle().nextTurn(gameContext);
+                List<OutputMessage> templist = gameContext.getTurnBattle().nextTurn(gameContext);
                 while (gameContext.getTurnBattle().activeBattle() && templist != null) {
-                    output.addAll(templist);
+                    outputMessages.addAll(templist);
                     templist = gameContext.getTurnBattle().nextTurn(gameContext);
                 }
 
                 if (!gameContext.getTurnBattle().activeBattle()) {
-                    output.add(10002);
-                    output.add(1310);
+                    outputMessages.add(new OutputMessage(1310));
                 }
             }
-            return output;
+            return outputMessages;
         }
 
-        output.add(1305);
-        return output;
+        outputMessages.add(new OutputMessage(1305));
+        return outputMessages;
     }
 }

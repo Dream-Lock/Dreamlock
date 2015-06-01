@@ -2,6 +2,7 @@ package com.dreamlock.core.game.commands;
 
 import com.dreamlock.core.game.IGameContext;
 import com.dreamlock.core.game.constants.ItemType;
+import com.dreamlock.core.game.models.OutputMessage;
 import com.dreamlock.core.story_parser.items.Item;
 import com.dreamlock.core.game.models.Enemy;
 import com.dreamlock.core.game.models.Room;
@@ -13,30 +14,25 @@ import java.util.Map;
 
 public class Look implements ICommand  {
     @Override
-    public List<Integer> execute(IGameContext gameContext) {
-        List<Integer> output = new ArrayList<>();
+    public List<OutputMessage> execute(IGameContext gameContext) {
+        List<OutputMessage> outputMessages = new ArrayList<>();
         Room room = gameContext.getCurrentRoom();
 
-
-        //output.add(10000);
-        //output.add(10003);
-        output.add(room.getId());
+        outputMessages.add(new OutputMessage(room.getId()));
 
         // Print doors
         Map<String,Room> exits = gameContext.getCurrentRoom().getExits();
         if (exits.size() == 1) {
-            //output.add(10000);
-            output.add(1804);
+            outputMessages.add(new OutputMessage(1804));
         }
         else {
-            //output.add(10002);
-            output.add(1805);
+            outputMessages.add(new OutputMessage(1805));
         }
         int id = 9200;
         for (Map.Entry<String,Room> door : exits.entrySet()) {
             if (!door.getValue().getTitle().equals("wall")) {
                 gameContext.registerMessage("on your " + door.getKey(), id);
-                output.add(id);
+                outputMessages.add(new OutputMessage(id));
                 id++;
             }
         }
@@ -50,17 +46,14 @@ public class Look implements ICommand  {
             }
         }
         if (numberOfItems == 1) {
-            output.add(10002);
-            output.add(1800);
+            outputMessages.add(new OutputMessage(1800));
         }
         else if (numberOfItems > 1) {
-            output.add(10002);
-            output.add(1801);
+            outputMessages.add(new OutputMessage(1801));
         }
         for (Item item : items) {
-            output.add(10002);
             if (!item.getType().equals(ItemType.MISC)) {
-                output.add(item.getId());
+                outputMessages.add(new OutputMessage(item.getId()));
             }
         }
 
@@ -73,24 +66,22 @@ public class Look implements ICommand  {
             }
         }
         if (enemies.size() == 1 && isAlive) {
-            output.add(10002);
-            output.add(1802);
+            outputMessages.add(new OutputMessage(1802));
         }
         else if (enemies.size() > 1 && isAlive) {
-            output.add(10002);
-            output.add(1803);
+            outputMessages.add(new OutputMessage(1803));
         }
         for (Enemy enemy : enemies) {
             if (enemy.isAlive()) {
-                output.add(enemy.getId());
+                outputMessages.add(new OutputMessage(enemy.getId()));
             }
         }
 
-        return output;
+        return outputMessages;
     }
 
     @Override
-    public List<Integer> execute(IGameContext gameContext, Map<Integer, Word> words) {
+    public List<OutputMessage> execute(IGameContext gameContext, Map<Integer, Word> words) {
         return null;
     }
 }

@@ -4,7 +4,7 @@ import com.dreamlock.core.game.combat.TurnBattle;
 import com.dreamlock.core.game.models.History;
 import com.dreamlock.core.game.models.Player;
 import com.dreamlock.core.game.models.Room;
-import com.dreamlock.messageSystem.MessageHandler;
+import com.dreamlock.message_system.IMessageHandler;
 
 import java.io.Serializable;
 import java.util.Map;
@@ -14,7 +14,7 @@ public class GameContext implements IGameContext, Serializable {
     private Player player;
     private History history;
     private TurnBattle turnbattle;
-    private MessageHandler messageHandler;
+    private IMessageHandler messageHandler;
     boolean gameRunning;
 
     public GameContext(Map<Integer, Room> rooms, Player player) {
@@ -71,7 +71,7 @@ public class GameContext implements IGameContext, Serializable {
     }
 
     @Override
-    public void setMessageHandler(MessageHandler messageHandler) {
+    public void setMessageHandler(IMessageHandler messageHandler) {
         this.messageHandler = messageHandler;
     }
 

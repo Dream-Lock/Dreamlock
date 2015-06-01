@@ -1,6 +1,6 @@
-package com.dreamlock.new_message_system.messages;
+package com.dreamlock.message_system.messages;
 
-import com.dreamlock.new_message_system.constants.PrintStyle;
+import com.dreamlock.message_system.constants.PrintStyle;
 
 public class Message implements IMessage {
     protected String name;
@@ -12,7 +12,7 @@ public class Message implements IMessage {
     public Message(String name, String description) {
         this.name = name;
         this.description = description;
-        this.printStyle = PrintStyle.ONLY_TITLE;
+        this.printStyle = PrintStyle.TITLE_DESCRIPTION;
     }
 
     public Message(String name, String description, PrintStyle printStyle) {
@@ -41,10 +41,12 @@ public class Message implements IMessage {
         this.description = description;
     }
 
+    @Override
     public PrintStyle getPrintStyle() {
         return printStyle;
     }
 
+    @Override
     public void setPrintStyle(PrintStyle printStyle) {
         this.printStyle = printStyle;
     }

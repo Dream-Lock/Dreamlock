@@ -3,6 +3,7 @@ package com.dreamlock.core.game.commands;
 import com.dreamlock.core.game.IGameContext;
 import com.dreamlock.core.game.constants.ActionState;
 import com.dreamlock.core.game.constants.ItemType;
+import com.dreamlock.core.game.models.OutputMessage;
 import com.dreamlock.core.story_parser.items.Consumable;
 import com.dreamlock.core.story_parser.items.Item;
 import com.dreamlock.core.game.models.Word;
@@ -14,13 +15,13 @@ import java.util.Map;
 public class Drink implements ICommand{
 
     @Override
-    public List<Integer> execute(IGameContext gameContext) {
+    public List<OutputMessage> execute(IGameContext gameContext) {
         return null;
     }
 
     @Override
-    public List<Integer> execute(IGameContext gameContext, Map<Integer, Word> words) {
-        List<Integer> output = new ArrayList<>();
+    public List<OutputMessage> execute(IGameContext gameContext, Map<Integer, Word> words) {
+        List<OutputMessage> outputMessages = new ArrayList<>();
 
         boolean itemExists = gameContext.getPlayer().getInventory().containsItem(words.get(2));
 
@@ -32,27 +33,27 @@ public class Drink implements ICommand{
                 if (item.getType().equals(ItemType.CONSUMABLE)) {
                     Consumable consumable = (Consumable) item;
                     if (consumable.getState().equals("Drink")) {
-                        output.add(10006);
+                        outputMessages.add(new OutputMessage(10006));
                     }
                     else {
-                        output.add(10000);
+                        outputMessages.add(new OutputMessage(10000));
                     }
                 }
                 else {
-                    output.add(10000);
+                    outputMessages.add(new OutputMessage(10000));
                 }
 
-                output.add(item.getId());
-                output.add(item.doAction(ActionState.DRINK, gameContext));
-                return output;
+                outputMessages.add(new OutputMessage(item.getId()));
+                outputMessages.add(new OutputMessage(item.doAction(ActionState.DRINK, gameContext)));
+                return outputMessages;
             }
             else {
-                output.add(2001);
-                return output;
+                outputMessages.add(new OutputMessage(2001));
+                return outputMessages;
             }
         }
 
-        output.add(1042);
-        return output;
+        outputMessages.add(new OutputMessage(1042));
+        return outputMessages;
     }
 }

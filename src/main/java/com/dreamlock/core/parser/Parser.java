@@ -1,7 +1,5 @@
 package com.dreamlock.core.parser;
 
-import com.dreamlock.messageSystem.ForbiddenWords;
-import com.dreamlock.messageSystem.UserQuestions;
 import com.dreamlock.core.parser.constants.Rules;
 import com.dreamlock.core.parser.constants.TokenType;
 import com.dreamlock.core.parser.models.Lexeme;
@@ -56,11 +54,11 @@ public class Parser {
             String wholeCommand = "";
             for (Lexeme lexeme : lexemes) {
                 wholeCommand += lexeme.getTypedString() + " ";
-                for (ForbiddenWords forbiddenWords : ForbiddenWords.values()) {
-                    if (lexeme.getTypedString().contains(forbiddenWords.toString())) {
-                        hasForbidden = true;
-                    }
-                }
+//                for (ForbiddenWords forbiddenWords : ForbiddenWords.values()) {
+//                    if (lexeme.getTypedString().contains(forbiddenWords.toString())) {
+//                        hasForbidden = true;
+//                    }
+//                }
             }
 
             wholeCommand = wholeCommand.substring(0 , wholeCommand.length()-1);
@@ -69,22 +67,22 @@ public class Parser {
             if (lastCharacter.toString().equals(" ")) {
                 wholeCommand = wholeCommand.substring(0 , wholeCommand.length()-1);
             }
-            for (String question : UserQuestions.INSTANCE.getQuestions()) {
-                if (wholeCommand.contains(question)) {
-                    hasQuestion = true;
-                }
-            }
+//            for (String question : UserQuestions.INSTANCE.getQuestions()) {
+//                if (wholeCommand.contains(question)) {
+//                    hasQuestion = true;
+//                }
+//            }
 
 
-            if (hasForbidden) {
-                output.addProperty("forbidden", true);
-                output.addProperty("has_question", false);
-            }
-            else if (hasQuestion) {
-                output.addProperty("forbidden", false);
-                output.addProperty("has_question", true);
-                output.addProperty("question", wholeCommand);
-            }
+//            if (hasForbidden) {
+//                output.addProperty("forbidden", true);
+//                output.addProperty("has_question", false);
+//            }
+//            else if (hasQuestion) {
+//                output.addProperty("forbidden", false);
+//                output.addProperty("has_question", true);
+//                output.addProperty("question", wholeCommand);
+//            }
             else {
                 output.addProperty("forbidden", false);
                 output.addProperty("has_question", false);

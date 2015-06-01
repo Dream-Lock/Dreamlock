@@ -3,6 +3,7 @@ package com.dreamlock.core.game.commands;
 import com.dreamlock.core.game.IGameContext;
 import com.dreamlock.core.game.constants.ActionState;
 import com.dreamlock.core.game.constants.EquipmentSlot;
+import com.dreamlock.core.game.models.OutputMessage;
 import com.dreamlock.core.story_parser.items.Item;
 import com.dreamlock.core.game.models.Word;
 
@@ -12,13 +13,13 @@ import java.util.Map;
 
 public class Unequip implements ICommand {
     @Override
-    public List<Integer> execute(IGameContext gameContext) {
+    public List<OutputMessage> execute(IGameContext gameContext) {
         return null;
     }
 
     @Override
-    public List<Integer> execute(IGameContext gameContext, Map<Integer, Word> words) {
-        List<Integer> output = new ArrayList<>();
+    public List<OutputMessage> execute(IGameContext gameContext, Map<Integer, Word> words) {
+        List<OutputMessage> output = new ArrayList<>();
 
         List<Item> foundItems = new ArrayList<>();
 
@@ -69,18 +70,16 @@ public class Unequip implements ICommand {
         }
 
         if (foundItems.size() == 1) {
-            output.add(10000);
-            output.add(foundItems.get(0).getId());   // item to print
-            output.add(foundItems.get(0).doAction(ActionState.UNEQUIP, gameContext));
+            output.add(new OutputMessage(foundItems.get(0).getId()));   // item to print
+            output.add(new OutputMessage(foundItems.get(0).doAction(ActionState.UNEQUIP, gameContext)));
             return output;
         }
         else  if (foundItems.size() > 1) {
-            output.add(10000);
-            output.add(2001);
+            output.add(new OutputMessage(2001));
             return output;
         }
 
-        output.add(1042);
+        output.add(new OutputMessage(1042));
         return null;
     }
 }

@@ -1,6 +1,6 @@
-package com.dreamlock.new_message_system.messages;
+package com.dreamlock.message_system.messages;
 
-import com.dreamlock.new_message_system.constants.PrintStyle;
+import com.dreamlock.message_system.constants.PrintStyle;
 
 public class EffectMessage extends Message {
     protected String effect;

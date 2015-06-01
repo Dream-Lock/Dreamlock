@@ -1,13 +1,13 @@
-package com.dreamlock.new_message_system.messages;
+package com.dreamlock.message_system.messages;
 
-import com.dreamlock.new_message_system.constants.PrintStyle;
+import com.dreamlock.message_system.constants.PrintStyle;
 
 public class EffectSoundMessage extends SoundMessage {
     private String effect;
     private String effectPath;
 
-    public EffectSoundMessage(String name, String description, PrintStyle printStyle, String effect, String effectPath) {
-        super(name, description, printStyle);
+    public EffectSoundMessage(String name, String description, PrintStyle printStyle, String titlePath, String descriptionPath, String effect, String effectPath) {
+        super(name, description, printStyle, titlePath, descriptionPath);
         this.effect = effect;
         this.effectPath = effectPath;
     }

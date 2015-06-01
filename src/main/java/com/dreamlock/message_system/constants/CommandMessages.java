@@ -1,7 +1,7 @@
-package com.dreamlock.new_message_system.constants;
+package com.dreamlock.message_system.constants;
 
-import com.dreamlock.new_message_system.messages.IMessage;
-import com.dreamlock.new_message_system.messages.Message;
+import com.dreamlock.message_system.messages.IMessage;
+import com.dreamlock.message_system.messages.Message;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -55,23 +55,23 @@ public enum CommandMessages {
         commandMessages.put(1081, new Message("In your Inventory you have:", ""));
 
         // Help messages
-        commandMessages.put(1100, new Message("Go <direction> -> ","Move around."));
-        commandMessages.put(1101, new Message("Examine <item> -> ","With this command tou can examine an item."));
-        commandMessages.put(1102, new Message("Drop <item> -> ","With this command you can drop items"));
-        commandMessages.put(1103, new Message("Inspect <item> -> ","This lets you inspect equipment statistics."));
-        commandMessages.put(1104, new Message("Look -> ","This will give you a full description of your location."));
-        commandMessages.put(1105, new Message("Open <item> with <item>-> ","Open an item with something"));
-        commandMessages.put(1106, new Message("Pick up <item> -> ","With this command you can pick up items"));
-        commandMessages.put(1107, new Message("Quit -> ","This lets you stop."));
-        commandMessages.put(1108, new Message("Save -> ","With this command you can save your game progress."));
-        commandMessages.put(1109, new Message("Reload -> ","Reloads your character's most recent saved game."));
-        commandMessages.put(1110, new Message("Inventory -> ","With this command you can view the items that are in your inventory. Alternate command: i."));
-        commandMessages.put(1111, new Message("Attack -> ","This lets you attack opponents."));
-        commandMessages.put(1112, new Message("Equip <item> -> ","This lets you equip items to your weapon and armor slots."));
-        commandMessages.put(1113, new Message("Unequip <item> -> ","This lets you unequip items from your weapon and armor slots."));
-        commandMessages.put(1114, new Message("Status -> ","This lets you view your character's status."));
-        commandMessages.put(1114, new Message("Use -> ","This lets you use consumable items. Alternate command: drink <item>."));
-        commandMessages.put(1114, new Message("Flee -> ","Try and flee from battle. Failure to do so will make you lose your turn and make enemies attack. Alternate command: run."));
+        commandMessages.put(1100, new Message("Go <direction> -> ","Move around.", PrintStyle.TITLE_DESCRIPTION));
+        commandMessages.put(1101, new Message("Examine <item> -> ","With this command tou can examine an item.", PrintStyle.TITLE_DESCRIPTION));
+        commandMessages.put(1102, new Message("Drop <item> -> ","With this command you can drop items", PrintStyle.TITLE_DESCRIPTION));
+        commandMessages.put(1103, new Message("Inspect <item> -> ","This lets you inspect equipment statistics.", PrintStyle.TITLE_DESCRIPTION));
+        commandMessages.put(1104, new Message("Look -> ","This will give you a full description of your location.", PrintStyle.TITLE_DESCRIPTION));
+        commandMessages.put(1105, new Message("Open <item> with <item>-> ","Open an item with something", PrintStyle.TITLE_DESCRIPTION));
+        commandMessages.put(1106, new Message("Pick up <item> -> ","With this command you can pick up items", PrintStyle.TITLE_DESCRIPTION));
+        commandMessages.put(1107, new Message("Quit -> ","This lets you stop.", PrintStyle.TITLE_DESCRIPTION));
+        commandMessages.put(1108, new Message("Save -> ","With this command you can save your game progress.", PrintStyle.TITLE_DESCRIPTION));
+        commandMessages.put(1109, new Message("Reload -> ","Reloads your character's most recent saved game.", PrintStyle.TITLE_DESCRIPTION));
+        commandMessages.put(1110, new Message("Inventory -> ","With this command you can view the items that are in your inventory. Alternate command: i.", PrintStyle.TITLE_DESCRIPTION));
+        commandMessages.put(1111, new Message("Attack -> ","This lets you attack opponents.", PrintStyle.TITLE_DESCRIPTION));
+        commandMessages.put(1112, new Message("Equip <item> -> ","This lets you equip items to your weapon and armor slots.", PrintStyle.TITLE_DESCRIPTION));
+        commandMessages.put(1113, new Message("Unequip <item> -> ","This lets you unequip items from your weapon and armor slots.", PrintStyle.TITLE_DESCRIPTION));
+        commandMessages.put(1114, new Message("Status -> ","This lets you view your character's status.", PrintStyle.TITLE_DESCRIPTION));
+        commandMessages.put(1114, new Message("Use -> ","This lets you use consumable items. Alternate command: drink <item>.", PrintStyle.TITLE_DESCRIPTION));
+        commandMessages.put(1114, new Message("Flee -> ","Try and flee from battle. Failure to do so will make you lose your turn and make enemies attack. Alternate command: run.", PrintStyle.TITLE_DESCRIPTION));
 
         // Open messages
         commandMessages.put(1120, new Message(" opened successfully!", ""));

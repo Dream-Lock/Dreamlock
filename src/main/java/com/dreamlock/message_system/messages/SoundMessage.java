@@ -1,6 +1,6 @@
-package com.dreamlock.new_message_system.messages;
+package com.dreamlock.message_system.messages;
 
-import com.dreamlock.new_message_system.constants.PrintStyle;
+import com.dreamlock.message_system.constants.PrintStyle;
 
 public class SoundMessage extends Message {
     protected String titlePath;

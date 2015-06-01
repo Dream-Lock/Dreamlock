@@ -3,6 +3,7 @@ package com.dreamlock.core.handlers;
 import com.dreamlock.core.game.IGameContext;
 import com.dreamlock.core.game.commands.ICommand;
 import com.dreamlock.core.game.constants.Commands;
+import com.dreamlock.core.game.models.OutputMessage;
 import com.dreamlock.core.game.models.Word;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -23,8 +24,8 @@ public class CommandHandler implements IHandler {
     }
 
     @Override
-    public List<Integer> handle() {
-        List<Integer> messageIds = new ArrayList<>();
+    public List<OutputMessage> handle() {
+        List<OutputMessage> messageIds = new ArrayList<>();
 
         JsonArray sentences = parsedJsonObject.getAsJsonArray("sentences");
         Word firstWord;
@@ -45,7 +46,7 @@ public class CommandHandler implements IHandler {
             Commands commands = Commands.INSTANCE;
             firstWord = words.get(1);
             ICommand command = commands.getCommand(firstWord.getDescription());
-            List<Integer> messageId;
+            List<OutputMessage> messageId;
             switch (rule) {
                 case "V1":                                          // Syntax: Verb
                     messageId = command.execute(gameContext);
@@ -69,7 +70,7 @@ public class CommandHandler implements IHandler {
                     break;
                 default:
                     Integer errorMessageId = -1;
-                    messageIds.add(errorMessageId);
+                    messageIds.add(new OutputMessage(errorMessageId));
                     break;
             }
         }

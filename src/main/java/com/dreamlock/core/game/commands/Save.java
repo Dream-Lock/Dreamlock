@@ -1,6 +1,7 @@
 package com.dreamlock.core.game.commands;
 
 import com.dreamlock.core.game.IGameContext;
+import com.dreamlock.core.game.models.OutputMessage;
 import com.dreamlock.core.game.models.Word;
 
 import java.io.File;
@@ -12,8 +13,8 @@ import java.util.Map;
 
 public class Save implements ICommand{
     @Override
-    public List<Integer> execute(IGameContext gameContext) {
-        List<Integer> output = new ArrayList<>();
+    public List<OutputMessage> execute(IGameContext gameContext) {
+        List<OutputMessage> outputMessages = new ArrayList<>();
         try {
             String saveFileName = gameContext.getPlayer().getName();
             File file = new File("saves/"+saveFileName+".dat");
@@ -27,16 +28,16 @@ public class Save implements ICommand{
 
             objectStream.close();
             fileStream.close();
-            output.add(1200);
+            outputMessages.add(new OutputMessage(1200));
 
         } catch (Exception e) {
-            output.add(1201);
+            outputMessages.add(new OutputMessage(1201));
         }
-        return output;
+        return outputMessages;
     }
 
     @Override
-    public List<Integer> execute(IGameContext gameContext, Map<Integer, Word> words) {
+    public List<OutputMessage> execute(IGameContext gameContext, Map<Integer, Word> words) {
         return null;
     }
 }

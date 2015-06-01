@@ -2,8 +2,10 @@ package com.dreamlock.core.game.commands;
 
 import com.dreamlock.core.game.IGameContext;
 import com.dreamlock.core.game.models.Door;
+import com.dreamlock.core.game.models.OutputMessage;
 import com.dreamlock.core.game.models.Room;
 import com.dreamlock.core.game.models.Word;
+import com.dreamlock.message_system.constants.PrintStyle;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,13 +13,13 @@ import java.util.Map;
 
 public class Go implements ICommand {
     @Override
-    public List<Integer> execute(IGameContext gameContext) {
+    public List<OutputMessage> execute(IGameContext gameContext) {
         return null;
     }
 
     @Override
-    public List<Integer> execute(IGameContext gameContext, Map<Integer, Word> words) {
-        List<Integer> output = new ArrayList<>();
+    public List<OutputMessage> execute(IGameContext gameContext, Map<Integer, Word> words) {
+        List<OutputMessage> outputMessages = new ArrayList<>();
         String direction = words.get(2).getDescription();
 
         Room nextRoom = gameContext.getCurrentRoom().getExits().get(direction);
@@ -35,29 +37,26 @@ public class Go implements ICommand {
         }
         if(gameContext.getTurnBattle() == null || !gameContext.getTurnBattle().activeBattle()) {
             if (!nextRoom.getDescription().equals("wall") && !isLocked) { //If wall
-
                 gameContext.setCurrentRoom(nextRoom);
-                output.add(nextRoom.getId());
-                return output;
+                outputMessages.add(new OutputMessage(nextRoom.getId(), PrintStyle.TITLE_DESCRIPTION));
+                return outputMessages;
 
             }
             else {
-                output.add(10000);                  // print only titles
 
                 if (isLocked) {
-                    output.add(roomDoor.getId());
-                    output.add(1122);                   // can not go to
+                    outputMessages.add(new OutputMessage(roomDoor.getId(), PrintStyle.ONLY_DESCRIPTION_IN_SAME_LINE));
+                    outputMessages.add(new OutputMessage(1122, PrintStyle.ONLY_TITLE));                   // can not go to
                 } else {
-                    output.add(1001);                   // can not go to
-                    output.add(words.get(2).getId());
+                    outputMessages.add(new OutputMessage(1001, PrintStyle.ONLY_TITLE_IN_SAME_LINE));                   // can not go to
+                    outputMessages.add(new OutputMessage(words.get(2).getId(), PrintStyle.ONLY_TITLE));
                 }
                 ;   // direction
-                return output;
+                return outputMessages;
             }
         }else{
-            output.add(10000);
-            output.add(1009);
-            return output;
+            outputMessages.add(new OutputMessage(1009, PrintStyle.ONLY_TITLE));
+            return outputMessages;
         }
     }
 }

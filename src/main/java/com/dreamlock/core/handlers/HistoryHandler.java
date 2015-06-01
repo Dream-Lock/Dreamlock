@@ -3,6 +3,7 @@ package com.dreamlock.core.handlers;
 import com.dreamlock.core.game.IGameContext;
 import com.dreamlock.core.game.constants.HistoryExceptions;
 import com.dreamlock.core.game.models.History;
+import com.dreamlock.core.game.models.OutputMessage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +22,7 @@ public class HistoryHandler implements IHandler {
     }
 
     @Override
-    public List<Integer> handle() {
+    public List<OutputMessage> handle() {
         List<String> history = gameContext.getHistory().getHistory();
         Boolean hasException = false;
         for (HistoryExceptions exception : HistoryExceptions.values()) {
@@ -32,21 +33,20 @@ public class HistoryHandler implements IHandler {
 
         if(!hasException) {
             Integer repeatedCommands = this.getRepeats();
-            List<Integer> messageIds = new ArrayList<>();
+            List<OutputMessage> messageIds = new ArrayList<>();
 
-            messageIds.add(10000); // only title
             switch (repeatedCommands) {
                 case 1:
-                    messageIds.add(1601);
+                    messageIds.add(new OutputMessage(1601));
                     break;
                 case 2:
-                    messageIds.add(1602);
+                    messageIds.add(new OutputMessage(1602));
                     break;
                 case 3:
-                    messageIds.add(1603);
+                    messageIds.add(new OutputMessage(1603));
                     break;
                 case 4:
-                    messageIds.add(1604);
+                    messageIds.add(new OutputMessage(1604));
                     gameContext.setGameRunning(false);
                     break;
                 default:

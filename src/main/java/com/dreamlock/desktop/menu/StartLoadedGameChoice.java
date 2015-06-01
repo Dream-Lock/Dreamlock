@@ -1,5 +1,6 @@
 package com.dreamlock.desktop.menu;
 
+import com.dreamlock.core.game.models.OutputMessage;
 import com.dreamlock.desktop.GameUtils;
 import com.dreamlock.core.story_parser.IStoryParser;
 import com.dreamlock.core.handlers.HistoryHandler;
@@ -8,12 +9,13 @@ import com.dreamlock.core.story_parser.DesktopStoryParser;
 import com.dreamlock.core.handlers.CommandHandler;
 import com.dreamlock.core.handlers.ErrorHandler;
 import com.dreamlock.core.handlers.IHandler;
-import com.dreamlock.messageSystem.CommandMessages;
-import com.dreamlock.messageSystem.GameMessages;
-import com.dreamlock.messageSystem.MessageHandler;
 import com.dreamlock.core.parser.Lexer;
 import com.dreamlock.core.parser.Parser;
 import com.dreamlock.core.parser.models.Lexeme;
+import com.dreamlock.message_system.IMessageHandler;
+import com.dreamlock.message_system.StringMessageHandler;
+import com.dreamlock.message_system.constants.CommandMessages;
+import com.dreamlock.message_system.constants.GameMessages;
 import com.google.gson.JsonObject;
 
 import java.io.BufferedReader;
@@ -36,7 +38,7 @@ public class StartLoadedGameChoice implements IMenuChoice {
             // Setup message handler
             GameMessages gameMessages = new GameMessages(gameContext.getPlayer(), desktopStoryParser.getRooms());
             CommandMessages commandMessages = CommandMessages.INSTANCE;
-            MessageHandler messageHandler = new MessageHandler();
+            IMessageHandler messageHandler = new StringMessageHandler();
             messageHandler.register(gameMessages.getGameMessages());
             messageHandler.register(commandMessages.getCommandMessages());
             gameContext.setMessageHandler(messageHandler);
@@ -53,7 +55,7 @@ public class StartLoadedGameChoice implements IMenuChoice {
                     ArrayList<Lexeme> lexemes = lexer.tokenize(line);
                     JsonObject output =  parser.parse(lexemes);
 
-                    List<Integer> messageIds;
+                    List<OutputMessage> messageIds;
                     IHandler handler;
                     if (!output.get("error").getAsBoolean()) {
                         historyHandler.register(line);
@@ -70,7 +72,7 @@ public class StartLoadedGameChoice implements IMenuChoice {
 
                     messageIds = handler.handle();
                     messageHandler.print(messageIds);
-                    gameMessages.updatePlayerStatus(gameContext.getPlayer());
+//                    gameMessages.updatePlayerStatus(gameContext.getPlayer());
                     messageHandler.register(gameMessages.getGameMessages());
                 } catch (IOException e) {
                     e.printStackTrace();

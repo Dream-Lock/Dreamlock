@@ -4,6 +4,7 @@ import com.dreamlock.core.game.IGameContext;
 import com.dreamlock.core.game.constants.ActionState;
 import com.dreamlock.core.game.constants.ItemType;
 import com.dreamlock.core.game.constants.Stats;
+import com.dreamlock.core.game.models.OutputMessage;
 import com.dreamlock.core.story_parser.items.Container;
 import com.dreamlock.core.story_parser.items.Item;
 import com.dreamlock.core.game.models.Word;
@@ -14,13 +15,13 @@ import java.util.Map;
 
 public class PickUp implements ICommand {
     @Override
-    public List<Integer> execute(IGameContext gameContext) {
+    public List<OutputMessage> execute(IGameContext gameContext) {
         return null;
     }
 
     @Override
-    public List<Integer> execute(IGameContext gameContext, Map<Integer, Word> words) {
-        List<Integer> output = new ArrayList<>();
+    public List<OutputMessage> execute(IGameContext gameContext, Map<Integer, Word> words) {
+        List<OutputMessage> outputMessages = new ArrayList<>();
 
         List<Item> foundItems = gameContext.getCurrentRoom().containsItems(words.get(2));
 
@@ -38,24 +39,23 @@ public class PickUp implements ICommand {
             }
         }
         if (foundItems != null) {
-            output.add(10000);
             if (foundItems.size() == 1 ) {
                 if (foundItems.get(0).getType().equals(ItemType.MISC)) {
-                    output.add(1063);
+                    outputMessages.add(new OutputMessage(1063));
                 }
                 else {
-                    output.add(foundItems.get(0).getId());
-                    output.add(foundItems.get(0).doAction(ActionState.PICK_UP, gameContext));
+                    outputMessages.add(new OutputMessage(foundItems.get(0).getId()));
+                    outputMessages.add(new OutputMessage(foundItems.get(0).doAction(ActionState.PICK_UP, gameContext)));
                 }
-                return output;
+                return outputMessages;
             }
             else if (foundItems.size() > 1) {
-                output.add(2001);
-                return output;
+                outputMessages.add(new OutputMessage(2001));
+                return outputMessages;
             }
         }
 
-        output.add(1062);
-        return output;
+        outputMessages.add(new OutputMessage(1062));
+        return outputMessages;
     }
 }

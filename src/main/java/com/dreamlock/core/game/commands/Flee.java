@@ -1,6 +1,7 @@
 package com.dreamlock.core.game.commands;
 
 import com.dreamlock.core.game.IGameContext;
+import com.dreamlock.core.game.models.OutputMessage;
 import com.dreamlock.core.game.models.Word;
 
 import java.util.ArrayList;
@@ -11,40 +12,40 @@ import java.util.Random;
 
 public class Flee implements ICommand {
     @Override
-    public List<Integer> execute(IGameContext gameContext) {
-        List<Integer> output = new ArrayList<>();
+    public List<OutputMessage> execute(IGameContext gameContext) {
+        List<OutputMessage> outputMessages = new ArrayList<>();
 
         if (gameContext.getTurnBattle() != null && gameContext.getTurnBattle().activeBattle()) {
 
             Random rand = new Random();
             int randomNumber = rand.nextInt(10);
-            output.add(10000);
+
             if (randomNumber > 3) {
 
                 gameContext.getTurnBattle().fledFromBattle();
-                output.add(1701);
+                outputMessages.add(new OutputMessage(1701));
             }
             else {
-                output.add(1702);
+                outputMessages.add(new OutputMessage(1702));
                 if(gameContext.getTurnBattle().activeBattle()) {
 
-                    List<Integer> templist = gameContext.getTurnBattle().nextTurn(gameContext);
+                    List<OutputMessage> templist = gameContext.getTurnBattle().nextTurn(gameContext);
                     while (gameContext.getTurnBattle().activeBattle() && templist != null) {
-                        output.addAll(templist);
+                        outputMessages.addAll(templist);
                         templist = gameContext.getTurnBattle().nextTurn(gameContext);
                     }
                 }
             }
         }
         else {
-            output.add(1703);
+            outputMessages.add(new OutputMessage(1703));
         }
 
-        return output;
+        return outputMessages;
     }
 
     @Override
-    public List<Integer> execute(IGameContext gameContext, Map<Integer, Word> words) {
+    public List<OutputMessage> execute(IGameContext gameContext, Map<Integer, Word> words) {
         return null;
     }
 }
