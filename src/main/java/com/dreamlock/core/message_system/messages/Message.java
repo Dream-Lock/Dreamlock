@@ -12,7 +12,7 @@ public class Message implements IMessage {
     public Message(String name, String description) {
         this.name = name;
         this.description = description;
-        this.printStyle = PrintStyle.TITLE_DESCRIPTION;
+        this.printStyle = PrintStyle.DEFAULT;
     }
 
     public Message(String name, String description, PrintStyle printStyle) {

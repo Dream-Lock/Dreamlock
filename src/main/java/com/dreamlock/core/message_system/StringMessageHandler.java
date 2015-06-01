@@ -36,7 +36,13 @@ public class StringMessageHandler implements Serializable, IMessageHandler {
         for (OutputMessage outputMessage : messageIds) {
             try {
                 IMessage message = messages.get(outputMessage.getId());
-                PrintStyle printStyle = outputMessage.getPrintStyle();
+                PrintStyle printStyle;
+                if (message.getPrintStyle().equals(PrintStyle.DEFAULT)) {
+                    printStyle = outputMessage.getPrintStyle();
+                }
+                else {
+                    printStyle = message.getPrintStyle();
+                }
 
                 switch (printStyle) {
                     case ONLY_TITLE:
