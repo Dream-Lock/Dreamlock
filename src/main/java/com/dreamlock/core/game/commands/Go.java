@@ -39,6 +39,7 @@ public class Go implements ICommand {
             if (!nextRoom.getDescription().equals("wall") && !isLocked) { //If wall
                 gameContext.setCurrentRoom(nextRoom);
                 outputMessages.add(new OutputMessage(nextRoom.getId(), PrintStyle.TITLE_DESCRIPTION));
+                outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
                 return outputMessages;
 
             }
@@ -51,11 +52,13 @@ public class Go implements ICommand {
                     outputMessages.add(new OutputMessage(1001, PrintStyle.ONLY_TITLE_IN_SAME_LINE));                   // can not go to
                     outputMessages.add(new OutputMessage(words.get(2).getId(), PrintStyle.ONLY_TITLE));
                 }
+                outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
                 ;   // direction
                 return outputMessages;
             }
         }else{
             outputMessages.add(new OutputMessage(1009, PrintStyle.ONLY_TITLE));
+            outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
             return outputMessages;
         }
     }

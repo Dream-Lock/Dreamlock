@@ -6,9 +6,6 @@ import com.dreamlock.core.message_system.messages.IMessage;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by tommy on 31/5/2015.
- */
 public interface IMessageHandler {
     void register(Map<Integer, IMessage> messages);
 

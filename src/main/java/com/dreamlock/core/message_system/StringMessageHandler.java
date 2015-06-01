@@ -47,16 +47,12 @@ public class StringMessageHandler implements Serializable, IMessageHandler {
                 switch (printStyle) {
                     case ONLY_TITLE:
                         System.out.println(message.getName());
-                        System.out.println("");
-                        System.out.println("");
                         break;
                     case ONLY_TITLE_IN_SAME_LINE:
                         System.out.print(message.getName());
                         break;
                     case ONLY_DESCRIPTION:
                         System.out.println(message.getDescription());
-                        System.out.println("");
-                        System.out.println("");
                         break;
                     case ONLY_DESCRIPTION_IN_SAME_LINE:
                         System.out.print(message.getDescription());
@@ -64,12 +60,11 @@ public class StringMessageHandler implements Serializable, IMessageHandler {
                     case TITLE_DESCRIPTION:
                         System.out.println(message.getName());
                         System.out.println(message.getDescription());
-                        System.out.println("");
-                        System.out.println("");
                         break;
                     case ONLY_EFFECT:
                         System.out.println(((EffectMessage) message).getEffect());
-                        System.out.println("");
+                        break;
+                    case BREAK:
                         System.out.println("");
                         break;
                     case EMPTY:

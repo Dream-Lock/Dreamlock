@@ -23,7 +23,7 @@ public class GameMessages {
 
         for (int i = 1 ; i < rooms.size() ; i++ ) {
             Room room = rooms.get(i);
-            gameMessages.put(room.getId(), new Message(room.getTitle(), room.getDescription(), PrintStyle.TITLE_DESCRIPTION));
+            gameMessages.put(room.getId(), new Message(room.getTitle(), room.getDescription()));
 
             for (Item item : room.getItems()) {
                 try {
@@ -66,11 +66,10 @@ public class GameMessages {
             Consumable consumableItem = (Consumable) item;
             gameMessages.put(consumableItem.getId(),
                     new EffectMessage(consumableItem.getName(),
-                            consumableItem.getDescription(),
-                            PrintStyle.ONLY_EFFECT, consumableItem.getEffect()));
+                            consumableItem.getDescription(), consumableItem.getEffect()));
         }
         else {
-            gameMessages.put(item.getId(), new Message(item.getName(), item.getDescription(), PrintStyle.TITLE_DESCRIPTION_EFFECT));
+            gameMessages.put(item.getId(), new Message(item.getName(), item.getDescription()));
         }
     }
 
