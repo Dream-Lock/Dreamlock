@@ -1,6 +1,6 @@
 package com.dreamlock.core.game.models;
 
-import com.dreamlock.message_system.constants.PrintStyle;
+import com.dreamlock.core.message_system.constants.PrintStyle;
 
 public class OutputMessage {
     private Integer id;

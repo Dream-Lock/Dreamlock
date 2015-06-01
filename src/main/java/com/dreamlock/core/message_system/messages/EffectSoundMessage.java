@@ -1,6 +1,6 @@
-package com.dreamlock.message_system.messages;
+package com.dreamlock.core.message_system.messages;
 
-import com.dreamlock.message_system.constants.PrintStyle;
+import com.dreamlock.core.message_system.constants.PrintStyle;
 
 public class EffectSoundMessage extends SoundMessage {
     private String effect;

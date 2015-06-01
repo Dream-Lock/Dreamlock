@@ -1,7 +1,7 @@
-package com.dreamlock.message_system.constants;
+package com.dreamlock.core.message_system.constants;
 
-import com.dreamlock.message_system.messages.IMessage;
-import com.dreamlock.message_system.messages.Message;
+import com.dreamlock.core.message_system.messages.IMessage;
+import com.dreamlock.core.message_system.messages.Message;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package com.dreamlock.message_system.constants;
+package com.dreamlock.core.message_system.constants;
 
 public enum PrintStyle {
     ONLY_TITLE, ONLY_DESCRIPTION, ONLY_EFFECT, TITLE_DESCRIPTION, TITLE_DESCRIPTION_EFFECT,

@@ -1,4 +1,4 @@
-package com.dreamlock.message_system.constants;
+package com.dreamlock.core.message_system.constants;
 
 import com.dreamlock.core.game.constants.ItemType;
 import com.dreamlock.core.game.models.Door;
@@ -8,9 +8,9 @@ import com.dreamlock.core.game.models.Room;
 import com.dreamlock.core.story_parser.items.Consumable;
 import com.dreamlock.core.story_parser.items.Container;
 import com.dreamlock.core.story_parser.items.Item;
-import com.dreamlock.message_system.messages.EffectMessage;
-import com.dreamlock.message_system.messages.IMessage;
-import com.dreamlock.message_system.messages.Message;
+import com.dreamlock.core.message_system.messages.EffectMessage;
+import com.dreamlock.core.message_system.messages.IMessage;
+import com.dreamlock.core.message_system.messages.Message;
 
 import java.util.HashMap;
 import java.util.Map;

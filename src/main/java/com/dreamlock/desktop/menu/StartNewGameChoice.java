@@ -13,9 +13,9 @@ import com.dreamlock.core.handlers.IHandler;
 import com.dreamlock.core.parser.Lexer;
 import com.dreamlock.core.parser.Parser;
 import com.dreamlock.core.parser.models.Lexeme;
-import com.dreamlock.message_system.StringMessageHandler;
-import com.dreamlock.message_system.constants.CommandMessages;
-import com.dreamlock.message_system.constants.GameMessages;
+import com.dreamlock.core.message_system.StringMessageHandler;
+import com.dreamlock.core.message_system.constants.CommandMessages;
+import com.dreamlock.core.message_system.constants.GameMessages;
 import com.google.gson.JsonObject;
 
 import java.io.BufferedReader;

@@ -5,7 +5,7 @@ import com.dreamlock.core.game.models.Door;
 import com.dreamlock.core.game.models.OutputMessage;
 import com.dreamlock.core.game.models.Room;
 import com.dreamlock.core.game.models.Word;
-import com.dreamlock.message_system.constants.PrintStyle;
+import com.dreamlock.core.message_system.constants.PrintStyle;
 
 import java.util.ArrayList;
 import java.util.List;

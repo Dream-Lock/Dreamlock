@@ -1,11 +1,11 @@
-package com.dreamlock.message_system;
+package com.dreamlock.core.message_system;
 
 
 import com.dreamlock.core.game.models.OutputMessage;
-import com.dreamlock.message_system.constants.PrintStyle;
-import com.dreamlock.message_system.messages.EffectMessage;
-import com.dreamlock.message_system.messages.IMessage;
-import com.dreamlock.message_system.messages.Message;
+import com.dreamlock.core.message_system.constants.PrintStyle;
+import com.dreamlock.core.message_system.messages.EffectMessage;
+import com.dreamlock.core.message_system.messages.IMessage;
+import com.dreamlock.core.message_system.messages.Message;
 
 import java.io.Serializable;
 import java.util.HashMap;
