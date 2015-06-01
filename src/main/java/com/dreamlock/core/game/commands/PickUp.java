@@ -5,6 +5,7 @@ import com.dreamlock.core.game.constants.ActionState;
 import com.dreamlock.core.game.constants.ItemType;
 import com.dreamlock.core.game.constants.Stats;
 import com.dreamlock.core.game.models.OutputMessage;
+import com.dreamlock.core.message_system.constants.PrintStyle;
 import com.dreamlock.core.story_parser.items.Container;
 import com.dreamlock.core.story_parser.items.Item;
 import com.dreamlock.core.game.models.Word;
@@ -41,21 +42,24 @@ public class PickUp implements ICommand {
         if (foundItems != null) {
             if (foundItems.size() == 1 ) {
                 if (foundItems.get(0).getType().equals(ItemType.MISC)) {
-                    outputMessages.add(new OutputMessage(1063));
+                    outputMessages.add(new OutputMessage(1063, PrintStyle.ONLY_TITLE));
+                    outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
                 }
                 else {
-                    outputMessages.add(new OutputMessage(foundItems.get(0).getId()));
+                    outputMessages.add(new OutputMessage(foundItems.get(0).getId(), PrintStyle.ONLY_TITLE_IN_SAME_LINE));
                     outputMessages.add(foundItems.get(0).doAction(ActionState.PICK_UP, gameContext));
+                    outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
                 }
                 return outputMessages;
             }
             else if (foundItems.size() > 1) {
-                outputMessages.add(new OutputMessage(2001));
+                outputMessages.add(new OutputMessage(2001, PrintStyle.ONLY_TITLE));
+                outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
                 return outputMessages;
             }
         }
 
-        outputMessages.add(new OutputMessage(1062));
+        outputMessages.add(new OutputMessage(1062, PrintStyle.ONLY_TITLE));
         return outputMessages;
     }
 }

@@ -13,7 +13,7 @@ public class OutputMessage {
 
     public OutputMessage(Integer id) {
         this.id = id;
-        this.printStyle = PrintStyle.TITLE_DESCRIPTION;
+        this.printStyle = PrintStyle.DEFAULT;
     }
 
     public Integer getId() {

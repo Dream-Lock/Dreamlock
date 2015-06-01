@@ -36,8 +36,7 @@ public class Look implements ICommand  {
         for (Map.Entry<String,Room> door : exits.entrySet()) {
             if (!door.getValue().getTitle().equals("wall")) {
                 gameContext.registerMessage("on your " + door.getKey(), id);
-                outputMessages.add(new OutputMessage(id, PrintStyle.ONLY_TITLE_IN_SAME_LINE));
-                outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
+                outputMessages.add(new OutputMessage(id, PrintStyle.ONLY_TITLE));
                 id++;
             }
         }
@@ -52,18 +51,15 @@ public class Look implements ICommand  {
         }
         outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
         if (numberOfItems == 1) {
-            outputMessages.add(new OutputMessage(1800, PrintStyle.ONLY_TITLE_IN_SAME_LINE));
-            outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
+            outputMessages.add(new OutputMessage(1800, PrintStyle.ONLY_TITLE));
         }
         else if (numberOfItems > 1) {
-            outputMessages.add(new OutputMessage(1801, PrintStyle.ONLY_TITLE_IN_SAME_LINE));
-            outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
+            outputMessages.add(new OutputMessage(1801, PrintStyle.ONLY_TITLE));
         }
 
         for (Item item : items) {
             if (!item.getType().equals(ItemType.MISC)) {
-                outputMessages.add(new OutputMessage(item.getId(), PrintStyle.ONLY_TITLE_IN_SAME_LINE));
-                outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
+                outputMessages.add(new OutputMessage(item.getId(), PrintStyle.ONLY_TITLE));
             }
         }
         // Print Enemies

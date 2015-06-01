@@ -69,8 +69,11 @@ public class StringMessageHandler implements Serializable, IMessageHandler {
                         break;
                     case EMPTY:
                         break;
+                    case ARROW:
+                        System.out.print(" --> ");
+                        break;
                     default:
-                        System.out.println("Print ERROR!!!");
+                        System.out.println("Print ERROR!!! PLEASE CHANGE DEFAULT PRINTING STYLE!!!");
                         break;
                 }
             } catch (Exception e) {

@@ -2,6 +2,7 @@ package com.dreamlock.core.game.commands;
 
 import com.dreamlock.core.game.IGameContext;
 import com.dreamlock.core.game.models.OutputMessage;
+import com.dreamlock.core.message_system.constants.PrintStyle;
 import com.dreamlock.core.story_parser.items.Item;
 import com.dreamlock.core.game.models.Word;
 
@@ -15,14 +16,18 @@ public class ShowInventory implements ICommand{
         List<OutputMessage> output = new ArrayList<>();
         List<Item> inventory = gameContext.getPlayer().getInventory().getItems();
         if (inventory.isEmpty()) {
-            output.add(new OutputMessage(1080));
+            output.add(new OutputMessage(1080, PrintStyle.ONLY_TITLE));
         }
         else {
-            output.add(new OutputMessage(1081));
+            output.add(new OutputMessage(1081, PrintStyle.ONLY_TITLE));
             for(Item item: inventory) {
-                output.add(new OutputMessage(item.getId()));
+                output.add(new OutputMessage(item.getId(), PrintStyle.ONLY_TITLE_IN_SAME_LINE));
+                output.add(new OutputMessage(0, PrintStyle.ARROW));
+                output.add(new OutputMessage(item.getId(), PrintStyle.ONLY_DESCRIPTION_IN_SAME_LINE));
+                output.add(new OutputMessage(0, PrintStyle.BREAK));
             }
         }
+        output.add(new OutputMessage(0, PrintStyle.BREAK));
         return output;
     }
 

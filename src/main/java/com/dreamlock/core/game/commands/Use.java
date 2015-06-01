@@ -3,6 +3,7 @@ package com.dreamlock.core.game.commands;
 import com.dreamlock.core.game.IGameContext;
 import com.dreamlock.core.game.constants.ActionState;
 import com.dreamlock.core.game.models.OutputMessage;
+import com.dreamlock.core.message_system.constants.PrintStyle;
 import com.dreamlock.core.story_parser.items.Item;
 import com.dreamlock.core.game.models.Word;
 
@@ -33,12 +34,12 @@ public class Use implements ICommand{
                 return output;
             }
             else {
-                output.add(new OutputMessage(2001));
+                output.add(new OutputMessage(2001, PrintStyle.ONLY_TITLE));
                 return output;
             }
         }
 
-        output.add(new OutputMessage(1042));
+        output.add(new OutputMessage(1042, PrintStyle.ONLY_TITLE));
         return output;
     }
 }
