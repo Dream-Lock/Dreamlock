@@ -3,6 +3,7 @@ package com.dreamlock.core.game.commands;
 import com.dreamlock.core.game.IGameContext;
 import com.dreamlock.core.game.models.OutputMessage;
 import com.dreamlock.core.game.models.Word;
+import com.dreamlock.core.message_system.constants.PrintStyle;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -28,10 +29,10 @@ public class Save implements ICommand{
 
             objectStream.close();
             fileStream.close();
-            outputMessages.add(new OutputMessage(1200));
+            outputMessages.add(new OutputMessage(1200, PrintStyle.ONLY_TITLE));
 
         } catch (Exception e) {
-            outputMessages.add(new OutputMessage(1201));
+            outputMessages.add(new OutputMessage(1201, PrintStyle.ONLY_TITLE));
         }
         return outputMessages;
     }

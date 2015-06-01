@@ -1,21 +1,23 @@
 package com.dreamlock.core.game.states.itemStates;
 
 import com.dreamlock.core.game.IGameContext;
+import com.dreamlock.core.game.models.OutputMessage;
+import com.dreamlock.core.message_system.constants.PrintStyle;
 import com.dreamlock.core.story_parser.items.Item;
 import com.dreamlock.core.game.states.IState;
 
 public class CanUnequip implements IState {
     @Override
-    public Integer doAction(IGameContext context) {
+    public OutputMessage doAction(IGameContext context) {
         return null;
     }
 
     @Override
-    public Integer doAction(IGameContext context, Item item) {
+    public OutputMessage doAction(IGameContext context, Item item) {
         context.getPlayer().getInventory().addItem(item);
         context.getPlayer().initializeSlot(item.getEquipmentSlot());
         context.getPlayer().calculateStats();
 
-        return(1402);
+        return new OutputMessage(1402, PrintStyle.ONLY_TITLE);
     }
 }

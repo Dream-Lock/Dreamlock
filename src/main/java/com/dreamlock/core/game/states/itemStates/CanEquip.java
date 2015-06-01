@@ -2,6 +2,8 @@ package com.dreamlock.core.game.states.itemStates;
 
 import com.dreamlock.core.game.IGameContext;
 import com.dreamlock.core.game.constants.ItemType;
+import com.dreamlock.core.game.models.OutputMessage;
+import com.dreamlock.core.message_system.constants.PrintStyle;
 import com.dreamlock.core.story_parser.items.Armor;
 import com.dreamlock.core.story_parser.items.Item;
 import com.dreamlock.core.story_parser.items.Weapon;
@@ -9,12 +11,12 @@ import com.dreamlock.core.game.states.IState;
 
 public class CanEquip implements IState {
     @Override
-    public Integer doAction(IGameContext context) {
+    public OutputMessage doAction(IGameContext context) {
         return null;
     }
 
     @Override
-    public Integer doAction(IGameContext context, Item item) {
+    public OutputMessage doAction(IGameContext context, Item item) {
         context.getPlayer().getInventory().removeItem(item);
 
         Item forInv = null;
@@ -32,7 +34,7 @@ public class CanEquip implements IState {
         context.getPlayer().equipItem(item);
         context.getPlayer().calculateStats();
 
-        return(1401);
+        return new OutputMessage(1401, PrintStyle.ONLY_TITLE);
     }
 
 }

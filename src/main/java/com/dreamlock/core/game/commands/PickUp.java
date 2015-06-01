@@ -45,7 +45,7 @@ public class PickUp implements ICommand {
                 }
                 else {
                     outputMessages.add(new OutputMessage(foundItems.get(0).getId()));
-                    outputMessages.add(new OutputMessage(foundItems.get(0).doAction(ActionState.PICK_UP, gameContext)));
+                    outputMessages.add(foundItems.get(0).doAction(ActionState.PICK_UP, gameContext));
                 }
                 return outputMessages;
             }

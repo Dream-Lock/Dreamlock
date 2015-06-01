@@ -5,6 +5,7 @@ import com.dreamlock.core.game.constants.ActionState;
 import com.dreamlock.core.game.constants.EquipmentSlot;
 import com.dreamlock.core.game.constants.ItemType;
 import com.dreamlock.core.game.constants.Stats;
+import com.dreamlock.core.game.models.OutputMessage;
 import com.dreamlock.core.game.states.IState;
 
 import java.io.Serializable;
@@ -21,7 +22,7 @@ public abstract class Item implements Serializable{
 
     EquipmentSlot equipmentSlot;
 
-    public int doAction (ActionState actionState, IGameContext gameContext) {
+    public OutputMessage doAction (ActionState actionState, IGameContext gameContext) {
         return this.getStates().get(actionState).doAction(gameContext, this);
     }
 

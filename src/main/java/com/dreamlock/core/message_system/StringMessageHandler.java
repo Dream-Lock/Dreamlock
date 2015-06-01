@@ -72,6 +72,8 @@ public class StringMessageHandler implements Serializable, IMessageHandler {
                         System.out.println("");
                         System.out.println("");
                         break;
+                    case EMPTY:
+                        break;
                     default:
                         System.out.println("Print ERROR!!!");
                         break;

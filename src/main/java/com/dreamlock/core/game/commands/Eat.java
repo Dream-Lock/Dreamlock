@@ -37,7 +37,7 @@ public class Eat implements ICommand{
                 }
 
                 outputMessages.add(new OutputMessage(item.getId()));
-                outputMessages.add(new OutputMessage(item.doAction(ActionState.EAT, gameContext)));
+                outputMessages.add(item.doAction(ActionState.EAT, gameContext));
                 return outputMessages;
             }
             else {

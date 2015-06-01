@@ -30,7 +30,7 @@ public class Equip implements ICommand {
             if (duplicates == 1 || itemCount>1){
                 Item item = gameContext.getPlayer().getInventory().getSpecificItem(words.get(2));
                 outputMessages.add(new OutputMessage(item.getId()));
-                outputMessages.add(new OutputMessage(item.doAction(ActionState.EQUIP, gameContext)));
+                outputMessages.add(item.doAction(ActionState.EQUIP, gameContext));
                 return outputMessages;
             }
             else {

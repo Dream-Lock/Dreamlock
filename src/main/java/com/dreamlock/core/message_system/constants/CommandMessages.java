@@ -14,7 +14,7 @@ public enum CommandMessages {
     CommandMessages() {
         commandMessages = new HashMap<>();
 
-        commandMessages.put(0, new Message());
+        commandMessages.put(0, new Message("", ""));
         // for message handling
 //        commandMessages.put(10000, new Message("",""));     // print only title
 //        commandMessages.put(10001, new Message("",""));     // print only description

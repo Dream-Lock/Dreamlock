@@ -71,7 +71,7 @@ public class Unequip implements ICommand {
 
         if (foundItems.size() == 1) {
             output.add(new OutputMessage(foundItems.get(0).getId()));   // item to print
-            output.add(new OutputMessage(foundItems.get(0).doAction(ActionState.UNEQUIP, gameContext)));
+            output.add(foundItems.get(0).doAction(ActionState.UNEQUIP, gameContext));
             return output;
         }
         else  if (foundItems.size() > 1) {

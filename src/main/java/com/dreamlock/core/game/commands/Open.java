@@ -108,7 +108,7 @@ public class Open implements ICommand{
 
         Item tempItem = gameContext.getCurrentRoom().getSpecificItem(itemName);
         outputMessages.add(new OutputMessage(tempItem.getId()));   // item to print
-        outputMessages.add(new OutputMessage(tempItem.doAction(ActionState.OPEN, gameContext)));
+        outputMessages.add(tempItem.doAction(ActionState.OPEN, gameContext));
         if (tempItem.getType().equals(ItemType.CONTAINER)) {
             Container containerItem = (Container) tempItem;
             if (!(boolean) containerItem.getStats().get(Stats.LOCKED)){

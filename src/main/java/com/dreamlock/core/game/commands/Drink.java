@@ -4,6 +4,7 @@ import com.dreamlock.core.game.IGameContext;
 import com.dreamlock.core.game.constants.ActionState;
 import com.dreamlock.core.game.constants.ItemType;
 import com.dreamlock.core.game.models.OutputMessage;
+import com.dreamlock.core.message_system.constants.PrintStyle;
 import com.dreamlock.core.story_parser.items.Consumable;
 import com.dreamlock.core.story_parser.items.Item;
 import com.dreamlock.core.game.models.Word;
@@ -33,27 +34,26 @@ public class Drink implements ICommand{
                 if (item.getType().equals(ItemType.CONSUMABLE)) {
                     Consumable consumable = (Consumable) item;
                     if (consumable.getState().equals("Drink")) {
-                        outputMessages.add(new OutputMessage(10006));
+                        outputMessages.add(new OutputMessage(consumable.getId(), PrintStyle.ONLY_EFFECT));
                     }
                     else {
-                        outputMessages.add(new OutputMessage(10000));
+                        outputMessages.add(new OutputMessage(consumable.getId(), PrintStyle.ONLY_TITLE));
                     }
                 }
                 else {
-                    outputMessages.add(new OutputMessage(10000));
+                    outputMessages.add(new OutputMessage(item.getId(), PrintStyle.ONLY_TITLE));
                 }
 
-                outputMessages.add(new OutputMessage(item.getId()));
-                outputMessages.add(new OutputMessage(item.doAction(ActionState.DRINK, gameContext)));
+                outputMessages.add(item.doAction(ActionState.DRINK, gameContext));
                 return outputMessages;
             }
             else {
-                outputMessages.add(new OutputMessage(2001));
+                outputMessages.add(new OutputMessage(2001, PrintStyle.ONLY_TITLE));
                 return outputMessages;
             }
         }
 
-        outputMessages.add(new OutputMessage(1042));
+        outputMessages.add(new OutputMessage(1042, PrintStyle.ONLY_TITLE));
         return outputMessages;
     }
 }
