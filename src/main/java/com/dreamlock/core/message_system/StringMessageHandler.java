@@ -35,12 +35,12 @@ public class StringMessageHandler implements Serializable, IMessageHandler {
 
         for (OutputMessage outputMessage : messageIds) {
             try {
-                IMessage message = messages.get(outputMessage.getId());
                 PrintStyle printStyle;
-                if (message.getPrintStyle().equals(PrintStyle.DEFAULT)) {
+
+                IMessage message = messages.get(outputMessage.getId());
+                if (message.getPrintStyle().equals(PrintStyle.DEFAULT) || outputMessage.getPrintStyle().equals(PrintStyle.NUMBER)) {
                     printStyle = outputMessage.getPrintStyle();
-                }
-                else {
+                } else {
                     printStyle = message.getPrintStyle();
                 }
 
