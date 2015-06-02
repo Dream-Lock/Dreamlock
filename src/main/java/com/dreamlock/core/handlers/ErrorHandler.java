@@ -2,6 +2,8 @@ package com.dreamlock.core.handlers;
 
 import com.dreamlock.core.game.IGameContext;
 import com.dreamlock.core.game.models.OutputMessage;
+import com.dreamlock.core.message_system.constants.PrintStyle;
+import com.dreamlock.core.message_system.constants.UserQuestions;
 import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
@@ -23,56 +25,58 @@ public class ErrorHandler implements IHandler {
 
         Boolean hasForbiddenWords = parsedJsonObject.get("forbidden").getAsBoolean();
         Boolean hasQuestion = parsedJsonObject.get("has_question").getAsBoolean();
-        messageIds.add(new OutputMessage(10000)); // only title
 
         if (hasForbiddenWords) {
             Random random = new Random();
             int randomNumber = random.nextInt(5);
             switch (randomNumber) {
                 case 1:
-                    messageIds.add(new OutputMessage(2107));
+                    messageIds.add(new OutputMessage(2107, PrintStyle.ONLY_TITLE));
                     break;
                 case 2:
-                    messageIds.add(new OutputMessage(2106));
+                    messageIds.add(new OutputMessage(2106, PrintStyle.ONLY_TITLE));
                     break;
                 case 3:
-                    messageIds.add(new OutputMessage(2105));
+                    messageIds.add(new OutputMessage(2105, PrintStyle.ONLY_TITLE));
                     break;
                 case 4:
-                    messageIds.add(new OutputMessage(2104));
+                    messageIds.add(new OutputMessage(2104, PrintStyle.ONLY_TITLE));
                     break;
                 default:
-                    messageIds.add(new OutputMessage(2103));
+                    messageIds.add(new OutputMessage(2103, PrintStyle.ONLY_TITLE));
             }
             return messageIds;
         }
 
         if (hasQuestion) {
             String question = parsedJsonObject.get("question").getAsString();
-//            List<String> possibleQuestions = UserQuestions.INSTANCE.getQuestions();
+            List<String> possibleQuestions = UserQuestions.INSTANCE.getQuestions();
 
-//            return questionsHandle(question, possibleQuestions);
+            return questionsHandle(question, possibleQuestions);
         }
 
 
         Integer correctWords = parsedJsonObject.get("correctWords").getAsInt();
 
         if (correctWords == 0) {
-            messageIds.add(new OutputMessage(2101));
-        } else {
+            messageIds.add(new OutputMessage(2101, PrintStyle.ONLY_TITLE));
+            messageIds.add(new OutputMessage(0, PrintStyle.BREAK));
+        }
+        else {
             String correctCommand = parsedJsonObject.get("correctCommand").getAsString();
 
             if (correctWords == 100) {
                 if (correctCommand.equals("go")) {
-                    messageIds.add(new OutputMessage(1008));
+                    messageIds.add(new OutputMessage(1008, PrintStyle.ONLY_TITLE));
                 } else {
                     gameContext.registerMessage("What do you want me to " + correctCommand, 9001);
-                    messageIds.add(new OutputMessage(9001));
+                    messageIds.add(new OutputMessage(9001, PrintStyle.ONLY_TITLE));
                 }
             } else {
                 gameContext.registerMessage("I understood as far as wanting me to " + correctCommand, 9001);
-                messageIds.add(new OutputMessage(9001));
+                messageIds.add(new OutputMessage(9001, PrintStyle.ONLY_TITLE));
             }
+            messageIds.add(new OutputMessage(0, PrintStyle.BREAK));
         }
         return messageIds;
     }
@@ -85,11 +89,12 @@ public class ErrorHandler implements IHandler {
             Integer randomInt = random.nextInt(2);
             switch (randomInt) {
                 case 1:
-                    messageIds.add(new OutputMessage(2200));
+                    messageIds.add(new OutputMessage(2200, PrintStyle.ONLY_TITLE));
                     break;
                 default:
-                    messageIds.add(new OutputMessage(2201));
+                    messageIds.add(new OutputMessage(2201, PrintStyle.ONLY_TITLE));
             }
+            messageIds.add(new OutputMessage(0, PrintStyle.BREAK));
             return messageIds;
         }
         if (question.equals(possibleQuestions.get(8)) || question.equals(possibleQuestions.get(16))) {
@@ -97,12 +102,13 @@ public class ErrorHandler implements IHandler {
             Integer randomInt = random.nextInt();
             switch (randomInt) {
                 case 1:
-                    messageIds.add(new OutputMessage(2202));
+                    messageIds.add(new OutputMessage(2202, PrintStyle.ONLY_TITLE));
                     break;
                 default:
-                    messageIds.add(new OutputMessage(2203));
+                    messageIds.add(new OutputMessage(2203,PrintStyle.ONLY_TITLE));
             }
 
+            messageIds.add(new OutputMessage(0, PrintStyle.BREAK));
             return messageIds;
         }
         if (question.equals(possibleQuestions.get(9))) {
@@ -113,12 +119,13 @@ public class ErrorHandler implements IHandler {
             gameContext.registerMessage("I am " + age + " years old" , 9300);
             switch (randomInt) {
                 case 1:
-                    messageIds.add(new OutputMessage(9300));
+                    messageIds.add(new OutputMessage(9300, PrintStyle.ONLY_TITLE));
                     break;
                 default:
-                    messageIds.add(new OutputMessage(2210));
+                    messageIds.add(new OutputMessage(2210, PrintStyle.ONLY_TITLE));
             }
 
+            messageIds.add(new OutputMessage(0, PrintStyle.BREAK));
             return messageIds;
         }
         if (question.equals(possibleQuestions.get(10))) {
@@ -126,17 +133,19 @@ public class ErrorHandler implements IHandler {
             Integer randomInt = random.nextInt(2);
             switch (randomInt) {
                 case 1:
-                    messageIds.add(new OutputMessage(2205));
+                    messageIds.add(new OutputMessage(2205, PrintStyle.ONLY_TITLE));
                     break;
                 default:
-                    messageIds.add(new OutputMessage(2204));
+                    messageIds.add(new OutputMessage(2204, PrintStyle.ONLY_TITLE));
             }
 
+            messageIds.add(new OutputMessage(0, PrintStyle.BREAK));
             return messageIds;
         }
         if (question.equals(possibleQuestions.get(11))) {
 
-            messageIds.add(new OutputMessage(2207));
+            messageIds.add(new OutputMessage(2207, PrintStyle.ONLY_TITLE));
+            messageIds.add(new OutputMessage(0, PrintStyle.BREAK));
             return messageIds;
         }
         if (question.equals(possibleQuestions.get(12))) {
@@ -147,12 +156,12 @@ public class ErrorHandler implements IHandler {
             Integer randomInt = random.nextInt();
             switch (randomInt) {
                 case 1:
-                    messageIds.add(new OutputMessage(2206));
+                    messageIds.add(new OutputMessage(2206, PrintStyle.ONLY_TITLE));
                     break;
                 default:
-                    messageIds.add(new OutputMessage(9301));
+                    messageIds.add(new OutputMessage(9301, PrintStyle.ONLY_TITLE));
             }
-
+            messageIds.add(new OutputMessage(0, PrintStyle.BREAK));
             return messageIds;
         }
 
@@ -162,23 +171,24 @@ public class ErrorHandler implements IHandler {
 
             switch (randomInt) {
                 case 1:
-                    messageIds.add(new OutputMessage(2212));
+                    messageIds.add(new OutputMessage(2212, PrintStyle.ONLY_TITLE));
                     break;
                 default:
-                    messageIds.add(new OutputMessage(2211));
+                    messageIds.add(new OutputMessage(2211, PrintStyle.ONLY_TITLE));
             }
-
+            messageIds.add(new OutputMessage(0, PrintStyle.BREAK));
             return messageIds;
         }
         for (int i = 0; i < 6; i++) {
             if (question.contains(possibleQuestions.get(i))) {
 
-                messageIds.add(new OutputMessage(2208));
+                messageIds.add(new OutputMessage(2208, PrintStyle.ONLY_TITLE));
                 return messageIds;
             }
         }
 
-        messageIds.add(new OutputMessage(2209));
+        messageIds.add(new OutputMessage(2209, PrintStyle.ONLY_TITLE));
+        messageIds.add(new OutputMessage(0, PrintStyle.BREAK));
         return messageIds;
     }
 }
