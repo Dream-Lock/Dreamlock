@@ -33,10 +33,10 @@ public class Examine implements ICommand {
                 Container containerItem = (Container) item;
                 if (!(boolean) containerItem.getStats().get(Stats.LOCKED)) {
                     outputMessages.add(new OutputMessage(item.getId(), PrintStyle.TITLE_DESCRIPTION));
-                    outputMessages.add(new OutputMessage(1124, PrintStyle.ONLY_TITLE));
+                    outputMessages.add(new OutputMessage(1154, PrintStyle.ONLY_TITLE));
 
                     for (Item item1 : containerItem.getItems()) {
-                        outputMessages.add(new OutputMessage(item1.getId(), PrintStyle.TITLE_DESCRIPTION));
+                        outputMessages.add(new OutputMessage(item1.getId(), PrintStyle.ONLY_TITLE));
                     }
 
                     return outputMessages;

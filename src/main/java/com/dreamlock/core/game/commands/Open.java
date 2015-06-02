@@ -115,18 +115,18 @@ public class Open implements ICommand{
         List <OutputMessage> outputMessages =  new ArrayList<>();
 
         Item tempItem = gameContext.getCurrentRoom().getSpecificItem(itemName);
-        outputMessages.add(new OutputMessage(tempItem.getId(), PrintStyle.ONLY_TITLE));   // item to print
+        outputMessages.add(new OutputMessage(tempItem.getId(), PrintStyle.ONLY_TITLE_IN_SAME_LINE));   // item to print
         outputMessages.add(tempItem.doAction(ActionState.OPEN, gameContext));
         if (tempItem.getType().equals(ItemType.CONTAINER)) {
             Container containerItem = (Container) tempItem;
             if (!(boolean) containerItem.getStats().get(Stats.LOCKED)){
                 outputMessages.add(new OutputMessage(1154, PrintStyle.ONLY_TITLE));
+                outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
 
                 for (Item item : containerItem.getItems()) {
                     outputMessages.add(new OutputMessage(item.getId(), PrintStyle.ONLY_TITLE));
-                    outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
                 }
-
+                outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
             }
         }
         return outputMessages;

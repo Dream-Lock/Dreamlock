@@ -30,6 +30,7 @@ public class GameMessages {
                     ItemType itemType = item.getType();
                     switch (itemType) {
                         case CONTAINER:
+                            registerItem(item);
                             Container container = (Container) item;
                             for (Item containerItem : container.getItems()) {
                                 registerItem(containerItem);

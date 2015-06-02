@@ -23,7 +23,7 @@ public class CanOpen implements IState {
                 return open(context,item);
             }
             else {
-                return new OutputMessage(1122, PrintStyle.ONLY_TITLE);
+                return new OutputMessage(1152, PrintStyle.ONLY_TITLE);
             }
         }
         else {
@@ -33,6 +33,6 @@ public class CanOpen implements IState {
     private OutputMessage open(IGameContext gameContext, Item item) {
         item.getStates().put(ActionState.OPEN,new Opened());
         item.getStats().put(Stats.LOCKED,false);
-        return new OutputMessage(1120, PrintStyle.ONLY_TITLE);
+        return new OutputMessage(1150, PrintStyle.ONLY_TITLE);
     }
 }
