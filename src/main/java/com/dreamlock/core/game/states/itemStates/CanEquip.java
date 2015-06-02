@@ -24,7 +24,8 @@ public class CanEquip implements IState {
         if(item.getType().equals(ItemType.ARMOR)){
             forInv = (Armor) context.getPlayer().getSlot(((Armor) item).getEquipmentSlot());
 
-        }else if(item.getType().equals(ItemType.WEAPON)){
+        }
+        else if(item.getType().equals(ItemType.WEAPON)){
             forInv = (Weapon) context.getPlayer().getSlot(((Weapon) item).getEquipmentSlot());
         }
 

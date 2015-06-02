@@ -47,7 +47,7 @@ public class Go implements ICommand {
 
                 if (isLocked) {
                     outputMessages.add(new OutputMessage(roomDoor.getId(), PrintStyle.ONLY_DESCRIPTION_IN_SAME_LINE));
-                    outputMessages.add(new OutputMessage(1122, PrintStyle.ONLY_TITLE));                   // can not go to
+                    outputMessages.add(new OutputMessage(1152, PrintStyle.ONLY_TITLE));                   // can not go to
                 } else {
                     outputMessages.add(new OutputMessage(1001, PrintStyle.ONLY_TITLE_IN_SAME_LINE));                   // can not go to
                     outputMessages.add(new OutputMessage(words.get(2).getId(), PrintStyle.ONLY_TITLE));
