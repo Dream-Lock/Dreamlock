@@ -1,10 +1,10 @@
 package com.dreamlock.desktop;
 
 import com.dreamlock.core.game.GameContext;
-import com.dreamlock.core.story_parser.DesktopStoryParser;
 import com.dreamlock.core.game.models.Inventory;
 import com.dreamlock.core.game.models.Player;
 import com.dreamlock.core.game.models.Room;
+import com.dreamlock.core.story_parser.DesktopStoryParser;
 import com.dreamlock.core.story_parser.IStoryParser;
 
 import java.awt.*;

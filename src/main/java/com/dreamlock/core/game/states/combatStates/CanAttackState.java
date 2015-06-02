@@ -6,7 +6,6 @@ import com.dreamlock.core.game.combat.Combatant;
 import com.dreamlock.core.game.models.OutputMessage;
 import com.dreamlock.core.game.states.ICombatState;
 import com.dreamlock.core.message_system.constants.PrintStyle;
-import com.dreamlock.core.message_system.messages.DamageMessage;
 
 import java.io.Serializable;
 

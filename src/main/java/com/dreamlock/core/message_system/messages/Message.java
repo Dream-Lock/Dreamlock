@@ -2,7 +2,9 @@ package com.dreamlock.core.message_system.messages;
 
 import com.dreamlock.core.message_system.constants.PrintStyle;
 
-public class Message implements IMessage {
+import java.io.Serializable;
+
+public class Message implements IMessage, Serializable {
     protected String name;
     protected String description;
     protected PrintStyle printStyle;

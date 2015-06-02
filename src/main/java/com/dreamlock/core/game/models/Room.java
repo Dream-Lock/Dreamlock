@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * A Model of a room
  */
-public class Room implements Serializable{
+public class Room implements Serializable {
     private String description;
     private String title;
     private HashMap<String, Room> exits;  // stores the exits of this room.

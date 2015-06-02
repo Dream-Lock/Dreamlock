@@ -3,9 +3,9 @@ package com.dreamlock.core.game.states.itemStates;
 import com.dreamlock.core.game.IGameContext;
 import com.dreamlock.core.game.constants.ItemType;
 import com.dreamlock.core.game.models.OutputMessage;
+import com.dreamlock.core.game.states.IState;
 import com.dreamlock.core.message_system.constants.PrintStyle;
 import com.dreamlock.core.story_parser.items.Item;
-import com.dreamlock.core.game.states.IState;
 
 public class CanUse implements IState {
     @Override
@@ -25,6 +25,6 @@ public class CanUse implements IState {
                 break;
         }
         context.getPlayer().getInventory().removeItem(item);
-        return new OutputMessage(0, PrintStyle.EMPTY);
+        return new OutputMessage(item.getId(), PrintStyle.ONLY_EFFECT);
     }
 }

@@ -30,9 +30,11 @@ public class Save implements ICommand{
             objectStream.close();
             fileStream.close();
             outputMessages.add(new OutputMessage(1200, PrintStyle.ONLY_TITLE));
-
-        } catch (Exception e) {
+            outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
+        }
+        catch (Exception e) {
             outputMessages.add(new OutputMessage(1201, PrintStyle.ONLY_TITLE));
+            outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
         }
         return outputMessages;
     }

@@ -1,11 +1,11 @@
 package com.dreamlock.core.story_parser;
 
-import com.dreamlock.core.story_parser.DTOs.*;
-import com.dreamlock.core.story_parser.items.Item;
-import com.dreamlock.core.story_parser.items.ItemFactory;
 import com.dreamlock.core.game.models.Door;
 import com.dreamlock.core.game.models.Enemy;
 import com.dreamlock.core.game.models.Room;
+import com.dreamlock.core.story_parser.DTOs.*;
+import com.dreamlock.core.story_parser.items.Item;
+import com.dreamlock.core.story_parser.items.ItemFactory;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;

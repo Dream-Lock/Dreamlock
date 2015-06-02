@@ -2,9 +2,9 @@ package com.dreamlock.core.story_parser.items;
 
 import com.dreamlock.core.game.constants.ActionState;
 import com.dreamlock.core.game.constants.ItemType;
-import com.dreamlock.core.story_parser.DTOs.itemDTOs.RoomObjectDTO;
 import com.dreamlock.core.game.states.itemStates.CanNotPickUp;
 import com.dreamlock.core.game.states.itemStates.CanOpen;
+import com.dreamlock.core.story_parser.DTOs.itemDTOs.RoomObjectDTO;
 import com.google.gson.Gson;
 
 import java.util.HashMap;

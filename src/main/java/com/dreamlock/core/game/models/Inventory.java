@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Inventory implements Serializable{
+public class Inventory implements Serializable {
     private List<Item> items;
     private int size;
 

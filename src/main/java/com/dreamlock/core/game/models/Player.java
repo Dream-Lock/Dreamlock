@@ -4,10 +4,10 @@ import com.dreamlock.core.game.combat.Combatant;
 import com.dreamlock.core.game.constants.ActionState;
 import com.dreamlock.core.game.constants.EquipmentSlot;
 import com.dreamlock.core.game.constants.Stats;
+import com.dreamlock.core.game.states.combatStates.CanAttackState;
 import com.dreamlock.core.story_parser.items.Armor;
 import com.dreamlock.core.story_parser.items.Item;
 import com.dreamlock.core.story_parser.items.Weapon;
-import com.dreamlock.core.game.states.combatStates.CanAttackState;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 
 import java.io.Serializable;

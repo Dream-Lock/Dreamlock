@@ -2,14 +2,14 @@ package com.dreamlock.core.game.models;
 
 import com.dreamlock.core.game.combat.Combatant;
 import com.dreamlock.core.game.constants.ActionState;
-import com.dreamlock.core.story_parser.DTOs.EnemyDTO;
 import com.dreamlock.core.game.states.combatStates.CanAttackState;
+import com.dreamlock.core.story_parser.DTOs.EnemyDTO;
 import com.google.gson.Gson;
 
 import java.io.Serializable;
 import java.util.HashMap;
 
-public class Enemy extends Combatant implements Serializable{
+public class Enemy extends Combatant implements Serializable {
     private int id;
     private String description;
 

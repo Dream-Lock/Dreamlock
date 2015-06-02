@@ -2,7 +2,7 @@ package com.dreamlock.core.game.models;
 
 import java.io.Serializable;
 
-public class Door implements Serializable{
+public class Door implements Serializable {
     private String name;
     private String direction;
     private String description;

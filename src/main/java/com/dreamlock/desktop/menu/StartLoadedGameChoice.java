@@ -1,21 +1,21 @@
 package com.dreamlock.desktop.menu;
 
-import com.dreamlock.core.game.models.OutputMessage;
-import com.dreamlock.desktop.GameUtils;
-import com.dreamlock.core.story_parser.IStoryParser;
-import com.dreamlock.core.handlers.HistoryHandler;
 import com.dreamlock.core.game.IGameContext;
-import com.dreamlock.core.story_parser.DesktopStoryParser;
+import com.dreamlock.core.game.models.OutputMessage;
 import com.dreamlock.core.handlers.CommandHandler;
 import com.dreamlock.core.handlers.ErrorHandler;
+import com.dreamlock.core.handlers.HistoryHandler;
 import com.dreamlock.core.handlers.IHandler;
-import com.dreamlock.core.parser.Lexer;
-import com.dreamlock.core.parser.Parser;
-import com.dreamlock.core.parser.models.Lexeme;
 import com.dreamlock.core.message_system.IMessageHandler;
 import com.dreamlock.core.message_system.StringMessageHandler;
 import com.dreamlock.core.message_system.constants.CommandMessages;
 import com.dreamlock.core.message_system.constants.GameMessages;
+import com.dreamlock.core.parser.Lexer;
+import com.dreamlock.core.parser.Parser;
+import com.dreamlock.core.parser.models.Lexeme;
+import com.dreamlock.core.story_parser.DesktopStoryParser;
+import com.dreamlock.core.story_parser.IStoryParser;
+import com.dreamlock.desktop.GameUtils;
 import com.google.gson.JsonObject;
 
 import java.io.BufferedReader;

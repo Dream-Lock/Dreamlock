@@ -4,9 +4,9 @@ import com.dreamlock.core.game.IGameContext;
 import com.dreamlock.core.game.constants.ActionState;
 import com.dreamlock.core.game.constants.Stats;
 import com.dreamlock.core.game.models.OutputMessage;
+import com.dreamlock.core.game.states.IState;
 import com.dreamlock.core.message_system.constants.PrintStyle;
 import com.dreamlock.core.story_parser.items.Item;
-import com.dreamlock.core.game.states.IState;
 
 public class CanOpen implements IState {
     @Override

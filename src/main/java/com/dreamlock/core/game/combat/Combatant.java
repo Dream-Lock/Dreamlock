@@ -3,13 +3,15 @@ package com.dreamlock.core.game.combat;
 
 import com.dreamlock.core.game.constants.ActionState;
 import com.dreamlock.core.game.constants.Stats;
+import com.dreamlock.core.game.states.ICombatState;
 import com.dreamlock.core.story_parser.items.Armor;
 import com.dreamlock.core.story_parser.items.Weapon;
-import com.dreamlock.core.game.states.ICombatState;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.io.Serializable;
-import java.util.*;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
 
 
 public abstract class Combatant implements Serializable{
