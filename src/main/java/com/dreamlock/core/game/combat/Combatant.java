@@ -9,9 +9,7 @@ import com.dreamlock.core.story_parser.items.Weapon;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.io.Serializable;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
+import java.util.*;
 
 
 public abstract class Combatant implements Serializable{
@@ -178,26 +176,16 @@ public abstract class Combatant implements Serializable{
         return health > 0;
     }
 
-    public Map<String, Integer> setPlayerStatsMap (){
-        Map <String, Integer> playerStats = new TreeMap<>();
-        playerStats.put(Stats.HEALTH.toString(), this.health);
-        playerStats.put(Stats.STRENGTH.toString(), this.strength);
-        playerStats.put(Stats.DEFENSE.toString(), this.defense);
-        playerStats.put(Stats.AGILITY.toString(), this.agility);
-        playerStats.put(Stats.ATTACK.toString(), this.attack);
-        playerStats.put(Stats.STAMINA.toString(), this.stamina);
-        return playerStats;
-    }
+    public List<Integer> getPlayerStats (){
+        List<Integer> playerStats = new ArrayList<>();
 
-    public String getPlayerStatsMap () {
-        StringBuilder stringPlayerStats = new StringBuilder();
-        Set<Map.Entry<String,Integer>> map = setPlayerStatsMap().entrySet();
-        for (Map.Entry<String, Integer> entry : map) {
-            stringPlayerStats.append(entry.getKey())
-                    .append(": ")
-                    .append(+entry.getValue())
-                    .append("\n");
-        }
-        return stringPlayerStats.toString();
+        playerStats.add(this.agility);
+        playerStats.add(this.attack);
+        playerStats.add(this.defense);
+        playerStats.add(this.health);
+        playerStats.add(this.stamina);
+        playerStats.add(this.strength);
+
+        return playerStats;
     }
 }

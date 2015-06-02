@@ -180,6 +180,14 @@ public enum CommandMessages {
         commandMessages.put(2211, new Message("My name is of no concern to you.", ""));
         commandMessages.put(2212, new Message("My name is Hestia", ""));
 
+        // Status
+        commandMessages.put(2500, new Message("Agility: ", ""));
+        commandMessages.put(2501, new Message("Attack: ", ""));
+        commandMessages.put(2502, new Message("Defense: ", ""));
+        commandMessages.put(2503, new Message("Health: ", ""));
+        commandMessages.put(2504, new Message("Stamina: ", ""));
+        commandMessages.put(2505, new Message("Strength: ", ""));
+        commandMessages.put(2506, new Message("Name: ", ""));
 
         // Quit messages
         commandMessages.put(5000, new Message("Quiting to Main Menu", ""));
