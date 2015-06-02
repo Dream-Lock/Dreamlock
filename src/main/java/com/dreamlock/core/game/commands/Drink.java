@@ -43,17 +43,20 @@ public class Drink implements ICommand{
                 else {
                     outputMessages.add(new OutputMessage(item.getId(), PrintStyle.ONLY_TITLE));
                 }
+                outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
 
                 outputMessages.add(item.doAction(ActionState.DRINK, gameContext));
                 return outputMessages;
             }
             else {
                 outputMessages.add(new OutputMessage(2001, PrintStyle.ONLY_TITLE));
+                outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
                 return outputMessages;
             }
         }
 
         outputMessages.add(new OutputMessage(1042, PrintStyle.ONLY_TITLE));
+        outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
         return outputMessages;
     }
 }

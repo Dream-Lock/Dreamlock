@@ -60,6 +60,7 @@ public class PickUp implements ICommand {
         }
 
         outputMessages.add(new OutputMessage(1062, PrintStyle.ONLY_TITLE));
+        outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
         return outputMessages;
     }
 }

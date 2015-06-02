@@ -29,7 +29,7 @@ public class Use implements ICommand{
             int itemCount = gameContext.getPlayer().getInventory().getItemCount(words.get(2));
             if (duplicates == 1 || itemCount>1){
                 Item item = gameContext.getPlayer().getInventory().getSpecificItem(words.get(2));
-                output.add(new OutputMessage(item.getId()));
+                output.add(new OutputMessage(item.getId(), PrintStyle.ONLY_EFFECT));
                 output.add(item.doAction(ActionState.USE, gameContext));
                 return output;
             }
