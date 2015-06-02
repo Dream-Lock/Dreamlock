@@ -43,7 +43,7 @@ public class Equip implements ICommand {
         }
 
         outputMessages.add(new OutputMessage(1042, PrintStyle.ONLY_TITLE));
-        return null;
+        return outputMessages;
     }
 }
 

@@ -43,6 +43,7 @@ public enum CommandMessages {
         commandMessages.put(1040, new Message(" dropped successfully!", ""));
         commandMessages.put(1041, new Message(" can't be dropped!", ""));
         commandMessages.put(1042, new Message("There is no such item in your inventory", ""));
+        commandMessages.put(1043, new Message("You do not wear such an item. ", ""));
 
         // Pick up messages
         commandMessages.put(1060, new Message(" -> Added to inventory!", ""));

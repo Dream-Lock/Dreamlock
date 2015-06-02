@@ -82,8 +82,8 @@ public class Unequip implements ICommand {
             return outputMessages;
         }
 
-        outputMessages.add(new OutputMessage(1042, PrintStyle.ONLY_TITLE));
+        outputMessages.add(new OutputMessage(1043, PrintStyle.ONLY_TITLE));
         outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
-        return null;
+        return outputMessages;
     }
 }
