@@ -100,7 +100,7 @@ public class GameUtils {
         }
     }
 
-    public void GameLogo () {
+    public void GameLogo(String logo) {
 
         int width = 120;
         int height = 10;
@@ -113,7 +113,7 @@ public class GameUtils {
         graphics.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
                 RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 
-        graphics.drawString("Dreamlock", 2, 10);
+        graphics.drawString(logo, 2, 10);
 
         for (int y = 0; y < height; y++) {
             StringBuilder sb = new StringBuilder();

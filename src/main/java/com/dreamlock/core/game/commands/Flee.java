@@ -3,6 +3,7 @@ package com.dreamlock.core.game.commands;
 import com.dreamlock.core.game.IGameContext;
 import com.dreamlock.core.game.models.OutputMessage;
 import com.dreamlock.core.game.models.Word;
+import com.dreamlock.core.message_system.constants.PrintStyle;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,13 +22,12 @@ public class Flee implements ICommand {
             int randomNumber = rand.nextInt(10);
 
             if (randomNumber > 3) {
-
                 gameContext.getTurnBattle().fledFromBattle();
-                outputMessages.add(new OutputMessage(1701));
+                outputMessages.add(new OutputMessage(1701, PrintStyle.ONLY_TITLE));
             }
             else {
-                outputMessages.add(new OutputMessage(1702));
-                if(gameContext.getTurnBattle().activeBattle()) {
+                outputMessages.add(new OutputMessage(1702, PrintStyle.ONLY_TITLE));
+                if (gameContext.getTurnBattle().activeBattle()) {
 
                     List<OutputMessage> templist = gameContext.getTurnBattle().nextTurn(gameContext);
                     while (gameContext.getTurnBattle().activeBattle() && templist != null) {
@@ -38,8 +38,9 @@ public class Flee implements ICommand {
             }
         }
         else {
-            outputMessages.add(new OutputMessage(1703));
+            outputMessages.add(new OutputMessage(1703, PrintStyle.ONLY_TITLE));
         }
+        outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
 
         return outputMessages;
     }

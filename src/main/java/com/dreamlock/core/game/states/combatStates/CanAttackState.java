@@ -19,13 +19,13 @@ public class CanAttackState implements ICombatState, Serializable {
 
     @Override
     public OutputMessage doAction(IGameContext context, Combatant current, Combatant enemy) {
-        
         damageDone =  current.getAttack() - enemy.getDefense();
-        if (damageDone <= 0)
+        if (damageDone <= 0) {
             damageDone = 1;
+        }
 
         enemy.setHealth(enemy.getHealth() - damageDone);
-        return new OutputMessage(damageDone, PrintStyle.ONLY_TITLE_IN_SAME_LINE);
+        return new OutputMessage(damageDone, PrintStyle.DAMAGE);
     }
 
 }

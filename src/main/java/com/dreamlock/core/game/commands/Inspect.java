@@ -6,6 +6,7 @@ import com.dreamlock.core.game.constants.ItemType;
 import com.dreamlock.core.game.constants.Stats;
 import com.dreamlock.core.game.models.OutputMessage;
 import com.dreamlock.core.game.models.Word;
+import com.dreamlock.core.message_system.constants.PrintStyle;
 import com.dreamlock.core.story_parser.items.Item;
 
 import java.util.ArrayList;
@@ -47,25 +48,32 @@ public class Inspect implements ICommand {
         if (foundItems != null) {
             if (foundItems.size() ==1 ) {
                 if (foundItems.get(0).getType().equals(ItemType.ARMOR)) {
-                    outputMessages.add(new OutputMessage(foundItems.get(0).getId()));
-                    outputMessages.add(new OutputMessage(1131));
-                    outputMessages.add(new OutputMessage(Integer.parseInt(foundItems.get(0).getStats().get(Stats.DEFENSE).toString())));
+                    outputMessages.add(new OutputMessage(foundItems.get(0).getId(), PrintStyle.ONLY_TITLE_IN_SAME_LINE));
+                    outputMessages.add(new OutputMessage(1131, PrintStyle.ONLY_TITLE_IN_SAME_LINE));
+                    outputMessages.add(new OutputMessage(Integer.parseInt(foundItems.get(0).getStats().get(Stats.DEFENSE).toString()), PrintStyle.ONLY_TITLE_IN_SAME_LINE));
                     outputMessages.add(new OutputMessage(1308));
                 }
                 else if (foundItems.get(0).getType().equals(ItemType.WEAPON)) {
                     outputMessages.add(new OutputMessage(foundItems.get(0).getId()));
                     outputMessages.add(new OutputMessage(1130));
                     outputMessages.add(new OutputMessage(Integer.parseInt(foundItems.get(0).getStats().get(Stats.ATTACK).toString())));
-                    outputMessages.add(new OutputMessage(1308));
+                    outputMessages.add(new OutputMessage(1308, PrintStyle.ONLY_TITLE));
+                    outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
+                }
+                else {
+                    outputMessages.add(new OutputMessage(1133, PrintStyle.ONLY_TITLE));
+                    outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
                 }
                 return outputMessages;
             }
             else if (foundItems.size() > 1) {
-                outputMessages.add(new OutputMessage(2001));
+                outputMessages.add(new OutputMessage(2001, PrintStyle.ONLY_TITLE));
+                outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
                 return outputMessages;
             }
         }
-        outputMessages.add(new OutputMessage(1020));           // I can't find anything with that name!
+        outputMessages.add(new OutputMessage(1020, PrintStyle.ONLY_TITLE));           // I can't find anything with that name!
+        outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
         return outputMessages;
     }
 

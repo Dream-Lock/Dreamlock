@@ -79,5 +79,7 @@ public class StartNewGameChoice implements IMenuChoice {
                 e.printStackTrace();
             }
         }
+
+        gameUtils.GameLogo("Game Over :(");
     }
 }

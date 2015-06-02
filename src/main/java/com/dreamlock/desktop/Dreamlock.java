@@ -12,6 +12,7 @@ import java.io.InputStreamReader;
 public class Dreamlock {
     public static void main (String[] args) {
         BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
+        GameUtils gameUtils = new GameUtils();
 
         String input = "";
         Boolean MainGameRunning = true;
@@ -47,7 +48,7 @@ public class Dreamlock {
 
     public static void createMainMenu () {
         GameUtils gameUtils = new GameUtils();
-        gameUtils.GameLogo();
+        gameUtils.GameLogo("Dreamlock");
         System.out.println("1. New Game");
         System.out.println("2. Load Game");
         System.out.println("3. Exit\n");

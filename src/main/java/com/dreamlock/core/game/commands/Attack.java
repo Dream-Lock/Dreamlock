@@ -6,6 +6,7 @@ import com.dreamlock.core.game.constants.ActionState;
 import com.dreamlock.core.game.models.Enemy;
 import com.dreamlock.core.game.models.OutputMessage;
 import com.dreamlock.core.game.models.Word;
+import com.dreamlock.core.message_system.constants.PrintStyle;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,17 +38,17 @@ public class Attack implements ICommand {
 
         if (enemiesFound == 1) {
             if (foundEnemy.getHealth() > 0) {
-                outputMessages.add(new OutputMessage(foundEnemy.getId()));
-                outputMessages.add(new OutputMessage(1301));
+                outputMessages.add(new OutputMessage(foundEnemy.getId(), PrintStyle.ONLY_TITLE_IN_SAME_LINE));
+                outputMessages.add(new OutputMessage(1301, PrintStyle.ONLY_TITLE_IN_SAME_LINE));
                 outputMessages.add(foundEnemy.getStates().get(ActionState.ATTACK).doAction(gameContext, gameContext.getPlayer(), foundEnemy));
-                outputMessages.add(new OutputMessage(1309));
+                outputMessages.add(new OutputMessage(1309, PrintStyle.ONLY_TITLE));
                 if (!foundEnemy.isAlive()) {
-                    outputMessages.add(new OutputMessage(foundEnemy.getId()));
-                    outputMessages.add(new OutputMessage(1307));
+                    outputMessages.add(new OutputMessage(foundEnemy.getId(), PrintStyle.ONLY_TITLE_IN_SAME_LINE));
+                    outputMessages.add(new OutputMessage(1307, PrintStyle.ONLY_TITLE));
                 }
 
             }else if (foundEnemy.getHealth() <= 0) {
-                outputMessages.add(new OutputMessage(1306));
+                outputMessages.add(new OutputMessage(1306, PrintStyle.ONLY_TITLE));
             }
             if(gameContext.getTurnBattle().activeBattle()) {
 
@@ -58,13 +59,14 @@ public class Attack implements ICommand {
                 }
 
                 if (!gameContext.getTurnBattle().activeBattle()) {
-                    outputMessages.add(new OutputMessage(1310));
+                    outputMessages.add(new OutputMessage(1310, PrintStyle.ONLY_TITLE));
+                    outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
                 }
             }
             return outputMessages;
         }
 
-        outputMessages.add(new OutputMessage(1305));
+        outputMessages.add(new OutputMessage(1305, PrintStyle.ONLY_TITLE));
         return outputMessages;
     }
 }

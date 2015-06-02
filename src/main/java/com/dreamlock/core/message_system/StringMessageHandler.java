@@ -67,6 +67,8 @@ public class StringMessageHandler implements Serializable, IMessageHandler {
                     case BREAK:
                         System.out.println("");
                         break;
+                    case DAMAGE:
+                        System.out.print(outputMessage.getId());
                     case EMPTY:
                         break;
                     case ARROW:

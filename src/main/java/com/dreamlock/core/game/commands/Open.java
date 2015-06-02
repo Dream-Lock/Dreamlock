@@ -43,7 +43,7 @@ public class Open implements ICommand{
                         outputMessages.addAll(openItem(gameContext, objectName));
                         return outputMessages;
                     }
-                    outputMessages.add(new OutputMessage(1125, PrintStyle.ONLY_TITLE));
+                    outputMessages.add(new OutputMessage(1155, PrintStyle.ONLY_TITLE));
                     outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
                     return outputMessages;
                 }
@@ -65,7 +65,7 @@ public class Open implements ICommand{
                     }
                     else {
 
-                        outputMessages.add(new OutputMessage(1125, PrintStyle.ONLY_TITLE)); //item doesn't exist in inv.
+                        outputMessages.add(new OutputMessage(1155, PrintStyle.ONLY_TITLE)); //item doesn't exist in inv.
                         outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
                         return outputMessages;
                     }
@@ -120,7 +120,7 @@ public class Open implements ICommand{
         if (tempItem.getType().equals(ItemType.CONTAINER)) {
             Container containerItem = (Container) tempItem;
             if (!(boolean) containerItem.getStats().get(Stats.LOCKED)){
-                outputMessages.add(new OutputMessage(1124, PrintStyle.ONLY_TITLE));
+                outputMessages.add(new OutputMessage(1154, PrintStyle.ONLY_TITLE));
 
                 for (Item item : containerItem.getItems()) {
                     outputMessages.add(new OutputMessage(item.getId(), PrintStyle.ONLY_TITLE));
@@ -138,19 +138,19 @@ public class Open implements ICommand{
 
         if (!door.isLocked()) {
             outputMessages.add(new OutputMessage(door.getId(), PrintStyle.ONLY_TITLE_IN_SAME_LINE));
-            outputMessages.add(new OutputMessage(1123, PrintStyle.ONLY_TITLE)); // door is already opened
+            outputMessages.add(new OutputMessage(1153, PrintStyle.ONLY_TITLE)); // door is already opened
             outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
             return outputMessages;
         }
         else if (gameContext.getPlayer().hasKey(door.getRequiredKey())) {
             door.unlock();
             outputMessages.add(new OutputMessage(door.getId(), PrintStyle.ONLY_TITLE_IN_SAME_LINE));
-            outputMessages.add(new OutputMessage(1120, PrintStyle.ONLY_TITLE)); //successful unlock\
+            outputMessages.add(new OutputMessage(1150, PrintStyle.ONLY_TITLE)); //successful unlock\
             outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
             return outputMessages;
         }
 
-        outputMessages.add(new OutputMessage(1126, PrintStyle.ONLY_TITLE)); //wrong key
+        outputMessages.add(new OutputMessage(1156, PrintStyle.ONLY_TITLE)); //wrong key
         outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
         return outputMessages;
     }
@@ -161,11 +161,11 @@ public class Open implements ICommand{
 
         if (!door.isLocked()) {
             outputMessages.add(new OutputMessage(door.getId(), PrintStyle.ONLY_TITLE));
-            outputMessages.add(new OutputMessage(1123, PrintStyle.ONLY_TITLE)); // door is already opened
+            outputMessages.add(new OutputMessage(1153, PrintStyle.ONLY_TITLE)); // door is already opened
             return outputMessages;
         }
         outputMessages.add(new OutputMessage(door.getId(), PrintStyle.ONLY_TITLE));
-        outputMessages.add(new OutputMessage(1122, PrintStyle.ONLY_TITLE)); //successful unlock
+        outputMessages.add(new OutputMessage(1152, PrintStyle.ONLY_TITLE)); //successful unlock
         return outputMessages;
     }
 }

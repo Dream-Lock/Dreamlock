@@ -4,6 +4,7 @@ import com.dreamlock.core.game.GameContext;
 import com.dreamlock.core.game.IGameContext;
 import com.dreamlock.core.game.models.OutputMessage;
 import com.dreamlock.core.game.models.Word;
+import com.dreamlock.core.message_system.constants.PrintStyle;
 
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
@@ -25,9 +26,11 @@ public class Reload implements ICommand {
             gameContext.setHistory(LoadedGameContext.getHistory());
 
             inputStream.close();
-            outputMessages.add(new OutputMessage(1210));
+            outputMessages.add(new OutputMessage(1210, PrintStyle.ONLY_TITLE));
+            outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
         } catch(Exception ex) {
-            outputMessages.add(new OutputMessage(1211));
+            outputMessages.add(new OutputMessage(1211, PrintStyle.ONLY_TITLE));
+            outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
         }
         return outputMessages;
     }
