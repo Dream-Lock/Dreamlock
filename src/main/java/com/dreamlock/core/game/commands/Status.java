@@ -21,14 +21,14 @@ public class Status implements ICommand{
         output.add(new OutputMessage(9999, PrintStyle.ONLY_TITLE));
         output.add(new OutputMessage(0, PrintStyle.BREAK));
 
-
         int i=0;
         for (Integer integer : playerStats) {
             output.add(new OutputMessage(2500+i, PrintStyle.ONLY_TITLE_IN_SAME_LINE));
-            output.add(new OutputMessage(integer, PrintStyle.DAMAGE));
+            output.add(new OutputMessage(integer, PrintStyle.NUMBER));
             output.add(new OutputMessage(0, PrintStyle.BREAK));
             i++;
         }
+        output.add(new OutputMessage(0, PrintStyle.BREAK));
 
         return output;
     }

@@ -25,7 +25,7 @@ public class CanAttackState implements ICombatState, Serializable {
         }
 
         enemy.setHealth(enemy.getHealth() - damageDone);
-        return new OutputMessage(damageDone, PrintStyle.DAMAGE);
+        return new OutputMessage(damageDone, PrintStyle.NUMBER);
     }
 
 }

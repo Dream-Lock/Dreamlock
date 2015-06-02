@@ -43,7 +43,7 @@ public enum UserQuestions {
         // 15
         questions.add("whats your name");
         // 16
-        questions.add("hi, how are you");
+        questions.add("hi how are you");
     }
 
     private final List<String> questions;

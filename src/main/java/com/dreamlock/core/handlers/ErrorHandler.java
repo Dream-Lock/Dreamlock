@@ -45,6 +45,7 @@ public class ErrorHandler implements IHandler {
                 default:
                     messageIds.add(new OutputMessage(2103, PrintStyle.ONLY_TITLE));
             }
+            messageIds.add(new OutputMessage(0, PrintStyle.BREAK));
             return messageIds;
         }
 

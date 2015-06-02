@@ -32,7 +32,7 @@ public class TurnBattle implements Serializable{
             characters.get(0).getStates().get(ActionState.ATTACK).doAction(gameContext, characters.get(currentChar), characters.get(0));
             outputMessages.add(new OutputMessage(((Enemy) (characters.get(currentChar))).getId(), PrintStyle.ONLY_TITLE_IN_SAME_LINE));
             outputMessages.add(new OutputMessage(1302, PrintStyle.ONLY_TITLE_IN_SAME_LINE));
-            outputMessages.add(new OutputMessage(gameContext.getPlayer().getHealth(), PrintStyle.DAMAGE));
+            outputMessages.add(new OutputMessage(gameContext.getPlayer().getHealth(), PrintStyle.NUMBER));
             outputMessages.add(new OutputMessage(1308, PrintStyle.ONLY_TITLE));
             outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
 
