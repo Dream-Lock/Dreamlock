@@ -10,6 +10,7 @@ import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class Parser {
     public JsonObject parse(List<Lexeme> lexemes) {
@@ -63,18 +64,22 @@ public class Parser {
                 }
             }
 
-            wholeCommand = wholeCommand.substring(0 , wholeCommand.length()-1);
-            wholeCommand = wholeCommand.replace("?" , "");
-            Character lastCharacter = wholeCommand.charAt(wholeCommand.length()-1);
-            if (lastCharacter.toString().equals(" ")) {
+            if (wholeCommand.length() > 0) {
                 wholeCommand = wholeCommand.substring(0 , wholeCommand.length()-1);
+            }
+            wholeCommand = wholeCommand.replaceAll("[.,;?:'\"!]" , "");
+            Integer length = wholeCommand.length();
+            for (int i = 0; i < length; i++) {
+                Character lastCharacter = wholeCommand.charAt(wholeCommand.length() - 1);
+                if (lastCharacter.toString().equals(" ")) {
+                    wholeCommand = wholeCommand.substring(0, wholeCommand.length() - 1);
+                }
             }
             for (String question : UserQuestions.INSTANCE.getQuestions()) {
                 if (wholeCommand.contains(question)) {
                     hasQuestion = true;
                 }
             }
-
 
             if (hasForbidden) {
                 output.addProperty("forbidden", true);
@@ -88,6 +93,12 @@ public class Parser {
             else {
                 output.addProperty("forbidden", false);
                 output.addProperty("has_question", false);
+                output.addProperty("empty", false);
+                if (lexemes.size() == 0) {
+                    output.addProperty("empty", true);
+                    output.addProperty("correctWords", 0);
+                    return output;
+                }
 
                 for (int i = 0; i < lexemes.size(); i++) {
                     ruleStringBuilder.append(lexemes.get(i).getTokenType().toString().charAt(0));

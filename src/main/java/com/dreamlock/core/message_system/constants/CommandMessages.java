@@ -137,8 +137,8 @@ public enum CommandMessages {
         commandMessages.put(1801, new Message("I also can see some items:", ""));
         commandMessages.put(1802, new Message("It seems there is an enemy:", ""));
         commandMessages.put(1803, new Message("It seems there are some enemies:", ""));
-        commandMessages.put(1804, new Message("There is a door: ", ""));
-        commandMessages.put(1805, new Message("I can see doors:", ""));
+        commandMessages.put(1804, new Message(" There is a door: ", ""));
+        commandMessages.put(1805, new Message(" I can see doors:", ""));
 
         // Use message
         commandMessages.put(1900, new Message(" is not an item that can be used!", ""));
@@ -150,7 +150,43 @@ public enum CommandMessages {
         commandMessages.put(2004, new Message(" is unlocked!", ""));
         commandMessages.put(2005, new Message("History is empty.", ""));
 
-        // Error messages
+        // Symbols
+        commandMessages.put(2067, new Message("", ""));
+        commandMessages.put(2068, new Message(" ", " "));
+        commandMessages.put(2069, new Message("<", ""));
+        commandMessages.put(2070, new Message(">", ""));
+        commandMessages.put(2071, new Message("!", ""));
+        commandMessages.put(2072, new Message("@", ""));
+        commandMessages.put(2073, new Message("#", ""));
+        commandMessages.put(2074, new Message("$", ""));
+        commandMessages.put(2075, new Message("%", ""));
+        commandMessages.put(2076, new Message("^", ""));
+        commandMessages.put(2077, new Message("&", ""));
+        commandMessages.put(2078, new Message("*", ""));
+        commandMessages.put(2079, new Message("(", ""));
+        commandMessages.put(2080, new Message(")", ""));
+        commandMessages.put(2081, new Message("[", ""));
+        commandMessages.put(2082, new Message("]", ""));
+        commandMessages.put(2083, new Message("{", ""));
+        commandMessages.put(2084, new Message("}", ""));
+        commandMessages.put(2085, new Message("|", ""));
+        commandMessages.put(2086, new Message("_", ""));
+        commandMessages.put(2087, new Message("-", ""));
+        commandMessages.put(2088, new Message("+", ""));
+        commandMessages.put(2089, new Message("*", ""));
+        commandMessages.put(2090, new Message("/", ""));
+        commandMessages.put(2091, new Message("=", ""));
+        commandMessages.put(2092, new Message(":", ""));
+        commandMessages.put(2093, new Message(";", ""));
+        commandMessages.put(2094, new Message("?", ""));
+        commandMessages.put(2095, new Message(".", ""));
+        commandMessages.put(2096, new Message(",", ""));
+        commandMessages.put(2097, new Message("\"", ""));
+        commandMessages.put(2098, new Message("'", ""));
+        commandMessages.put(2099, new Message("~", ""));
+
+
+        // Error handler messages
         commandMessages.put(2101, new Message("I don't think I can do that", ""));
         commandMessages.put(2102, new Message("Unexpected state error", ""));
         commandMessages.put(2103, new Message("Shut your dirty mouth!", ""));
@@ -165,6 +201,9 @@ public enum CommandMessages {
 
         commandMessages.put(2202, new Message("Just dandy, thanks.", ""));
         commandMessages.put(2203, new Message("I'm fine, thank you.", ""));
+        commandMessages.put(2213, new Message("Very well, thanks.", ""));
+        commandMessages.put(2214, new Message("I've been better.", ""));
+        commandMessages.put(2215, new Message("I'm hanging in there.", ""));
 
         commandMessages.put(2204, new Message("That's none of your business!", ""));
         commandMessages.put(2205, new Message("She's pretty good I guess.", ""));
@@ -173,13 +212,17 @@ public enum CommandMessages {
 
         commandMessages.put(2207, new Message("It was a task from Master Petal in order to save humanity", ""));
 
-        commandMessages.put(2208, new Message("I do not understand your question", ""));
-        commandMessages.put(2209, new Message("I beg your pardon", ""));
-
         commandMessages.put(2210, new Message("You should never ask a lady's age!", ""));
+        commandMessages.put(2216, new Message("I will say that I am old enough to be your mamma!", ""));
+        commandMessages.put(2217, new Message("Age is just a number and mine is unlisted.", ""));
+        commandMessages.put(2218, new Message("Age doesn't matter unless you are cheese or wine.", ""));
 
         commandMessages.put(2211, new Message("My name is of no concern to you.", ""));
+        commandMessages.put(2219, new Message("That's for me to know and for you to wonder about.", ""));
         commandMessages.put(2212, new Message("My name is Hestia", ""));
+
+        commandMessages.put(2298, new Message("I do not understand your question", ""));
+        commandMessages.put(2299, new Message("I beg your pardon", ""));
 
         // Status
         commandMessages.put(2500, new Message("Agility: ", ""));

@@ -2,6 +2,7 @@
   {
     "id":1,
     "path":"/rooms/lobby.json",
+    "description":"",
     "items":[
       {
         "path": "/items/consumables/health_potion.json"
@@ -30,6 +31,7 @@
   {
     "id":2,
     "path":"/rooms/banquethall.json",
+    "description":"",
     "items":[
       {
         "path":"/items/keys/key.json"
@@ -52,6 +54,7 @@
   {
     "id":3,
     "path":"/rooms/kitchen.json",
+    "description":"",
     "items":[
 
     ],
@@ -72,6 +75,7 @@
   {
     "id":4,
     "path":"/rooms/storeroom.json",
+    "description":"",
     "items":[
       {
         "path":"/items/containers/bronze_chest.json"
@@ -100,6 +104,7 @@
   {
     "id":5,
     "path":"/rooms/upper_floor.json",
+    "description":"",
     "items":[
 
     ],
@@ -117,6 +122,7 @@
   {
     "id":6,
     "path":"/rooms/bath.json",
+    "description":"",
     "items":[
 
     ],
@@ -134,6 +140,7 @@
   {
     "id":7,
     "path":"/rooms/study.json",
+    "description":"",
     "items":[
       {
         "path": "/items/miscellaneous/desk.json"
@@ -154,6 +161,7 @@
   {
     "id":8,
     "path":"/rooms/hidden_archive.json",
+    "description":"",
     "items":[
 
     ],
@@ -169,27 +177,29 @@
     ]
   },
   {
-  "id":9,
-  "path":"/rooms/third_floor.json",
-  "items":[
+    "id":9,
+    "path":"/rooms/third_floor.json",
+    "description":"",
+    "items":[
 
-  ],
-  "enemies":[
+    ],
+    "enemies":[
 
-  ],
-  "exits":[
-    {
-      "north":10,
-      "east":11
-    }
-  ],
-  "doors":[
+    ],
+    "exits":[
+      {
+        "north":10,
+        "east":11
+      }
+    ],
+    "doors":[
 
-  ]
-},
+    ]
+  },
   {
     "id":10,
     "path":"/rooms/master_bedroom.json",
+    "description":"",
     "items":[
 
     ],
@@ -208,6 +218,7 @@
   {
     "id":11,
     "path":"/rooms/guest_bedroom.json",
+    "description":"",
     "items":[
 
     ],
@@ -225,6 +236,7 @@
   {
     "id":12,
     "path":"/rooms/balcony.json",
+    "description":"",
     "items":[
 
     ],
@@ -242,6 +254,7 @@
   {
     "id":13,
     "path":"/rooms/cellar.json",
+    "description":"",
     "items":[
 
     ],
@@ -263,6 +276,7 @@
   {
     "id":14,
     "path":"/rooms/labyrinth_entrance.json",
+    "description":"",
     "items":[
 
     ],
@@ -281,6 +295,7 @@
   {
     "id":15,
     "path":"/rooms/labyrinth_corridor.json",
+    "description":"",
     "items":[
 
     ],
@@ -300,6 +315,7 @@
   {
     "id":16,
     "path":"/rooms/labyrinth_deadend.json",
+    "description":"",
     "items":[
 
     ],
@@ -318,6 +334,7 @@
   {
     "id":17,
     "path":"/rooms/labyrinth_main_hall.json",
+    "description":"",
     "items":[
 
     ],

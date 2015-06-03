@@ -19,8 +19,9 @@ public class Look implements ICommand  {
         List<OutputMessage> outputMessages = new ArrayList<>();
         Room room = gameContext.getCurrentRoom();
 
-        outputMessages.add(new OutputMessage(room.getId(), PrintStyle.TITLE_DESCRIPTION));
-        outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
+        outputMessages.add(new OutputMessage(room.getId(), PrintStyle.ONLY_TITLE));
+        outputMessages.add(new OutputMessage(room.getId(), PrintStyle.ONLY_DESCRIPTION_IN_SAME_LINE));
+
         // Print doors
         Map<String,Room> exits = gameContext.getCurrentRoom().getExits();
         if (exits.size() == 1) {
@@ -35,7 +36,7 @@ public class Look implements ICommand  {
         int id = 9200;
         for (Map.Entry<String,Room> door : exits.entrySet()) {
             if (!door.getValue().getTitle().equals("wall")) {
-                gameContext.registerMessage("on your " + door.getKey(), id);
+                gameContext.registerMessage("-on your " + door.getKey(), id);
                 outputMessages.add(new OutputMessage(id, PrintStyle.ONLY_TITLE));
                 id++;
             }
@@ -49,7 +50,7 @@ public class Look implements ICommand  {
                 numberOfItems++;
             }
         }
-        outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
+        //outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
         if (numberOfItems == 1) {
             outputMessages.add(new OutputMessage(1800, PrintStyle.ONLY_TITLE));
         }
@@ -59,9 +60,11 @@ public class Look implements ICommand  {
 
         for (Item item : items) {
             if (!item.getType().equals(ItemType.MISC)) {
+                outputMessages.add(new OutputMessage(2087, PrintStyle.ONLY_TITLE_IN_SAME_LINE));
                 outputMessages.add(new OutputMessage(item.getId(), PrintStyle.ONLY_TITLE));
             }
         }
+
         // Print Enemies
         List<Enemy> enemies = gameContext.getCurrentRoom().getEnemies();
         Boolean isAlive = false;
@@ -78,6 +81,7 @@ public class Look implements ICommand  {
         }
         for (Enemy enemy : enemies) {
             if (enemy.isAlive()) {
+                outputMessages.add(new OutputMessage(2087, PrintStyle.ONLY_TITLE_IN_SAME_LINE));
                 outputMessages.add(new OutputMessage(enemy.getId(), PrintStyle.ONLY_TITLE));
             }
         }

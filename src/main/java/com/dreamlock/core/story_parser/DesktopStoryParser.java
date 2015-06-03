@@ -48,7 +48,7 @@ public class DesktopStoryParser implements IStoryParser {
             in.close();
         } catch (IOException e) {
             e.getMessage();
-            System.out.println("Can not read!! " + file);
+            System.err.println("Can not read!! " + file);
         }
         return jsonStr;
     }
@@ -64,7 +64,6 @@ public class DesktopStoryParser implements IStoryParser {
         roomDTOs = gson.fromJson(jsonString, RoomDTO[].class);                      //read all rooms
         rooms.put(0, new Room());
 
-
         for (RoomDTO roomDTO : roomDTOs) {                                          // for every worldDTO
             Room room = new Room();
             String roomPath = roomDTO.getPath();                                    // get the path of room
@@ -72,7 +71,7 @@ public class DesktopStoryParser implements IStoryParser {
             JsonElement roomElement = gson.fromJson(jsonRoom, JsonElement.class);   // store data
             JsonObject jsonRoomObj = roomElement.getAsJsonObject();
 
-            room.setDescription(jsonRoomObj.get("description").getAsString());
+            room.setDescription(jsonRoomObj.get("description").getAsString()); // + roomDTO.getDescription()
             room.setTitle(jsonRoomObj.get("title").getAsString());
             room.setId(jsonRoomObj.get("id").getAsInt());
 
@@ -91,7 +90,7 @@ public class DesktopStoryParser implements IStoryParser {
         parseExits();
 
         if (checkDuplicateRooms()) {
-            System.out.println("\nThere are two or more rooms that have an exit to the same room on the same direction!");
+            System.err.println("There are two or more rooms that have an exit to the same room on the same direction!");
             System.exit(0);
         }
     }
