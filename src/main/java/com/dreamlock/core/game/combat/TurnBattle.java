@@ -28,7 +28,7 @@ public class TurnBattle implements Serializable{
     public List<OutputMessage> executeTurn(IGameContext gameContext){
         List<OutputMessage> outputMessages = new ArrayList<>();
 
-        if(currentChar != 0){
+        if(currentChar != 0) {
             characters.get(0).getStates().get(ActionState.ATTACK).doAction(gameContext, characters.get(currentChar), characters.get(0));
             outputMessages.add(new OutputMessage(((Enemy) (characters.get(currentChar))).getId(), PrintStyle.ONLY_TITLE_IN_SAME_LINE));
             outputMessages.add(new OutputMessage(1302, PrintStyle.ONLY_TITLE_IN_SAME_LINE));
@@ -46,7 +46,7 @@ public class TurnBattle implements Serializable{
         return outputMessages;
     }
 
-    public List<OutputMessage> nextTurn(IGameContext gameContext){
+    public List<OutputMessage> nextTurn(IGameContext gameContext) {
         if(enemiesAlive() && currentChar != characters.size()-1) {
             currentChar++;
             while(!characters.get(currentChar).isAlive() && currentChar !=characters.size()-1) {
@@ -71,8 +71,9 @@ public class TurnBattle implements Serializable{
     public boolean enemiesAlive(){
         int deadCounter = 0;
         for(int i = 1; i<characters.size(); i++){
-            if (!characters.get(i).isAlive())
+            if (!characters.get(i).isAlive()) {
                 deadCounter++;
+            }
         }
 
         if (deadCounter == characters.size()-1){

@@ -26,8 +26,9 @@ public class Attack implements ICommand {
         Word word = words.get(2);
         List<Enemy> enemies = gameContext.getCurrentRoom().getEnemies();
 
-        if(enemies.size() > 0 && gameContext.getTurnBattle().enemiesAlive())
+        if(enemies.size() > 0 && gameContext.getTurnBattle().enemiesAlive()) {
             gameContext.getTurnBattle().letTheBattleBegin(); // activate turn system
+        }
 
         for (Enemy enemy : enemies) {
             if (enemy.getName().toLowerCase().contains(word.getDescription())) {

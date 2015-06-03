@@ -94,7 +94,7 @@ public abstract class Combatant implements Serializable{
         this.maxHealth = maxHealth;
     }
 
-    public void calculateStats(){
+    public void calculateStats() {
         //initialize stats
         this.setHealth(10);
         this.setAttack(1);
@@ -105,21 +105,21 @@ public abstract class Combatant implements Serializable{
 
         int stamina_mod = 0, agility_mod = 0,strength_mod = 0,attack_mod = 0,defense_mod = 0;
 
-        if(head!=null){
+        if(head!=null) {
             stamina_mod+=  Integer.parseInt(head.getValue().getStats().get(Stats.STAMINA).toString());
             strength_mod+= Integer.parseInt(head.getValue().getStats().get(Stats.STRENGTH).toString());
             agility_mod+= Integer.parseInt(head.getValue().getStats().get(Stats.AGILITY).toString());
             defense_mod+= Integer.parseInt(head.getValue().getStats().get(Stats.DEFENSE).toString());
         }
 
-        if(chest!=null){
+        if(chest!=null) {
             stamina_mod+=  Integer.parseInt(chest.getValue().getStats().get(Stats.STAMINA).toString());
             strength_mod+= Integer.parseInt(chest.getValue().getStats().get(Stats.STRENGTH).toString());
             agility_mod+= Integer.parseInt(chest.getValue().getStats().get(Stats.AGILITY).toString());
             defense_mod+= Integer.parseInt(chest.getValue().getStats().get(Stats.DEFENSE).toString());
         }
 
-        if(hands!=null){
+        if(hands!=null) {
             stamina_mod+=  Integer.parseInt(hands.getValue().getStats().get(Stats.STAMINA).toString());
             strength_mod+= Integer.parseInt(hands.getValue().getStats().get(Stats.STRENGTH).toString());
             agility_mod+= Integer.parseInt(hands.getValue().getStats().get(Stats.AGILITY).toString());
@@ -133,20 +133,20 @@ public abstract class Combatant implements Serializable{
             defense_mod+= Integer.parseInt(legs.getValue().getStats().get(Stats.DEFENSE).toString());
         }
 
-        if(feet!=null){
+        if(feet!=null) {
             stamina_mod+=  Integer.parseInt(feet.getValue().getStats().get(Stats.STAMINA).toString());
             strength_mod+= Integer.parseInt(feet.getValue().getStats().get(Stats.STRENGTH).toString());
             agility_mod+= Integer.parseInt(feet.getValue().getStats().get(Stats.AGILITY).toString());
             defense_mod+= Integer.parseInt(feet.getValue().getStats().get(Stats.DEFENSE).toString());
         }
 
-        if(main_hand!=null){
+        if(main_hand!=null) {
             stamina_mod+=  Integer.parseInt(main_hand.getValue().getStats().get(Stats.STAMINA).toString());
             strength_mod+= Integer.parseInt(main_hand.getValue().getStats().get(Stats.STRENGTH).toString());
             agility_mod+= Integer.parseInt(main_hand.getValue().getStats().get(Stats.AGILITY).toString());
             attack_mod+= Integer.parseInt(main_hand.getValue().getStats().get(Stats.ATTACK).toString());
         }
-        if(off_hand!=null){
+        if(off_hand!=null) {
             stamina_mod+=  Integer.parseInt(off_hand.getValue().getStats().get(Stats.STAMINA).toString());
             strength_mod+= Integer.parseInt(off_hand.getValue().getStats().get(Stats.STRENGTH).toString());
             agility_mod+= Integer.parseInt(off_hand.getValue().getStats().get(Stats.AGILITY).toString());
@@ -154,16 +154,17 @@ public abstract class Combatant implements Serializable{
         }
 
         this.setStamina(stamina + stamina_mod);
-        if (this.getStamina() < 0)
+        if (this.getStamina() < 0) {
             this.setStamina(0);
-
+        }
         this.setStrength(strength + strength_mod);
-        if (this.getStrength() < 0)
+        if (this.getStrength() < 0) {
             this.setStrength(0);
-
+        }
         this.setAgility(agility + agility_mod);
-        if (this.getAgility() < 0)
+        if (this.getAgility() < 0) {
             this.setAgility(0);
+        }
 
         this.setHealth(health + getStamina());
         this.setMaxHealth(this.health);
@@ -179,12 +180,12 @@ public abstract class Combatant implements Serializable{
     public List<Integer> getPlayerStats (){
         List<Integer> playerStats = new ArrayList<>();
 
-        playerStats.add(this.agility);
+        playerStats.add(this.health);
         playerStats.add(this.attack);
         playerStats.add(this.defense);
-        playerStats.add(this.health);
         playerStats.add(this.stamina);
         playerStats.add(this.strength);
+        playerStats.add(this.agility);
 
         return playerStats;
     }
