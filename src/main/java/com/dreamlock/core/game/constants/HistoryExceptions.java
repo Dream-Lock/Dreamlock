@@ -4,6 +4,8 @@ public enum HistoryExceptions {
 
     attack,
     go,
-    flee
+    flee,
+    stats,
+    status
 
 }
