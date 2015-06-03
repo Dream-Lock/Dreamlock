@@ -1,6 +1,7 @@
 package com.dreamlock.core.game.commands;
 
 import com.dreamlock.core.game.IGameContext;
+import com.dreamlock.core.game.constants.DoorAvailability;
 import com.dreamlock.core.game.constants.ItemAvailability;
 import com.dreamlock.core.game.constants.ItemType;
 import com.dreamlock.core.game.constants.Stats;
@@ -59,6 +60,28 @@ public class CommandUtils {
         return ItemAvailability.NON_EXISTENT;
     }
 
+    public DoorAvailability checkDoorAvailability (Word word, List<Door> doors) {
+        boolean exists = false;
+        int duplicates = 0;
+
+        for (Door door  : doors) {
+            if (door.getName().toLowerCase().contains(word.getDescription()) ||
+                    door.getDescription().toLowerCase().contains(word.getDescription())) {
+                exists = true;
+                duplicates++;
+            }
+        }
+        if (exists){
+            if (duplicates>1){
+                return DoorAvailability.DUPLICATE;
+            }
+            else {
+                return DoorAvailability.UNIQUE;
+            }
+        }
+        return DoorAvailability.NON_EXISTENT;
+    }
+
     //FOR PLAYER ITEMS
     public Item getInventoryItem(Word word) {
         for (Item item : inventoryItems) {
@@ -80,18 +103,7 @@ public class CommandUtils {
     }
 
     //FOR ROOM DOORS
-    public List<Door> getRoomDoors(Word word) {
-        List<Door> foundDoors = new ArrayList<>();
-
-        for (Door door : roomDoors) {
-            if (door.getName().toLowerCase().contains(word.getDescription())) {
-                foundDoors.add(door);
-            }
-        }
-        return foundDoors;
-    }
-
-    public Door getDoorFromRoom (Word word) {
+    public Door getRoomDoor (Word word) {
         for (Door door: roomDoors) {
             if (door.getName().toLowerCase().contains(word.getDescription()) ||
                     door.getDescription().toLowerCase().contains(word.getDescription())) {
@@ -99,38 +111,5 @@ public class CommandUtils {
             }
         }
         return null;
-    }
-
-    public boolean roomHasDoor(Word word) {
-        for (Door door : roomDoors) {
-            if (door.getName().toLowerCase().contains(word.getDescription()) ||
-                    door.getDescription().toLowerCase().contains(word.getDescription())) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    //Method For Duplicates
-
-    public int checkItemDuplicates (Word word, List<Item> items) {
-        int count = 0;
-        for (Item item : items) {
-            if (item.getName().toLowerCase().contains(word.getDescription())) {
-                count++;
-            }
-        }
-        return count;
-    }
-
-    public int checkDoorDuplicates (Word word, List<Door> doors) {
-        int count = 0;
-        for (Door door : doors) {
-            if (door.getName().toLowerCase().contains(word.getDescription()) ||
-                    door.getDescription().toLowerCase().contains(word.getDescription())) {
-                count++;
-            }
-        }
-        return count;
     }
 }
