@@ -21,7 +21,7 @@ public class Miscellaneous extends Item {
 
         states = new HashMap<>();
         // Item states
-        states.put(ActionState.PICK_UP, new CanPickUp());
+        states.put(ActionState.PICK_UP, new CanNotPickUp());
         states.put(ActionState.DROP, new CanDrop());
         states.put(ActionState.EQUIP, new CanNotEquip());
         states.put(ActionState.USE, new CanNotUse());

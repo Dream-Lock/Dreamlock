@@ -29,19 +29,19 @@ public class Inspect implements ICommand {
 
         Item item = gameContext.getPlayer().getSlot(EquipmentSlot.HEAD);
         if(item != null){
-            if (item.getName().toLowerCase().equals(word.getDescription())) {
+            if (item.getName().toLowerCase().contains(word.getDescription())) {
                 foundItems.add(item);
             }
         }
         item = gameContext.getPlayer().getSlot(EquipmentSlot.CHEST);
         if(item != null){
-            if (item.getName().toLowerCase().equals(word.getDescription())) {
+            if (item.getName().toLowerCase().contains(word.getDescription())) {
                 foundItems.add(item);
             }
         }
         item = gameContext.getPlayer().getSlot(EquipmentSlot.MAIN_HAND);
         if(item != null){
-            if (item.getName().toLowerCase().equals(word.getDescription())) {
+            if (item.getName().toLowerCase().contains(word.getDescription())) {
                 foundItems.add(item);
             }
         }
@@ -50,13 +50,14 @@ public class Inspect implements ICommand {
                 if (foundItems.get(0).getType().equals(ItemType.ARMOR)) {
                     outputMessages.add(new OutputMessage(foundItems.get(0).getId(), PrintStyle.ONLY_TITLE_IN_SAME_LINE));
                     outputMessages.add(new OutputMessage(1131, PrintStyle.ONLY_TITLE_IN_SAME_LINE));
-                    outputMessages.add(new OutputMessage(Integer.parseInt(foundItems.get(0).getStats().get(Stats.DEFENSE).toString()), PrintStyle.ONLY_TITLE_IN_SAME_LINE));
-                    outputMessages.add(new OutputMessage(1308));
+                    outputMessages.add(new OutputMessage(Integer.parseInt(foundItems.get(0).getStats().get(Stats.DEFENSE).toString()), PrintStyle.NUMBER));
+                    outputMessages.add(new OutputMessage(1308, PrintStyle.ONLY_TITLE));
+                    outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
                 }
                 else if (foundItems.get(0).getType().equals(ItemType.WEAPON)) {
-                    outputMessages.add(new OutputMessage(foundItems.get(0).getId()));
-                    outputMessages.add(new OutputMessage(1130));
-                    outputMessages.add(new OutputMessage(Integer.parseInt(foundItems.get(0).getStats().get(Stats.ATTACK).toString())));
+                    outputMessages.add(new OutputMessage(foundItems.get(0).getId(), PrintStyle.ONLY_TITLE_IN_SAME_LINE));
+                    outputMessages.add(new OutputMessage(1130, PrintStyle.ONLY_TITLE_IN_SAME_LINE));
+                    outputMessages.add(new OutputMessage(Integer.parseInt(foundItems.get(0).getStats().get(Stats.ATTACK).toString()), PrintStyle.NUMBER));
                     outputMessages.add(new OutputMessage(1308, PrintStyle.ONLY_TITLE));
                     outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
                 }

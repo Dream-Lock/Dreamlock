@@ -49,7 +49,7 @@ public enum CommandMessages {
         commandMessages.put(1060, new Message(" -> Added to inventory!", ""));
         commandMessages.put(1061, new Message(" -> You can not take that!", ""));
         commandMessages.put(1062, new Message("There is no such item, in this room", ""));
-        commandMessages.put(1063, new Message("This object is of no value to me", ""));
+        commandMessages.put(1063, new Message(" -> This object is of no value to me", ""));
 
         // Show inventory messages
         commandMessages.put(1080, new Message("You don't have any items in your inventory!", ""));

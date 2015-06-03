@@ -36,20 +36,14 @@ public class PickUp implements ICommand {
                         foundItems.add(item1);
                     }
                 }
-
             }
         }
         if (foundItems != null) {
             if (foundItems.size() == 1 ) {
-                if (foundItems.get(0).getType().equals(ItemType.MISC)) {
-                    outputMessages.add(new OutputMessage(1063, PrintStyle.ONLY_TITLE));
-                    outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
-                }
-                else {
-                    outputMessages.add(new OutputMessage(foundItems.get(0).getId(), PrintStyle.ONLY_TITLE_IN_SAME_LINE));
-                    outputMessages.add(foundItems.get(0).doAction(ActionState.PICK_UP, gameContext));
-                    outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
-                }
+                outputMessages.add(new OutputMessage(foundItems.get(0).getId(), PrintStyle.ONLY_TITLE_IN_SAME_LINE));
+                outputMessages.add(foundItems.get(0).doAction(ActionState.PICK_UP, gameContext));
+                outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
+
                 return outputMessages;
             }
             else if (foundItems.size() > 1) {
