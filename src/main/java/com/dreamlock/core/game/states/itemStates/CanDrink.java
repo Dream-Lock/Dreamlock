@@ -25,6 +25,6 @@ public class CanDrink implements IState {
             }
         }
         context.getPlayer().getInventory().removeItem(item);
-        return new OutputMessage(0, PrintStyle.EMPTY);
+        return new OutputMessage(item.getId(), PrintStyle.ONLY_EFFECT);
     }
 }

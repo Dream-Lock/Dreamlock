@@ -38,7 +38,7 @@ public class PickUp implements ICommand {
                 outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
                 break;
             case UNIQUE:
-                Item foundItem = commandUtils.getInventoryItem(word);
+                Item foundItem = commandUtils.getRoomItem(word);
                 outputMessages.add(new OutputMessage(foundItem.getId(), PrintStyle.ONLY_TITLE_IN_SAME_LINE));
                 outputMessages.add(foundItem.doAction(ActionState.PICK_UP, gameContext));
                 outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
