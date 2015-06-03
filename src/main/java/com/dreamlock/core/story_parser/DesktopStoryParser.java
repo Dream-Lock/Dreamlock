@@ -71,7 +71,7 @@ public class DesktopStoryParser implements IStoryParser {
             JsonElement roomElement = gson.fromJson(jsonRoom, JsonElement.class);   // store data
             JsonObject jsonRoomObj = roomElement.getAsJsonObject();
 
-            room.setDescription(jsonRoomObj.get("description").getAsString()); // + roomDTO.getDescription()
+            room.setDescription(jsonRoomObj.get("description").getAsString());
             room.setTitle(jsonRoomObj.get("title").getAsString());
             room.setId(jsonRoomObj.get("id").getAsInt());
 
