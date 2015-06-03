@@ -1,6 +1,7 @@
 package com.dreamlock.core.game.commands;
 
 import com.dreamlock.core.game.IGameContext;
+import com.dreamlock.core.game.constants.ItemAvailability;
 import com.dreamlock.core.game.models.OutputMessage;
 import com.dreamlock.core.game.models.Word;
 import com.dreamlock.core.message_system.constants.PrintStyle;
@@ -14,7 +15,8 @@ public class ShowInventory implements ICommand{
     @Override
     public List<OutputMessage> execute(IGameContext gameContext) {
         List<OutputMessage> output = new ArrayList<>();
-        List<Item> inventory = gameContext.getPlayer().getInventory().getItems();
+        CommandUtils commandUtils = new CommandUtils(gameContext);
+        List<Item> inventory = commandUtils.getInventoryItems();
         if (inventory.isEmpty()) {
             output.add(new OutputMessage(1080, PrintStyle.ONLY_TITLE));
         }

@@ -27,6 +27,7 @@ public class Unequip implements ICommand {
         Word word = words.get(2);
 
 
+
         Item item = gameContext.getPlayer().getSlot(EquipmentSlot.HEAD);
         if(item != null){
             if (item.getName().toLowerCase().contains(word.getDescription())) {

@@ -112,4 +112,8 @@ public class CommandUtils {
         }
         return null;
     }
+
+    public List<Item> getInventoryItems() {
+        return inventoryItems;
+    }
 }

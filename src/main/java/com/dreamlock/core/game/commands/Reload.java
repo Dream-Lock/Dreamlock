@@ -28,7 +28,8 @@ public class Reload implements ICommand {
             inputStream.close();
             outputMessages.add(new OutputMessage(1210, PrintStyle.ONLY_TITLE));
             outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
-        } catch(Exception ex) {
+        }
+        catch(Exception ex) {
             outputMessages.add(new OutputMessage(1211, PrintStyle.ONLY_TITLE));
             outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
         }
