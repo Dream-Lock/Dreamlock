@@ -2,7 +2,7 @@ package com.dreamlock.core.game.commands;
 
 import com.dreamlock.core.game.IGameContext;
 import com.dreamlock.core.game.constants.ActionState;
-import com.dreamlock.core.game.constants.ItemAvailability;
+import com.dreamlock.core.game.constants.Availability;
 import com.dreamlock.core.game.models.OutputMessage;
 import com.dreamlock.core.game.models.Word;
 import com.dreamlock.core.message_system.constants.PrintStyle;
@@ -24,7 +24,7 @@ public class Use implements ICommand{
         List<OutputMessage> outputMessages = new ArrayList<>();
         CommandUtils commandUtils = new CommandUtils(gameContext);
         Word word = words.get(2);
-        ItemAvailability itemAvailability = commandUtils.checkItemAvailability(word, commandUtils.roomItems);
+        Availability itemAvailability = commandUtils.checkItemAvailability(word, commandUtils.roomItems);
 
         switch (itemAvailability) {
             case NON_EXISTENT:

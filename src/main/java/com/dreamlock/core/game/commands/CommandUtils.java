@@ -1,9 +1,11 @@
 package com.dreamlock.core.game.commands;
 
 import com.dreamlock.core.game.IGameContext;
-import com.dreamlock.core.game.constants.*;
+import com.dreamlock.core.game.constants.Availability;
+import com.dreamlock.core.game.constants.EquipmentSlot;
+import com.dreamlock.core.game.constants.ItemType;
+import com.dreamlock.core.game.constants.Stats;
 import com.dreamlock.core.game.models.Door;
-import com.dreamlock.core.game.models.Player;
 import com.dreamlock.core.game.models.Word;
 import com.dreamlock.core.story_parser.items.Container;
 import com.dreamlock.core.story_parser.items.Item;
@@ -18,7 +20,7 @@ public class CommandUtils {
     List <Door> roomDoors;
 
 
-    CommandUtils (IGameContext gameContext) {
+    CommandUtils(IGameContext gameContext) {
         this.gameContext = gameContext;
         this.inventoryItems = gameContext.getPlayer().getInventory().getItems();
         this.roomItems = gameContext.getCurrentRoom().getItems();
@@ -37,7 +39,7 @@ public class CommandUtils {
         this.roomItems.addAll(containerItems);
     }
 
-    public ItemAvailability checkItemAvailability (Word word, List<Item> items) {
+    public Availability checkItemAvailability(Word word, List<Item> items) {
         boolean exists = false;
         int duplicates = 0;
 
@@ -49,16 +51,16 @@ public class CommandUtils {
         }
         if (exists){
             if (duplicates>1){
-                return ItemAvailability.DUPLICATE;
+                return Availability.DUPLICATE;
             }
             else {
-                return ItemAvailability.UNIQUE;
+                return Availability.UNIQUE;
             }
         }
-        return ItemAvailability.NON_EXISTENT;
+        return Availability.NON_EXISTENT;
     }
 
-    public DoorAvailability checkDoorAvailability (Word word, List<Door> doors) {
+    public Availability checkDoorAvailability(Word word, List<Door> doors) {
         boolean exists = false;
         int duplicates = 0;
 
@@ -71,13 +73,13 @@ public class CommandUtils {
         }
         if (exists){
             if (duplicates>1){
-                return DoorAvailability.DUPLICATE;
+                return Availability.DUPLICATE;
             }
             else {
-                return DoorAvailability.UNIQUE;
+                return Availability.UNIQUE;
             }
         }
-        return DoorAvailability.NON_EXISTENT;
+        return Availability.NON_EXISTENT;
     }
 
     //FOR PLAYER ITEMS
@@ -91,7 +93,7 @@ public class CommandUtils {
     }
 
     //FOR ROOM ITEMS
-    public Item getRoomItem (Word word) {
+    public Item getRoomItem(Word word) {
         for (Item item : roomItems) {
             if (item.getName().toLowerCase().contains(word.getDescription())) {
                 return item;
@@ -100,8 +102,21 @@ public class CommandUtils {
         return null;
     }
 
+    public Item getItem(Word word) {
+        List<Item> items = new ArrayList<>();
+        items.addAll(inventoryItems);
+        items.addAll(roomItems);
+
+        for (Item item : items) {
+            if (item.getName().toLowerCase().contains(word.getDescription())) {
+                return item;
+            }
+        }
+        return null;
+    }
+
     //FOR ROOM DOORS
-    public Door getRoomDoor (Word word) {
+    public Door getRoomDoor(Word word) {
         for (Door door: roomDoors) {
             if (door.getName().toLowerCase().contains(word.getDescription()) ||
                     door.getDescription().toLowerCase().contains(word.getDescription())) {

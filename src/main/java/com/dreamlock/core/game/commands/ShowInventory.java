@@ -1,7 +1,6 @@
 package com.dreamlock.core.game.commands;
 
 import com.dreamlock.core.game.IGameContext;
-import com.dreamlock.core.game.constants.ItemAvailability;
 import com.dreamlock.core.game.models.OutputMessage;
 import com.dreamlock.core.game.models.Word;
 import com.dreamlock.core.message_system.constants.PrintStyle;

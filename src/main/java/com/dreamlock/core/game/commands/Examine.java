@@ -1,6 +1,7 @@
 package com.dreamlock.core.game.commands;
 
 import com.dreamlock.core.game.IGameContext;
+import com.dreamlock.core.game.constants.Availability;
 import com.dreamlock.core.game.constants.ItemType;
 import com.dreamlock.core.game.constants.Stats;
 import com.dreamlock.core.game.models.Door;
@@ -23,55 +24,70 @@ public class Examine implements ICommand {
     @Override
     public List<OutputMessage> execute(IGameContext gameContext, Map<Integer, Word> words) {
         List<OutputMessage> outputMessages = new ArrayList<>();
+        CommandUtils commandUtils = new CommandUtils(gameContext);
+        Word word = words.get(2);
+        List<Item> items = new ArrayList<>();
+        boolean isItem = false;
+        items.addAll(commandUtils.inventoryItems);
+        items.addAll(commandUtils.roomItems);
 
-        List<Item> items = gameContext.getCurrentRoom().containsItems(words.get(2));
-        items.addAll(gameContext.getPlayer().getInventory().containsItems(words.get(2)));
-        if (items.size() == 1) {
-            Item item = items.get(0);
+        Availability itemAvailability = commandUtils.checkItemAvailability(word, items);
 
-            if (item.getType().equals(ItemType.CONTAINER)) {
-                Container containerItem = (Container) item;
-                if (!(boolean) containerItem.getStats().get(Stats.LOCKED)) {
-                    outputMessages.add(new OutputMessage(item.getId(), PrintStyle.TITLE_DESCRIPTION));
-                    outputMessages.add(new OutputMessage(1154, PrintStyle.ONLY_TITLE));
+        switch (itemAvailability) {
+            case NON_EXISTENT:
+                isItem = false;
+                break;
+            case UNIQUE:
+                isItem = true;
+                Item item = commandUtils.getItem(word);
+                if (item.getType().equals(ItemType.CONTAINER)) {            // if item is a container
+                    Container containerItem = (Container) item;
+                    if (!(boolean) containerItem.getStats().get(Stats.LOCKED)) {
+                        outputMessages.add(new OutputMessage(item.getId(), PrintStyle.TITLE_DESCRIPTION));
+                        outputMessages.add(new OutputMessage(1154, PrintStyle.ONLY_TITLE));
 
-                    for (Item item1 : containerItem.getItems()) {
-                        outputMessages.add(new OutputMessage(item1.getId(), PrintStyle.ONLY_TITLE));
+                        for (Item item1 : containerItem.getItems()) {
+                            outputMessages.add(new OutputMessage(item1.getId(), PrintStyle.ONLY_TITLE));
+                        }
                     }
-
-                    return outputMessages;
                 }
-            }
-            outputMessages.add(new OutputMessage(item.getId(), PrintStyle.TITLE_DESCRIPTION));   // item to print
-            outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
-            return outputMessages;
-        }
-        else  if (items.size() > 1) {
-            outputMessages.add(new OutputMessage(2001, PrintStyle.ONLY_TITLE));
-            outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
-            return outputMessages;
+                else {                                                      // if item is not a container
+                    outputMessages.add(new OutputMessage(item.getId(), PrintStyle.TITLE_DESCRIPTION));
+                    outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
+                }
+                break;
+            case DUPLICATE:
+                isItem = true;
+                outputMessages.add(new OutputMessage(2001, PrintStyle.ONLY_TITLE));
+                outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
+                break;
         }
 
-        List<Door> doors = gameContext.getCurrentRoom().containsDoors(words.get(2));
-        if (doors.size() == 1) {
-            outputMessages.add(new OutputMessage(doors.get(0).getId()));   // item to print
-            if (doors.get(0).isLocked()) {
-                outputMessages.add(new OutputMessage(2003, PrintStyle.ONLY_TITLE));
-            }
-            else {
-                outputMessages.add(new OutputMessage(2004, PrintStyle.ONLY_TITLE));
-            }
-            outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
+        if (!isItem) {
+            Availability doorAvailability = commandUtils.checkDoorAvailability(words.get(2), commandUtils.roomDoors);
 
-            return outputMessages;
+            switch (doorAvailability) {
+                case NON_EXISTENT:
+                    outputMessages.add(new OutputMessage(1020, PrintStyle.ONLY_TITLE));           // I can't find anything with that name!
+                    outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
+                    break;
+                case UNIQUE:
+                    Door door = commandUtils.roomDoors.get(0);
+                    outputMessages.add(new OutputMessage(door.getId(), PrintStyle.ONLY_DESCRIPTION_IN_SAME_LINE));   // item to print
+                    if (door.isLocked()) {
+                        outputMessages.add(new OutputMessage(2003, PrintStyle.ONLY_TITLE));
+                    } else {
+                        outputMessages.add(new OutputMessage(2004, PrintStyle.ONLY_TITLE));
+                    }
+                    outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
+                    break;
+                case DUPLICATE:
+                    outputMessages.add(new OutputMessage(2002, PrintStyle.ONLY_TITLE));
+                    outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
+                    break;
+            }
         }
-        else  if (doors.size() > 1) {
-            outputMessages.add(new OutputMessage(2002, PrintStyle.ONLY_TITLE));
-            outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
-            return outputMessages;
-        }
-        outputMessages.add(new OutputMessage(1020, PrintStyle.ONLY_TITLE));           // I can't find anything with that name!
-        outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
+
         return outputMessages;
     }
 }
