@@ -37,13 +37,11 @@ public class CommandHandler implements IHandler {
             Map<Sequence, Word> words = new HashMap<>();
             int mapSize = sentence.getAsJsonArray().size() - 1;
 
-            for (Sequence sequence : Sequence.values()) {
-                for (int i = 0; i < mapSize; i++) {
-                    JsonElement jsonElement = sentence.getAsJsonArray().get(i);
-                    words.put(sequence, new Word(jsonElement.getAsJsonObject().get("description").getAsString(),
-                            jsonElement.getAsJsonObject().get("word").getAsString(),
-                            jsonElement.getAsJsonObject().get("uniqueId").getAsInt()));
-                }
+            for (int i = 0; i < mapSize; i++) {
+                JsonElement jsonElement = sentence.getAsJsonArray().get(i);
+                words.put(Sequence.values()[i], new Word(jsonElement.getAsJsonObject().get("description").getAsString(),
+                        jsonElement.getAsJsonObject().get("word").getAsString(),
+                        jsonElement.getAsJsonObject().get("uniqueId").getAsInt()));
             }
 
             Commands commands = Commands.INSTANCE;
