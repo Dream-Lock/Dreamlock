@@ -118,8 +118,7 @@ public class CommandUtils {
     //FOR ROOM DOORS
     public Door getRoomDoor(Word word) {
         for (Door door: roomDoors) {
-            if (door.getName().toLowerCase().contains(word.getDescription()) ||
-                    door.getDescription().toLowerCase().contains(word.getDescription())) {
+            if (door.getName().toLowerCase().contains(word.getDescription()) || door.getDescription().toLowerCase().contains(word.getDescription())) {
                 return door;
             }
         }

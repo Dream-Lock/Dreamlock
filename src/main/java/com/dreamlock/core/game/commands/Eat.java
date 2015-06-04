@@ -25,7 +25,7 @@ public class Eat implements ICommand{
         List<OutputMessage> outputMessages = new ArrayList<>();
         CommandUtils commandUtils = new CommandUtils(gameContext);
         Word word = words.get(Sequence.SECOND);
-        Availability itemAvailability = commandUtils.checkItemAvailability(word, commandUtils.roomItems);
+        Availability itemAvailability = commandUtils.checkItemAvailability(word, commandUtils.inventoryItems);
 
         switch (itemAvailability) {
             case NON_EXISTENT:
@@ -38,7 +38,6 @@ public class Eat implements ICommand{
                 break;
             case UNIQUE:
                 Item foundItem = commandUtils.getInventoryItem(word);
-                outputMessages.add(new OutputMessage(foundItem.getId(), PrintStyle.ONLY_TITLE_IN_SAME_LINE));
                 outputMessages.add(foundItem.doAction(ActionState.EAT, gameContext));
                 outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
         }

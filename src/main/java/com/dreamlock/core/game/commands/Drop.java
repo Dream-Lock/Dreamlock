@@ -24,7 +24,7 @@ public class Drop implements ICommand {
         List<OutputMessage> outputMessages = new ArrayList<>();
         CommandUtils commandUtils = new CommandUtils(gameContext);
         Word word = words.get(Sequence.SECOND);
-        Availability itemAvailability = commandUtils.checkItemAvailability(word, commandUtils.roomItems);
+        Availability itemAvailability = commandUtils.checkItemAvailability(word, commandUtils.inventoryItems);
 
         switch (itemAvailability) {
             case NON_EXISTENT:
