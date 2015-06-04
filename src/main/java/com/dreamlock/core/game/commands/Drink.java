@@ -37,49 +37,11 @@ public class Drink implements ICommand{
                 outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
                 break;
             case UNIQUE:
-                Item foundItem = commandUtils.getRoomItem(word);
-                outputMessages.add(new OutputMessage(foundItem.getId(), PrintStyle.ONLY_TITLE_IN_SAME_LINE));
+                Item foundItem = commandUtils.getInventoryItem(word);
                 outputMessages.add(foundItem.doAction(ActionState.DRINK, gameContext));
                 outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
                 break;
         }
         return outputMessages;
-
-//
-//
-//        boolean itemExists = gameContext.getPlayer().getInventory().containsItem(words.get(2));
-//
-//        if (itemExists) {
-//            int duplicates = gameContext.getPlayer().getInventory().hasDuplicates(words.get(2));
-//            int itemCount = gameContext.getPlayer().getInventory().getItemCount(words.get(2));
-//            if (duplicates == 1 || itemCount > 1){
-//                Item item = gameContext.getPlayer().getInventory().getSpecificItem(words.get(2));
-//                if (item.getType().equals(ItemType.CONSUMABLE)) {
-//                    Consumable consumable = (Consumable) item;
-//                    if (consumable.getState().equals("Drink")) {
-//                        outputMessages.add(new OutputMessage(consumable.getId(), PrintStyle.ONLY_EFFECT));
-//                    }
-//                    else {
-//                        outputMessages.add(new OutputMessage(consumable.getId(), PrintStyle.ONLY_TITLE));
-//                    }
-//                }
-//                else {
-//                    outputMessages.add(new OutputMessage(item.getId(), PrintStyle.ONLY_TITLE));
-//                }
-//                outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
-//
-//                outputMessages.add(item.doAction(ActionState.DRINK, gameContext));
-//                return outputMessages;
-//            }
-//            else {
-//                outputMessages.add(new OutputMessage(2001, PrintStyle.ONLY_TITLE));
-//                outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
-//                return outputMessages;
-//            }
-//        }
-//
-//        outputMessages.add(new OutputMessage(1042, PrintStyle.ONLY_TITLE));
-//        outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
-//        return outputMessages;
     }
 }
