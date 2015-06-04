@@ -14,6 +14,6 @@ public class Opened implements IState{
 
     @Override
     public OutputMessage doAction(IGameContext context, Item item) {
-        return new OutputMessage(1123, PrintStyle.ONLY_TITLE);
+        return new OutputMessage(1153, PrintStyle.ONLY_TITLE);
     }
 }
