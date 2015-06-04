@@ -22,10 +22,13 @@ public class CommandUtils {
 
     CommandUtils(IGameContext gameContext) {
         this.gameContext = gameContext;
-        this.inventoryItems = gameContext.getPlayer().getInventory().getItems();
+
+        this.inventoryItems = new ArrayList<>();
+        this.inventoryItems.addAll(gameContext.getPlayer().getInventory().getItems());
         this.roomItems = new ArrayList<>();
         this.roomItems.addAll(gameContext.getCurrentRoom().getItems());
-        this.roomDoors = gameContext.getCurrentRoom().getDoors();
+        this.roomDoors = new ArrayList<>();
+        this.roomDoors.addAll(gameContext.getCurrentRoom().getDoors());
 
         List<Item> containerItems = new ArrayList<>();
         for (Item item : this.roomItems) {

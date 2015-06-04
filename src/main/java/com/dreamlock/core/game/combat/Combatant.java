@@ -149,12 +149,12 @@ public abstract class Combatant implements Serializable{
     public List<Integer> getPlayerStats (){
         List<Integer> playerStats = new ArrayList<>();
 
-        playerStats.add(this.health);
+        playerStats.add(this.agility);
         playerStats.add(this.attack);
         playerStats.add(this.defense);
+        playerStats.add(this.health);
         playerStats.add(this.stamina);
         playerStats.add(this.strength);
-        playerStats.add(this.agility);
 
         return playerStats;
     }

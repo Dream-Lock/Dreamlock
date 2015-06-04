@@ -58,16 +58,16 @@ public class Inspect implements ICommand {
             case UNIQUE:
                 Item foundItem = commandUtils.getInventoryItem(word);
                 if (foundItem.getType().equals(ItemType.ARMOR)) {
-                    outputMessages.add(new OutputMessage(foundItems.get(0).getId(), PrintStyle.ONLY_TITLE_IN_SAME_LINE));
+                    outputMessages.add(new OutputMessage(foundItem.getId(), PrintStyle.ONLY_TITLE_IN_SAME_LINE));
                     outputMessages.add(new OutputMessage(1131, PrintStyle.ONLY_TITLE_IN_SAME_LINE));
-                    outputMessages.add(new OutputMessage(Integer.parseInt(foundItems.get(0).getStats().get(Stats.DEFENSE).toString()), PrintStyle.NUMBER));
+                    outputMessages.add(new OutputMessage(Integer.parseInt(foundItem.getStats().get(Stats.DEFENSE).toString()), PrintStyle.NUMBER));
                     outputMessages.add(new OutputMessage(1308, PrintStyle.ONLY_TITLE));
                     outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
                 }
                 else if (foundItem.getType().equals(ItemType.WEAPON)) {
-                    outputMessages.add(new OutputMessage(foundItems.get(0).getId(), PrintStyle.ONLY_TITLE_IN_SAME_LINE));
+                    outputMessages.add(new OutputMessage(foundItem.getId(), PrintStyle.ONLY_TITLE_IN_SAME_LINE));
                     outputMessages.add(new OutputMessage(1130, PrintStyle.ONLY_TITLE_IN_SAME_LINE));
-                    outputMessages.add(new OutputMessage(Integer.parseInt(foundItems.get(0).getStats().get(Stats.ATTACK).toString()), PrintStyle.NUMBER));
+                    outputMessages.add(new OutputMessage(Integer.parseInt(foundItem.getStats().get(Stats.ATTACK).toString()), PrintStyle.NUMBER));
                     outputMessages.add(new OutputMessage(1308, PrintStyle.ONLY_TITLE));
                     outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
                 }
