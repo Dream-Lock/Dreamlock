@@ -28,7 +28,7 @@ public class Unequip implements ICommand {
         CommandUtils commandUtils = new CommandUtils(gameContext);
 
         for (EquipmentSlot equipmentSlot : EquipmentSlot.values()) {
-            if (commandUtils.isEmptySlot(equipmentSlot)) {
+            if (!gameContext.getPlayer().isEmptySlot(equipmentSlot)) {
                 Item item = gameContext.getPlayer().getSlot(equipmentSlot);
                 if (item.getName().toLowerCase().contains(word.getDescription())) {
                     foundItems.add(item);

@@ -130,13 +130,4 @@ public class CommandUtils {
         return inventoryItems;
     }
 
-    public boolean isEmptySlot(EquipmentSlot equipmentSlot){
-        Item item = gameContext.getPlayer().getSlot(equipmentSlot);
-        if (item == null) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
 }

@@ -21,12 +21,7 @@ public class Player extends Combatant implements Serializable {
         this.name = name;
         this.id = 9999;
         this.inventory = inventory;
-        this.setStamina(1);
-        this.setStrength(1);
-        this.setAgility(1);
-        this.setHealth(10 + getStamina());
-        this.setAttack(1 + getStrength());
-        this.setDefense(1 + getAgility());
+        calculateStats();
 
         states = new HashMap<>();
         states.put(ActionState.ATTACK, new CanAttackState());
@@ -48,47 +43,6 @@ public class Player extends Combatant implements Serializable {
         this.inventory = inventory;
     }
 
-    public Item getSlot(EquipmentSlot slot){
-        switch(slot){
-            case HEAD:
-                if(head != null)
-                    return head.getValue();
-                else
-                    return null;
-            case CHEST:
-                if(chest != null)
-                    return chest.getValue();
-                else
-                    return null;
-            case HANDS:
-                if(hands != null)
-                    return hands.getValue();
-                else
-                    return null;
-            case LEGS:
-                if(legs != null)
-                    return legs.getValue();
-                else
-                    return null;
-            case FEET:
-                if(feet != null)
-                    return feet.getValue();
-                else
-                    return null;
-            case MAIN_HAND:
-                if(main_hand != null)
-                    return main_hand.getValue();
-                else
-                    return null;
-            case OFF_HAND:
-                if(off_hand != null)
-                    return off_hand.getValue();
-                else
-                    return null;
-            default:
-                return null;
-        }
-    }
 
     public void equipItem(Item item) {
         switch (item.getEquipmentSlot()) {
@@ -99,13 +53,13 @@ public class Player extends Combatant implements Serializable {
                 chest = new ImmutablePair<>(item.getName(), (Armor)  item);
                 break;
             case HANDS:
-                chest = new ImmutablePair<>(item.getName(), (Armor)  item);
+                hands = new ImmutablePair<>(item.getName(), (Armor)  item);
                 break;
             case LEGS:
-                chest = new ImmutablePair<>(item.getName(), (Armor)  item);
+                legs = new ImmutablePair<>(item.getName(), (Armor)  item);
                 break;
             case FEET:
-                chest = new ImmutablePair<>(item.getName(), (Armor)  item);
+                feet = new ImmutablePair<>(item.getName(), (Armor)  item);
                 break;
             case MAIN_HAND:
                 main_hand = new ImmutablePair<>(item.getName(),(Weapon)  item);
@@ -167,4 +121,5 @@ public class Player extends Combatant implements Serializable {
     public int getId() {
         return id;
     }
+
 }
