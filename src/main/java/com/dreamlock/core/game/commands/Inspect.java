@@ -25,25 +25,14 @@ public class Inspect implements ICommand {
 
         List<Item> foundItems = new ArrayList<>();
 
-        Item item = gameContext.getPlayer().getSlot(EquipmentSlot.HEAD);
-        if(item != null){
-            if (item.getName().toLowerCase().contains(word.getDescription())) {
-                foundItems.add(item);
+        for (EquipmentSlot equipmentSlot : EquipmentSlot.values()) {
+            if (!gameContext.getPlayer().isEmptySlot(equipmentSlot)) {
+                Item item = gameContext.getPlayer().getSlot(equipmentSlot);
+                if (item.getName().toLowerCase().contains(word.getDescription())) {
+                    foundItems.add(item);
+                }
             }
         }
-        item = gameContext.getPlayer().getSlot(EquipmentSlot.CHEST);
-        if(item != null){
-            if (item.getName().toLowerCase().contains(word.getDescription())) {
-                foundItems.add(item);
-            }
-        }
-        item = gameContext.getPlayer().getSlot(EquipmentSlot.MAIN_HAND);
-        if(item != null){
-            if (item.getName().toLowerCase().contains(word.getDescription())) {
-                foundItems.add(item);
-            }
-        }
-        commandUtils.inventoryItems.addAll(foundItems);
 
         Availability itemAvailability = commandUtils.checkItemAvailability(word, commandUtils.inventoryItems);
         switch (itemAvailability) {
