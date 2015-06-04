@@ -56,8 +56,6 @@ public class GameMessages {
             for(Door door: room.getDoors()){
                 gameMessages.put(door.getId(), new Message(door.getName(), door.getDescription()));
             }
-
-//            gameMessages.put(player.getId(), new Message(player.getName(), "", player.getPlayerStatsMap()));
         }
     }
 
@@ -81,8 +79,4 @@ public class GameMessages {
     public void setGameMessages(Map<Integer, IMessage> gameMessages) {
         this.gameMessages = gameMessages;
     }
-
-//    public void updatePlayerStatus (Player player) {
-//        gameMessages.put(player.getId(), new NDSMessage(player.getName(), "", player.getPlayerStatsMap()));
-//    }
 }

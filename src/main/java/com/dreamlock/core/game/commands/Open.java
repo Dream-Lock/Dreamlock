@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.Map;
 
 public class Open implements ICommand{
-    private CommandUtils commandUtils;
 
     @Override
     public List<OutputMessage> execute(IGameContext gameContext) {
