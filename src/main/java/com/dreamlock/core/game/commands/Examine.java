@@ -3,6 +3,7 @@ package com.dreamlock.core.game.commands;
 import com.dreamlock.core.game.IGameContext;
 import com.dreamlock.core.game.constants.Availability;
 import com.dreamlock.core.game.constants.ItemType;
+import com.dreamlock.core.game.constants.Sequence;
 import com.dreamlock.core.game.constants.Stats;
 import com.dreamlock.core.game.models.Door;
 import com.dreamlock.core.game.models.OutputMessage;
@@ -22,10 +23,10 @@ public class Examine implements ICommand {
     }
 
     @Override
-    public List<OutputMessage> execute(IGameContext gameContext, Map<Integer, Word> words) {
+    public List<OutputMessage> execute(IGameContext gameContext, Map<Sequence, Word> words) {
         List<OutputMessage> outputMessages = new ArrayList<>();
         CommandUtils commandUtils = new CommandUtils(gameContext);
-        Word word = words.get(2);
+        Word word = words.get(Sequence.SECOND);
         List<Item> items = new ArrayList<>();
         boolean isItem = false;
         items.addAll(commandUtils.inventoryItems);
@@ -64,7 +65,7 @@ public class Examine implements ICommand {
         }
 
         if (!isItem) {
-            Availability doorAvailability = commandUtils.checkDoorAvailability(words.get(2), commandUtils.roomDoors);
+            Availability doorAvailability = commandUtils.checkDoorAvailability(words.get(Sequence.SECOND), commandUtils.roomDoors);
 
             switch (doorAvailability) {
                 case NON_EXISTENT:

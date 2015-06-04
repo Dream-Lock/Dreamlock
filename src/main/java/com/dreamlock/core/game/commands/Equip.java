@@ -4,6 +4,7 @@ package com.dreamlock.core.game.commands;
 import com.dreamlock.core.game.IGameContext;
 import com.dreamlock.core.game.constants.ActionState;
 import com.dreamlock.core.game.constants.Availability;
+import com.dreamlock.core.game.constants.Sequence;
 import com.dreamlock.core.game.models.OutputMessage;
 import com.dreamlock.core.game.models.Word;
 import com.dreamlock.core.message_system.constants.PrintStyle;
@@ -21,10 +22,10 @@ public class Equip implements ICommand {
 
 
     @Override
-    public List<OutputMessage> execute(IGameContext gameContext, Map<Integer, Word> words) {
+    public List<OutputMessage> execute(IGameContext gameContext, Map<Sequence, Word> words) {
         List<OutputMessage> outputMessages = new ArrayList<>();
         CommandUtils commandUtils = new CommandUtils(gameContext);
-        Word word = words.get(2);
+        Word word = words.get(Sequence.SECOND);
         Availability itemAvailability = commandUtils.checkItemAvailability(word, commandUtils.inventoryItems);
 
         switch (itemAvailability) {

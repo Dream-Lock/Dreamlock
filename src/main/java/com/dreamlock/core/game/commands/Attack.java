@@ -3,6 +3,7 @@ package com.dreamlock.core.game.commands;
 
 import com.dreamlock.core.game.IGameContext;
 import com.dreamlock.core.game.constants.ActionState;
+import com.dreamlock.core.game.constants.Sequence;
 import com.dreamlock.core.game.models.Enemy;
 import com.dreamlock.core.game.models.OutputMessage;
 import com.dreamlock.core.game.models.Word;
@@ -19,11 +20,11 @@ public class Attack implements ICommand {
     }
 
     @Override
-    public List<OutputMessage> execute(IGameContext gameContext, Map<Integer, Word> words) {
+    public List<OutputMessage> execute(IGameContext gameContext, Map<Sequence, Word> words) {
         List<OutputMessage> outputMessages = new ArrayList<>();
         Integer enemiesFound = 0;
         Enemy foundEnemy = null;
-        Word word = words.get(2);
+        Word word = words.get(Sequence.SECOND);
         List<Enemy> enemies = gameContext.getCurrentRoom().getEnemies();
 
         if(enemies.size() > 0 && gameContext.getTurnBattle().enemiesAlive()) {

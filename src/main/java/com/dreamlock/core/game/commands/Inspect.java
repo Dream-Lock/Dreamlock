@@ -1,10 +1,7 @@
 package com.dreamlock.core.game.commands;
 
 import com.dreamlock.core.game.IGameContext;
-import com.dreamlock.core.game.constants.Availability;
-import com.dreamlock.core.game.constants.EquipmentSlot;
-import com.dreamlock.core.game.constants.ItemType;
-import com.dreamlock.core.game.constants.Stats;
+import com.dreamlock.core.game.constants.*;
 import com.dreamlock.core.game.models.OutputMessage;
 import com.dreamlock.core.game.models.Word;
 import com.dreamlock.core.message_system.constants.PrintStyle;
@@ -21,10 +18,10 @@ public class Inspect implements ICommand {
     }
 
     @Override
-    public List<OutputMessage> execute(IGameContext gameContext, Map<Integer, Word> words) {
+    public List<OutputMessage> execute(IGameContext gameContext, Map<Sequence, Word> words) {
         List<OutputMessage> outputMessages = new ArrayList<>();
         CommandUtils commandUtils = new CommandUtils(gameContext);
-        Word word = words.get(2);
+        Word word = words.get(Sequence.SECOND);
 
         List<Item> foundItems = new ArrayList<>();
 

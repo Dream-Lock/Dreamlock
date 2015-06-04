@@ -3,6 +3,7 @@ package com.dreamlock.core.game.commands;
 import com.dreamlock.core.game.IGameContext;
 import com.dreamlock.core.game.constants.ActionState;
 import com.dreamlock.core.game.constants.EquipmentSlot;
+import com.dreamlock.core.game.constants.Sequence;
 import com.dreamlock.core.game.models.OutputMessage;
 import com.dreamlock.core.game.models.Word;
 import com.dreamlock.core.message_system.constants.PrintStyle;
@@ -19,11 +20,11 @@ public class Unequip implements ICommand {
     }
 
     @Override
-    public List<OutputMessage> execute(IGameContext gameContext, Map<Integer, Word> words) {
+    public List<OutputMessage> execute(IGameContext gameContext, Map<Sequence, Word> words) {
         List<OutputMessage> outputMessages = new ArrayList<>();
         List<Item> foundItems = new ArrayList<>();
 
-        Word word = words.get(2);
+        Word word = words.get(Sequence.SECOND);
         CommandUtils commandUtils = new CommandUtils(gameContext);
 
         for (EquipmentSlot equipmentSlot : EquipmentSlot.values()) {

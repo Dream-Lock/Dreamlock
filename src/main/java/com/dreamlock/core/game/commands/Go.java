@@ -1,6 +1,7 @@
 package com.dreamlock.core.game.commands;
 
 import com.dreamlock.core.game.IGameContext;
+import com.dreamlock.core.game.constants.Sequence;
 import com.dreamlock.core.game.models.Door;
 import com.dreamlock.core.game.models.OutputMessage;
 import com.dreamlock.core.game.models.Room;
@@ -18,9 +19,9 @@ public class Go implements ICommand {
     }
 
     @Override
-    public List<OutputMessage> execute(IGameContext gameContext, Map<Integer, Word> words) {
+    public List<OutputMessage> execute(IGameContext gameContext, Map<Sequence, Word> words) {
         List<OutputMessage> outputMessages = new ArrayList<>();
-        String direction = words.get(2).getDescription();
+        String direction = words.get(Sequence.SECOND).getDescription();
 
         Room nextRoom = gameContext.getCurrentRoom().getExits().get(direction);
         Room currentRoom = gameContext.getCurrentRoom();
@@ -48,7 +49,7 @@ public class Go implements ICommand {
                 }
                 else {
                     outputMessages.add(new OutputMessage(1001, PrintStyle.ONLY_TITLE_IN_SAME_LINE));
-                    outputMessages.add(new OutputMessage(words.get(2).getId(), PrintStyle.ONLY_TITLE));
+                    outputMessages.add(new OutputMessage(words.get(Sequence.SECOND).getId(), PrintStyle.ONLY_TITLE));
                 }
                 outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
                 return outputMessages;
