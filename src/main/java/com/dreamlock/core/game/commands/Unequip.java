@@ -21,53 +21,17 @@ public class Unequip implements ICommand {
     @Override
     public List<OutputMessage> execute(IGameContext gameContext, Map<Integer, Word> words) {
         List<OutputMessage> outputMessages = new ArrayList<>();
-
         List<Item> foundItems = new ArrayList<>();
 
         Word word = words.get(2);
+        CommandUtils commandUtils = new CommandUtils(gameContext);
 
-
-
-        Item item = gameContext.getPlayer().getSlot(EquipmentSlot.HEAD);
-        if(item != null){
-            if (item.getName().toLowerCase().contains(word.getDescription())) {
-                foundItems.add(item);
-            }
-        }
-        item = gameContext.getPlayer().getSlot(EquipmentSlot.CHEST);
-        if(item != null){
-            if (item.getName().toLowerCase().contains(word.getDescription())) {
-                foundItems.add(item);
-            }
-        }
-        item = gameContext.getPlayer().getSlot(EquipmentSlot.HANDS);
-        if(item != null){
-            if (item.getName().toLowerCase().contains(word.getDescription())) {
-                foundItems.add(item);
-            }
-        }
-        item = gameContext.getPlayer().getSlot(EquipmentSlot.LEGS);
-        if(item != null){
-            if (item.getName().toLowerCase().contains(word.getDescription())) {
-                foundItems.add(item);
-            }
-        }
-        item = gameContext.getPlayer().getSlot(EquipmentSlot.FEET);
-        if(item != null){
-            if (item.getName().toLowerCase().contains(word.getDescription())) {
-                foundItems.add(item);
-            }
-        }
-        item = gameContext.getPlayer().getSlot(EquipmentSlot.MAIN_HAND);
-        if(item != null){
-            if (item.getName().toLowerCase().contains(word.getDescription())) {
-                foundItems.add(item);
-            }
-        }
-        item = gameContext.getPlayer().getSlot(EquipmentSlot.OFF_HAND);
-        if(item != null){
-            if (item.getName().toLowerCase().contains(word.getDescription())) {
-                foundItems.add(item);
+        for (EquipmentSlot equipmentSlot : EquipmentSlot.values()) {
+            if (commandUtils.isEmptySlot(equipmentSlot)) {
+                Item item = gameContext.getPlayer().getSlot(equipmentSlot);
+                if (item.getName().toLowerCase().contains(word.getDescription())) {
+                    foundItems.add(item);
+                }
             }
         }
 
@@ -77,7 +41,7 @@ public class Unequip implements ICommand {
             outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
             return outputMessages;
         }
-        else  if (foundItems.size() > 1) {
+        else if (foundItems.size() > 1) {
             outputMessages.add(new OutputMessage(2001, PrintStyle.ONLY_TITLE));
             outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
             return outputMessages;

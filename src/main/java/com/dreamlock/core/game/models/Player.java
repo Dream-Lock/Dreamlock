@@ -31,7 +31,6 @@ public class Player extends Combatant implements Serializable {
         states = new HashMap<>();
         states.put(ActionState.ATTACK, new CanAttackState());
 
-
         chest = null;
         head = null;
         hands = null;

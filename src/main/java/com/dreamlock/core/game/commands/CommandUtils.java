@@ -1,11 +1,9 @@
 package com.dreamlock.core.game.commands;
 
 import com.dreamlock.core.game.IGameContext;
-import com.dreamlock.core.game.constants.DoorAvailability;
-import com.dreamlock.core.game.constants.ItemAvailability;
-import com.dreamlock.core.game.constants.ItemType;
-import com.dreamlock.core.game.constants.Stats;
+import com.dreamlock.core.game.constants.*;
 import com.dreamlock.core.game.models.Door;
+import com.dreamlock.core.game.models.Player;
 import com.dreamlock.core.game.models.Word;
 import com.dreamlock.core.story_parser.items.Container;
 import com.dreamlock.core.story_parser.items.Item;
@@ -115,5 +113,15 @@ public class CommandUtils {
 
     public List<Item> getInventoryItems() {
         return inventoryItems;
+    }
+
+    public boolean isEmptySlot(EquipmentSlot equipmentSlot){
+        Item item = gameContext.getPlayer().getSlot(equipmentSlot);
+        if (item == null) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }
