@@ -23,7 +23,8 @@ public class CommandUtils {
     CommandUtils(IGameContext gameContext) {
         this.gameContext = gameContext;
         this.inventoryItems = gameContext.getPlayer().getInventory().getItems();
-        this.roomItems = gameContext.getCurrentRoom().getItems();
+        this.roomItems = new ArrayList<>();
+        this.roomItems.addAll(gameContext.getCurrentRoom().getItems());
         this.roomDoors = gameContext.getCurrentRoom().getDoors();
 
         List<Item> containerItems = new ArrayList<>();

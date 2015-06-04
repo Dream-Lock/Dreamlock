@@ -33,66 +33,73 @@ public class Open implements ICommand{
 
         if (words.size() > 2) {                                     // when use open with 4 words
 
-            switch (containerAvailability) {
-                case NON_EXISTENT:
-                    break;
-                case UNIQUE:
-                    if (keyItem != null) {
-                        outputMessages.addAll(openItem(gameContext, openingItem));
-                    }
-                    else {
-                        outputMessages.add(new OutputMessage(1155, PrintStyle.ONLY_TITLE));
+            if (doorAvailability.equals(Availability.NON_EXISTENT)) {
+                switch (containerAvailability) {
+                    case NON_EXISTENT:
+                        outputMessages.add(new OutputMessage(1020, PrintStyle.ONLY_TITLE));
+                        break;
+                    case UNIQUE:
+                        if (keyItem != null) {
+                            outputMessages.addAll(openItem(gameContext, openingItem));
+                        } else {
+                            outputMessages.add(new OutputMessage(1155, PrintStyle.ONLY_TITLE));
+                            outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
+                        }
+                        break;
+                    case DUPLICATE:
+                        outputMessages.add(new OutputMessage(2001, PrintStyle.ONLY_TITLE));
                         outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
-                    }
-                    break;
-                case DUPLICATE:
-                    outputMessages.add(new OutputMessage(2001, PrintStyle.ONLY_TITLE));
-                    outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
-                    break;
+                        break;
+                }
             }
-
-            switch (doorAvailability) {
-                case NON_EXISTENT:
-                    break;
-                case UNIQUE:
-                    if (keyItem != null) {
-                        outputMessages.addAll(openDoor(gameContext, openingItem));
-                    }
-                    else {
-                        outputMessages.add(new OutputMessage(1155, PrintStyle.ONLY_TITLE)); //item doesn't exist in inv.
+            else if (containerAvailability.equals(Availability.NON_EXISTENT)) {
+                switch (doorAvailability) {
+                    case NON_EXISTENT:
+                        outputMessages.add(new OutputMessage(1020, PrintStyle.ONLY_TITLE));
+                        break;
+                    case UNIQUE:
+                        if (keyItem != null) {
+                            outputMessages.addAll(openDoor(gameContext, openingItem));
+                        } else {
+                            outputMessages.add(new OutputMessage(1155, PrintStyle.ONLY_TITLE)); //item doesn't exist in inv.
+                            outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
+                        }
+                        break;
+                    case DUPLICATE:
+                        outputMessages.add(new OutputMessage(2002, PrintStyle.ONLY_TITLE)); // duplicates exist
                         outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
-                    }
-                    break;
-                case DUPLICATE:
-                    outputMessages.add(new OutputMessage(2002, PrintStyle.ONLY_TITLE)); // duplicates exist
-                    outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
-                    break;
+                        break;
+                }
             }
         }
         else {          // SIMPLE OPEN COMMAND USED
-
-            switch (containerAvailability) {
-                case NON_EXISTENT:
-                    break;
-                case UNIQUE:
-                    outputMessages.addAll(openItem(gameContext, openingItem));
-                    break;
-                case DUPLICATE:
-                    outputMessages.add(new OutputMessage(2001, PrintStyle.ONLY_TITLE));
-                    outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
-                    break;
+            if (doorAvailability.equals(Availability.NON_EXISTENT)) {
+                switch (containerAvailability) {
+                    case NON_EXISTENT:
+                        outputMessages.add(new OutputMessage(1020, PrintStyle.ONLY_TITLE));
+                        break;
+                    case UNIQUE:
+                        outputMessages.addAll(openItem(gameContext, openingItem));
+                        break;
+                    case DUPLICATE:
+                        outputMessages.add(new OutputMessage(2001, PrintStyle.ONLY_TITLE));
+                        outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
+                        break;
+                }
             }
-
-            switch (doorAvailability) {
-                case NON_EXISTENT:
-                    break;
-                case UNIQUE:
-                    outputMessages.addAll(justOpenDoor(gameContext, openingItem));
-                    break;
-                case DUPLICATE:
-                    outputMessages.add(new OutputMessage(2002, PrintStyle.ONLY_TITLE));
-                    outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
-                    break;
+            else if (containerAvailability.equals(Availability.NON_EXISTENT)) {
+                switch (doorAvailability) {
+                    case NON_EXISTENT:
+                        outputMessages.add(new OutputMessage(1020, PrintStyle.ONLY_TITLE));
+                        break;
+                    case UNIQUE:
+                        outputMessages.addAll(justOpenDoor(gameContext, openingItem));
+                        break;
+                    case DUPLICATE:
+                        outputMessages.add(new OutputMessage(2002, PrintStyle.ONLY_TITLE));
+                        outputMessages.add(new OutputMessage(0, PrintStyle.BREAK));
+                        break;
+                }
             }
         }
 
